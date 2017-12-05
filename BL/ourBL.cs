@@ -1,76 +1,62 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BE;
-using DS;
-using System.Collections;
 
-namespace DAL
+namespace BL//aviel functions
 {
-    internal  class Dal_imp : Idal
+ public partial class   ourBL : IBL
     {
-        public Dal_imp()
-        {
-          //  new DataSource();
-
-        }
         public void addChild(Child c)
         {
-            // i didnt check if the student is already exist!!
-            DataSource.childs.Add(c);
-
+            throw new NotImplementedException();
         }
 
         public void addContract(Contract c)
         {
-            DataSource.contracts.Add(c);
+            throw new NotImplementedException();
         }
 
         public void addMom(Mother m)
         {
-            DataSource.mothers.Add(m);
+            throw new NotImplementedException();
         }
 
         public void addNanny(Nanny n)
         {
-            DataSource.nannies.Add(n);
+            throw new NotImplementedException();
         }
 
         public void deleteChild(Child c)
         {
-            DataSource.childs.Remove(c);
+            throw new NotImplementedException();
         }
 
         public void deleteContract(Contract c)
         {
-            DataSource.contracts.Remove(c);
+            throw new NotImplementedException();
         }
 
         public void deleteMom(Mother m)
         {
-            DataSource.mothers.Remove(m);
+            throw new NotImplementedException();
         }
 
         public void deleteNanny(Nanny n)
         {
-            DataSource.nannies.Remove(n);
+            throw new NotImplementedException();
         }
 
         public void updateChild(Child c)
         {
-            int index = DataSource.childs.IndexOf(c);// i need to use the icomparable 
-            if(index!=-1)
-            {
-                DataSource.childs[index] = c;
-            }
-       
+            throw new NotImplementedException();
         }
 
         public void updateContract(Contract c)
         {
-           
+            throw new NotImplementedException();
         }
 
         public void updateMom(Mother m)
