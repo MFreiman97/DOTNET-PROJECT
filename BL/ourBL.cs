@@ -19,7 +19,7 @@ namespace BL//aviel functions
 
         public void addContract(Contract c)
         {
-
+            
         }
 
         public void addMom(Mother m)
