@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace BE
 {
  public   class Nanny:IComparable
-    {//
-        int id;
+    {
+        public int id { get; set; }
         private string fname { get; set; }
         private string name { get; set; }
         private DateTime born;
@@ -17,7 +17,7 @@ namespace BE
         bool elevator { get; set; }
         FLOORS floor;//which floor the nanny live;
         int experience { get; set; }
-        int Maxkids { get; set; }
+        public int Maxkids { get; set; }
         int MinAge { get; set; }//in months!!!!
         int MaxAge { get; set; }
         bool SalaryPerHour { get; set; }
@@ -27,6 +27,7 @@ namespace BE
         int[,] schedule = new int[2, 6];
         bool HolidaysByTheGOV { get; set; }
         string recom;//recommendations
+        public int contracts { get; set; }
 
         public string Fname
         {
