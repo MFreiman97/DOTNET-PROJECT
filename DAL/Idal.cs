@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
+  
     interface Idal
-    {       /// <summary>
+
+    {
+       
+        /// <summary>
             /// Nanny's Functions
             /// </summary>
             /// <param name="n"></param>

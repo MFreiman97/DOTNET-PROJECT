@@ -11,6 +11,7 @@ namespace DAL
 {
     internal  class Dal_imp : Idal
     {
+        public static int contnum = 0;
         public Dal_imp()
         {
           //  new DataSource();
@@ -28,6 +29,7 @@ namespace DAL
         public void addContract(Contract c)
         {
             DataSource.contracts.Add(c);
+            contnum++;
         }
 
         public void addMom(Mother m)
