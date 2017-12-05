@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    interface IBL
+   public interface IBL
     {
         void addNanny(Nanny n);
         void deleteNanny(Nanny n);
@@ -37,5 +37,6 @@ namespace BL
         void addContract(Contract c);
         void deleteContract(Contract c);
         void updateContract(Contract c);
+
     }
 }
