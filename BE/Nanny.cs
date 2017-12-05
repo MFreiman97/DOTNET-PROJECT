@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
- public   class Nanny
+ public   class Nanny:IComparable
     {
         int id;
         private string fname { get; set; }
@@ -70,6 +70,12 @@ namespace BE
         public override string ToString()
         {
             return Name + " " + Fname;
+        }
+
+        public int CompareTo(object obj)
+        {
+            Nanny n_ = obj as Nanny;
+            return id.CompareTo(n_.id);
         }
     }
 

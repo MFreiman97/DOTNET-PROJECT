@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-  public  class Mother
+  public  class Mother:IComparable  
     {
 
         public int id { get; set; }
@@ -22,6 +22,12 @@ namespace BE
         public override string ToString()
         {
             return fName + lName + " Phone Number: " + phone;
+        }
+
+        public int CompareTo(object obj)
+        {
+            Mother m = obj as Mother;
+            return id.CompareTo(m.id);
         }
     }
 }

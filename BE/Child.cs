@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-   public class Child
+   public class Child:IComparable
     {
 
         public int id { get; set; }
@@ -21,5 +21,9 @@ namespace BE
             return name + " ID: " + id + " Mother's ID: " + momId;
         }
 
+        public int CompareTo(object obj)
+        {
+            return id.CompareTo(((Child)obj).id);
+        }
     }
 }

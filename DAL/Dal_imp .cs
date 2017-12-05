@@ -60,12 +60,17 @@ namespace DAL
 
         public void updateChild(Child c)
         {
-            DataSource.childs = DataSource.childs.FindAll(ch => ch.id == c.id).ConvertAll(ch => ch = c);
+            int index = DataSource.childs.IndexOf(c);// i need to use the icomparable 
+            if(index!=-1)
+            {
+                DataSource.childs[index] = c;
+            }
+       
         }
 
         public void updateContract(Contract c)
         {
-            throw new NotImplementedException();
+           
         }
 
         public void updateMom(Mother m)

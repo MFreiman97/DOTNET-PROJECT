@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BE
 {
- public   class Contract
+ public   class Contract:IComparable
     {
-        private static int contnum = 0;
+      private static int contnum = 0;
         Nanny n;
         Child c;
         public bool Meet { get; set; }
@@ -32,5 +32,10 @@ namespace BE
             return "Contract: " + contnum + " ,the Nanny is: " + n + ", the child is: " + c;
         }
 
+        public int CompareTo(object obj)
+        {
+            Contract co = obj as Contract;
+            return contnum.CompareTo(contnum);
+        }
     }
 }
