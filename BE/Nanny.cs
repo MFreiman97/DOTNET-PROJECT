@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BE
 {
  public   class Nanny:IComparable
-    {
+    {//
         int id;
         private string fname { get; set; }
         private string name { get; set; }
