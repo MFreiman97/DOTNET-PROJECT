@@ -24,7 +24,7 @@ namespace BE
         double HourSalary { get; set; }
         double MonthSalary { get; set; }
         bool[] DaysOfWork = new bool[7];
-        int[,] schedule = new int[6, 2];
+        int[,] schedule = new int[2, 6];
         bool HolidaysByTheGOV { get; set; }
         string recom;//recommendations
 
