@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public interface Idal
-    {       /// <summary>
+  
+    interface Idal
+
+    {
+       
+        /// <summary>
             /// Nanny's Functions
             /// </summary>
             /// <param name="n"></param>
         void addNanny(Nanny n);
         void deleteNanny(Nanny n);
         void updateNanny(Nanny n);//update the details of a nanny .i assume that the comparapble paramater is the id.
-
+        Nanny GetNanny(int id);
         /// <summary>
         /// Mom's Functions
         /// </summary>
@@ -23,6 +27,7 @@ namespace DAL
         void addMom(Mother m);
         void deleteMom(Mother m);
         void updateMom(Mother m);//i assume that the comparapble paramater is the id.
+        Mother GetMother(int id);
 
         /// <summary>
         /// Child's Functions
@@ -31,7 +36,7 @@ namespace DAL
         void addChild(Child c);
         void deleteChild(Child c);
         void updateChild(Child c);//.i assume that the comparapble paramater is the id.
-
+        Child GetChild(int id);
         /// <summary>
         /// Contract's Functions
         /// </summary>
@@ -39,5 +44,9 @@ namespace DAL
         void addContract(Contract c);
         void deleteContract(Contract c);
         void updateContract(Contract c);//.i assume that the comparapble paramater is the id.
+        IEnumerable<Nanny> GetAllNannies(Func<Nanny, bool> predicat = null);
+        IEnumerable<Mother> GetAllMothers(Func<Mother, bool> predicat = null);
+        IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null);
+        IEnumerable<Child> GetAllChildsByMother(Mother m);
     }
 }
