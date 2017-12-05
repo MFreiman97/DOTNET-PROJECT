@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Contract
+ public   class Contract
     {
         private static int contnum = 0;
         Nanny n;

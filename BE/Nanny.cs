@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Nanny
+ public   class Nanny
     {
         int id;
         private string fname { get; set; }
