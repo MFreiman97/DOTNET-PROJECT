@@ -18,8 +18,10 @@ namespace DAL
         }
         public void addChild(Child c)
         {
-            // i didnt check if the student is already exist!!
-            DataSource.childs.Add(c);
+            if (GetChild(c.id) != null)  
+                DataSource.childs.Add(c);
+            else
+                throw new Exception("the Child you tried to add already exist!");
 
         }
 
@@ -30,17 +32,31 @@ namespace DAL
 
         public void addMom(Mother m)
         {
-            DataSource.mothers.Add(m);
+            if (GetMother(m.id)!=null)
+            {
+  DataSource.mothers.Add(m);
+            }
+          else
+                throw new Exception("the Mother you tried to add already exist!");
         }
 
         public void addNanny(Nanny n)
         {
-            DataSource.nannies.Add(n);
+            if(GetNanny(n.id) != null)
+            {
+                   DataSource.nannies.Add(n);
+            }
+          else
+                throw new Exception("the Nanny you tried to add already exist!");
+     
         }
 
         public void deleteChild(Child c)
         {
+            if(GetChild(c.id)!=null)
             DataSource.childs.Remove(c);
+            else
+              throw new Exception("the Child you tried to delete wasnt exist!");
         }
 
         public void deleteContract(Contract c)
@@ -50,12 +66,69 @@ namespace DAL
 
         public void deleteMom(Mother m)
         {
-            DataSource.mothers.Remove(m);
+            if(GetMother(m.id) != null)
+            {
+              DataSource.mothers.Remove(m);
+            }
+          else
+                throw new Exception("the Mother you tried to delete wasnt exist!");
+           
         }
 
         public void deleteNanny(Nanny n)
         {
-            DataSource.nannies.Remove(n);
+          
+            if (GetNanny(n.id) != null)
+            {
+              DataSource.nannies.Remove(n);
+            }
+            else
+                throw new Exception("the Nanny you tried to add wasnt exist!");
+
+        }
+
+        public IEnumerable<Child> GetAllChildsByMother(Mother m)
+        {
+            return DataSource.childs.Where(c => c.momId == m.id);
+        }
+
+        public IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null)
+        {
+            if (predicat == null)
+                return DataSource.contracts.AsEnumerable();
+
+            return DataSource.contracts.Where(predicat);
+        }
+
+        public IEnumerable<Mother> GetAllMothers(Func<Mother, bool> predicat = null)
+        {
+            if (predicat == null)
+                return DataSource.mothers.AsEnumerable();
+
+            return DataSource.mothers.Where(predicat);
+        }
+
+        public IEnumerable<Nanny> GetAllNannies(Func<Nanny, bool> predicat = null)
+        {
+            if (predicat == null)
+                return DataSource.nannies.AsEnumerable();
+
+            return DataSource.nannies.Where(predicat);
+        }
+
+        public Child GetChild(int id)
+        {
+            return DataSource.childs.Find(c => c.id == id);
+        }
+
+        public Mother GetMother(int id)
+        {
+            return DataSource.mothers.Find(m => m.id == id);
+        }
+
+        public Nanny GetNanny(int id)
+        {
+            return DataSource.nannies.Find(n => n.id == id);
         }
 
         public void updateChild(Child c)
