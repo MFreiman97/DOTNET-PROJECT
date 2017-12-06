@@ -28,8 +28,9 @@ namespace DAL
 
         public void addContract(Contract c)
         {
+            c.contnum = contnum++;
             DataSource.contracts.Add(c);
-            contnum++;
+          
             c.n.contracts++;
         }
 

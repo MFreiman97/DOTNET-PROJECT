@@ -8,7 +8,7 @@ namespace BE
 {
  public   class Contract:IComparable
     {
-      private  int contnum { get; set; }
+   public  int contnum { get; set; }
         public Nanny n { get; set; }
         public Child c { get; set; }
         public bool Meet { get; set; }
