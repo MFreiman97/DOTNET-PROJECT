@@ -11,7 +11,7 @@ namespace DAL
 {
     internal  class Dal_imp : Idal
     {
-        public static int contnum = 0;
+        public static int Contnum = 0;
         public Dal_imp()
         {
            new DataSource();
@@ -28,9 +28,9 @@ namespace DAL
 
         public void addContract(Contract c)
         {
-            c.contnum = contnum++;
+            c.contnum = Contnum++;
             DataSource.contracts.Add(c);
-          
+    
             c.n.contracts++;
         }
 
@@ -148,7 +148,13 @@ namespace DAL
 
         public void updateContract(Contract c)
         {
-           
+            int index = DataSource.contracts.IndexOf(c);// i need to use the icomparable 
+            if (index != -1)
+            {
+                DataSource.contracts[index] = c;
+            }
+
+
         }
 
         public void updateMom(Mother m)
