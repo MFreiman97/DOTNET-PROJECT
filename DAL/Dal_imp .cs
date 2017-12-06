@@ -136,6 +136,11 @@ namespace DAL
             return DataSource.nannies.Find(n => n.id == id);
         }
 
+        public IEnumerable<Child> NeedNanny()
+        {
+            return DataSource.childs.Where(c=>c.nannyID==null);
+        }
+
         public void updateChild(Child c)
         {
             int index = DataSource.childs.IndexOf(c);// i need to use the icomparable 
