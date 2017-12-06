@@ -40,6 +40,7 @@ namespace BL
          IEnumerable<Child> NeedNanny();
         IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null);
         int GetSumOfContracts(Func<Contract, bool> predicat = null);
+      //  int CalculateDistance(string source, string destination);
 
     }
 }

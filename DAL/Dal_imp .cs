@@ -92,6 +92,15 @@ namespace DAL
 
         }
 
+       
+        public IEnumerable<Child> GetAllChilds(Func<Child, bool> predicat = null)
+        {
+            if (predicat == null)
+                return DataSource.childs.AsEnumerable();
+
+            return DataSource.childs.Where(predicat);
+        }
+
         public IEnumerable<Child> GetAllChildsByMother(Mother m)
         {
             return DataSource.childs.Where(c => c.momId == m.id);
@@ -136,10 +145,6 @@ namespace DAL
             return DataSource.nannies.Find(n => n.id == id);
         }
 
-        public IEnumerable<Child> NeedNanny()
-        {
-            return DataSource.childs.Where(c=>c.nannyID==null);
-        }
 
         public void updateChild(Child c)
         {

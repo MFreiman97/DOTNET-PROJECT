@@ -126,11 +126,11 @@ namespace BL//aviel functions
             IEnumerable<Child> l = dal.GetAllChildsByMother(m); // Get All His Brothers
 
             // Checking How Many Brothers At The Same Nanny
-            foreach (Child item in l)
-            {
-                if (item.nannyID.CompareTo(na.id) == 0)
-                    count++;
-            }
+            //foreach (Child item in l)
+            //{
+            //    if (item.nannyID.CompareTo(na.id) == 0)
+            //        count++;
+            //}
 
             // Change The Salary In Accordance 2 The Child's Amount && 2 The Contract Payment Type
             if (cont.ContType == ContractType.hourly)

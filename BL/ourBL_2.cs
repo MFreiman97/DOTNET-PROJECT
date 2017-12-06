@@ -22,7 +22,7 @@ namespace BL//MATANYA FUNCTIONS
 
         public IEnumerable<Child> NeedNanny()
         {
-            return dal.NeedNanny();
+            return dal.GetAllChilds( c=>c.nannyID==null);
 
 
         }
@@ -40,6 +40,35 @@ namespace BL//MATANYA FUNCTIONS
             }
             return counter;
         }
+        //public static int CalculateDistance(string source, string dest)
+        //{
+        //    var drivingDirectionRequest = new DirectionsRequest
+        //    { TravelMode = TravelMode.Walking,
+        //        Origin = source,
+        //        Destination = dest, };
+
+        //    DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+        //    Route route = drivingDirections.Routes.First();
+        //    Leg leg = route.Legs.First();
+        //    return leg.Distance.Value;
+        //}
+        //public static int CalculateDistance(string source, string dest)
+        //{
+        //    StringBuilder add = new StringBuilder("http://maps.google.com/maps?q=");
+        //    add.Append(source);
+
+        //    var drivingDirectionRequest = new DirectionsRequest
+        //    {
+        //        TravelMode = TravelMode.Walking,
+        //        Origin = source,
+        //        Destination = dest,
+        //    };
+
+        //    DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+        //    Route route = drivingDirections.Routes.First();
+        //    Leg leg = route.Legs.First();
+        //    return leg.Distance.Value;
+        //}
 
     }
 }
