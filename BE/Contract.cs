@@ -28,7 +28,7 @@ namespace BE
         public int CompareTo(object obj)
         {
             Contract co = obj as Contract;
-            return contnum.CompareTo(contnum);
+            return contnum.CompareTo(co.contnum);
         }
     }
 }
