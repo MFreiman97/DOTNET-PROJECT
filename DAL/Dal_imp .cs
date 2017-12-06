@@ -14,7 +14,7 @@ namespace DAL
         public static int contnum = 0;
         public Dal_imp()
         {
-          //  new DataSource();
+           new DataSource();
 
         }
         public void addChild(Child c)
@@ -37,7 +37,7 @@ namespace DAL
         {
             if (GetMother(m.id)!=null)
             {
-  DataSource.mothers.Add(m);
+             DataSource.mothers.Add(m);
             }
           else
                 throw new Exception("the Mother you tried to add already exist!");
@@ -152,12 +152,20 @@ namespace DAL
 
         public void updateMom(Mother m)
         {
-            throw new NotImplementedException();
+            int index = DataSource.mothers.IndexOf(m);
+            if (index != -1)
+            {
+                DataSource.mothers[index] = m;
+            }
         }
 
         public void updateNanny(Nanny n)
         {
-            throw new NotImplementedException();
+            int index = DataSource.nannies.IndexOf(n);
+            if (index != -1)
+            {
+                DataSource.nannies[index] = n;
+            }
         }
     }
 }
