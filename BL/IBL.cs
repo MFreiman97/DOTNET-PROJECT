@@ -37,6 +37,7 @@ namespace BL
         void addContract(Contract c);
         void deleteContract(Contract c);
         void updateContract(Contract c);
+         IEnumerable<Child> NeedNanny();
 
     }
 }
