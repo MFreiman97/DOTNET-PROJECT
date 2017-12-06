@@ -14,7 +14,7 @@ namespace BL//aviel functions
         // Add Functions
         public void addChild(Child c)
         {
-        dal.addChild(c);
+            dal.addChild(c);
         }
 
         public void addContract(Contract cont)
@@ -22,7 +22,10 @@ namespace BL//aviel functions
             Child ch = cont.c; // Get The Child (Of The Contract)
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
             if (childAge(ch) == true && nannyContracts(na) == true)
+            {
+                cont.SalaryPerMonth = monthSalary(cont, ch, na);
                 dal.addContract(cont);
+            }
         }
 
         public void addMom(Mother m)
@@ -107,5 +110,36 @@ namespace BL//aviel functions
                 return true;
             return false;
         }
+
+        public int hoursAmountForWeek(Nanny na)
+        {
+            int sum = 0;
+            for (int i = 0; i < 6; i++)
+                sum += na.schedule[1, i] - na.schedule[0, i];
+            return sum;
+        }
+
+        public double monthSalary(Contract cont, Child ch, Nanny na)
+        {
+            int count = -1; // Count The Brothers
+            Mother m = dal.GetMother(ch.momId); // Get The Mother (Of The Child Of The Contract)
+            IEnumerable<Child> l = dal.GetAllChildsByMother(m); // Get All His Brothers
+
+            // Checking How Many Brothers At The Same Nanny
+            foreach (Child item in l)
+            {
+                if (item.nannyID.CompareTo(na.id) == 0)
+                    count++;
+            }
+
+            // Change The Salary In Accordance 2 The Child's Amount && 2 The Contract Payment Type
+            if (cont.ContType == ContractType.hourly)
+                cont.SalaryPerMonth = 4 * hoursAmountForWeek(na) * cont.SalaryPerHour * ((100 - count * 2) / 100);
+            else
+                cont.SalaryPerMonth *= (100 - count * 2) / 100;
+
+            return cont.SalaryPerMonth;
+        }
+
     }
 }

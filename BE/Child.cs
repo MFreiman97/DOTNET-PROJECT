@@ -15,6 +15,7 @@ namespace BE
         public DateTime birth { get; set; }
         public bool special { get; set; }
         public string kindSpecial { get; set; }
+        public int nannyID { get; set; }
 
         public override string ToString()
         {

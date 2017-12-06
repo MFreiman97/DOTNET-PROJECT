@@ -24,10 +24,23 @@ namespace BE
         double HourSalary { get; set; }
         double MonthSalary { get; set; }
         bool[] DaysOfWork = new bool[7];
-        int[,] schedule = new int[2, 6];
+        public int[,] schedule = new int[2, 6];
         bool HolidaysByTheGOV { get; set; }
         string recom;//recommendations
-        public int contracts { get; set; }
+        public int contracts = 0;
+
+        public int Contracts
+        {
+            get
+            {
+                return contracts;
+            }
+
+            set
+            {
+                contracts = value;
+            }
+        }
 
         public string Fname
         {

@@ -30,6 +30,7 @@ namespace DAL
         {
             DataSource.contracts.Add(c);
             contnum++;
+            c.n.contracts++;
         }
 
         public void addMom(Mother m)
@@ -64,6 +65,7 @@ namespace DAL
         public void deleteContract(Contract c)
         {
             DataSource.contracts.Remove(c);
+            c.n.contracts--;
         }
 
         public void deleteMom(Mother m)
