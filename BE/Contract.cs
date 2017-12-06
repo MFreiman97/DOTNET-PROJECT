@@ -17,14 +17,7 @@ namespace BE
         public double SalaryPerMonth { get; set; }
         public ContractType ContType { get; set; }
 
-        public static int ContNum
-        {
-            get
-            {
-                return contnum;
-            }
-
-        }
+       
         public DateTime DateBegin { get; set; }
         public DateTime DateEnd { get; set; }
         public override string ToString()
