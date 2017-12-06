@@ -13,7 +13,7 @@ namespace BE
         private string name { get; set; }
         private DateTime born;
         string cell { get; set; }
-        string address { get; set; }
+    public    string address { get; set; }
         bool elevator { get; set; }
         FLOORS floor;//which floor the nanny live;
         int experience { get; set; }
@@ -25,7 +25,7 @@ namespace BE
         double MonthSalary { get; set; }
         bool[] DaysOfWork = new bool[7];
         public int[,] schedule = new int[2, 6];
-        bool HolidaysByTheGOV { get; set; }
+      public  bool HolidaysByTheGOV { get; set; }
         string recom;//recommendations
         public int contracts = 0;
 

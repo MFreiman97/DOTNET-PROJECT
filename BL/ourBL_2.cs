@@ -12,22 +12,45 @@ namespace BL//MATANYA FUNCTIONS
 {
     public partial class ourBL:IBL
     {
-      //  public IEnumerable<Nanny> GetAllNannies(Mother m)
-      //  {
-          
-      //      return dal.GetAllNannies(n=>m.timeWork[0,0]>=n.schedule[0,0] );
-      //  }
-      //static  public bool TermsFunc(Mother m)
-      //  {
-           
+        //public IEnumerable<Nanny> GetAllNannies(Mother m)
+        //{
 
-//}
+        //    return dal.GetAllNannies(n => m.timeWork[0, 0] >= n.schedule[0, 0]);
+        //}
+        // public bool TermsFunc(Mother m)
+        //{
 
+
+        //}
+       public bool CheckSchedule(Mother m,Nanny n)
+        {
+            for(int i=0;i<6;i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if (j==0 && m.timeWork[j, i] < n.schedule[j, i])
+                        return false;
+                    if (j == 1 && m.timeWork[j, i] > n.schedule[j, i])
+                        return false;
+                }
+            }
+            return true;
+        }
         public IEnumerable<Child> NeedNanny()
         {
             return dal.GetAllChilds( c=>c.nannyID==null);
 
 
+        }
+        public IEnumerable<Nanny> DestinationRealm(Mother m)
+        {
+
+            return dal.GetAllNannies(n => (CalculateDistance(m.address, n.address) <= m.nannyArea));
+        }
+        public IEnumerable<Nanny> WorkingByTheGov()
+        {
+
+            return dal.GetAllNannies(n =>n.HolidaysByTheGOV==true);
         }
         public IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null)
         {
@@ -43,7 +66,7 @@ namespace BL//MATANYA FUNCTIONS
             }
             return counter;
         }
-        public static int CalculateDistance(string source, string dest)
+        public  int CalculateDistance(string source, string dest)
         {
             var drivingDirectionRequest = new DirectionsRequest
             {

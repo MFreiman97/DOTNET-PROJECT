@@ -14,7 +14,7 @@ namespace BE
         public string fName { get; set; }
         public int phone { get; set; }
         public string address { get; set; }
-        public string nannyArea { get; set; }
+        public int nannyArea { get; set; }
         public bool[] needNanny = new bool[6];
         public int[,] timeWork = new int[2, 6];
         public string note { get; set; }

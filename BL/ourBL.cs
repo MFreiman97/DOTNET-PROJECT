@@ -125,12 +125,12 @@ namespace BL//aviel functions
             Mother m = dal.GetMother(ch.momId); // Get The Mother (Of The Child Of The Contract)
             IEnumerable<Child> l = dal.GetAllChildsByMother(m); // Get All His Brothers
 
-            // Checking How Many Brothers At The Same Nanny
-            //foreach (Child item in l)
-            //{
-            //    if (item.nannyID.CompareTo(na.id) == 0)
-            //        count++;
-            //}
+            //Checking How Many Brothers At The Same Nanny
+            foreach (Child item in l)
+            {
+                if (item.nannyID==na.id)
+                    count++;
+            }
 
             // Change The Salary In Accordance 2 The Child's Amount && 2 The Contract Payment Type
             if (cont.ContType == ContractType.hourly)
