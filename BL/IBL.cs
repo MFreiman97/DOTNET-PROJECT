@@ -38,6 +38,8 @@ namespace BL
         void deleteContract(Contract c);
         void updateContract(Contract c);
          IEnumerable<Child> NeedNanny();
+        IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null);
+        int GetSumOfContracts(Func<Contract, bool> predicat = null);
 
     }
 }
