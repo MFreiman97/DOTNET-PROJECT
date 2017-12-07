@@ -85,7 +85,7 @@ namespace BL//MATANYA FUNCTIONS
             group item by GetTypeOfAge(item.MinAge);
             if (MinOrMax == false)//minimum order
                 return result;
-            else
+            else//maximum order
                 return result.Reverse();
 
         }

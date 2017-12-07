@@ -43,7 +43,7 @@ namespace BL
        int CalculateDistance(string source, string destination);
 
         IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool sorted);
-        IEnumerable<IGrouping<int, Contract>> GroupOfSortedContract();//sorted by the distances
+        IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract();//sorted by the distances that i divided to types in sting
 
 
 
