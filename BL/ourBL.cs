@@ -23,6 +23,7 @@ namespace BL//aviel functions
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
             if (childAge(ch) == true && nannyContracts(na) == true)
             {
+                cont.distance = CalculateDistance(ch.mom.address, na.address);
                 cont.SalaryPerMonth = monthSalary(cont, ch, na);
                 dal.addContract(cont);
             }

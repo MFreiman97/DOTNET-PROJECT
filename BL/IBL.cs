@@ -42,5 +42,10 @@ namespace BL
         int GetSumOfContracts(Func<Contract, bool> predicat = null);
        int CalculateDistance(string source, string destination);
 
+        IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool sorted);
+        IEnumerable<IGrouping<int, Contract>> GroupOfSortedContract();//sorted by the distances
+
+
+
     }
 }

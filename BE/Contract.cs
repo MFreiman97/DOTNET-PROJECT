@@ -20,6 +20,7 @@ namespace BE
        
         public DateTime DateBegin { get; set; }
         public DateTime DateEnd { get; set; }
+        public int distance { get; set; }
         public override string ToString()
         {
             return "Contract: " + contnum + " ,the Nanny is: " + n + ", the child is: " + c;

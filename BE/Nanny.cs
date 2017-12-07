@@ -18,8 +18,8 @@ namespace BE
         FLOORS floor;//which floor the nanny live;
         int experience { get; set; }
         public int Maxkids { get; set; }
-        int MinAge { get; set; }//in months!!!!
-        int MaxAge { get; set; }
+      public  int MinAge { get; set; }//in months!!!!
+        public int MaxAge { get; set; }
         bool SalaryPerHour { get; set; }
         double HourSalary { get; set; }
         double MonthSalary { get; set; }

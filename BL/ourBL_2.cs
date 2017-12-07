@@ -12,17 +12,14 @@ namespace BL//MATANYA FUNCTIONS
 {
     public partial class ourBL:IBL
     {
-        //public IEnumerable<Nanny> GetAllNannies(Mother m)
-        //{
-
-        //    return dal.GetAllNannies(n => m.timeWork[0, 0] >= n.schedule[0, 0]);
-        //}
-        // public bool TermsFunc(Mother m)
-        //{
-
-
-        //}
-       public bool CheckSchedule(Mother m,Nanny n)
+        public IEnumerable<Nanny> GetAllNannies(Mother m)
+        {
+            var v1 = dal.GetAllNannies(n => CheckSchedule(m, n));
+            var v2 = DestinationRealm(m);
+            var result= from n1 in v1 from n2 in v2 where (n1 == n2) select n1;
+            return result;
+        }
+        public bool CheckSchedule(Mother m,Nanny n)
         {
             for(int i=0;i<6;i++)
             {
@@ -81,6 +78,56 @@ namespace BL//MATANYA FUNCTIONS
             return leg.Distance.Value;
         }
 
+        public IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool MinOrMax)//min is false.  max is true
+        {
+            var result= from item in dal.GetAllNannies()
+                   orderby GetTypeOfAge(item.MinAge)
+            group item by GetTypeOfAge(item.MinAge);
+            if (MinOrMax == false)//minimum order
+                return result;
+            else
+                return result.Reverse();
 
+        }
+
+        public IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract()//the key that allow me to compare is the key thar returned from the GetDistanceType
+        {
+            return from item in dal.GetAllContracts()
+                   group item by GetDistanceType(item.distance);
+        }
+        private string GetDistanceType(int d)
+        {
+           
+            if (d <=5)
+                return "Small Distance";
+            if (d<= 10)
+                return "Not big Distance";
+            if (d <= 20)
+                return "Plausible Distance";
+            if (d <= 50)
+                return "Almost unacceptable Distance";
+            else
+                return "enormous distance";
+        }
+        private int GetTypeOfAge(int d)
+        {
+
+            if (d <= 3)
+                return 1;
+            if (d <= 5)
+                return 2;
+            if (d <= 8)
+                return 3;
+            if (d <= 12)
+                return 4;
+            if (d <= 18)
+                return 5;
+
+            if (d <= 24)
+                return 6;
+            else
+                return 7;
+
+        }
     }
 }

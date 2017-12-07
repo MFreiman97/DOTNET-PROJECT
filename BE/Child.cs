@@ -11,6 +11,7 @@ namespace BE
 
         public int id { get; set; }
         public int momId { get; set; }
+        public Mother mom { get; set; }
         public string name { get; set; }
         public DateTime birth { get; set; }
         public bool special { get; set; }
