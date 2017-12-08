@@ -21,22 +21,35 @@ namespace WPF_UI
     /// </summary>
     public partial class AddingChild : Window
     {
+        Child ch;
+        BL.IBL bl;
         public AddingChild()
         {
             InitializeComponent();
+            ch = new Child();
+            bl = new ourBL();
+            this.DataContext = ch;
             comboBoxBool.Items.Add( new ComboBoxItem() { Content = "Yes" });
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });
+            foreach(var item in bl.GetAllMothers())
+            {
+                comboBoxMothers.Items.Add(new ComboBoxItem() { Content = item.ToString()  });
+            }
         }
 
         private void ChildAdded_Click(object sender, RoutedEventArgs e)
         {
-            Child c = new Child() { id = int.Parse(IDtextBox.Text),
-                momId = int.Parse(IDMOMtextBox.Text),
-                birth = new DateTime(ChildBornDate.SelectedDate.Value.Year, ChildBornDate.SelectedDate.Value.Month, ChildBornDate.SelectedDate.Value.Day),
-                name = NAMEtextBox.Text,
-                
-              //  special = bool.Parse(DisabletexTBOX.Text)
-          };
+            try
+            {
+                bl.addChild(ch);
+                student = new BE.Student();
+                this.DataContext = student;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        };
         }
     }
 }

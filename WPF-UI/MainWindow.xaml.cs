@@ -40,7 +40,9 @@ namespace WPF_UI
 
         private void AddChild_Click(object sender, RoutedEventArgs e)
         {
+          
             var v = new AddingChild();
+           
             v.ShowDialog();
         }
 

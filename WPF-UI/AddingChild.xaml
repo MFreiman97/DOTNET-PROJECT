@@ -7,21 +7,21 @@
         mc:Ignorable="d"
         Title="AddingChild" Height="500" Width="500">
     <Grid>
-        <TextBox x:Name="IDtextBox"   HorizontalAlignment="Left" Height="21" Margin="201,10,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="IDMOMtextBox" HorizontalAlignment="Left" Height="21" Margin="201,44,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="NAMEtextBox" HorizontalAlignment="Left" Height="21" Margin="201,80,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="DescOfDisabilityTextBox" HorizontalAlignment="Left" Height="21" Margin="201,371,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="IDtextBox"  Text="{Binding id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="21" Margin="201,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="NAMEtextBox" Text="{Binding name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="21" Margin="201,80,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DescOfDisabilityTextBox" HorizontalAlignment="Left" Height="21" Margin="201,371,0,0" TextWrapping="Wrap" Text="{Binding kindSpecial, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label" Content="id" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <Label x:Name="label_Copy" Content="id Mother" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <Label x:Name="label_Copy1" Content="Name" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
+        <Label x:Name="label_Copy" Content="Choose Mother" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
+        <Label x:Name="label_Copy1" Content="Name" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy2" Content="Born Date" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy3" Content="There is a disibility?" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy4" Content="can you specify?" HorizontalAlignment="Left" Margin="10,374,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Button x:Name="ChildAdded" Content="Add this child to the rep" HorizontalAlignment="Left" Height="33" Margin="110,410,0,0" VerticalAlignment="Top" Width="211" Click="ChildAdded_Click"/>
-        <DatePicker x:Name="ChildBornDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,165,0,0"/>
+        <DatePicker x:Name="ChildBornDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="201,165,0,0" SelectedDate="{Binding birth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
        
-        <ComboBox x:Name="comboBoxBool" HorizontalAlignment="Left" Height="26" Margin="306,310,0,0" VerticalAlignment="Top" Width="127"
+        <ComboBox x:Name="comboBoxBool" HorizontalAlignment="Left" Height="26" Margin="201,315,0,0" VerticalAlignment="Top" Width="127"
                    />
+        <ComboBox x:Name="comboBoxMothers" HorizontalAlignment="Left" Height="27" Margin="201,40,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

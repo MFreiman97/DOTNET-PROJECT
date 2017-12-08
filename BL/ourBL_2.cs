@@ -129,5 +129,25 @@ namespace BL//MATANYA FUNCTIONS
                 return 7;
 
         }
+
+        public IEnumerable<Nanny> TheBestFive(Mother m, bool conpromise)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Mother> GetAllMothers()
+        {
+            return dal.GetAllMothers();
+        }
+
+
+        //public IEnumerable<Nanny> TheBestFive(Mother m,bool conpr)
+        //{
+        //   if(conpr==false)//can conpromise on the payment of the distance
+        //    {
+
+
+        //    }
+        //}
     }
 }

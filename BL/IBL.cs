@@ -38,6 +38,10 @@ namespace BL
         void deleteContract(Contract c);
         void updateContract(Contract c);
          IEnumerable<Child> NeedNanny();
+        IEnumerable<Nanny> GetAllNannies(Mother m);
+        IEnumerable<Nanny> TheBestFive(Mother m,bool conpromise);//get a term that the mother can conpromise on and return the best 5
+        IEnumerable<Nanny> WorkingByTheGov();
+        IEnumerable<Mother> GetAllMothers();
         IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null);
         int GetSumOfContracts(Func<Contract, bool> predicat = null);
        int CalculateDistance(string source, string destination);
