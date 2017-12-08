@@ -12,7 +12,7 @@ namespace BE
         public int id { get; set; }
         public string lName { get; set; }
         public string fName { get; set; }
-        public int phone { get; set; }
+        public string phone { get; set; }
         public string address { get; set; }
         public int nannyArea { get; set; }
         public bool[] needNanny = new bool[6];

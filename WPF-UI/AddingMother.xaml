@@ -12,7 +12,7 @@
         <Label x:Name="label" Content="id" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy1" Content="Private Name" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy4" Content="comments" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <Button x:Name="ChildAdded" Content="Add this child to the rep" HorizontalAlignment="Left" Height="33" Margin="150,607,0,0" VerticalAlignment="Top" Width="211" Click="ChildAdded_Click"/>
+        <Button x:Name="MotherAdded" Content="Add The Mother" HorizontalAlignment="Left" Height="33" Margin="150,607,0,0" VerticalAlignment="Top" Width="211" Click="MotherAdded_Click"/>
         <Label x:Name="label_Copy" Content="Family Name" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <TextBox x:Name="FnameTextBox" HorizontalAlignment="Left" Height="21" Margin="201,100,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy2" Content="Phone Number" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
@@ -23,21 +23,26 @@
         <TextBox x:Name="CityTextBox" HorizontalAlignment="Left" Height="21" Margin="201,187,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="StreetTextBox" HorizontalAlignment="Left" Height="21" Margin="201,221,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="ApartmentTextBox" HorizontalAlignment="Left" Height="21" Margin="201,253,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="63" Margin="139,290,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
-        <ListBox x:Name="listBox" SelectionMode="Multiple" HorizontalAlignment="Left" Height="21" Margin="182,371,0,0" VerticalAlignment="Top" Width="139"/>
-        <Label x:Name="label_Copy3" Content="days of working" HorizontalAlignment="Left" Margin="21,365,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <TextBox x:Name="start1" HorizontalAlignment="Left" Height="20" Margin="21,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end1" HorizontalAlignment="Left" Height="20" Margin="21,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start2" HorizontalAlignment="Left" Height="20" Margin="111,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end2" HorizontalAlignment="Left" Height="20" Margin="111,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start3" HorizontalAlignment="Left" Height="20" Margin="201,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end3" HorizontalAlignment="Left" Height="20" Margin="201,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start4" HorizontalAlignment="Left" Height="20" Margin="293,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end4" HorizontalAlignment="Left" Height="20" Margin="293,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start5" HorizontalAlignment="Left" Height="20" Margin="383,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end5" HorizontalAlignment="Left" Height="20" Margin="383,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start6" HorizontalAlignment="Left" Height="20" Margin="473,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end6" HorizontalAlignment="Left" Height="20" Margin="473,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="63" Margin="150,290,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
+        <Label x:Name="label_Copy3" Content="days of working" HorizontalAlignment="Left" Margin="10,352,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
+        <TextBox x:Name="start1" HorizontalAlignment="Left" Height="20" Margin="38,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="end1" HorizontalAlignment="Left" Height="20" Margin="38,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="start2" HorizontalAlignment="Left" Height="20" Margin="126,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="end2" HorizontalAlignment="Left" Height="20" Margin="126,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="start3" HorizontalAlignment="Left" Height="20" Margin="216,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="end3" HorizontalAlignment="Left" Height="20" Margin="216,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="start4" HorizontalAlignment="Left" Height="20" Margin="306,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="end4" HorizontalAlignment="Left" Height="20" Margin="306,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="start5" HorizontalAlignment="Left" Height="20" Margin="396,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="end5" HorizontalAlignment="Left" Height="20" Margin="396,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="start6" HorizontalAlignment="Left" Height="20" Margin="486,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="end6" HorizontalAlignment="Left" Height="20" Margin="486,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="sunday" HorizontalAlignment="Left" Height="20" Margin="38,379,0,0" TextWrapping="Wrap" Text="{Binding neednanny[1]}" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="monday" HorizontalAlignment="Left" Height="20" Margin="128,379,0,0" TextWrapping="Wrap" Text="work?" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="tuesday" HorizontalAlignment="Left" Height="20" Margin="216,379,0,0" TextWrapping="Wrap" Text="work?" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="wednesday" HorizontalAlignment="Left" Height="20" Margin="306,379,0,0" TextWrapping="Wrap" Text="star" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="thursday" HorizontalAlignment="Left" Height="20" Margin="396,379,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
+        <TextBox x:Name="friday" HorizontalAlignment="Left" Height="20" Margin="486,379,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
 
     </Grid>
 </Window>

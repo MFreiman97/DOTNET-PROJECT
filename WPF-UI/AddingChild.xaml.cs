@@ -50,7 +50,7 @@ namespace WPF_UI
             {
                 MessageBox.Show(ex.Message);
             }
-        };
+        }
         }
     }
-}
+
