@@ -21,7 +21,7 @@ namespace BE
 
         public override string ToString()
         {
-            return fName + lName + " Phone Number: " + phone;
+            return fName +" "+ lName + " "+id;
         }
 
         public int CompareTo(object obj)

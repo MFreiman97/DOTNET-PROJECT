@@ -33,7 +33,7 @@ namespace WPF_UI
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });
             foreach(var item in bl.GetAllMothers())
             {
-                comboBoxMothers.Items.Add(new ComboBoxItem() { Content = item.ToString()  });
+                comboBoxMothers.Items.Add(new ComboBoxItem() { Content = item.id  });
             }
         }
 
@@ -41,9 +41,10 @@ namespace WPF_UI
         {
             try
             {
+                ch.mom = bl.GetMother(int.Parse(comboBoxMothers.SelectedValue.ToString()));
                 bl.addChild(ch);
-                student = new BE.Student();
-                this.DataContext = student;
+             // student = new BE.Student();
+                this.DataContext = ch;
             }
             catch (Exception ex)
             {

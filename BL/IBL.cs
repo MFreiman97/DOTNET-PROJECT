@@ -34,6 +34,8 @@ namespace BL
         /// Contract's Functions
         /// </summary>
         /// <param name="c"></param>
+        /// 
+        Mother GetMother(int id);
         void addContract(Contract c);
         void deleteContract(Contract c);
         void updateContract(Contract c);
