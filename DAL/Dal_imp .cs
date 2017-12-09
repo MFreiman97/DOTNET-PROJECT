@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace DAL
 {
-    internal  class Dal_imp : Idal
+    public  class Dal_imp : Idal
     {
         public static int Contnum = 0;
         public Dal_imp()
@@ -17,9 +17,10 @@ namespace DAL
            new DataSource();
 
         }
+        #region add and delete functions
         public void addChild(Child c)
         {
-            if (GetChild(c.id) != null)  
+            if (GetChild(c.id) == null)  
                 DataSource.childs.Add(c);
             else
                 throw new Exception("the Child you tried to add already exist!");
@@ -36,7 +37,7 @@ namespace DAL
 
         public void addMom(Mother m)
         {
-            if (GetMother(m.id)!=null)
+            if (GetMother(m.id) == null)
             {
              DataSource.mothers.Add(m);
             }
@@ -46,7 +47,7 @@ namespace DAL
 
         public void addNanny(Nanny n)
         {
-            if(GetNanny(n.id) != null)
+            if(GetNanny(n.id) == null)
             {
                    DataSource.nannies.Add(n);
             }
@@ -92,7 +93,8 @@ namespace DAL
 
         }
 
-       
+        #endregion
+        #region "get all" functions
         public IEnumerable<Child> GetAllChilds(Func<Child, bool> predicat = null)
         {
             if (predicat == null)
@@ -129,7 +131,8 @@ namespace DAL
 
             return DataSource.nannies.Where(predicat);
         }
-
+        #endregion
+        #region get by id functions
         public Child GetChild(int id)
         {
             return DataSource.childs.Find(c => c.id == id);
@@ -144,8 +147,8 @@ namespace DAL
         {
             return DataSource.nannies.Find(n => n.id == id);
         }
-
-
+        #endregion
+        #region update functions
         public void updateChild(Child c)
         {
             int index = DataSource.childs.IndexOf(c);// i need to use the icomparable 
@@ -184,5 +187,6 @@ namespace DAL
                 DataSource.nannies[index] = n;
             }
         }
+        #endregion
     }
 }

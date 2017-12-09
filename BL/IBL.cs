@@ -41,7 +41,7 @@ namespace BL
         void updateContract(Contract c);
          IEnumerable<Child> NeedNanny();
         IEnumerable<Nanny> GetAllNannies(Mother m);
-        IEnumerable<Nanny> TheBestFive(Mother m,bool conpromise);//get a term that the mother can conpromise on and return the best 5
+        IEnumerable<Nanny> TheBestFive(Mother m);//get a term that the mother can conpromise on and return the best 5
         IEnumerable<Nanny> WorkingByTheGov();
         IEnumerable<Mother> GetAllMothers();
         IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null);

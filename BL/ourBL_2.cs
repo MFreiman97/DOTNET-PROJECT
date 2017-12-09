@@ -12,13 +12,7 @@ namespace BL//MATANYA FUNCTIONS
 {
     public partial class ourBL:IBL
     {
-        public IEnumerable<Nanny> GetAllNannies(Mother m)
-        {
-            var v1 = dal.GetAllNannies(n => CheckSchedule(m, n));
-            var v2 = DestinationRealm(m);
-            var result= from n1 in v1 from n2 in v2 where (n1 == n2) select n1;
-            return result;
-        }
+      
         public bool CheckSchedule(Mother m,Nanny n)
         {
             for(int i=0;i<6;i++)
@@ -38,16 +32,6 @@ namespace BL//MATANYA FUNCTIONS
             return dal.GetAllChilds( c=>c.nannyID==null);
 
 
-        }
-        public IEnumerable<Nanny> DestinationRealm(Mother m)
-        {
-
-            return dal.GetAllNannies(n => (CalculateDistance(m.address, n.address) <= m.nannyArea));
-        }
-        public IEnumerable<Nanny> WorkingByTheGov()
-        {
-
-            return dal.GetAllNannies(n =>n.HolidaysByTheGOV==true);
         }
         public IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null)
         {
@@ -76,24 +60,6 @@ namespace BL//MATANYA FUNCTIONS
             Route route = drivingDirections.Routes.First();
             Leg leg = route.Legs.First();
             return leg.Distance.Value;
-        }
-
-        public IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool MinOrMax)//min is false.  max is true
-        {
-            var result= from item in dal.GetAllNannies()
-                   orderby GetTypeOfAge(item.MinAge)
-            group item by GetTypeOfAge(item.MinAge);
-            if (MinOrMax == false)//minimum order
-                return result;
-            else//maximum order
-                return result.Reverse();
-
-        }
-
-        public IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract()//the key that allow me to compare is the key thar returned from the GetDistanceType
-        {
-            return from item in dal.GetAllContracts()
-                   group item by GetDistanceType(item.distance);
         }
         private string GetDistanceType(int d)
         {
@@ -129,25 +95,59 @@ namespace BL//MATANYA FUNCTIONS
                 return 7;
 
         }
-
-        public IEnumerable<Nanny> TheBestFive(Mother m, bool conpromise)
+        #region nanny functions
+        public IEnumerable<Nanny> GetAllNannies(Mother m)
         {
-            throw new NotImplementedException();
+            var v1 = dal.GetAllNannies(n => CheckSchedule(m, n));
+            var v2 = DestinationRealm(m);
+            var result= from n1 in v1 from n2 in v2 where (n1 == n2) select n1;
+            return result;
         }
+          public IEnumerable<Nanny> DestinationRealm(Mother m)
+        {
 
+            return dal.GetAllNannies(n => (CalculateDistance(m.address, n.address) <= m.nannyArea));
+        }
+         public IEnumerable<Nanny> WorkingByTheGov()
+        {
+
+            return dal.GetAllNannies(n =>n.HolidaysByTheGOV==true);
+        }
+        public IEnumerable<Nanny> TheBestFive(Mother m)//i assume that the best five is the most closest nannies in the area
+        {
+           return dal.GetAllNannies().OrderBy(i => CalculateDistance(i.address,m.address)).Take(5);
+        }
+        #endregion 
+        #region mother functions
         public IEnumerable<Mother> GetAllMothers()
         {
             return dal.GetAllMothers();
         }
+        public Mother GetMother(int id)
+        {
+            return dal.GetMother(id);
+        }
+        #endregion
+        #region grouping functions
+        public IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool MinOrMax)//min is false.  max is true
+        {
+            var result= from item in dal.GetAllNannies()
+                   orderby GetTypeOfAge(item.MinAge)
+            group item by GetTypeOfAge(item.MinAge);
+            if (MinOrMax == false)//minimum order
+                return result;
+            else//maximum order
+                return result.Reverse();
 
+        }
 
-        //public IEnumerable<Nanny> TheBestFive(Mother m,bool conpr)
-        //{
-        //   if(conpr==false)//can conpromise on the payment of the distance
-        //    {
+        public IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract()//the key that allow me to compare is the key thar returned from the GetDistanceType
+        {
+            return from item in dal.GetAllContracts()
+                   group item by GetDistanceType(item.distance);
+        }
+        #endregion 
 
-
-        //    }
-        //}
+       
     }
 }

@@ -21,14 +21,14 @@ namespace WPF_UI
     /// </summary>
     public partial class AddingChild : Window
     {
-        Child ch;
+        BE.Child ch;
         BL.IBL bl;
         public AddingChild()
         {
             InitializeComponent();
-            ch = new Child();
+          
             bl = new ourBL();
-            this.DataContext = ch;
+       
             comboBoxBool.Items.Add( new ComboBoxItem() { Content = "Yes" });
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });
             foreach(var item in bl.GetAllMothers())
@@ -41,10 +41,21 @@ namespace WPF_UI
         {
             try
             {
-                ch.mom = bl.GetMother(int.Parse(comboBoxMothers.SelectedValue.ToString()));
+                ch = new Child()
+                {
+                    mom = bl.GetMother(int.Parse(comboBoxMothers.SelectedValue.ToString())),
+                    id = int.Parse(IDtextBox.Text),
+                    name = NAMEtextBox.Text,
+                    kindSpecial = DescOfDisabilityTextBox.Text
+                };
+                if (comboBoxBool.Text == "Yes")
+                    ch.special = true;
+                else
+                    ch.special = false;
+
+                 
                 bl.addChild(ch);
-             // student = new BE.Student();
-                this.DataContext = ch;
+
             }
             catch (Exception ex)
             {

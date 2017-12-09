@@ -1,4 +1,5 @@
 ﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,18 @@ namespace BL//aviel functions
 {
  public partial class ourBL : IBL
     {
-       DAL.Idal dal; // So That I Could Use Dal's Functions
+        Idal dal; // So That I Could Use Dal's Functions
 
         // Add Functions
-        public void addChild(Child c)
+        public ourBL()
         {
-            dal.addChild(c);
+
+            dal = new DAL.Dal_imp();
+
+        }
+        public void addChild(Child ch)
+        {
+            dal.addChild(ch);
         }
 
         public void addContract(Contract cont)
