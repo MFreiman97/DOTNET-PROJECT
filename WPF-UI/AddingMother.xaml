@@ -23,7 +23,7 @@
         <TextBox x:Name="CityTextBox" HorizontalAlignment="Left" Height="21" Margin="201,187,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="StreetTextBox" HorizontalAlignment="Left" Height="21" Margin="201,221,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="ApartmentTextBox" HorizontalAlignment="Left" Height="21" Margin="201,253,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="63" Margin="150,290,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
+        <TextBox x:Name="CommentsTextBox" HorizontalAlignment="Left" Height="63" Margin="150,290,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
         <Label x:Name="label_Copy3" Content="days of working" HorizontalAlignment="Left" Margin="10,352,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <TextBox x:Name="start1" HorizontalAlignment="Left" Height="20" Margin="38,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="end1" HorizontalAlignment="Left" Height="20" Margin="38,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
@@ -37,12 +37,14 @@
         <TextBox x:Name="end5" HorizontalAlignment="Left" Height="20" Margin="396,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="start6" HorizontalAlignment="Left" Height="20" Margin="486,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
         <TextBox x:Name="end6" HorizontalAlignment="Left" Height="20" Margin="486,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="sunday" HorizontalAlignment="Left" Height="20" Margin="38,379,0,0" TextWrapping="Wrap" Text="{Binding neednanny[1]}" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="monday" HorizontalAlignment="Left" Height="20" Margin="128,379,0,0" TextWrapping="Wrap" Text="work?" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="tuesday" HorizontalAlignment="Left" Height="20" Margin="216,379,0,0" TextWrapping="Wrap" Text="work?" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="wednesday" HorizontalAlignment="Left" Height="20" Margin="306,379,0,0" TextWrapping="Wrap" Text="star" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="thursday" HorizontalAlignment="Left" Height="20" Margin="396,379,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="friday" HorizontalAlignment="Left" Height="20" Margin="486,379,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
+        <CheckBox x:Name="sunday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="69,454,0,0" VerticalAlignment="Top" Width="17"/>
+        <CheckBox x:Name="monday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="160,454,0,0" VerticalAlignment="Top" Width="17"/>
+        <CheckBox x:Name="tuesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="253,454,0,0" VerticalAlignment="Top" Width="17"/>
+        <CheckBox x:Name="wednesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="335,454,0,0" VerticalAlignment="Top" Width="17"/>
+        <CheckBox x:Name="thursday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="422,457,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5"/>
+        <CheckBox x:Name="friday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="519,457,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="NannyAreaTextBox" Content="what is the maximum distance of the nanny you want?" HorizontalAlignment="Left" Margin="10,496,0,0" VerticalAlignment="Top" Width="303" Height="27"/>
+        <TextBox x:Name="NannyAreaTextBoxAnswer" HorizontalAlignment="Left" Height="42" Margin="47,536,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
 
     </Grid>
 </Window>
