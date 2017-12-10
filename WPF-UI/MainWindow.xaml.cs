@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;//matanya
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using BL;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -20,10 +21,11 @@ namespace WPF_UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        BL.ourBL bl;
         public MainWindow()
         {
             InitializeComponent();
-
+            bl = new ourBL();
         }
 
         private void AddNanny_Click(object sender, RoutedEventArgs e)
@@ -42,7 +44,11 @@ namespace WPF_UI
         {
           
             var v = new AddingChild();
-           
+            if (bl.GetAllMothers().Count() == 0)
+            {
+                MessageBox.Show("you have to add mother before adding a child");
+            }
+            else
             v.ShowDialog();
         }
 

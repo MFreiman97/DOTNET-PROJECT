@@ -26,25 +26,26 @@ namespace WPF_UI
         public AddingChild()
         {
             InitializeComponent();
-          
-            bl = new ourBL();
-       
-            comboBoxBool.Items.Add( new ComboBoxItem() { Content = "Yes" });
-            comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });
-            foreach(var item in bl.GetAllMothers())
-            {
-                comboBoxMothers.Items.Add(new ComboBoxItem() { Content = item.id  });
-            }
-        }
 
+            bl = new ourBL();
+
+            comboBoxBool.Items.Add(new ComboBoxItem() { Content = "Yes" });
+            comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });
+            foreach (var item in bl.GetAllMothers())
+            {
+                comboBoxMothers.Items.Add(new ComboBoxItem() { Content = item.id });
+            }
+           
+        }
         private void ChildAdded_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 ch = new Child()
                 {
-                    mom = bl.GetMother(int.Parse(comboBoxMothers.SelectedValue.ToString())),
+                    mom = bl.GetMother(int.Parse(comboBoxMothers.Text)),
                     id = int.Parse(IDtextBox.Text),
+                    momId= int.Parse(comboBoxMothers.Text),
                     name = NAMEtextBox.Text,
                     kindSpecial = DescOfDisabilityTextBox.Text
                 };
@@ -55,12 +56,15 @@ namespace WPF_UI
 
                  
                 bl.addChild(ch);
-
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            
+
+
         }
         }
     }

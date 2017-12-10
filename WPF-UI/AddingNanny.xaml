@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="AddingNanny" Height="300" Width="300">
+        Title="AddingNanny" Height="400" Width="500">
     <Grid>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="22" Margin="78,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="22" Margin="78,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>

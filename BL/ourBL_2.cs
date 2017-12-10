@@ -100,7 +100,7 @@ namespace BL//MATANYA FUNCTIONS
         {
             var v1 = dal.GetAllNannies(n => CheckSchedule(m, n));
             var v2 = DestinationRealm(m);
-            var result= from n1 in v1 from n2 in v2 where (n1 == n2) select n1;
+            var result= from item1 in v1 from item2 in v2 where (item1 == item2) select item1;
             return result;
         }
           public IEnumerable<Nanny> DestinationRealm(Mother m)
@@ -113,9 +113,10 @@ namespace BL//MATANYA FUNCTIONS
 
             return dal.GetAllNannies(n =>n.HolidaysByTheGOV==true);
         }
-        public IEnumerable<Nanny> TheBestFive(Mother m)//i assume that the best five is the most closest nannies in the area
+        public IEnumerable<Nanny> TheBestFive(Mother m)//i assume that mother preffer to compromise on the distance of the address of the nanny and dont changing the schedule 
         {
-           return dal.GetAllNannies().OrderBy(i => CalculateDistance(i.address,m.address)).Take(5);
+            var v=    dal.GetAllNannies(n => CheckSchedule(m, n));
+            return v.OrderBy(i => CalculateDistance(i.address,m.address)).Take(5);
         }
         #endregion 
         #region mother functions

@@ -79,7 +79,9 @@ namespace WPF_UI
 
 
 
-                bl.addMom(mother);  
+                bl.addMom(mother);
+                this.Close(); 
+
             }
             catch (Exception ex)
             {
