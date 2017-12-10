@@ -1,4 +1,4 @@
-﻿<Window x:Class="WPF_UI.MainContracts"
+﻿<Window x:Class="WPF_UI.AddingContracts"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,7 +11,7 @@
         <Label x:Name="label_Copy" Content="matched nannies:" HorizontalAlignment="Left" Height="26" Margin="15,174,0,0" VerticalAlignment="Top" Width="113"/>
         <Label x:Name="label_Copy1" Content="choose the nanny by id:" HorizontalAlignment="Left" Height="26" Margin="10,313,0,0" VerticalAlignment="Top" Width="143"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="26" Margin="145,20,0,0" VerticalAlignment="Top" Width="101" DataContextChanged="comboBox_DataContextChanged"/>
-        <TextBox x:Name="MatchedNanniesTextBox" HorizontalAlignment="Left" Height="113" Margin="145,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" BorderThickness="2" BorderBrush="#FF322727" Background="#FFFDD0D0">
+        <TextBox x:Name="MatchedNanniesTextBox" HorizontalAlignment="Left" Height="113" Margin="145,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" BorderThickness="2" BorderBrush="#FF322727" Background="#FFFDD0D0" IsReadOnly="True" SelectionBrush="Black" IsInactiveSelectionHighlightEnabled="True">
             <TextBox.BindingGroup>
                 <BindingGroup/>
             </TextBox.BindingGroup>

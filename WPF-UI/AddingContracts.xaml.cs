@@ -19,11 +19,11 @@ namespace WPF_UI
     /// <summary>
     /// Interaction logic for MainContracts.xaml
     /// </summary>
-    public partial class MainContracts : Window
+    public partial class AddingContracts : Window
     {
         BL.ourBL bl;
         BE.Contract co;
-        public MainContracts()
+        public AddingContracts()
         {
             InitializeComponent();
             bl = new ourBL();
@@ -32,13 +32,22 @@ namespace WPF_UI
         }
 
         private void AddTheContract_Click(object sender, RoutedEventArgs e)
-        {
-            co = new Contract() {n=bl.GetNanny(int.Parse(NannyChosedTextBox.Text)) };
+        {try
+            {
+                co = new Contract()
+                {
+                    n = bl.GetNanny(int.Parse(NannyChosedTextBox.Text)),
+                    c = bl.GetChild(int.Parse(comboBox.Text)),
+                };
 
 
+                bl.addContract(co);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-
-            bl.addContract(co);
         }
 
         private void comboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -46,8 +55,17 @@ namespace WPF_UI
             MatchedNanniesTextBox.Text = "";//if the user changed the child
               foreach (var item in bl.GetAllNannies(co.c.mom))
             {
-                MatchedNanniesTextBox.Text += item.ToString()+'\n';
+                MatchedNanniesTextBox.Text += item.ToString()+" The distance is: "+ bl.CalculateDistance(co.c.mom.address,co.n.address)+'\n';
            
+            }
+              if(bl.GetAllNannies(co.c.mom).Count()==0)//when there is no match to the demands of the mother
+            {
+                MessageBox.Show("there is no match to the mother demands. the nannies are shown is the best five");
+                foreach (var item in bl.TheBestFive(co.c.mom))
+                {
+                    MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + bl.CalculateDistance(co.c.mom.address, co.n.address) + '\n';
+
+                }
             }
         }
     }

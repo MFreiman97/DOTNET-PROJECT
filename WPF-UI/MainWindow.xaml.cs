@@ -52,9 +52,11 @@ namespace WPF_UI
             v.ShowDialog();
         }
 
-        private void Contracts_Click(object sender, RoutedEventArgs e)
+        private void Contracts_Click(object sender, RoutedEventArgs e)// add contract button
         {
-            var v = new MainContracts();
+        
+            var v = new AddingContracts();
+         
             v.ShowDialog();
         }
     }
