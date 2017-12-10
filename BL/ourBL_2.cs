@@ -155,5 +155,10 @@ public Nanny GetNanny(int id)
         {
             return dal.GetNanny(id);
         }
+
+        public Child GetChild(int id)
+        {
+            return dal.GetChild(id);
+        }
     }
 }

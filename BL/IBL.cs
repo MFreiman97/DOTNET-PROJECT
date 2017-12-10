@@ -37,6 +37,7 @@ namespace BL
         /// 
         Mother GetMother(int id);
         Nanny GetNanny(int id);
+        Child GetChild(int id);
         void addContract(Contract c);
         void deleteContract(Contract c);
         void updateContract(Contract c);

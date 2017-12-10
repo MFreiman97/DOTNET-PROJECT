@@ -33,7 +33,7 @@ namespace WPF_UI
 
         private void AddTheContract_Click(object sender, RoutedEventArgs e)
         {
-            co = new Contract() {n=bl.getNanny(int.Parse(NannyChosedTextBox.Text)) };
+            co = new Contract() {n=bl.GetNanny(int.Parse(NannyChosedTextBox.Text)) };
 
 
 
