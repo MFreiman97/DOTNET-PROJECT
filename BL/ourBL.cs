@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL//aviel functions
+namespace BL
 {
  public partial class ourBL : IBL
     {

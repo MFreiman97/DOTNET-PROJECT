@@ -147,8 +147,13 @@ namespace BL//MATANYA FUNCTIONS
             return from item in dal.GetAllContracts()
                    group item by GetDistanceType(item.distance);
         }
-        #endregion 
 
-       
+        
+        #endregion
+
+public Nanny GetNanny(int id)
+        {
+            return dal.GetNanny(id);
+        }
     }
 }

@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="MainContracts" Height="300" Width="300">
+        Title="MainContracts" Height="600" Width="500">
     <Grid>
-        
+        <Label x:Name="label" Content="choose child" HorizontalAlignment="Left" Height="26" Margin="28,20,0,0" VerticalAlignment="Top" Width="88"/>
+        <Label x:Name="label_Copy" Content="matched nannies:" HorizontalAlignment="Left" Height="26" Margin="15,174,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label x:Name="label_Copy1" Content="choose the nanny by id:" HorizontalAlignment="Left" Height="26" Margin="10,313,0,0" VerticalAlignment="Top" Width="143"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="26" Margin="145,20,0,0" VerticalAlignment="Top" Width="101" DataContextChanged="comboBox_DataContextChanged"/>
+        <TextBox x:Name="MatchedNanniesTextBox" HorizontalAlignment="Left" Height="113" Margin="145,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" BorderThickness="2" BorderBrush="#FF322727" Background="#FFFDD0D0">
+            <TextBox.BindingGroup>
+                <BindingGroup/>
+            </TextBox.BindingGroup>
+        </TextBox>
+        <DatePicker HorizontalAlignment="Left" Height="28" Margin="200,130,0,0" VerticalAlignment="Top" Width="154" IsHitTestVisible="True"/>
+        <Label x:Name="label1" Content="when is the end of the contract" HorizontalAlignment="Left" Height="28" Margin="0,129,0,0" VerticalAlignment="Top" Width="178"/>
+        <ComboBox x:Name="TypecomboBox" HorizontalAlignment="Left" Height="20" Margin="153,81,0,0" VerticalAlignment="Top" Width="104" SelectedItem="{Binding ContType}"/>
+        <Label x:Name="TypeOfSalary" Content="Type Of Salary:" HorizontalAlignment="Left" Height="26" Margin="15,65,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button x:Name="AddTheContract" Content="Add the contract" HorizontalAlignment="Left" Height="33" Margin="153,508,0,0" VerticalAlignment="Top" Width="201" Click="AddTheContract_Click"/>
+        <TextBox x:Name="NannyChosedTextBox" HorizontalAlignment="Left" Height="26" Margin="158,317,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145"/>
+
     </Grid>
 </Window>

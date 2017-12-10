@@ -36,6 +36,7 @@ namespace BL
         /// <param name="c"></param>
         /// 
         Mother GetMother(int id);
+        Nanny GetNanny(int id);
         void addContract(Contract c);
         void deleteContract(Contract c);
         void updateContract(Contract c);
