@@ -79,12 +79,21 @@ namespace BL
         // Update Functions
         public void updateChild(Child c)
         {
+
             dal.updateChild(c);
         }
 
-        public void updateContract(Contract c)
+        public void updateContract(Contract cont)
         {
-            dal.updateContract(c);
+            Child ch = cont.c; // Get The Child (Of The Contract)
+            Nanny na = cont.n; // Get The Nanny (Of The Contract)
+            if (childAge(ch) == true && nannyContracts(na) == true)
+            {
+                cont.distance = CalculateDistance(ch.mom.address, na.address);
+                cont.SalaryPerMonth = monthSalary(cont, ch, na);
+                 dal.updateContract(cont);
+            }
+           
         }
 
         public void updateMom(Mother m)
@@ -94,7 +103,16 @@ namespace BL
 
         public void updateNanny(Nanny n)
         {
-            dal.updateNanny(n);
+            DateTime t = DateTime.Today; // Today's Date
+            DateTime y = n.Born.AddYears(18); // Add 18 Years 2 The Nanny's Date Of Birth (4 The Comparing)
+            int check = y.CompareTo(t);
+            /* Compares:
+             *  Case Check < 0 => Nanny Is More Than 18 Years
+             *  Case Check = 0 => Nanny Is 18 Years
+             *  Case Check > 0 => Nanny Is Less Than 18 Years            
+            */
+            if (check <= 0)
+                dal.updateNanny(n);
         }
 
         public bool nannyContracts(Nanny na)
