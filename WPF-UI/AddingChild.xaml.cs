@@ -28,7 +28,7 @@ namespace WPF_UI
             InitializeComponent();
 
             bl = new ourBL();
-
+            this.UpdateButton.IsEnabled = false;
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "Yes" });
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });
             foreach (var item in bl.GetAllMothers())
@@ -61,11 +61,21 @@ namespace WPF_UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                if (ex.Message == "the Child you tried to add already exist!")
+                {
+                    this.UpdateButton.IsEnabled = true;
+                    this.IDtextBox.IsEnabled = false;
+                }
             }
             
 
 
         }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            bl.updateChild(ch);
         }
+    }
     }
 
