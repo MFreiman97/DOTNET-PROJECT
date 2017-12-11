@@ -5,53 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="AddingNanny" Height="600" Width="500">
-    <Grid>
-        <TextBox x:Name="IDtextBox" HorizontalAlignment="Center" Height="22" Margin="50,10,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="fNametextBox" HorizontalAlignment="Center" Height="22" Margin="50,40,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="lNametextBox" HorizontalAlignment="Center" Height="22" Margin="50,70,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="BorntextBox"
-                 HorizontalAlignment="Center" Height="22" Margin="50,100,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
+        Title="AddingNanny" Height="800" Width="600">
+    <Grid Margin="0,4,0,-4">
+        <TextBox x:Name="IDtextBox" HorizontalAlignment="Center" Height="22" Margin="100,10,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="fNametextBox" HorizontalAlignment="Center" Height="22" Margin="100,40,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="lNametextBox" HorizontalAlignment="Center" Height="22" Margin="100,70,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="BorntextBox" HorizontalAlignment="Center" Height="22" Margin="100,100,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="phoneNumbertextBox"
                  HorizontalAlignment="Center"
-                 Height="22"
-                 Margin="50,130,78,0"
+                 Height="22" Margin="100,130,0,0"
                  TextWrapping="Wrap"
                  Text="???"
                  VerticalAlignment="Top"
                  Width="100" />
         <TextBox x:Name="CitytextBox"
                  HorizontalAlignment="Center"
-                 Height="22"
-                 Margin="50,160,78,0"
+                 Height="22" Margin="100,160,0,0"
                  TextWrapping="Wrap"
                  Text="???"
                  VerticalAlignment="Top"
                  Width="100" />
         <TextBox x:Name="StreettextBox"
                  HorizontalAlignment="Center"
-                 Height="22"
-                 Margin="50,190,78,0"
+                 Height="22" Margin="100,190,0,0"
                  TextWrapping="Wrap"
                  Text="???"
                  VerticalAlignment="Top"
                  Width="100" />
         <TextBox x:Name="FlattextBox"
                  HorizontalAlignment="Center"
-                 Height="22"
-                 Margin="50,220,78,0"
+                 Height="22" Margin="100,220,0,0"
                  TextWrapping="Wrap"
                  Text="???"
                  VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="LifttextBox" HorizontalAlignment="Center" Height="22" Margin="50,250,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="FloortextBox" HorizontalAlignment="Center" Height="22" Margin="50,280,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="ExperienceextBox" HorizontalAlignment="Center" Height="22" Margin="50,310,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="MaxKidstextBox" HorizontalAlignment="Center" Height="22" Margin="50,340,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="MinAgetextBox" HorizontalAlignment="Center" Height="22" Margin="50,370,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="MaxAgetextBox" HorizontalAlignment="Center" Height="22" Margin="50,400,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="SalaryPerHourtextBox" HorizontalAlignment="Center" Height="22" Margin="50,430,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="HourSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="50,460,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="MonthSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="50,490,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="LifttextBox" HorizontalAlignment="Center" Height="22" Margin="100,250,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="FloortextBox" HorizontalAlignment="Center" Height="22" Margin="100,280,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="ExperienceextBox" HorizontalAlignment="Center" Height="22" Margin="100,310,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="MaxKidstextBox" HorizontalAlignment="Center" Height="22" Margin="100,340,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="MinAgetextBox" HorizontalAlignment="Center" Height="22" Margin="100,370,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="MaxAgetextBox" HorizontalAlignment="Center" Height="22" Margin="100,400,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="SalaryPerHourtextBox" HorizontalAlignment="Center" Height="22" Margin="100,430,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="HourSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="100,460,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="MonthSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="100,490,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="HolidaysByGovtextBox" HorizontalAlignment="Center" Height="22" Margin="100,660,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="ContractstextBox" HorizontalAlignment="Center" Height="22" Margin="100,690,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
 
         <Label x:Name="IDlabel"
                Content="ID"
@@ -123,8 +120,31 @@
                HorizontalAlignment="Left"
                Margin="10,400,0,0"
                VerticalAlignment="Top" />
-        <Label x:Name="SalaryPerHourlabel" Content="Salary Per Hour?" HorizontalAlignment="Left" Margin="10,430,0,0" VerticalAlignment="Top" />
+        <Label x:Name="SalaryPerHourlabel" Content="Dose She Get Salary Per Hour?" HorizontalAlignment="Left" Margin="10,430,0,0" VerticalAlignment="Top" />
         <Label x:Name="HourSalarylabel" Content="Hour's Salary" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" />
         <Label x:Name="MonthSalarylabel" Content="Month's Salary" HorizontalAlignment="Left" Margin="10,490,0,0" VerticalAlignment="Top" />
+        <Label x:Name="HolidaysByGov" Content="Does Her Holidays Based On The Gov's Holidays?" HorizontalAlignment="Left" Margin="10,660,0,0" VerticalAlignment="Top" />
+        <Label x:Name="MonthSalarylabel1" Content="Amount Of Contracts" HorizontalAlignment="Left" Margin="10,690,0,0" VerticalAlignment="Top" />
+
+
+        <Label x:Name="label_Copy3" Content="Days Of Working" HorizontalAlignment="Left" Margin="10,530,0,0" VerticalAlignment="Top" Width="113" Height="27" />
+        <TextBox x:Name="start1" HorizontalAlignment="Left" Height="20" Margin="38,570,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end1" HorizontalAlignment="Left" Height="20" Margin="38,600,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start2" HorizontalAlignment="Left" Height="20" Margin="126,570,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end2" HorizontalAlignment="Left" Height="20" Margin="126,600,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start3" HorizontalAlignment="Left" Height="20" Margin="216,570,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end3" HorizontalAlignment="Left" Height="20" Margin="216,600,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start4" HorizontalAlignment="Left" Height="20" Margin="306,570,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end4" HorizontalAlignment="Left" Height="20" Margin="306,600,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start5" HorizontalAlignment="Left" Height="20" Margin="396,570,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end5" HorizontalAlignment="Left" Height="20" Margin="396,600,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start6" HorizontalAlignment="Left" Height="20" Margin="486,570,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end6" HorizontalAlignment="Left" Height="20" Margin="486,600,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <CheckBox x:Name="sunday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="69,625,0,0" VerticalAlignment="Top" Width="17" />
+        <CheckBox x:Name="monday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="160,625,0,0" VerticalAlignment="Top" Width="17" />
+        <CheckBox x:Name="tuesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="253,625,0,0" VerticalAlignment="Top" Width="17" />
+        <CheckBox x:Name="wednesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="335,625,0,0" VerticalAlignment="Top" Width="17" />
+        <CheckBox x:Name="thursday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="422,625,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" />
+        <CheckBox x:Name="friday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="519,625,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" />
     </Grid>
 </Window>
