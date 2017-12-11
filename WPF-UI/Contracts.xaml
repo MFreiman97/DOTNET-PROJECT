@@ -1,18 +1,48 @@
-﻿<Window x:Class="WPF_UI.Contracts"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
+        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="WPF_UI.Contracts"
         mc:Ignorable="d"
-        Title="Contracts" Height="400" Width="500">
-    <Grid>
+        Title="Contracts" Height="400" Width="611.111" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="contractViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Contract}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource contractViewSource}" Margin="0,0,0,-31">
 
         <ComboBox x:Name="ContractsComboBox" HorizontalAlignment="Left" Height="20" Margin="127,26,0,0" VerticalAlignment="Top" Width="188" DataContextChanged="ContractsComboBox_DataContextChanged"/>
         <Label x:Name="label" Content="select contract:" HorizontalAlignment="Left" Height="28" Margin="10,18,0,0" VerticalAlignment="Top" Width="89"/>
         <TextBox x:Name="InfoTextBox" HorizontalAlignment="Left" Height="73" Margin="32,81,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="400"/>
         <Label x:Name="label1" Content="information:" HorizontalAlignment="Left" Height="25" Margin="176,51,0,0" VerticalAlignment="Top" Width="76"/>
         <Button x:Name="UpdateContractButton" Content="UpdateContract" HorizontalAlignment="Left" Height="26" Margin="57,173,0,0" VerticalAlignment="Top" Width="162" Click="UpdateContractButton_Click"/>
+
+        <DataGrid x:Name="contractDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,204,24,29" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="contnumColumn" Binding="{Binding contnum}" Header="contnum" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="contTypeColumn" Binding="{Binding ContType}" Header="Cont Type" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="dateBeginColumn" Header="Date Begin" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding DateBegin, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="dateEndColumn" Header="Date End" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding DateEnd, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="distanceColumn" Binding="{Binding distance}" Header="distance" Width="SizeToHeader"/>
+                <DataGridCheckBoxColumn x:Name="meetColumn" Binding="{Binding Meet}" Header="Meet" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="salaryPerHourColumn" Binding="{Binding SalaryPerHour}" Header="Salary Per Hour" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="salaryPerMonthColumn" Binding="{Binding SalaryPerMonth}" Header="Salary Per Month" Width="SizeToHeader"/>
+                <DataGridCheckBoxColumn x:Name="signatureColumn" Binding="{Binding Signature}" Header="Signature" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

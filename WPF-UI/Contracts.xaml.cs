@@ -48,5 +48,13 @@ namespace WPF_UI
 
           //  var item = new UpdateContract(int.Parse(this.ContractsComboBox.Text));//i need to make the this class!
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource contractViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("contractViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // contractViewSource.Source = [generic data source]
+        }
     }
 }

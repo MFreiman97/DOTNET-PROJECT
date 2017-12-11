@@ -26,6 +26,7 @@ namespace WPF_UI
         public AddingMother()
         {
             InitializeComponent();
+            this.UpdateButton.IsEnabled = false;
             bl = new ourBL();
            
         }
@@ -86,7 +87,18 @@ namespace WPF_UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                if(ex.Message== "the Mother you tried to add already exist!")
+                {
+                    this.UpdateButton.IsEnabled = true;
+                    this.IDtextBox.IsEnabled = false;
+                }
             }
+
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            bl.updateMom(mother);
         }
     }
 }

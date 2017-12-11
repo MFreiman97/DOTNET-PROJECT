@@ -45,6 +45,7 @@
         <CheckBox x:Name="friday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="519,457,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5"/>
         <Label x:Name="NannyAreaTextBox" Content="what is the maximum distance of the nanny you want?" HorizontalAlignment="Left" Margin="10,496,0,0" VerticalAlignment="Top" Width="303" Height="27"/>
         <TextBox x:Name="NannyAreaTextBoxAnswer" HorizontalAlignment="Left" Height="42" Margin="47,536,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
+        <Button x:Name="UpdateButton" Content="Update Mother" HorizontalAlignment="Left" Height="31" Margin="401,607,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click"/>
 
     </Grid>
 </Window>
