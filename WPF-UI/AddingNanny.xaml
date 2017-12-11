@@ -48,7 +48,9 @@
         <TextBox x:Name="HourSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="100,460,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
         <TextBox x:Name="MonthSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="100,490,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
         <TextBox x:Name="HolidaysByGovtextBox" HorizontalAlignment="Center" Height="22" Margin="100,660,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="ContractstextBox" HorizontalAlignment="Center" Height="22" Margin="100,690,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="RecommendationstextBox" HorizontalAlignment="Center" Height="22" Margin="100,690,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="ContractstextBox" HorizontalAlignment="Center" Height="22" Margin="100,720,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+
 
         <Label x:Name="IDlabel"
                Content="ID"
@@ -123,8 +125,10 @@
         <Label x:Name="SalaryPerHourlabel" Content="Dose She Get Salary Per Hour?" HorizontalAlignment="Left" Margin="10,430,0,0" VerticalAlignment="Top" />
         <Label x:Name="HourSalarylabel" Content="Hour's Salary" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" />
         <Label x:Name="MonthSalarylabel" Content="Month's Salary" HorizontalAlignment="Left" Margin="10,490,0,0" VerticalAlignment="Top" />
-        <Label x:Name="HolidaysByGov" Content="Does Her Holidays Based On The Gov's Holidays?" HorizontalAlignment="Left" Margin="10,660,0,0" VerticalAlignment="Top" />
-        <Label x:Name="MonthSalarylabel1" Content="Amount Of Contracts" HorizontalAlignment="Left" Margin="10,690,0,0" VerticalAlignment="Top" />
+        <Label x:Name="HolidaysByGovlabel" Content="Does Her Holidays Based On The Gov's Holidays?" HorizontalAlignment="Left" Margin="10,660,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Recommendationslabel" Content="Recommendations" HorizontalAlignment="Left" Margin="10,690,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Contractslabel" Content="Amount Of Contracts" HorizontalAlignment="Left" Margin="10,720,0,0" VerticalAlignment="Top" />
+
 
 
         <Label x:Name="label_Copy3" Content="Days Of Working" HorizontalAlignment="Left" Margin="10,530,0,0" VerticalAlignment="Top" Width="113" Height="27" />
@@ -146,6 +150,6 @@
         <CheckBox x:Name="wednesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="335,625,0,0" VerticalAlignment="Top" Width="17" />
         <CheckBox x:Name="thursday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="422,625,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" />
         <CheckBox x:Name="friday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="519,625,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" />
-        <Button x:Name="button" Content="Add The Nanny" HorizontalAlignment="Left" Margin="301,776,0,0" VerticalAlignment="Top" Width="150" />
+        <Button x:Name="NannyAdded" Content="Add The Nanny" HorizontalAlignment="Center" Margin="0,775,0,0" VerticalAlignment="Top" Width="300" Height="30" />
     </Grid>
 </Window>
