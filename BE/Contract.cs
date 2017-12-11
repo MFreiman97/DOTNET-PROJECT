@@ -8,7 +8,7 @@ namespace BE
 {
  public   class Contract:IComparable
     {
-   public  int contnum { get; set; }
+        private int Contnum;
         public Nanny n { get; set; }
         public Child c { get; set; }
         public bool Meet { get; set; }
@@ -21,9 +21,24 @@ namespace BE
         public DateTime DateBegin { get; set; }
         public DateTime DateEnd { get; set; }
         public int distance { get; set; }
+
+        public int contnum
+        {
+            get
+            {
+                return Contnum;
+            }
+
+            set
+            {
+                Contnum = value;
+            }
+        }
+
         public override string ToString()
         {
-            return "Contract: " + contnum + " ,the Nanny is: " + n + ", the child is: " + c;
+            //string str=format
+            return "Contract: " +string.Format("{0:00000000}",contnum)  ;
         }
 
         public int CompareTo(object obj)

@@ -96,7 +96,7 @@ namespace BL//MATANYA FUNCTIONS
 
         }
         #region nanny functions
-        public IEnumerable<Nanny> GetAllNannies(Mother m)
+        public IEnumerable<Nanny> GetAllNanniesByTerm(Mother m)
         {
             var v1 = dal.GetAllNannies(n => CheckSchedule(m, n));
             var v2 = DestinationRealm(m);
@@ -159,6 +159,31 @@ namespace BL//MATANYA FUNCTIONS
         public Child GetChild(int id)
         {
             return dal.GetChild(id);
+        }
+
+        public IEnumerable<Child> GetAllChilds()
+        {
+            return dal.GetAllChilds();
+        }
+
+        public IEnumerable<Nanny> GetAllNannies()
+        {
+            return dal.GetAllNannies();
+        }
+
+        public IEnumerable<Child> GetSpecialChilds()
+        {
+            return dal.GetAllChilds(c => c.special == true);
+        }
+
+        public IEnumerable<Mother> GetAllMothersFromJerusalem()
+        {
+            return dal.GetAllMothers(m => m.address.Substring(0, 9) == "Jerusalem");
+        }
+
+        public IEnumerable<Nanny> GetAllNanniesFromJerusalem()
+        {
+            return dal.GetAllNannies(m => m.address.Substring(0, 9) == "Jerusalem");
         }
     }
 }

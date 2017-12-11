@@ -66,5 +66,11 @@ namespace WPF_UI
 
             v.ShowDialog();
         }
+
+        private void LinqButton_Click(object sender, RoutedEventArgs e)
+        {
+            var v = new Linq();
+            v.ShowDialog();
+        }
     }
 }

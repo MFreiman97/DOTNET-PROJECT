@@ -41,11 +41,17 @@ namespace BL
         void addContract(Contract c);
         void deleteContract(Contract c);
         void updateContract(Contract c);
+
          IEnumerable<Child> NeedNanny();
-        IEnumerable<Nanny> GetAllNannies(Mother m);
+        IEnumerable<Child> GetAllChilds();
+        IEnumerable<Child> GetSpecialChilds();
+        IEnumerable<Nanny> GetAllNanniesByTerm(Mother m);
+        IEnumerable<Nanny> GetAllNannies();
         IEnumerable<Nanny> TheBestFive(Mother m);//get a term that the mother can conpromise on and return the best 5
         IEnumerable<Nanny> WorkingByTheGov();
         IEnumerable<Mother> GetAllMothers();
+        IEnumerable<Mother> GetAllMothersFromJerusalem();
+        IEnumerable<Nanny> GetAllNanniesFromJerusalem();
         IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null);
         int GetSumOfContracts(Func<Contract, bool> predicat = null);
        int CalculateDistance(string source, string destination);

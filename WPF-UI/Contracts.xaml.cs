@@ -25,36 +25,19 @@ namespace WPF_UI
 
             InitializeComponent();
             bl = new ourBL();
+            this.DataContext = bl.GetAllContracts();
+            this.UpdateComboBox.ItemsSource = bl.GetAllContracts();
+            this.UpdateComboBox.DisplayMemberPath = "ToString()";
+            this.UpdateComboBox.SelectedValuePath = "contnum";
 
 
-
-            this.ContractsComboBox.ItemsSource = bl.GetAllContracts();
-            this.ContractsComboBox.DisplayMemberPath = "contnum";
-            this.ContractsComboBox.SelectedValuePath = "contnum";
-        }
-
-        private void ContractsComboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            InfoTextBox.Text = "";
-            foreach(var item in bl.GetAllContracts(c=>c.contnum==int.Parse(this.ContractsComboBox.Text)))
-                {
-                InfoTextBox.Text += item.ToString();
-                 }
 
         }
 
-        private void UpdateContractButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)//i need to think about it!
         {
-
-          //  var item = new UpdateContract(int.Parse(this.ContractsComboBox.Text));//i need to make the this class!
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource contractViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("contractViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // contractViewSource.Source = [generic data source]
+      //      object result = this.UpdateComboBox.SelectedValue;
+            
         }
     }
 }

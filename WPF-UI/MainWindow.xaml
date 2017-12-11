@@ -13,6 +13,7 @@
         <Button x:Name="AddContract" Content="Add contract" HorizontalAlignment="Left" Height="38" Margin="28,225,0,0" VerticalAlignment="Top" Width="119" Click="Contracts_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="455,10,0,0" TextWrapping="Wrap" Text="בס''ד" VerticalAlignment="Top" Width="37"/>
         <Button x:Name="Contracts" Content="To All Contracts" HorizontalAlignment="Left" Height="43" Margin="173,124,0,0" VerticalAlignment="Top" Width="127" Click="Contracts_Click_1"/>
+        <Button x:Name="LinqButton" Content="linq" HorizontalAlignment="Left" Height="39" Margin="173,200,0,0" VerticalAlignment="Top" Width="127" Click="LinqButton_Click"/>
 
     </Grid>
 </Window>
