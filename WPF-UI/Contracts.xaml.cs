@@ -46,7 +46,7 @@ namespace WPF_UI
         private void UpdateContractButton_Click(object sender, RoutedEventArgs e)
         {
 
-            var item = new UpdateContract(int.Parse(this.ContractsComboBox.Text));//i need to make the this class!
+          //  var item = new UpdateContract(int.Parse(this.ContractsComboBox.Text));//i need to make the this class!
         }
     }
 }
