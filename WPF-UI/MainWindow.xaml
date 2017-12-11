@@ -12,7 +12,7 @@
         <Button x:Name="AddChild" Content="Add Child" HorizontalAlignment="Left" Height="38" Margin="28,159,0,0" VerticalAlignment="Top" Width="119" Click="AddChild_Click"/>
         <Button x:Name="AddContract" Content="Add contract" HorizontalAlignment="Left" Height="38" Margin="28,225,0,0" VerticalAlignment="Top" Width="119" Click="Contracts_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="455,10,0,0" TextWrapping="Wrap" Text="בס''ד" VerticalAlignment="Top" Width="37"/>
-        <Button x:Name="Contracts" Content="To All Contracts" HorizontalAlignment="Left" Height="43" Margin="173,124,0,0" VerticalAlignment="Top" Width="127"/>
+        <Button x:Name="Contracts" Content="To All Contracts" HorizontalAlignment="Left" Height="43" Margin="173,124,0,0" VerticalAlignment="Top" Width="127" Click="Contracts_Click_1"/>
 
     </Grid>
 </Window>

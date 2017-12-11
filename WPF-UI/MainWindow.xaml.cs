@@ -59,5 +59,12 @@ namespace WPF_UI
          
             v.ShowDialog();
         }
+
+        private void Contracts_Click_1(object sender, RoutedEventArgs e)
+        {
+            var v = new Contracts();
+
+            v.ShowDialog();
+        }
     }
 }
