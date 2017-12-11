@@ -12,21 +12,21 @@ namespace BE
         private string fname { get; set; }
         private string name { get; set; }
         private DateTime born;
-        string cell { get; set; }
+        public string cell { get; set; }
         public string address { get; set; }
-        bool elevator { get; set; }
-        FLOORS floor;//which floor the nanny live;
-        int experience { get; set; }
+        public bool elevator { get; set; }
+        public FLOORS floor;//which floor the nanny live;
+        public int experience { get; set; }
         public int Maxkids { get; set; }
         public int MinAge { get; set; }//in months!!!!
         public int MaxAge { get; set; }
-        bool SalaryPerHour { get; set; }
-        double HourSalary { get; set; }
-        double MonthSalary { get; set; }
-        bool[] DaysOfWork = new bool[6];
+        public bool SalaryPerHour { get; set; }
+        public double HourSalary { get; set; }
+        public double MonthSalary { get; set; }
+        public bool[] DaysOfWork = new bool[6];
         public int[,] schedule = new int[2, 6];
         public bool HolidaysByTheGOV { get; set; }
-        string recom;//recommendations
+        public string recom;//recommendations
         public int contracts = 0;
 
         public int Contracts
