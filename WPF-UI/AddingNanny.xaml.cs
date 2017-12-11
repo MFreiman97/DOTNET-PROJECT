@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
+using BL;
 
 namespace WPF_UI
 {
@@ -19,10 +21,25 @@ namespace WPF_UI
     /// </summary>
     public partial class AddingNanny : Window
     {
+        ourBL bl;
+        Nanny n;
         public AddingNanny()
         {
             InitializeComponent();
-
+            bl = new ourBL();
         }
-    }
+
+        private void NannyAdded_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+            }
+
+            catch
+            {
+
+            }
+        }
+   }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="AddingNanny" Height="800" Width="600">
+        Title="AddingNanny" Height="850" Width="600">
     <Grid Margin="0,4,0,-4">
         <TextBox x:Name="IDtextBox" HorizontalAlignment="Center" Height="22" Margin="100,10,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="fNametextBox" HorizontalAlignment="Center" Height="22" Margin="100,40,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
@@ -146,5 +146,6 @@
         <CheckBox x:Name="wednesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="335,625,0,0" VerticalAlignment="Top" Width="17" />
         <CheckBox x:Name="thursday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="422,625,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" />
         <CheckBox x:Name="friday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="519,625,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" />
+        <Button x:Name="button" Content="Add The Nanny" HorizontalAlignment="Left" Margin="301,776,0,0" VerticalAlignment="Top" Width="150" />
     </Grid>
 </Window>
