@@ -74,6 +74,20 @@ namespace WPF_UI
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
+            ch = new Child()
+            {
+                mom = bl.GetMother(int.Parse(comboBoxMothers.Text)),
+                id = int.Parse(IDtextBox.Text),
+                momId = int.Parse(comboBoxMothers.Text),
+                name = NAMEtextBox.Text,
+                kindSpecial = DescOfDisabilityTextBox.Text
+            };
+            if (comboBoxBool.Text == "Yes")
+                ch.special = true;
+            else
+                ch.special = false;
+
+
             bl.updateChild(ch);
         }
     }

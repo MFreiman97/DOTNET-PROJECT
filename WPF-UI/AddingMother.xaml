@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_UI"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="WPF_UI.AddingMother"
         mc:Ignorable="d"
-        Title="AddingMother" Height="700" Width="600" Loaded="Window_Loaded">
+        Title="AddingMother" Height="700" Width="600" >
     <Window.Resources>
         <CollectionViewSource x:Key="motherViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Mother}, CreateList=True}"/>
     </Window.Resources>
