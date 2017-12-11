@@ -28,7 +28,10 @@ namespace WPF_UI
             InitializeComponent();
             bl = new ourBL();
             co = new BE.Contract();
-            this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
+            this.comboBoxChild.DisplayMemberPath = "name";
+            this.comboBoxChild.SelectedValuePath = "id";
+            this.DataContext = co;
+            //this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
         }
 
         private void AddTheContract_Click(object sender, RoutedEventArgs e)
@@ -37,10 +40,10 @@ namespace WPF_UI
                 co = new Contract()
                 {
                     n = bl.GetNanny(int.Parse(NannyChosedTextBox.Text)),
-                    c = bl.GetChild(int.Parse(comboBox.Text)),
+                    c = bl.GetChild(int.Parse(comboBoxChild.SelectedValuePath)),
                 };
-
-
+                
+               
                 bl.addContract(co);
             }
             catch (Exception ex)
@@ -48,20 +51,26 @@ namespace WPF_UI
                 MessageBox.Show(ex.Message);
             }
 
+
         }
 
-        private void comboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+      
+
+        private void comboBoxChild_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ComboBoxItem cbi = (ComboBoxItem)comboBoxChild.SelectedItem;
+            string selectedText = cbi.Content.ToString();
+            Child SelChi = bl.GetChild(int.Parse(comboBoxChild.SelectedValuePath));
             MatchedNanniesTextBox.Text = "";//if the user changed the child
-              foreach (var item in bl.GetAllNannies(co.c.mom))
+            foreach (var item in bl.GetAllNanniesByTerm(SelChi.mom))
             {
-                MatchedNanniesTextBox.Text += item.ToString()+" The distance is: "+ bl.CalculateDistance(co.c.mom.address,co.n.address)+'\n';
-           
+                MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + bl.CalculateDistance(co.c.mom.address, co.n.address) + '\n';
+
             }
-              if(bl.GetAllNannies(co.c.mom).Count()==0)//when there is no match to the demands of the mother
+            if (bl.GetAllNanniesByTerm(SelChi.mom).Count() == 0)//when there is no match to the demands of the mother
             {
                 MessageBox.Show("there is no match to the mother demands. the nannies are shown is the best five");
-                foreach (var item in bl.TheBestFive(co.c.mom))
+                foreach (var item in bl.TheBestFive(SelChi.mom))
                 {
                     MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + bl.CalculateDistance(co.c.mom.address, co.n.address) + '\n';
 

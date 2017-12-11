@@ -22,7 +22,7 @@ namespace WPF_UI
   
     public partial class Linq : Window
     {
-        BL.IBL bl;= 
+        BL.IBL bl; 
         public Linq()
         {
             InitializeComponent();
@@ -33,62 +33,13 @@ namespace WPF_UI
             NannyByTheGovButton.IsEnabled = false;
             JerusalemNannyButton.IsEnabled = false;
             JerusalemMothersButton.IsEnabled = false; 
-            comboBox.Items.Add(new ComboBoxItem() { Content = "Childs" });
+            comboBox.Items.Add(new ComboBoxItem() { Content = "childs" });
             comboBox.Items.Add(new ComboBoxItem() { Content = "contracts" });
             comboBox.Items.Add(new ComboBoxItem() { Content = "mothers" });
             comboBox.Items.Add(new ComboBoxItem() { Content = "nannies" });
         }
 
-        private void comboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            ContractsDistanceAbove40.IsEnabled = false;
-            NeededChildsButton.IsEnabled = false;
-            SpecialChildsButton.IsEnabled = false;
-            NannyByTheGovButton.IsEnabled = false;
-            JerusalemNannyButton.IsEnabled = false;
-            JerusalemMothersButton.IsEnabled = false;
-            textBoxOutput.Text = "";
-            if (comboBox.Text == "childs")
-            {
-                foreach (var item in bl.GetAllChilds())
-                {
-                    textBoxOutput.Text = item.ToString() + '\n';
-                   
-                }
-                NeededChildsButton.IsEnabled = true;
-                    SpecialChildsButton.IsEnabled = true;
-            }
-            if (comboBox.Text == "contracts")
-            {
-                foreach (var item in bl.GetAllContracts())
-                {
-                    textBoxOutput.Text = item.ToString() + '\n';
-
-                }
-                ContractsDistanceAbove40.IsEnabled = true;
-            }
-            if (comboBox.Text == "mothers")
-            {
-                foreach (var item in bl.GetAllMothers())
-                {
-                    textBoxOutput.Text = item.ToString() + '\n';
-
-                }
-                JerusalemMothersButton.IsEnabled = true;
-            }
-            if (comboBox.Text == "nannies")
-            {
-                foreach (var item in bl.GetAllNannies())
-                {
-                    textBoxOutput.Text = item.ToString() + '\n';
-
-                }
-                JerusalemNannyButton.IsEnabled = true;
-                NannyByTheGovButton.IsEnabled = true;
-            }
-
-
-        }
+      
 
         private void NeededChildsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -149,5 +100,111 @@ namespace WPF_UI
 
             }
         }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+    
+            ContractsDistanceAbove40.IsEnabled = false;
+            NeededChildsButton.IsEnabled = false;
+            SpecialChildsButton.IsEnabled = false;
+            NannyByTheGovButton.IsEnabled = false;
+            JerusalemNannyButton.IsEnabled = false;
+            JerusalemMothersButton.IsEnabled = false;
+            textBoxOutput.Text = "";
+            ComboBoxItem cbi = (ComboBoxItem)comboBox.SelectedItem;
+            string selectedText = cbi.Content.ToString();//this codes are actually help me to relate to the selected item as the current selected item
+            if ( selectedText=="childs")
+            {
+                foreach (var item in bl.GetAllChilds())
+                {
+                    textBoxOutput.Text = item.ToString() + '\n';
+
+                }
+                NeededChildsButton.IsEnabled = true;
+                SpecialChildsButton.IsEnabled = true;
+            }
+            if ((selectedText == "contracts"))
+            {
+                foreach (var item in bl.GetAllContracts())
+                {
+                    textBoxOutput.Text = item.ToString() + '\n';
+
+                }
+                ContractsDistanceAbove40.IsEnabled = true;
+            }
+            if ((selectedText == "mothers"))
+            {
+                foreach (var item in bl.GetAllMothers())
+                {
+                    textBoxOutput.Text = item.ToString() + '\n';
+
+                }
+                JerusalemMothersButton.IsEnabled = true;
+            }
+            if ((selectedText == "nannies"))
+            {
+                foreach (var item in bl.GetAllNannies())
+                {
+                    textBoxOutput.Text = item.ToString() + '\n';
+
+                }
+                JerusalemNannyButton.IsEnabled = true;
+                NannyByTheGovButton.IsEnabled = true;
+            }
+
+
+        }
+
+        private void comboBox_TextInput(object sender, TextCompositionEventArgs e)
+        {
+            ContractsDistanceAbove40.IsEnabled = false;
+            NeededChildsButton.IsEnabled = false;
+            SpecialChildsButton.IsEnabled = false;
+            NannyByTheGovButton.IsEnabled = false;
+            JerusalemNannyButton.IsEnabled = false;
+            JerusalemMothersButton.IsEnabled = false;
+            textBoxOutput.Text = "";
+            if ((comboBox.SelectedItem).ToString() == "childs" || comboBox.Text == "childs")
+            {
+                foreach (var item in bl.GetAllChilds())
+                {
+                    textBoxOutput.Text = item.ToString() + '\n';
+
+                }
+                NeededChildsButton.IsEnabled = true;
+                SpecialChildsButton.IsEnabled = true;
+            }
+            if ((comboBox.SelectedValue).ToString() == "contracts")
+            {
+                foreach (var item in bl.GetAllContracts())
+                {
+                    textBoxOutput.Text = item.ToString() + '\n';
+
+                }
+                ContractsDistanceAbove40.IsEnabled = true;
+            }
+            if ((comboBox.SelectedValue).ToString() == "mothers")
+            {
+                foreach (var item in bl.GetAllMothers())
+                {
+                    textBoxOutput.Text = item.ToString() + '\n';
+
+                }
+                JerusalemMothersButton.IsEnabled = true;
+            }
+            if ((comboBox.SelectedValue).ToString() == "nannies")
+            {
+                foreach (var item in bl.GetAllNannies())
+                {
+                    textBoxOutput.Text = item.ToString() + '\n';
+
+                }
+                JerusalemNannyButton.IsEnabled = true;
+                NannyByTheGovButton.IsEnabled = true;
+            }
+
+
+        }
     }
-}
+    }
+

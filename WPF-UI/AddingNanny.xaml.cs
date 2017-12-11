@@ -28,6 +28,7 @@ namespace WPF_UI
         {
             InitializeComponent();
             bl = new ourBL();
+            this.UpdateButton.IsEnabled = false;
         }
 
         private void NannyAdded_Click(object sender, RoutedEventArgs e)
@@ -95,8 +96,18 @@ namespace WPF_UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                if (ex.Message == "the Nanny you tried to add already exist!")
+                {
+                    this.UpdateButton.IsEnabled = true;
+                    this.IDtextBox.IsEnabled = false;
+                }
             }
 
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            bl.updateNanny(nanny);
         }
     }
 }

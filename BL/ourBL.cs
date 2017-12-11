@@ -32,7 +32,10 @@ namespace BL
             {
                 cont.distance = CalculateDistance(ch.mom.address, na.address);
                 cont.SalaryPerMonth = monthSalary(cont, ch, na);
+                cont.DateBegin = DateTime.Now;
+                cont.Meet = true;
                 dal.addContract(cont);
+
             }
         }
 
