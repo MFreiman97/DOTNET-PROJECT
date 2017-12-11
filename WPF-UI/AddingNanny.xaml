@@ -5,13 +5,126 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="AddingNanny" Height="400" Width="500">
+        Title="AddingNanny" Height="600" Width="500">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="22" Margin="78,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="22" Margin="78,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="22" Margin="78,79,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="22" Margin="78,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="textBox_Copy3" HorizontalAlignment="Left" Height="22" Margin="78,152,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="IDtextBox" HorizontalAlignment="Center" Height="22" Margin="50,10,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="fNametextBox" HorizontalAlignment="Center" Height="22" Margin="50,40,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="lNametextBox" HorizontalAlignment="Center" Height="22" Margin="50,70,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="BorntextBox"
+                 HorizontalAlignment="Center" Height="22" Margin="50,100,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="phoneNumbertextBox"
+                 HorizontalAlignment="Center"
+                 Height="22"
+                 Margin="50,130,78,0"
+                 TextWrapping="Wrap"
+                 Text="???"
+                 VerticalAlignment="Top"
+                 Width="100" />
+        <TextBox x:Name="CitytextBox"
+                 HorizontalAlignment="Center"
+                 Height="22"
+                 Margin="50,160,78,0"
+                 TextWrapping="Wrap"
+                 Text="???"
+                 VerticalAlignment="Top"
+                 Width="100" />
+        <TextBox x:Name="StreettextBox"
+                 HorizontalAlignment="Center"
+                 Height="22"
+                 Margin="50,190,78,0"
+                 TextWrapping="Wrap"
+                 Text="???"
+                 VerticalAlignment="Top"
+                 Width="100" />
+        <TextBox x:Name="FlattextBox"
+                 HorizontalAlignment="Center"
+                 Height="22"
+                 Margin="50,220,78,0"
+                 TextWrapping="Wrap"
+                 Text="???"
+                 VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="LifttextBox" HorizontalAlignment="Center" Height="22" Margin="50,250,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="FloortextBox" HorizontalAlignment="Center" Height="22" Margin="50,280,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="ExperienceextBox" HorizontalAlignment="Center" Height="22" Margin="50,310,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="MaxKidstextBox" HorizontalAlignment="Center" Height="22" Margin="50,340,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="MinAgetextBox" HorizontalAlignment="Center" Height="22" Margin="50,370,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="MaxAgetextBox" HorizontalAlignment="Center" Height="22" Margin="50,400,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="SalaryPerHourtextBox" HorizontalAlignment="Center" Height="22" Margin="50,430,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="HourSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="50,460,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="MonthSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="50,490,78,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
 
+        <Label x:Name="IDlabel"
+               Content="ID"
+               HorizontalAlignment="Left"
+               Margin="10,10,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="fNamelabel"
+               Content="First Name"
+               HorizontalAlignment="Left"
+               Margin="10,40,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="lNamelabel"
+               Content="Last Name"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="10,70,0,0" />
+        <Label x:Name="BornYearlabel"
+               Content="Born Year"
+               HorizontalAlignment="Left"
+               Margin="10,100,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="PhoneNumberlabel"
+               Content="Phone Number"
+               HorizontalAlignment="Left"
+               Margin="10,130,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="Citylabel"
+               Content="City"
+               HorizontalAlignment="Left"
+               Margin="10,160,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="Streetlabel"
+               Content="Street"
+               HorizontalAlignment="Left"
+               Margin="10,190,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="Flatlabel"
+               Content="Flat Number"
+               HorizontalAlignment="Left"
+               Margin="10,220,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="Liftlabel"
+               Content="Lift"
+               HorizontalAlignment="Left"
+               Margin="10,250,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="Floorlabel"
+               Content="Floor"
+               HorizontalAlignment="Left"
+               Margin="10,280,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="Experiencelabel"
+               Content="Experience"
+               HorizontalAlignment="Left"
+               Margin="10,310,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="MaxKidslabel"
+               Content="Max Kids"
+               HorizontalAlignment="Left"
+               Margin="10,340,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="MinAgelabel"
+               Content="Kid's Min Age"
+               HorizontalAlignment="Left"
+               Margin="10,370,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="MaxAgelabel"
+               Content="Kid's Max Age"
+               HorizontalAlignment="Left"
+               Margin="10,400,0,0"
+               VerticalAlignment="Top" />
+        <Label x:Name="SalaryPerHourlabel" Content="Salary Per Hour?" HorizontalAlignment="Left" Margin="10,430,0,0" VerticalAlignment="Top" />
+        <Label x:Name="HourSalarylabel" Content="Hour's Salary" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" />
+        <Label x:Name="MonthSalarylabel" Content="Month's Salary" HorizontalAlignment="Left" Margin="10,490,0,0" VerticalAlignment="Top" />
     </Grid>
 </Window>
