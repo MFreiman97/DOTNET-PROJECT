@@ -39,16 +39,7 @@
                  Text="???"
                  VerticalAlignment="Top" Width="100" />
         <CheckBox x:Name="LiftCheckBox" Content="CheckBox" HorizontalAlignment="Center" Height="15" Margin="100,250,0,0" VerticalAlignment="Top" Width="17" />
-        <ComboBox x:Name="FloorComboBox" SelectionChanged="FloortextBox_SelectionChanged" HorizontalAlignment="Center" Height="22" Margin="100,280,0,0" VerticalAlignment="Top" Width="100">
-            <ComboBoxItem Content="Zero" />
-            <ComboBoxItem Content="First" />
-            <ComboBoxItem Content="Second" />
-            <ComboBoxItem Content="Third" />
-            <ComboBoxItem Content="Fourth" />
-            <ComboBoxItem Content="Fifth" />
-            <ComboBoxItem Content="Sixth" />
-            <ComboBoxItem Content="Seventh" />
-        </ComboBox>
+        <ComboBox x:Name="FloorComboBox" SelectedItem="{Binding floor}" SelectionChanged="FloortextBox_SelectionChanged" HorizontalAlignment="Center" Height="22" Margin="296,280,196,0" VerticalAlignment="Top" Width="100" />
 
         <TextBox x:Name="ExperienceextBox" HorizontalAlignment="Center" Height="22" Margin="100,310,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
         <TextBox x:Name="MaxKidstextBox" HorizontalAlignment="Center" Height="22" Margin="100,340,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />

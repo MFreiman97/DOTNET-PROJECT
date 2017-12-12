@@ -28,7 +28,16 @@ namespace WPF_UI
         {
             InitializeComponent();
             bl = new ourBL();
+            this.DataContext = nanny;
             this.UpdateButton.IsEnabled = false;
+            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Zero" });
+            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "First" });
+            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Second" });
+            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Third" });
+            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Fourth" });
+            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Fifth" });
+            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Sixth" });
+            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Seventh" });
         }
 
         private void NannyAdded_Click(object sender, RoutedEventArgs e)
@@ -181,10 +190,14 @@ namespace WPF_UI
         private void FloortextBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender is ComboBox && ((ComboBox)sender).SelectedIndex > -1)
-            { 
-            string var;
-            var = FloorComboBox.Text;
-            MessageBox.Show(var);
+            {
+                ComboBox comboBox = (ComboBox)sender;
+                object si = comboBox.SelectedItem;
+                nanny.floor = (FLOORS)Enum.Parse(typeof(FLOORS), FloorComboBox.Text);
+                //        ComboBox comboBox = (ComboBox)sender;
+                //        //var = FloorComboBox.Text;
+                //      var  g = (FLOORS)Enum.Parse(typeof(FLOORS), (string)comboBox.SelectedItem);
+                //    MessageBox.Show(g);
             }
         }
 

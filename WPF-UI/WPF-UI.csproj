@@ -75,6 +75,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DeletingChild.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeletingContracts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeletingMother.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeletingNanny.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Linq.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,6 +117,18 @@
     </Compile>
     <Compile Include="Contracts.xaml.cs">
       <DependentUpon>Contracts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeletingChild.xaml.cs">
+      <DependentUpon>DeletingChild.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeletingContracts.xaml.cs">
+      <DependentUpon>DeletingContracts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeletingMother.xaml.cs">
+      <DependentUpon>DeletingMother.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeletingNanny.xaml.cs">
+      <DependentUpon>DeletingNanny.xaml</DependentUpon>
     </Compile>
     <Compile Include="Linq.xaml.cs">
       <DependentUpon>Linq.xaml</DependentUpon>

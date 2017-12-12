@@ -75,17 +75,20 @@ namespace WPF_UI
 
         private void DeleteNanny_Click(object sender, RoutedEventArgs e)
         {
-
+            var v = new DeletingNanny();
+            v.ShowDialog();
         }
 
         private void DeleteMother_Click(object sender, RoutedEventArgs e)
         {
-            new DeleteMom_Click.showDialog();
+            var v = new DeletingMother();
+            v.ShowDialog();
         }
 
         private void DeleteChild_Click(object sender, RoutedEventArgs e)
         {
-
+            var v = new DeletingChild();
+            v.ShowDialog();
         }
 
         private void DeleteContract_Click(object sender, RoutedEventArgs e)

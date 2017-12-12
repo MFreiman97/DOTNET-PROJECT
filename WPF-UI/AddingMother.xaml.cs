@@ -28,7 +28,6 @@ namespace WPF_UI
             InitializeComponent();
             this.UpdateButton.IsEnabled = false;
             bl = new ourBL();
-           
         }
 
         private void MotherAdded_Click(object sender, RoutedEventArgs e)

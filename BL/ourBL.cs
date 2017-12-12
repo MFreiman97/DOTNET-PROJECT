@@ -61,6 +61,8 @@ namespace BL
         // Delete Functions
         public void deleteChild(Child ch)
         {
+            if (ch == null)
+                throw new Exception("The Child U Tried To Delete Wasn't Exist!");
             if (dal.GetAllContracts(item => item.c.id == ch.id).Any())
                 throw new Exception("There R Contracts Related To This Child");
 
@@ -69,19 +71,24 @@ namespace BL
 
         public void deleteContract(Contract c)
         {
+            if (c == null)
+                throw new Exception("The Contract U Tried To Delete Wasn't Exist!");
             dal.deleteContract(c);
         }
 
         public void deleteMom(Mother m)
         {
+            if (m == null)
+                throw new Exception("The Mother U Tried To Delete Wasn't Exist!");
             if (dal.GetAllChildsByMother(m).Any())
                 throw new Exception("This Mother has Children");
-
             dal.deleteMom(m);
         }
 
         public void deleteNanny(Nanny n)
         {
+            if (n == null)
+                throw new Exception("the Nanny you tried to delete wasn't exist!");
             if (n.contracts > 0)
                 throw new Exception("There R Contracts Related To This Nanny");
 
