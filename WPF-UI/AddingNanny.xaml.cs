@@ -30,14 +30,7 @@ namespace WPF_UI
             bl = new ourBL();
             this.DataContext = nanny;
             this.UpdateButton.IsEnabled = false;
-            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Zero" });
-            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "First" });
-            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Second" });
-            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Third" });
-            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Fourth" });
-            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Fifth" });
-            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Sixth" });
-            FloorComboBox.Items.Add(new ComboBoxItem() { Content = "Seventh" });
+            this.FloorComboBox.ItemsSource = Enum.GetValues(typeof(BE.FLOORS));
         }
 
         private void NannyAdded_Click(object sender, RoutedEventArgs e)
@@ -46,9 +39,9 @@ namespace WPF_UI
             try
             {
                 nanny = new Nanny() { id = int.Parse(IDtextBox.Text), Fname = fNametextBox.Text, Name = lNametextBox.Text,
-                    Born = DateTime.Parse(BorntextBox.Text), cell = phoneNumbertextBox.Text, address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
+                  cell = phoneNumbertextBox.Text, address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
                     elevator = LiftCheckBox.IsChecked.GetValueOrDefault(),
-                    floor = (FLOORS)Enum.Parse(typeof(FLOORS), FloorComboBox.Text), experience = int.Parse(ExperienceextBox.Text),
+                  experience = int.Parse(ExperienceextBox.Text),
                     Maxkids = int.Parse(MaxKidstextBox.Text), MinAge = int.Parse(MinAgetextBox.Text), MaxAge = int.Parse(MaxAgetextBox.Text),
                     SalaryPerHour = SalaryPerHourCheckBox.IsChecked.GetValueOrDefault(), HourSalary = double.Parse(HourSalarytextBox.Text), MonthSalary = double.Parse(MonthSalarytextBox.Text),
                     HolidaysByTheGOV = HolidaysByGovCheckBox.IsChecked.GetValueOrDefault(), recom = RecommendationstextBox.Text};
@@ -97,7 +90,7 @@ namespace WPF_UI
                     nanny.schedule[0, 5] = int.Parse(start1.Text);
                     nanny.schedule[1, 5] = int.Parse(end1.Text);
                 }
-
+                this.DataContext = nanny;
 
                 bl.addNanny(nanny);
                 Close();
@@ -122,11 +115,11 @@ namespace WPF_UI
                 id = int.Parse(IDtextBox.Text),
                 Fname = fNametextBox.Text,
                 Name = lNametextBox.Text,
-                Born = DateTime.Parse(BorntextBox.Text),
+              
                 cell = phoneNumbertextBox.Text,
                 address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
                 elevator = LiftCheckBox.IsChecked.GetValueOrDefault(),
-                floor = (FLOORS)Enum.Parse(typeof(FLOORS),FloorComboBox.Text),
+               
                 experience = int.Parse(ExperienceextBox.Text),
                 Maxkids = int.Parse(MaxKidstextBox.Text),
                 MinAge = int.Parse(MinAgetextBox.Text),
@@ -183,31 +176,12 @@ namespace WPF_UI
                 nanny.schedule[1, 5] = int.Parse(end1.Text);
             }
 
-
+            this.DataContext = nanny;
             bl.updateNanny(nanny);
         }
 
-        private void FloortextBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (sender is ComboBox && ((ComboBox)sender).SelectedIndex > -1)
-            {
-                ComboBox comboBox = (ComboBox)sender;
-                object si = comboBox.SelectedItem;
-                nanny.floor = (FLOORS)Enum.Parse(typeof(FLOORS), FloorComboBox.Text);
-                //        ComboBox comboBox = (ComboBox)sender;
-                //        //var = FloorComboBox.Text;
-                //      var  g = (FLOORS)Enum.Parse(typeof(FLOORS), (string)comboBox.SelectedItem);
-                //    MessageBox.Show(g);
-            }
-        }
+       
 
-        private FLOORS GetSelectedFloor()
-        {
-            object result = FloorComboBox.SelectedValue;
-
-            if (result == null)
-                throw new Exception("Must Select Floor First");
-            return (FLOORS)result;
-        }
+        
     }
 }
