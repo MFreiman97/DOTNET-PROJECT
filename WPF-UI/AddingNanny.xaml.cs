@@ -39,7 +39,7 @@ namespace WPF_UI
                 nanny = new Nanny() { id = int.Parse(IDtextBox.Text), Fname = fNametextBox.Text, Name = lNametextBox.Text,
                     Born = DateTime.Parse(BorntextBox.Text), cell = phoneNumbertextBox.Text, address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
                     elevator = LiftCheckBox.IsChecked.GetValueOrDefault(),
-                    FloorComboBox.ItemsSource = Enum.GetValues(typeof(FLOORS)), experience = int.Parse(ExperienceextBox.Text),
+                    floor = (FLOORS)Enum.Parse(typeof(FLOORS), FloorComboBox.Text), experience = int.Parse(ExperienceextBox.Text),
                     Maxkids = int.Parse(MaxKidstextBox.Text), MinAge = int.Parse(MinAgetextBox.Text), MaxAge = int.Parse(MaxAgetextBox.Text),
                     SalaryPerHour = SalaryPerHourCheckBox.IsChecked.GetValueOrDefault(), HourSalary = double.Parse(HourSalarytextBox.Text), MonthSalary = double.Parse(MonthSalarytextBox.Text),
                     HolidaysByTheGOV = HolidaysByGovCheckBox.IsChecked.GetValueOrDefault(), recom = RecommendationstextBox.Text};
@@ -117,8 +117,7 @@ namespace WPF_UI
                 cell = phoneNumbertextBox.Text,
                 address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
                 elevator = LiftCheckBox.IsChecked.GetValueOrDefault(),
-                FloorComboBox.ItemsSource = Enum.GetValues(typeof(FLOORS)),
-           // floor = (FLOORS)Enum.Parse(typeof(FLOORS), FloortextBox.Text),
+                floor = (FLOORS)Enum.Parse(typeof(FLOORS),FloorComboBox.Text),
                 experience = int.Parse(ExperienceextBox.Text),
                 Maxkids = int.Parse(MaxKidstextBox.Text),
                 MinAge = int.Parse(MinAgetextBox.Text),
@@ -182,8 +181,11 @@ namespace WPF_UI
         private void FloortextBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender is ComboBox && ((ComboBox)sender).SelectedIndex > -1)
-                refreshDataGrid(GetSelectedFloor());
-
+            { 
+            string var;
+            var = FloorComboBox.Text;
+            MessageBox.Show(var);
+            }
         }
 
         private FLOORS GetSelectedFloor()
