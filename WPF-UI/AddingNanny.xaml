@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
         Title="AddingNanny" Height="850" Width="600">
-    <Grid Margin="0,4,0,-4">
+    <Grid Margin="0,1,0,1">
         <TextBox x:Name="IDtextBox" HorizontalAlignment="Center" Height="22" Margin="100,10,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="fNametextBox" HorizontalAlignment="Center" Height="22" Margin="100,40,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="lNametextBox" HorizontalAlignment="Center" Height="22" Margin="100,70,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100"/>
@@ -38,21 +38,30 @@
                  TextWrapping="Wrap"
                  Text="???"
                  VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="LifttextBox" HorizontalAlignment="Center" Height="22" Margin="100,250,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="FloortextBox" HorizontalAlignment="Center" Height="22" Margin="100,280,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <CheckBox x:Name="LiftCheckBox" Content="CheckBox" HorizontalAlignment="Center" Height="15" Margin="100,250,0,0" VerticalAlignment="Top" Width="17" />
+        <ComboBox x:Name="FloorComboBox" SelectionChanged="FloortextBox_SelectionChanged" HorizontalAlignment="Center" Height="22" Margin="100,280,0,0" VerticalAlignment="Top" Width="100">
+            <ComboBoxItem Content="Zero" />
+            <ComboBoxItem Content="First" />
+            <ComboBoxItem Content="Second" />
+            <ComboBoxItem Content="Third" />
+            <ComboBoxItem Content="Fourth" />
+            <ComboBoxItem Content="Fifth" />
+            <ComboBoxItem Content="Sixth" />
+            <ComboBoxItem Content="Seventh" />
+        </ComboBox>
+
         <TextBox x:Name="ExperienceextBox" HorizontalAlignment="Center" Height="22" Margin="100,310,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
         <TextBox x:Name="MaxKidstextBox" HorizontalAlignment="Center" Height="22" Margin="100,340,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
         <TextBox x:Name="MinAgetextBox" HorizontalAlignment="Center" Height="22" Margin="100,370,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
         <TextBox x:Name="MaxAgetextBox" HorizontalAlignment="Center" Height="22" Margin="100,400,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="SalaryPerHourtextBox" HorizontalAlignment="Center" Height="22" Margin="100,430,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <CheckBox x:Name="SalaryPerHourCheckBox" Content="CheckBox" HorizontalAlignment="Center" Height="15" Margin="100,430,0,0" VerticalAlignment="Top" Width="17" />
         <TextBox x:Name="HourSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="100,460,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
         <TextBox x:Name="MonthSalarytextBox" HorizontalAlignment="Center" Height="22" Margin="100,490,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="HolidaysByGovtextBox" HorizontalAlignment="Center" Height="22" Margin="100,660,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
+        <CheckBox x:Name="HolidaysByGovCheckBox" Content="CheckBox" HorizontalAlignment="Center" Height="15" Margin="100,660,0,0" VerticalAlignment="Top" Width="17" />
         <TextBox x:Name="RecommendationstextBox" HorizontalAlignment="Center" Height="22" Margin="100,690,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
-        <TextBox x:Name="ContractstextBox" HorizontalAlignment="Center" Height="22" Margin="100,720,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
 
 
-        <Label x:Name="IDlabel"
+            <Label x:Name="IDlabel"
                Content="ID"
                HorizontalAlignment="Left"
                Margin="10,10,0,0"
@@ -93,7 +102,7 @@
                Margin="10,220,0,0"
                VerticalAlignment="Top" />
         <Label x:Name="Liftlabel"
-               Content="Lift"
+               Content="Does She Have A Lift?"
                HorizontalAlignment="Left"
                Margin="10,250,0,0"
                VerticalAlignment="Top" />
@@ -127,7 +136,6 @@
         <Label x:Name="MonthSalarylabel" Content="Month's Salary" HorizontalAlignment="Left" Margin="10,490,0,0" VerticalAlignment="Top" />
         <Label x:Name="HolidaysByGovlabel" Content="Does Her Holidays Based On The Gov's Holidays?" HorizontalAlignment="Left" Margin="10,660,0,0" VerticalAlignment="Top" />
         <Label x:Name="Recommendationslabel" Content="Recommendations" HorizontalAlignment="Left" Margin="10,690,0,0" VerticalAlignment="Top" />
-        <Label x:Name="Contractslabel" Content="Amount Of Contracts" HorizontalAlignment="Left" Margin="10,720,0,0" VerticalAlignment="Top" />
 
 
 
@@ -148,8 +156,8 @@
         <CheckBox x:Name="monday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="160,625,0,0" VerticalAlignment="Top" Width="17" />
         <CheckBox x:Name="tuesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="253,625,0,0" VerticalAlignment="Top" Width="17" />
         <CheckBox x:Name="wednesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="335,625,0,0" VerticalAlignment="Top" Width="17" />
-        <CheckBox x:Name="thursday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="422,625,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" />
-        <CheckBox x:Name="friday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="519,625,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" />
+        <CheckBox x:Name="thursday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="422,625,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.5,0.5" />
+        <CheckBox x:Name="friday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="519,625,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.5,0.5" />
         <Button x:Name="NannyAdded" Content="Add The Nanny" HorizontalAlignment="Center" Margin="148,779,144,0" VerticalAlignment="Top" Width="300" Height="30" />
         <Button x:Name="UpdateButton" Content="Update Nanny" HorizontalAlignment="Left" Height="31" Margin="434,733,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click"/>
 

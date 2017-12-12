@@ -59,9 +59,12 @@ namespace BL
         }
 
         // Delete Functions
-        public void deleteChild(Child c)
+        public void deleteChild(Child ch)
         {
-            dal.deleteChild(c);
+            if (dal.GetAllContracts(item => item.c.id == ch.id).Any())
+                throw new Exception("There R Contracts Related To This Child");
+
+            dal.deleteChild(ch);
         }
 
         public void deleteContract(Contract c)
@@ -71,11 +74,17 @@ namespace BL
 
         public void deleteMom(Mother m)
         {
+            if (dal.GetAllChildsByMother(m).Any())
+                throw new Exception("This Mother has Children");
+
             dal.deleteMom(m);
         }
 
         public void deleteNanny(Nanny n)
         {
+            if (n.contracts > 0)
+                throw new Exception("There R Contracts Related To This Nanny");
+
             dal.deleteNanny(n);
         }
 
@@ -163,9 +172,9 @@ namespace BL
 
             // Change The Salary In Accordance 2 The Child's Amount && 2 The Contract Payment Type
             if (cont.ContType == ContractType.hourly)
-                cont.SalaryPerMonth = 4 * hoursAmountForWeek(na) * cont.SalaryPerHour * ((100 - count * 2) / 100);
+                cont.SalaryPerMonth = 4 * hoursAmountForWeek(na) * na.HourSalary * ((100 - count * 2) / 100);
             else
-                cont.SalaryPerMonth *= (100 - count * 2) / 100;
+                cont.SalaryPerMonth = na.MonthSalary * (100 - count * 2) / 100;
 
             return cont.SalaryPerMonth;
         }

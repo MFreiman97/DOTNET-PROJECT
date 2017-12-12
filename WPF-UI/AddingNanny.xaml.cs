@@ -38,10 +38,11 @@ namespace WPF_UI
             {
                 nanny = new Nanny() { id = int.Parse(IDtextBox.Text), Fname = fNametextBox.Text, Name = lNametextBox.Text,
                     Born = DateTime.Parse(BorntextBox.Text), cell = phoneNumbertextBox.Text, address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
-                    elevator = bool.Parse(LifttextBox.Text), floor = (FLOORS)Enum.Parse(typeof(FLOORS), FloortextBox.Text), experience = int.Parse(ExperienceextBox.Text),
+                    elevator = LiftCheckBox.IsChecked.GetValueOrDefault(),
+                    FloorComboBox.ItemsSource = Enum.GetValues(typeof(FLOORS)), experience = int.Parse(ExperienceextBox.Text),
                     Maxkids = int.Parse(MaxKidstextBox.Text), MinAge = int.Parse(MinAgetextBox.Text), MaxAge = int.Parse(MaxAgetextBox.Text),
-                    SalaryPerHour = bool.Parse(SalaryPerHourtextBox.Text), HourSalary = double.Parse(HourSalarytextBox.Text), MonthSalary = double.Parse(MonthSalarytextBox.Text),
-                    HolidaysByTheGOV = bool.Parse(HolidaysByGovtextBox.Text), recom = RecommendationstextBox.Text, contracts = int.Parse(ContractstextBox.Text) };
+                    SalaryPerHour = SalaryPerHourCheckBox.IsChecked.GetValueOrDefault(), HourSalary = double.Parse(HourSalarytextBox.Text), MonthSalary = double.Parse(MonthSalarytextBox.Text),
+                    HolidaysByTheGOV = HolidaysByGovCheckBox.IsChecked.GetValueOrDefault(), recom = RecommendationstextBox.Text};
 
                 // Indicating What Days The Nanny Works
                 nanny.DaysOfWork[0] = sunday.IsChecked.GetValueOrDefault();
@@ -115,18 +116,18 @@ namespace WPF_UI
                 Born = DateTime.Parse(BorntextBox.Text),
                 cell = phoneNumbertextBox.Text,
                 address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
-                elevator = bool.Parse(LifttextBox.Text),
-                floor = (FLOORS)Enum.Parse(typeof(FLOORS), FloortextBox.Text),
+                elevator = LiftCheckBox.IsChecked.GetValueOrDefault(),
+                FloorComboBox.ItemsSource = Enum.GetValues(typeof(FLOORS)),
+           // floor = (FLOORS)Enum.Parse(typeof(FLOORS), FloortextBox.Text),
                 experience = int.Parse(ExperienceextBox.Text),
                 Maxkids = int.Parse(MaxKidstextBox.Text),
                 MinAge = int.Parse(MinAgetextBox.Text),
                 MaxAge = int.Parse(MaxAgetextBox.Text),
-                SalaryPerHour = bool.Parse(SalaryPerHourtextBox.Text),
+                SalaryPerHour = SalaryPerHourCheckBox.IsChecked.GetValueOrDefault(),
                 HourSalary = double.Parse(HourSalarytextBox.Text),
                 MonthSalary = double.Parse(MonthSalarytextBox.Text),
-                HolidaysByTheGOV = bool.Parse(HolidaysByGovtextBox.Text),
+                HolidaysByTheGOV = HolidaysByGovCheckBox.IsChecked.GetValueOrDefault(),
                 recom = RecommendationstextBox.Text,
-                contracts = int.Parse(ContractstextBox.Text)
             };
 
             // Indicating What Days The Nanny Works
@@ -176,6 +177,22 @@ namespace WPF_UI
 
 
             bl.updateNanny(nanny);
+        }
+
+        private void FloortextBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ComboBox && ((ComboBox)sender).SelectedIndex > -1)
+                refreshDataGrid(GetSelectedFloor());
+
+        }
+
+        private FLOORS GetSelectedFloor()
+        {
+            object result = FloorComboBox.SelectedValue;
+
+            if (result == null)
+                throw new Exception("Must Select Floor First");
+            return (FLOORS)result;
         }
     }
 }

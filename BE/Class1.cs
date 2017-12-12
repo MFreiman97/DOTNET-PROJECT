@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public enum FLOORS { zero = 0, first, second, third, fourth, fifth, seventh };//i assume that the maximum floor is 7
+    public enum FLOORS { zero = 0, First, Second, Third, Fourth, Fifth, Sixth, Seventh };//i assume that the maximum floor is 7
     public enum ContractType { hourly, monthly };
 }
