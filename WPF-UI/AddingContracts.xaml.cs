@@ -30,6 +30,7 @@ namespace WPF_UI
             co = new BE.Contract();
             this.comboBoxChild.DisplayMemberPath = "name";
             this.comboBoxChild.SelectedValuePath = "id";
+
             this.DataContext = co;
             //this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
         }

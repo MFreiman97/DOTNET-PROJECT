@@ -2,8 +2,9 @@
     <Grid Margin="0,0,0,0">
         <Button x:Name="DeleteMom" Content="Delete Mother" FontSize="30" FontStyle="Italic" Foreground="Red" BorderBrush="Black" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top" Width="240" Click="DeleteMom_Click" Height="50">
         </Button>
-        <TextBox x:Name="IDtextBox" HorizontalAlignment="Center" BorderBrush="Blue" FontSize="30" Height="50" Margin="103,40,26,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="163" />
-        <Label x:Name="label" Content="ID:" FontSize="30" HorizontalAlignment="Left" Margin="26,40,0,0" VerticalAlignment="Top" Height="50" Width="57" />
+        
+        <Label x:Name="label" Content="choose mother" FontSize="30" HorizontalAlignment="Left" Margin="26,0,0,0" VerticalAlignment="Top" Height="50" Width="256" />
+        <ComboBox x:Name="MotherComboBox" HorizontalAlignment="Left" Height="45" Margin="50,55,0,0" VerticalAlignment="Top" Width="187"/>
 
     </Grid>
 </Window>

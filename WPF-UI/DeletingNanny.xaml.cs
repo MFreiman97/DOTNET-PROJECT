@@ -22,17 +22,23 @@ namespace WPF_UI
     public partial class DeletingNanny : Window
     {
         BL.ourBL bl;
+        BE.Nanny n;
         public DeletingNanny()
         {
             bl = new ourBL();
             InitializeComponent();
+
+            Nanny n = new Nanny();
+            this.comboBoxNanny.DisplayMemberPath = "name";
+            this.comboBoxNanny.SelectedValuePath = "id";
+            this.DataContext = n;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Nanny n = bl.GetNanny(int.Parse(IDtextBox.Text));              
+                Nanny n = bl.GetNanny(int.Parse(comboBoxNanny.SelectedValuePath));              
                 bl.deleteNanny(n);
             }
             catch (Exception ex)
