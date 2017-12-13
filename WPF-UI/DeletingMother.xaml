@@ -1,10 +1,10 @@
-﻿<Window x:Class="WPF_UI.DeletingMother" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:WPF_UI" xmlns:BE="clr-namespace:BE;assembly=BE" mc:Ignorable="d" Title="DeletingMother" Height="250" Width="300">
+﻿<Window x:Class="WPF_UI.DeletingMother" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:WPF_UI" xmlns:BE="clr-namespace:BE;assembly=BE" mc:Ignorable="d" Title="DeletingMother" Height="300" Width="400">
     <Grid Margin="0,0,0,0">
-        <Button x:Name="DeleteMom" Content="Delete Mother" FontSize="30" FontStyle="Italic" Foreground="Red" BorderBrush="Black" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top" Width="240" Click="DeleteMom_Click" Height="50">
+        <Button x:Name="DeleteMom" Content="Delete Mother" FontSize="30" FontStyle="Italic" Foreground="Red" BorderBrush="Black" HorizontalAlignment="Center" Margin="70,169,66,0" VerticalAlignment="Top" Width="256" Click="DeleteMom_Click" Height="50">
         </Button>
-        
-        <Label x:Name="label" Content="choose mother" FontSize="30" HorizontalAlignment="Left" Margin="26,0,0,0" VerticalAlignment="Top" Height="50" Width="256" />
-        <ComboBox x:Name="MotherComboBox" HorizontalAlignment="Left" Height="45" Margin="50,55,0,0" VerticalAlignment="Top" Width="187"/>
+
+        <Label x:Name="label" Content="choose mother" FontSize="30" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="50" Width="211" />
+        <ComboBox x:Name="MotherComboBox" HorizontalAlignment="Center" Height="45" Margin="90,82,90,0" VerticalAlignment="Top" Width="212" />
 
     </Grid>
 </Window>

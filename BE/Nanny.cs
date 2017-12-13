@@ -24,7 +24,7 @@ namespace BE
         public double HourSalary { get; set; }
         public double MonthSalary { get; set; }
         public bool[] DaysOfWork = new bool[6];
-        public int[,] schedule = new int[2, 6];
+        public DateTime[,] schedule = new DateTime[2, 6];
         public bool HolidaysByTheGOV { get; set; }
         public string recom;//recommendations
         public int contracts = 0;

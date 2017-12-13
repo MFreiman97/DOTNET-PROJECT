@@ -22,19 +22,28 @@ namespace WPF_UI
     public partial class DeletingContracts : Window
     {
         BL.ourBL bl;
+        BE.Contract co;
         public DeletingContracts()
         {
-            InitializeComponent();
             bl = new ourBL();
+            InitializeComponent();
+
+            Contract co = new Contract();
+            this.ContractComboBox.DisplayMemberPath = "Contnum";
+            this.ContractComboBox.SelectedValuePath = "Contnum";
+            this.DataContext = co;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                //Contract co = bl.GetAllContracts(c => c.contnum() == int.Parse(NumbertextBox.Text));
-                //bl.deleteChild(co);
+                foreach (var item in bl.GetAllContracts(co => co.contnum.Equals(int.Parse(ContractComboBox.SelectedValuePath))))
+                {
+                    bl.deleteChild(item.c);
+                }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

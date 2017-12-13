@@ -22,17 +22,23 @@ namespace WPF_UI
     public partial class DeletingChild : Window
     {
         BL.ourBL bl;
+        BE.Child ch;
         public DeletingChild()
         {          
             bl = new ourBL();
             InitializeComponent();
+
+            Child ch = new Child();
+            this.ChildComboBox.DisplayMemberPath = "name";
+            this.ChildComboBox.SelectedValuePath = "id";
+            this.DataContext = ch;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Child ch = bl.GetChild(int.Parse(IDtextBox.Text));
+                Child ch = bl.GetChild(int.Parse(ChildComboBox.SelectedValuePath));
                 bl.deleteChild(ch);
             }
             catch (Exception ex)

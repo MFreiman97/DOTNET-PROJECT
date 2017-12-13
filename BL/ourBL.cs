@@ -156,11 +156,11 @@ namespace BL
             return false;
         }
 
-        public int hoursAmountForWeek(Nanny na)
+        public TimeSpan hoursAmountForWeek(Nanny na)
         {
-            int sum = 0;
-            for (int i = 0; i < 6; i++)
-                sum += na.schedule[1, i] - na.schedule[0, i];
+            TimeSpan sum = na.schedule[1, 0].Subtract(na.schedule[0, 0]);
+            for (int i = 1; i < 6; i++)
+                 sum += na.schedule[1, i].Subtract(na.schedule[0, i]);
             return sum;
         }
 
@@ -179,7 +179,7 @@ namespace BL
 
             // Change The Salary In Accordance 2 The Child's Amount && 2 The Contract Payment Type
             if (cont.ContType == ContractType.hourly)
-                cont.SalaryPerMonth = 4 * hoursAmountForWeek(na) * na.HourSalary * ((100 - count * 2) / 100);
+                cont.SalaryPerMonth = 4 * hoursAmountForWeek(na).TotalHours * na.HourSalary * ((100 - count * 2) / 100);
             else
                 cont.SalaryPerMonth = na.MonthSalary * (100 - count * 2) / 100;
 

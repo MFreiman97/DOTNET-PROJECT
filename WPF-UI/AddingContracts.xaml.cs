@@ -36,7 +36,8 @@ namespace WPF_UI
         }
 
         private void AddTheContract_Click(object sender, RoutedEventArgs e)
-        {try
+        {
+            try
             {
                 co = new Contract()
                 {

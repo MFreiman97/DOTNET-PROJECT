@@ -18,9 +18,9 @@
         <Label x:Name="label_Copy4" Content="can you specify?" HorizontalAlignment="Left" Margin="10,286,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Button x:Name="ChildAdded" Content="Add this child to the rep" HorizontalAlignment="Left" Height="33" Margin="138,380,0,0" VerticalAlignment="Top" Width="211" Click="ChildAdded_Click"/>
         <DatePicker x:Name="ChildBornDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="201,165,0,0" SelectedDate="{Binding birth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-       
-        <ComboBox x:Name="comboBoxBool" HorizontalAlignment="Left" Height="26" Margin="201,228,0,0" VerticalAlignment="Top" Width="127"
-                   />
+
+        <ComboBox x:Name="comboBoxBool" HorizontalAlignment="Left" Height="26" Margin="201,228,0,0" VerticalAlignment="Top" Width="127" />
+
         <ComboBox x:Name="comboBoxMothers"  HorizontalAlignment="Left" Height="27" Margin="201,40,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="UpdateButton" Content="Update Child" HorizontalAlignment="Left" Height="31" Margin="322,333,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click"/>
 
