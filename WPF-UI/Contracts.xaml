@@ -12,7 +12,7 @@
     <Grid >
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="26" Margin="19,218,0,0" TextWrapping="Wrap" Text="which contract do you want to change:" VerticalAlignment="Top" Width="219"/>
         <Button x:Name="UpdateButton" Content="update" HorizontalAlignment="Left" Height="26" Margin="483,218,0,0" VerticalAlignment="Top" Width="127" IsEnabled="{Binding ElementName=UpdateComboBox ,Path=SelectedItem}" />
-        <TextBox x:Name="ContactsTextBox" HorizontalAlignment="Left" Height="163" Margin="40,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="570" TextChanged="textBox1_TextChanged" BorderThickness="2" BorderBrush="#FF8A8D95" Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" IsReadOnly="True"/>
+        <TextBox x:Name="ContactsTextBox" HorizontalAlignment="Left" Height="163" Margin="40,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="570"  BorderThickness="2" BorderBrush="#FF8A8D95" Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" IsReadOnly="True"/>
         <TextBox x:Name="ContractUpdatetextBox" HorizontalAlignment="Left" Height="26" Margin="293,218,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="146"/>
 
     </Grid>

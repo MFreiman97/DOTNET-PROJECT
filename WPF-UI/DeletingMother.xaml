@@ -4,7 +4,7 @@
         </Button>
 
         <Label x:Name="label" Content="choose mother" FontSize="30" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="50" Width="211" />
-        <ComboBox x:Name="MotherComboBox" HorizontalAlignment="Center" Height="45" Margin="70,82,66,0" VerticalAlignment="Top" Width="256" SelectionChanged="MotherComboBox_SelectionChanged" />
+        <ComboBox x:Name="MotherComboBox" HorizontalAlignment="Center" Height="45" Margin="70,82,66,0" VerticalAlignment="Top" Width="256"  />
 
     </Grid>
 </Window>
