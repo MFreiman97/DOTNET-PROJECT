@@ -3,7 +3,7 @@
 
         <Label x:Name="label" Content="Choose Contract" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" Height="50" Width="233" />
         <Button x:Name="button" Content="Delete Contracts" FontSize="30" FontStyle="Italic" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Top" Width="248" Margin="0,170,0,0" Click="button_Click" BorderBrush="#FF0A0909" />
-        <ComboBox x:Name="ContractComboBox" HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" Width="232" Height="50" SelectionChanged="ContractcomboBox_SelectionChanged" />
+        <ComboBox x:Name="ContractComboBox" HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" Width="232" Height="50"  />
 
     </Grid>
 </Window>

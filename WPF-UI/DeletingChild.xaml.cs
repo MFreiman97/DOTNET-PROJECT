@@ -29,16 +29,17 @@ namespace WPF_UI
             InitializeComponent();
 
             Child ch = new Child();
-            this.ChildComboBox.DisplayMemberPath = "name";
-            this.ChildComboBox.SelectedValuePath = "id";
-            this.DataContext = ch;
+            foreach (var item in bl.GetAllChilds())
+            {
+                ChildComboBox.Items.Add(new ComboBoxItem() { Content = item.id });
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Child ch = bl.GetChild(int.Parse(ChildComboBox.SelectedValuePath));
+                Child ch = bl.GetChild(int.Parse(ChildComboBox.Text));
                 bl.deleteChild(ch);
             }
             catch (Exception ex)

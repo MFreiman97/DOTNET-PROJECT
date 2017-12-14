@@ -29,16 +29,19 @@ namespace WPF_UI
             InitializeComponent();
 
             Nanny n = new Nanny();
-            this.comboBoxNanny.DisplayMemberPath = "name";
-            this.comboBoxNanny.SelectedValuePath = "id";
-            this.DataContext = n;
+            foreach (var item in bl.GetAllNannies())
+            {
+
+              comboBoxNanny.Items.Add(new ComboBoxItem() { Content = item.id });
+
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Nanny n = bl.GetNanny(int.Parse(comboBoxNanny.SelectedValuePath));              
+                Nanny n = bl.GetNanny(int.Parse(comboBoxNanny.Text));              
                 bl.deleteNanny(n);
             }
             catch (Exception ex)

@@ -19,6 +19,7 @@ namespace BL
             dal = new DAL.Dal_imp();
 
         }
+        #region adding functions
         public void addChild(Child ch)
         {
             dal.addChild(ch);
@@ -57,8 +58,8 @@ namespace BL
             if (check <= 0)
                 dal.addNanny(n);
         }
-
-        // Delete Functions
+        #endregion
+        #region delete functions
         public void deleteChild(Child ch)
         {
             if (ch == null)
@@ -94,8 +95,8 @@ namespace BL
 
             dal.deleteNanny(n);
         }
-
-        // Update Functions
+        #endregion
+        #region Update functions
         public void updateChild(Child c)
         {
 
@@ -134,13 +135,19 @@ namespace BL
                 dal.updateNanny(n);
         }
 
+
+        #endregion
+
+
+
+
+
         public bool nannyContracts(Nanny na)
         {
             if (na.contracts >= na.Maxkids)
                 return false;
             return true;
         }
-
         public bool childAge(Child ch)
         {
             DateTime t = DateTime.Today; // Today's Date
@@ -155,15 +162,13 @@ namespace BL
                 return true;
             return false;
         }
-
         public TimeSpan hoursAmountForWeek(Nanny na)
         {
             TimeSpan sum = na.schedule[1, 0].Subtract(na.schedule[0, 0]);
             for (int i = 1; i < 6; i++)
                  sum += na.schedule[1, i].Subtract(na.schedule[0, i]);
-            return sum;
+            return (sum);
         }
-
         public double monthSalary(Contract cont, Child ch, Nanny na)
         {
             int count = -1; // Count The Brothers

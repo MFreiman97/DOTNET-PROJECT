@@ -29,18 +29,22 @@ namespace WPF_UI
             InitializeComponent();
 
             Contract co = new Contract();
-            this.ContractComboBox.DisplayMemberPath = "Contnum";
-            this.ContractComboBox.SelectedValuePath = "Contnum";
-            this.DataContext = co;
+         foreach(var item in bl.GetAllContracts())
+            {
+
+                ContractComboBox.Items.Add(new ComboBoxItem() { Content = item.contnum });
+
+            }
+           
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                foreach (var item in bl.GetAllContracts(co => co.contnum.Equals(int.Parse(ContractComboBox.SelectedValuePath))))
+                foreach (var item in bl.GetAllContracts(co => co.contnum==int.Parse(ContractComboBox.Text)))
                 {
-                    bl.deleteChild(item.c);
+                    bl.deleteContract(item);
                 }
             }
 

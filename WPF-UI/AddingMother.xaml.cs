@@ -46,34 +46,34 @@ namespace WPF_UI
                 
                     if(mother.needNanny[0]==true)
                     {
-                        mother.timeWork[0, 0] = int.Parse(start1.Text);
-                        mother.timeWork[1, 0] = int.Parse(end1.Text);
+                        mother.timeWork[0, 0] = DateTime.Parse(start1.Text);
+                        mother.timeWork[1, 0] = DateTime.Parse(end1.Text);
                     }
 
                 if (mother.needNanny[1] == true)
                 {
-                    mother.timeWork[0,1] = int.Parse(start2.Text);
-                    mother.timeWork[1, 1] = int.Parse(end2.Text);
+                    mother.timeWork[0,1] = DateTime.Parse(start2.Text);
+                    mother.timeWork[1, 1] = DateTime.Parse(end2.Text);
                 }
                 if (mother.needNanny[2] == true)
                 {
-                    mother.timeWork[0, 2] = int.Parse(start3.Text);
-                    mother.timeWork[1, 2] = int.Parse(end3.Text);
+                    mother.timeWork[0, 2] = DateTime.Parse(start3.Text);
+                    mother.timeWork[1, 2] = DateTime.Parse(end3.Text);
                 }
                 if (mother.needNanny[3] == true)
                 {
-                    mother.timeWork[0, 3] = int.Parse(start4.Text);
-                    mother.timeWork[1, 3] = int.Parse(end4.Text);
+                    mother.timeWork[0, 3] = DateTime.Parse(start4.Text);
+                    mother.timeWork[1, 3] = DateTime.Parse(end4.Text);
                 }
                 if (mother.needNanny[4] == true)
                 {
-                    mother.timeWork[0, 4] = int.Parse(start5.Text);
-                    mother.timeWork[1, 4] = int.Parse(end5.Text);
+                    mother.timeWork[0, 4] = DateTime.Parse(start5.Text);
+                    mother.timeWork[1, 4] = DateTime.Parse(end5.Text);
                 }
                 if (mother.needNanny[5] == true)
                 {
-                    mother.timeWork[0, 5] = int.Parse(start6.Text);
-                    mother.timeWork[1, 5] = int.Parse(end6.Text);
+                    mother.timeWork[0, 5] = DateTime.Parse(start6.Text);
+                    mother.timeWork[1, 5] = DateTime.Parse(end6.Text);
                 }
 
 
@@ -115,38 +115,34 @@ namespace WPF_UI
             mother.needNanny[3] = wednesday.IsChecked.GetValueOrDefault();
             mother.needNanny[4] = thursday.IsChecked.GetValueOrDefault();
             mother.needNanny[5] = friday.IsChecked.GetValueOrDefault();
-
-            if (mother.needNanny[0] == true)
-            {
-                mother.timeWork[0, 0] = int.Parse(start1.Text);
-                mother.timeWork[1, 0] = int.Parse(end1.Text);
-            }
-
             if (mother.needNanny[1] == true)
             {
-                mother.timeWork[0, 1] = int.Parse(start2.Text);
-                mother.timeWork[1, 1] = int.Parse(end2.Text);
+                mother.timeWork[0, 1] = DateTime.Parse(start2.Text);
+                mother.timeWork[1, 1] = DateTime.Parse(end2.Text);
             }
             if (mother.needNanny[2] == true)
             {
-                mother.timeWork[0, 2] = int.Parse(start3.Text);
-                mother.timeWork[1, 2] = int.Parse(end3.Text);
+                mother.timeWork[0, 2] = DateTime.Parse(start3.Text);
+                mother.timeWork[1, 2] = DateTime.Parse(end3.Text);
             }
             if (mother.needNanny[3] == true)
             {
-                mother.timeWork[0, 3] = int.Parse(start4.Text);
-                mother.timeWork[1, 3] = int.Parse(end4.Text);
+                mother.timeWork[0, 3] = DateTime.Parse(start4.Text);
+                mother.timeWork[1, 3] = DateTime.Parse(end4.Text);
             }
             if (mother.needNanny[4] == true)
             {
-                mother.timeWork[0, 4] = int.Parse(start5.Text);
-                mother.timeWork[1, 4] = int.Parse(end5.Text);
+                mother.timeWork[0, 4] = DateTime.Parse(start5.Text);
+                mother.timeWork[1, 4] = DateTime.Parse(end5.Text);
             }
             if (mother.needNanny[5] == true)
             {
-                mother.timeWork[0, 5] = int.Parse(start6.Text);
-                mother.timeWork[1, 5] = int.Parse(end6.Text);
+                mother.timeWork[0, 5] = DateTime.Parse(start6.Text);
+                mother.timeWork[1, 5] = DateTime.Parse(end6.Text);
             }
+
+
+
 
 
             bl.updateMom(mother);

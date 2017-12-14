@@ -16,7 +16,7 @@ namespace BE
         public string address { get; set; }
         public int nannyArea { get; set; }
         public bool[] needNanny = new bool[6];
-        public int[,] timeWork = new int[2, 6];
+        public DateTime[,] timeWork = new DateTime[2, 6];
         public string note { get; set; }
 
         public override string ToString()

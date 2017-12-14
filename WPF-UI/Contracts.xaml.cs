@@ -25,19 +25,21 @@ namespace WPF_UI
 
             InitializeComponent();
             bl = new ourBL();
-            this.DataContext = bl.GetAllContracts();
-            this.UpdateComboBox.ItemsSource = bl.GetAllContracts();
-            this.UpdateComboBox.DisplayMemberPath = "ToString()";
-            this.UpdateComboBox.SelectedValuePath = "contnum";
-
+            ContactsTextBox.Text = "";
+          foreach (var item in bl.GetAllContracts())
+            {
+                ContactsTextBox.Text = item.ToString()+'\n';
+            }
 
 
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)//i need to think about it!
-        {
-      //      object result = this.UpdateComboBox.SelectedValue;
+        {//i will implement a function that open a window of updating a contract
+   ////////// var v=int.Parse(ContractUpdatetextBox.Text)
             
         }
+
+      
     }
 }

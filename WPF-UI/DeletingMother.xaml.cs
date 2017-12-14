@@ -28,16 +28,19 @@ namespace WPF_UI
             InitializeComponent();
             mo = new Mother();
             bl = new ourBL();
-            this.MotherComboBox.DisplayMemberPath = "fname";
-            this.MotherComboBox.SelectedValuePath = "id";
-            this.DataContext = mo;
+         
+            foreach (var item in bl.GetAllMothers())
+            {
+              MotherComboBox.Items.Add(new ComboBoxItem() { Content = item.id });
+            }
+
         }
 
         private void DeleteMom_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Mother m = bl.GetMother(int.Parse(MotherComboBox.SelectedValuePath));
+                Mother m = bl.GetMother(int.Parse(MotherComboBox.Text));
                 bl.deleteMom(m);
             }
             catch (Exception ex)
@@ -46,5 +49,6 @@ namespace WPF_UI
             }
 
         }
+
     }
 }
