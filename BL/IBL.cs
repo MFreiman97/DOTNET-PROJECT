@@ -45,6 +45,7 @@ namespace BL
          IEnumerable<Child> NeedNanny();
         IEnumerable<Child> GetAllChilds();
         IEnumerable<Child> GetSpecialChilds();
+        IEnumerable<Nanny> GetAllMatchedNannies(Mother m, bool salary);
         IEnumerable<Nanny> GetAllNanniesByTerm(Mother m);
         IEnumerable<Nanny> GetAllNannies();
         IEnumerable<Nanny> TheBestFive(Mother m);//get a term that the mother can conpromise on and return the best 5

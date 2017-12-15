@@ -9,9 +9,9 @@ namespace BE
  public   class Nanny:IComparable
     {
         public int id { get; set; }
-        private string fname { get; set; }
-        private string name { get; set; }
-        private DateTime born;
+        public string fname { get; set; }
+        public string name { get; set; }
+        public DateTime born { get; set; }
         public string cell { get; set; }
         public string address { get; set; }
         public bool elevator { get; set; }
@@ -27,7 +27,7 @@ namespace BE
         public DateTime[,] schedule = new DateTime[2, 6];
         public bool HolidaysByTheGOV { get; set; }
         public string recom;//recommendations
-        public int contracts = 0;
+        public  int contracts = 0;
 
         public int Contracts
         {
@@ -42,48 +42,13 @@ namespace BE
             }
         }
 
-        public string Fname
-        {
-            get
-            {
-                return fname;
-            }
+      
 
-            set
-            {
-                fname = value;
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-
-            set
-            {
-                name = value;
-            }
-        }
-
-        public DateTime Born
-        {
-            get
-            {
-                return born;
-            }
-
-            set
-            {
-                born = value;
-            }
-        }
+       
 
         public override string ToString()
         {
-            return Name + " " + Fname;
+            return name + " " + fname;
         }
 
         public int CompareTo(object obj)

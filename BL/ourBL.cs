@@ -47,8 +47,10 @@ namespace BL
 
         public void addNanny(Nanny n)
         {
+
+         
             DateTime t = DateTime.Today; // Today's Date
-            DateTime y = n.Born.AddYears(18); // Add 18 Years 2 The Nanny's Date Of Birth (4 The Comparing)
+            DateTime y = n.born.AddYears(18); // Add 18 Years 2 The Nanny's Date Of Birth (4 The Comparing)
             int check = y.CompareTo(t);
             /* Compares:
              *  Case Check < 0 => Nanny Is More Than 18 Years
@@ -57,6 +59,7 @@ namespace BL
             */
             if (check <= 0)
                 dal.addNanny(n);
+           
         }
         #endregion
         #region delete functions
@@ -124,7 +127,7 @@ namespace BL
         public void updateNanny(Nanny n)
         {
             DateTime t = DateTime.Today; // Today's Date
-            DateTime y = n.Born.AddYears(18); // Add 18 Years 2 The Nanny's Date Of Birth (4 The Comparing)
+            DateTime y = n.born.AddYears(18); // Add 18 Years 2 The Nanny's Date Of Birth (4 The Comparing)
             int check = y.CompareTo(t);
             /* Compares:
              *  Case Check < 0 => Nanny Is More Than 18 Years

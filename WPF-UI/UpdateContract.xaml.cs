@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BL;
+using BE;
 
 namespace WPF_UI
 {
@@ -19,9 +21,21 @@ namespace WPF_UI
     /// </summary>
     public partial class UpdateContract : Window
     {
-        public UpdateContract()
+        BL.ourBL bl;
+        Contract temp;
+        public UpdateContract(Contract co)
         {
+           
             InitializeComponent();
+             bl = new ourBL();
+            temp = new Contract();
+            ContractTextBox.Text =""+ co.contnum;
+            this.DataContext = temp;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            bl.updateContract(temp);
         }
     }
 }

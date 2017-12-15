@@ -21,8 +21,8 @@ namespace WPF_UI
     /// </summary>
     public partial class AddingNanny : Window
     {
-        ourBL bl;
-        Nanny nanny;
+        BL.ourBL bl;
+       BE.Nanny nanny;
 
         public AddingNanny()
         {
@@ -38,15 +38,18 @@ namespace WPF_UI
 
             try
             {
-                nanny = new Nanny() { id = int.Parse(IDtextBox.Text), Fname = fNametextBox.Text, Name = lNametextBox.Text,
+                nanny = new Nanny() { id = int.Parse(IDtextBox.Text), fname = fNametextBox.Text, name = lNametextBox.Text,
                   cell = phoneNumbertextBox.Text, address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
                     elevator = LiftCheckBox.IsChecked.GetValueOrDefault(),
-                    //floor = (FLOORS)Enum.Parse(typeof(BE.FLOORS), FloorComboBox.Text),
                   experience = int.Parse(ExperienceextBox.Text),
                     Maxkids = int.Parse(MaxKidstextBox.Text), MinAge = int.Parse(MinAgetextBox.Text), MaxAge = int.Parse(MaxAgetextBox.Text),
-                    SalaryPerHour = SalaryPerHourCheckBox.IsChecked.GetValueOrDefault(), HourSalary = double.Parse(HourSalarytextBox.Text), MonthSalary = double.Parse(MonthSalarytextBox.Text),
+                    SalaryPerHour = SalaryPerHourCheckBox.IsChecked.GetValueOrDefault(), 
                     HolidaysByTheGOV = HolidaysByGovCheckBox.IsChecked.GetValueOrDefault(), recom = RecommendationstextBox.Text};
 
+                if (SalaryPerHourCheckBox.IsChecked == true)
+                    nanny.HourSalary = double.Parse(HourSalarytextBox.Text);
+                else
+                    nanny.MonthSalary = double.Parse(MonthSalarytextBox.Text);
                 // Indicating What Days The Nanny Works
                 nanny.DaysOfWork[0] = sunday.IsChecked.GetValueOrDefault();
                 nanny.DaysOfWork[1] = monday.IsChecked.GetValueOrDefault();
@@ -64,37 +67,37 @@ namespace WPF_UI
                 // Monday
                 if (nanny.DaysOfWork[1] == true)
                 {
-                    nanny.schedule[0, 1] = DateTime.Parse(start1.Text);
-                    nanny.schedule[1, 1] = DateTime.Parse(end1.Text);
+                    nanny.schedule[0, 1] = DateTime.Parse(start2.Text);
+                    nanny.schedule[1, 1] = DateTime.Parse(end2.Text);
                 }
                 // Teusday
                 if (nanny.DaysOfWork[2] == true)
                 {
-                    nanny.schedule[0, 2] = DateTime.Parse(start1.Text);
-                    nanny.schedule[1, 2] = DateTime.Parse(end1.Text);
+                    nanny.schedule[0, 2] = DateTime.Parse(start3.Text);
+                    nanny.schedule[1, 2] = DateTime.Parse(end3.Text);
                 }
                 // Wednesday
                 if (nanny.DaysOfWork[3] == true)
                 {
-                    nanny.schedule[0, 3] = DateTime.Parse(start1.Text);
-                    nanny.schedule[1, 3] = DateTime.Parse(end1.Text);
+                    nanny.schedule[0, 3] = DateTime.Parse(start4.Text);
+                    nanny.schedule[1, 3] = DateTime.Parse(end4.Text);
                 }
                 // Thursday
                 if (nanny.DaysOfWork[4] == true)
                 {
-                    nanny.schedule[0, 4] = DateTime.Parse(start1.Text);
-                    nanny.schedule[1, 4] = DateTime.Parse(end1.Text);
+                    nanny.schedule[0, 4] = DateTime.Parse(start5.Text);
+                    nanny.schedule[1, 4] = DateTime.Parse(end5.Text);
                 }
                 // Friday
                 if (nanny.DaysOfWork[5] == true)
                 {
-                    nanny.schedule[0, 5] = DateTime.Parse(start1.Text);
-                    nanny.schedule[1, 5] = DateTime.Parse(end1.Text);
+                    nanny.schedule[0, 5] = DateTime.Parse(start6.Text);
+                    nanny.schedule[1, 5] = DateTime.Parse(end6.Text);
                 }
+                
                 this.DataContext = nanny;
-
                 bl.addNanny(nanny);
-                Close();
+               this. Close();
            }
 
             catch (Exception ex)
@@ -114,8 +117,8 @@ namespace WPF_UI
             nanny = new Nanny()
             {
                 id = int.Parse(IDtextBox.Text),
-                Fname = fNametextBox.Text,
-                Name = lNametextBox.Text,
+                fname = fNametextBox.Text,
+                name = lNametextBox.Text,
               
                 cell = phoneNumbertextBox.Text,
                 address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
@@ -149,37 +152,38 @@ namespace WPF_UI
             // Monday
             if (nanny.DaysOfWork[1] == true)
             {
-                nanny.schedule[0, 1] = DateTime.Parse(start1.Text);
-                nanny.schedule[1, 1] = DateTime.Parse(end1.Text);
+                nanny.schedule[0, 1] = DateTime.Parse(start2.Text);
+                nanny.schedule[1, 1] = DateTime.Parse(end2.Text);
             }
             // Teusday
             if (nanny.DaysOfWork[2] == true)
             {
-                nanny.schedule[0, 2] = DateTime.Parse(start1.Text);
-                nanny.schedule[1, 2] = DateTime.Parse(end1.Text);
+                nanny.schedule[0, 2] = DateTime.Parse(start3.Text);
+                nanny.schedule[1, 2] = DateTime.Parse(end3.Text);
             }
             // Wednesday
             if (nanny.DaysOfWork[3] == true)
             {
-                nanny.schedule[0, 3] = DateTime.Parse(start1.Text);
-                nanny.schedule[1, 3] = DateTime.Parse(end1.Text);
+                nanny.schedule[0, 3] = DateTime.Parse(start4.Text);
+                nanny.schedule[1, 3] = DateTime.Parse(end4.Text);
             }
             // Thursday
             if (nanny.DaysOfWork[4] == true)
             {
-                nanny.schedule[0, 4] = DateTime.Parse(start1.Text);
-                nanny.schedule[1, 4] = DateTime.Parse(end1.Text);
+                nanny.schedule[0, 4] = DateTime.Parse(start5.Text);
+                nanny.schedule[1, 4] = DateTime.Parse(end5.Text);
             }
             // Friday
             if (nanny.DaysOfWork[5] == true)
             {
-                nanny.schedule[0, 5] = DateTime.Parse(start1.Text);
-                nanny.schedule[1, 5] = DateTime.Parse(end1.Text);
+                nanny.schedule[0, 5] = DateTime.Parse(start6.Text);
+                nanny.schedule[1, 5] = DateTime.Parse(end6.Text);
             }
 
             this.DataContext = nanny;
             bl.updateNanny(nanny);
         }
 
+       
     }
 }

@@ -27,12 +27,17 @@ namespace WPF_UI
         {
             InitializeComponent();
             bl = new ourBL();
-            co = new BE.Contract();
-            this.comboBoxChild.DisplayMemberPath = "name";
-            this.comboBoxChild.SelectedValuePath = "id";
+           
+            //this.comboBoxChild.ItemsSource = bl.GetAllChilds();
+            //this.comboBoxChild.DisplayMemberPath = "name";
+            //this.comboBoxChild.SelectedValuePath = "id";
+            foreach (var item in bl.GetAllChilds())
+            {
+                comboBoxChild.Items.Add(new ComboBoxItem() { Content = item.id });
+            }
 
-            this.DataContext = co;
-            //this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
+           
+            this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
         }
 
         private void AddTheContract_Click(object sender, RoutedEventArgs e)
@@ -42,9 +47,9 @@ namespace WPF_UI
                 co = new Contract()
                 {
                     n = bl.GetNanny(int.Parse(NannyChosedTextBox.Text)),
-                    c = bl.GetChild(int.Parse(comboBoxChild.SelectedValuePath)),
+                    c = bl.GetChild(int.Parse(comboBoxChild.Text))
                 };
-                
+                 this.DataContext = co;
                
                 bl.addContract(co);
             }
@@ -62,7 +67,7 @@ namespace WPF_UI
         {
             ComboBoxItem cbi = (ComboBoxItem)comboBoxChild.SelectedItem;
             string selectedText = cbi.Content.ToString();
-            Child SelChi = bl.GetChild(int.Parse(comboBoxChild.SelectedValuePath));
+            Child SelChi = bl.GetChild(int.Parse(comboBoxChild.Text));
             MatchedNanniesTextBox.Text = "";//if the user changed the child
             foreach (var item in bl.GetAllNanniesByTerm(SelChi.mom))
             {
@@ -78,6 +83,36 @@ namespace WPF_UI
 
                 }
             }
+        }
+
+        private void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //ComboBoxItem cbi = (ComboBoxItem)TypecomboBox.sel;
+            string selectedText = TypecomboBox.Text;
+            MatchedNanniesTextBox.Text = "";
+            if (selectedText=="hourly")
+            {
+
+              foreach(var item in   bl.GetAllMatchedNannies(co.c.mom, true))
+                {
+                    MatchedNanniesTextBox.Text = item.ToString() + '\n';
+
+                }
+
+
+            }
+            if (selectedText == "monthly")
+            {
+
+                foreach (var item in bl.GetAllMatchedNannies(co.c.mom, false))
+                {
+                    MatchedNanniesTextBox.Text = item.ToString() + '\n';
+
+                }
+
+
+            }
+
         }
     }
 }

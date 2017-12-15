@@ -185,5 +185,14 @@ namespace BL//MATANYA FUNCTIONS
         {
             return dal.GetAllNannies(m => m.address.Substring(0, 9) == "Jerusalem");
         }
+
+        public IEnumerable<Nanny> GetAllMatchedNannies(Mother m, bool salary)
+        {
+            var term1 = GetAllNanniesByTerm(m);
+            var term2 = dal.GetAllNannies(n => n.SalaryPerHour == salary);
+            var result= from item1 in term1 from item2 in term2
+                        where (item1 == item2) select item1;
+            return result;
+        }
     }
 }

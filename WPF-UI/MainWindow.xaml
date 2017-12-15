@@ -10,9 +10,9 @@
         <Button x:Name="AddNanny" Content="Add Nanny" HorizontalAlignment="Left" Height="38" Margin="28,35,0,0" VerticalAlignment="Top" Width="119" Click="AddNanny_Click"/>
         <Button x:Name="AddMother" Content="Add Mother" HorizontalAlignment="Left" Height="38" Margin="28,93,0,0" VerticalAlignment="Top" Width="119" Click="AddMother_Click"/>
         <Button x:Name="AddChild" Content="Add Child" HorizontalAlignment="Left" Height="38" Margin="28,159,0,0" VerticalAlignment="Top" Width="119" Click="AddChild_Click"/>
-        <Button x:Name="AddContract" Content="Add contract" HorizontalAlignment="Left" Height="38" Margin="28,225,0,0" VerticalAlignment="Top" Width="119" Click="Contracts_Click"/>
+        <Button x:Name="AddContract" Content="Add contract" HorizontalAlignment="Left" Height="38" Margin="28,225,0,0" VerticalAlignment="Top" Width="119" Click="Adding_Contracts_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="455,10,0,0" TextWrapping="Wrap" Text="בס''ד" VerticalAlignment="Top" Width="37"/>
-        <Button x:Name="Contracts" Content="To All Contracts" HorizontalAlignment="Left" Height="43" Margin="173,124,0,0" VerticalAlignment="Top" Width="127" Click="Contracts_Click_1"/>
+        <Button x:Name="Contracts" Content="To All Contracts" HorizontalAlignment="Left" Height="43" Margin="173,124,0,0" VerticalAlignment="Top" Width="127" Click="All_Contracts_Click_1"/>
         <Button x:Name="LinqButton" Content="linq" HorizontalAlignment="Left" Height="39" Margin="173,200,0,0" VerticalAlignment="Top" Width="127" Click="LinqButton_Click"/>
         <Button x:Name="DeleteNanny" Content="Delete Nanny" HorizontalAlignment="Left" Height="38" Margin="319,35,0,0" VerticalAlignment="Top" Width="119" Click="DeleteNanny_Click" />
         <Button x:Name="DeleteMother" Content="Delete Mother" HorizontalAlignment="Left" Height="38" Margin="319,93,0,0" VerticalAlignment="Top" Width="119" Click="DeleteMother_Click" />

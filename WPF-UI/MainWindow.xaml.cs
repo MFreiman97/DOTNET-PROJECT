@@ -52,7 +52,7 @@ namespace WPF_UI
             v.ShowDialog();
         }
 
-        private void Contracts_Click(object sender, RoutedEventArgs e)// add contract button
+        private void Adding_Contracts_Click(object sender, RoutedEventArgs e)// add contract button
         {
         
             var v = new AddingContracts();
@@ -60,7 +60,7 @@ namespace WPF_UI
             v.ShowDialog();
         }
 
-        private void Contracts_Click_1(object sender, RoutedEventArgs e)
+        private void All_Contracts_Click_1(object sender, RoutedEventArgs e)
         {
             var v = new Contracts();
 
@@ -93,7 +93,8 @@ namespace WPF_UI
 
         private void DeleteContract_Click(object sender, RoutedEventArgs e)
         {
-
+            var v = new DeletingContracts();
+                v.ShowDialog();
         }
     }
 }
