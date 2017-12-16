@@ -42,12 +42,13 @@ namespace WPF_UI
             {
                 Mother m = bl.GetMother(int.Parse(MotherComboBox.Text));
                 bl.deleteMom(m);
+                   this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
+ 
         }
 
     }

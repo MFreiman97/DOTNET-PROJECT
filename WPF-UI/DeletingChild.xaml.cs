@@ -41,6 +41,7 @@ namespace WPF_UI
             {
                 Child ch = bl.GetChild(int.Parse(ChildComboBox.Text));
                 bl.deleteChild(ch);
+                this.Close();
             }
             catch (Exception ex)
             {

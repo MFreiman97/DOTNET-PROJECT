@@ -3,7 +3,8 @@ using BE;
 using BL;
 using GoogleMapsApi;
 using GoogleMapsApi.Entities.DistanceMatrix.Request;
-
+using GoogleMapsApi.Entities.Geocoding.Request;
+using GoogleMapsApi.Entities.Geocoding.Response;
 using GoogleMapsApi.Entities.Directions.Request;
 using GoogleMapsApi.Entities.Directions.Response;
 
@@ -84,19 +85,21 @@ namespace WPF_UI
             MatchedNanniesTextBox.Text = "";
             if ((BE.ContractType)TypecomboBox.SelectedValue==  ContractType.hourly)
             {
-                var drivingDirectionRequest = new DirectionsRequest
+                var drivingDirectionRequest = new DirectionsRequest ()
                 {
-                    TravelMode = TravelMode.Walking,
-                    DepartureTime = DateTime.Now,
+                    TravelMode = TravelMode.Driving,
+                    
                     Origin = bl.GetAllMothers().ElementAt(0).address,
                     Destination = bl.GetAllMothers().ElementAt(1).address
                     
                 };
-
+           
                 DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+              // var v= drivingDirections.Routes.OrderBy(r => r.Legs).First();
+               
                 Route route = drivingDirections.Routes.First();
                 Leg leg = route.Legs.First();
-                
+
                 MatchedNanniesTextBox.Text += leg.Distance.Value + '\n';
 
                 //foreach (var item in   bl.GetAllMatchedNannies(SelChi.mom, true))

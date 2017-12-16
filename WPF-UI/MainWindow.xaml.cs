@@ -75,26 +75,46 @@ namespace WPF_UI
 
         private void DeleteNanny_Click(object sender, RoutedEventArgs e)
         {
-            var v = new DeletingNanny();
-            v.ShowDialog();
+            if (bl.GetAllNannies().Count() == 0)
+                MessageBox.Show("There is no Nanny to delete");
+            else
+            {
+                var v = new DeletingNanny();
+                v.ShowDialog();
+            }
         }
 
         private void DeleteMother_Click(object sender, RoutedEventArgs e)
         {
-            var v = new DeletingMother();
-            v.ShowDialog();
+            if (bl.GetAllMothers().Count() == 0)
+                MessageBox.Show("There is no Mother to delete");
+            else
+            {
+                var v = new DeletingMother();
+                v.ShowDialog();
+            }
         }
 
         private void DeleteChild_Click(object sender, RoutedEventArgs e)
         {
-            var v = new DeletingChild();
-            v.ShowDialog();
+            if (bl.GetAllChilds().Count() == 0)
+                MessageBox.Show("There is no Child to delete");
+            else
+            {
+                var v = new DeletingChild();
+                v.ShowDialog();
+
+            }
         }
 
         private void DeleteContract_Click(object sender, RoutedEventArgs e)
         {
+            if (bl.GetAllContracts().Count() == 0)
+                MessageBox.Show("There is no Contract to delete");
+            else { 
             var v = new DeletingContracts();
-                v.ShowDialog();
+            v.ShowDialog();
+                    }
         }
     }
 }

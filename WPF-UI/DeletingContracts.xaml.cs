@@ -46,6 +46,7 @@ namespace WPF_UI
                 {
                     bl.deleteContract(item);
                 }
+                this.Close();
             }
 
             catch (Exception ex)

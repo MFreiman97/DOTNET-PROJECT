@@ -28,6 +28,7 @@ namespace WPF_UI
             InitializeComponent();
 
             bl = new ourBL();
+         
             this.UpdateButton.IsEnabled = false;
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "Yes" });
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });
@@ -49,12 +50,13 @@ namespace WPF_UI
                     name = NAMEtextBox.Text,
                     kindSpecial = DescOfDisabilityTextBox.Text
                 };
+                this.DataContext = ch;
                 if (comboBoxBool.Text == "Yes")
                     ch.special = true;
                 else
                     ch.special = false;
 
-                this.DataContext = ch;
+             
                 bl.addChild(ch);
                 this.Close();
             }

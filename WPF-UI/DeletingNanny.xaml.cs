@@ -43,6 +43,7 @@ namespace WPF_UI
             {
                 Nanny n = bl.GetNanny(int.Parse(comboBoxNanny.Text));              
                 bl.deleteNanny(n);
+                this.Close();
             }
             catch (Exception ex)
             {

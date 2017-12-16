@@ -36,7 +36,7 @@ namespace WPF_UI
                     fName = "Nava",
                     phone = "0523748738"
                 ,
-                    address = "Jerusalem" + "," + "Jaffe" + "," + "4"
+                    address = "Jerusalem" + "," + "Yaffo" + "," + "4"
                 ,
                     note = ""
                 };
