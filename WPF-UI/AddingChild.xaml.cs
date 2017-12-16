@@ -54,7 +54,7 @@ namespace WPF_UI
                 else
                     ch.special = false;
 
-                 
+                this.DataContext = ch;
                 bl.addChild(ch);
                 this.Close();
             }

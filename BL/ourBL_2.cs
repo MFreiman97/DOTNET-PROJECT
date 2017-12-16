@@ -51,7 +51,7 @@ namespace BL//MATANYA FUNCTIONS
         {
             var drivingDirectionRequest = new DirectionsRequest
             {
-                TravelMode = TravelMode.Walking,
+                TravelMode = TravelMode.Driving,
                 Origin = source,
                 Destination = dest,
             };
@@ -98,7 +98,7 @@ namespace BL//MATANYA FUNCTIONS
         #region nanny functions
         public IEnumerable<Nanny> GetAllNanniesByTerm(Mother m)
         {
-            var v1 = dal.GetAllNannies(n => CheckSchedule(m, n));
+            var v1 = dal.GetAllNannies(n => CheckSchedule(m, n)==true);
             var v2 = DestinationRealm(m);
             var result= from item1 in v1 from item2 in v2 where (item1.GetHashCode() == item2.GetHashCode()) select item1;
             return result;
@@ -115,7 +115,7 @@ namespace BL//MATANYA FUNCTIONS
         }
         public IEnumerable<Nanny> TheBestFive(Mother m)//i assume that mother preffer to compromise on the distance of the address of the nanny and dont changing the schedule 
         {
-            var v=    dal.GetAllNannies(n => CheckSchedule(m, n));
+            var v=    dal.GetAllNannies(n => CheckSchedule(m, n)==true);
             return v.OrderBy(i => CalculateDistance(i.address,m.address)).Take(5);
         }
         #endregion 

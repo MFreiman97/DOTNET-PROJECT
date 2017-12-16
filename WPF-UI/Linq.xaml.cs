@@ -117,7 +117,7 @@ namespace WPF_UI
             {
                 foreach (var item in bl.GetAllChilds())
                 {
-                    textBoxOutput.Text = item.ToString() + '\n';
+                    textBoxOutput.Text += item.ToString() + '\n';
 
                 }
                 NeededChildsButton.IsEnabled = true;
@@ -127,7 +127,7 @@ namespace WPF_UI
             {
                 foreach (var item in bl.GetAllContracts())
                 {
-                    textBoxOutput.Text = item.ToString() + '\n';
+                    textBoxOutput.Text += item.ToString() + '\n';
 
                 }
                 ContractsDistanceAbove40.IsEnabled = true;
@@ -136,7 +136,7 @@ namespace WPF_UI
             {
                 foreach (var item in bl.GetAllMothers())
                 {
-                    textBoxOutput.Text = item.ToString() + '\n';
+                    textBoxOutput.Text += item.ToString() + '\n';
 
                 }
                 JerusalemMothersButton.IsEnabled = true;
@@ -145,7 +145,7 @@ namespace WPF_UI
             {
                 foreach (var item in bl.GetAllNannies())
                 {
-                    textBoxOutput.Text = item.ToString() + '\n';
+                    textBoxOutput.Text += item.ToString() + '\n';
 
                 }
                 JerusalemNannyButton.IsEnabled = true;
@@ -168,7 +168,7 @@ namespace WPF_UI
             {
                 foreach (var item in bl.GetAllChilds())
                 {
-                    textBoxOutput.Text = item.ToString() + '\n';
+                    textBoxOutput.Text += item.ToString() + '\n';
 
                 }
                 NeededChildsButton.IsEnabled = true;
@@ -178,7 +178,7 @@ namespace WPF_UI
             {
                 foreach (var item in bl.GetAllContracts())
                 {
-                    textBoxOutput.Text = item.ToString() + '\n';
+                    textBoxOutput.Text += item.ToString() + '\n';
 
                 }
                 ContractsDistanceAbove40.IsEnabled = true;
@@ -187,7 +187,7 @@ namespace WPF_UI
             {
                 foreach (var item in bl.GetAllMothers())
                 {
-                    textBoxOutput.Text = item.ToString() + '\n';
+                    textBoxOutput.Text += item.ToString() + '\n';
 
                 }
                 JerusalemMothersButton.IsEnabled = true;
@@ -196,7 +196,7 @@ namespace WPF_UI
             {
                 foreach (var item in bl.GetAllNannies())
                 {
-                    textBoxOutput.Text = item.ToString() + '\n';
+                    textBoxOutput.Text += item.ToString() + '\n';
 
                 }
                 JerusalemNannyButton.IsEnabled = true;

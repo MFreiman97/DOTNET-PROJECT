@@ -1,6 +1,14 @@
 ﻿using System;//matanya
 using BE;
 using BL;
+using GoogleMapsApi;
+using GoogleMapsApi.Entities.DistanceMatrix.Request;
+
+using GoogleMapsApi.Entities.Directions.Request;
+using GoogleMapsApi.Entities.Directions.Response;
+
+using Microsoft.Maps.MapControl.WPF;
+using Microsoft.Maps.MapControl.WPF.Design;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,26 +76,43 @@ namespace WPF_UI
         private void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //ComboBoxItem cbi = (ComboBoxItem)TypecomboBox.sel;
+
             string selectedText = TypecomboBox.Text;
+          
+           
             Child SelChi = bl.GetChild(int.Parse(comboBoxChild.Text));
             MatchedNanniesTextBox.Text = "";
-            if (selectedText=="hourly")
+            if ((BE.ContractType)TypecomboBox.SelectedValue==  ContractType.hourly)
             {
-
-              foreach(var item in   bl.GetAllMatchedNannies(Cont.c.mom, true))
+                var drivingDirectionRequest = new DirectionsRequest
                 {
-                    MatchedNanniesTextBox.Text = item.ToString() + '\n';
+                    TravelMode = TravelMode.Walking,
+                    DepartureTime = DateTime.Now,
+                    Origin = bl.GetAllMothers().ElementAt(0).address,
+                    Destination = bl.GetAllMothers().ElementAt(1).address
+                    
+                };
 
-                }
+                DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+                Route route = drivingDirections.Routes.First();
+                Leg leg = route.Legs.First();
+                
+                MatchedNanniesTextBox.Text += leg.Distance.Value + '\n';
+
+                //foreach (var item in   bl.GetAllMatchedNannies(SelChi.mom, true))
+                //{
+                //    
+
+                //}
 
 
             }
-            if (selectedText == "monthly")
+            if ((BE.ContractType)TypecomboBox.SelectedValue == ContractType.monthly)
             {
 
-                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, false))
+                foreach (var item in bl.GetAllMatchedNannies(SelChi.mom, false))
                 {
-                    MatchedNanniesTextBox.Text = item.ToString() + '\n';
+                    MatchedNanniesTextBox.Text += item.ToString() + '\n';
 
                 }
 
