@@ -28,6 +28,32 @@ namespace WPF_UI
         {
             InitializeComponent();
             bl = new ourBL();
+            #region init for dubugging
+                Nanny n1 = new Nanny()
+                {
+                    id = int.Parse("3214"),
+                    fname = "Barnel",
+                    name = "Nicki",
+                    cell = "0532445356",
+                    address = "Jerusalem" + "," + "Erich Mendelson" + "," + "4",
+                    elevator = false,
+                    experience = int.Parse("5"),
+                    Maxkids = int.Parse("5"),
+                    MinAge = int.Parse("3"),
+                    MaxAge = int.Parse("14"),
+                    SalaryPerHour = true,
+                    HolidaysByTheGOV = true,
+                    recom = ""
+                };
+                n1.HourSalary = double.Parse("30.5");
+                n1.born =new DateTime( 1990,3,20);
+            n1.floor = FLOORS.Fourth;
+                n1.DaysOfWork[0] = true;
+                n1.schedule[0, 0] = DateTime.Parse("8:00");
+                n1.schedule[1, 0] = DateTime.Parse("16:00");
+                bl.addNanny(n1);
+                #endregion
+         
             this.DataContext = nanny;
             this.UpdateButton.IsEnabled = false;
             this.FloorComboBox.ItemsSource = Enum.GetValues(typeof(BE.FLOORS));
@@ -38,6 +64,7 @@ namespace WPF_UI
 
             try
             {
+             
                 nanny = new Nanny() { id = int.Parse(IDtextBox.Text), fname = fNametextBox.Text, name = lNametextBox.Text,
                   cell = phoneNumbertextBox.Text, address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text,
                     elevator = LiftCheckBox.IsChecked.GetValueOrDefault(),

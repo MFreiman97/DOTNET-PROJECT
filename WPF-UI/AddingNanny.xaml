@@ -151,7 +151,7 @@
         <CheckBox x:Name="friday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="518,462,0,0" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5" />
         <Button x:Name="NannyAdded" Content="Add The Nanny" HorizontalAlignment="Center" Margin="22,580,270,0" VerticalAlignment="Top" Width="300" Height="30" Click="NannyAdded_Click" />
         <Button x:Name="UpdateButton" Content="Update Nanny" HorizontalAlignment="Left" Height="31" Margin="374,580,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click"/>
-        <DatePicker SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127"/>
+        <DatePicker x:Name="BornDatePicker" SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127"/>
 
     </Grid>
 </Window>

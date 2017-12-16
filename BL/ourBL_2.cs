@@ -19,9 +19,9 @@ namespace BL//MATANYA FUNCTIONS
             {
                 for (int j = 0; j < 2; j++)
                 {
-                    if (j==0 && 0 < n.schedule[j, i].CompareTo(m.timeWork[j, i]))//the starting time of the nanny should be earlier than of the mother
+                    if (j==0 && 0 > n.schedule[j, i].CompareTo(m.timeWork[j, i]))//the starting time of the nanny should be earlier than of the mother
                         return false;
-                    if (j == 1 && 0 > n.schedule[j, i].CompareTo(m.timeWork[j, i]))
+                    if (j == 1 && 0 < n.schedule[j, i].CompareTo(m.timeWork[j, i]))
                         return false;
                 }
             }
@@ -100,7 +100,7 @@ namespace BL//MATANYA FUNCTIONS
         {
             var v1 = dal.GetAllNannies(n => CheckSchedule(m, n));
             var v2 = DestinationRealm(m);
-            var result= from item1 in v1 from item2 in v2 where (item1 == item2) select item1;
+            var result= from item1 in v1 from item2 in v2 where (item1.GetHashCode() == item2.GetHashCode()) select item1;
             return result;
         }
           public IEnumerable<Nanny> DestinationRealm(Mother m)

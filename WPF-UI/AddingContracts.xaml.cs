@@ -22,7 +22,7 @@ namespace WPF_UI
     public partial class AddingContracts : Window
     {
         BL.ourBL bl;
-        BE.Contract co;
+        BE.Contract Cont;
         public AddingContracts()
         {
             InitializeComponent();
@@ -44,14 +44,14 @@ namespace WPF_UI
         {
             try
             {
-                co = new Contract()
+                Cont = new Contract()
                 {
                     n = bl.GetNanny(int.Parse(NannyChosedTextBox.Text)),
                     c = bl.GetChild(int.Parse(comboBoxChild.Text))
                 };
-                 this.DataContext = co;
+                 this.DataContext = Cont;
                
-                bl.addContract(co);
+                bl.addContract(Cont);
             }
             catch (Exception ex)
             {
@@ -63,37 +63,18 @@ namespace WPF_UI
 
       
 
-        private void comboBoxChild_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBoxItem cbi = (ComboBoxItem)comboBoxChild.SelectedItem;
-            string selectedText = cbi.Content.ToString();
-            Child SelChi = bl.GetChild(int.Parse(comboBoxChild.Text));
-            MatchedNanniesTextBox.Text = "";//if the user changed the child
-            foreach (var item in bl.GetAllNanniesByTerm(SelChi.mom))
-            {
-                MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + bl.CalculateDistance(co.c.mom.address, co.n.address) + '\n';
-
-            }
-            if (bl.GetAllNanniesByTerm(SelChi.mom).Count() == 0)//when there is no match to the demands of the mother
-            {
-                MessageBox.Show("there is no match to the mother demands. the nannies are shown is the best five");
-                foreach (var item in bl.TheBestFive(SelChi.mom))
-                {
-                    MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + bl.CalculateDistance(co.c.mom.address, co.n.address) + '\n';
-
-                }
-            }
-        }
+       
 
         private void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //ComboBoxItem cbi = (ComboBoxItem)TypecomboBox.sel;
             string selectedText = TypecomboBox.Text;
+            Child SelChi = bl.GetChild(int.Parse(comboBoxChild.Text));
             MatchedNanniesTextBox.Text = "";
             if (selectedText=="hourly")
             {
 
-              foreach(var item in   bl.GetAllMatchedNannies(co.c.mom, true))
+              foreach(var item in   bl.GetAllMatchedNannies(Cont.c.mom, true))
                 {
                     MatchedNanniesTextBox.Text = item.ToString() + '\n';
 
@@ -104,13 +85,22 @@ namespace WPF_UI
             if (selectedText == "monthly")
             {
 
-                foreach (var item in bl.GetAllMatchedNannies(co.c.mom, false))
+                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, false))
                 {
                     MatchedNanniesTextBox.Text = item.ToString() + '\n';
 
                 }
 
 
+            }
+            if (bl.GetAllNanniesByTerm(SelChi.mom).Count() == 0)//when there is no match to the demands of the mother
+            {
+                MessageBox.Show("there is no match to the mother demands. the nannies are shown is the best five");
+                foreach (var item in bl.TheBestFive(SelChi.mom))
+                {
+                    MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + bl.CalculateDistance(Cont.c.mom.address, Cont.n.address) + '\n';
+
+                }
             }
 
         }

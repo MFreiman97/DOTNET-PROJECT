@@ -25,18 +25,60 @@ namespace WPF_UI
         BE.Mother mother;
         public AddingMother()
         {
-            InitializeComponent();
+            InitializeComponent();  
+         
             this.UpdateButton.IsEnabled = false;
-            bl = new ourBL();
+            bl = new ourBL();  
+            #region init for debugging
+                Mother m1 = new Mother() {
+                    id = int.Parse("2222"),
+                    lName = "Lev",
+                    fName = "Nava",
+                    phone = "0523748738"
+                ,
+                    address = "Jerusalem" + "," + "Jaffe" + "," + "4"
+                ,
+                    note = ""
+                };
+            m1.nannyArea = 10;
+            m1.needNanny[0] = true;
+                m1.timeWork[0, 0] = DateTime.Parse("8:00");
+                m1.timeWork[1, 0] = DateTime.Parse("16:00");
+                bl.addMom(m1);
+                Mother m2 = new Mother()
+                {
+                    id = int.Parse("3333"),
+                    lName = "Ana",
+                    fName = "Fridman",
+                    phone = "0533232323"
+                ,
+                    address = "Jerusalem" + "," + "Havaad Haleumi" + "," + "21"
+                ,
+                    note = ""
+                };
+                m2.needNanny[0] = true;
+                m2.timeWork[0, 0] = DateTime.Parse("8:00");
+                m2.timeWork[1, 0] = DateTime.Parse("16:00");
+            m2.nannyArea = 50;
+                bl.addMom(m2);
+
+                #endregion
         }
 
         private void MotherAdded_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+            
+
+
+
+
                 mother = new Mother() {id=int.Parse(IDtextBox.Text),lName= PNAMEtextBox.Text,fName= FnameTextBox.Text,phone= PhoneNumTextBox.Text
                 ,address=CityTextBox.Text+","+StreetTextBox.Text+","+ApartmentTextBox.Text
-                ,note=CommentsTextBox.Text};
+                ,note=CommentsTextBox.Text
+               ,nannyArea= int.Parse(NannyAreaTextBoxAnswer.Text)
+                };
                 mother.needNanny[0] = sunday.IsChecked.GetValueOrDefault();
                 mother.needNanny[1] = monday.IsChecked.GetValueOrDefault();
                 mother.needNanny[2] = tuesday.IsChecked.GetValueOrDefault();
@@ -107,7 +149,8 @@ namespace WPF_UI
                ,
                 address = CityTextBox.Text + "," + StreetTextBox.Text + "," + ApartmentTextBox.Text
                ,
-                note = CommentsTextBox.Text
+                note = CommentsTextBox.Text,
+                nannyArea = int.Parse(NannyAreaTextBoxAnswer.Text)
             };
             mother.needNanny[0] = sunday.IsChecked.GetValueOrDefault();
             mother.needNanny[1] = monday.IsChecked.GetValueOrDefault();
