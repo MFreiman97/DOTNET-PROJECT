@@ -35,8 +35,10 @@ namespace WPF_UI
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)//i need to think about it!
-        {//i will implement a function that open a window of updating a contract
-   ////////// var v=int.Parse(ContractUpdatetextBox.Text)
+        {
+            var v = new UpdateContract(bl.GetContract(int.Parse(ContractUpdatetextBox.Text)));
+            v.Show();
+            this.Close();
             
         }
 

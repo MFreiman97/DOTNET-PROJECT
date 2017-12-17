@@ -28,7 +28,8 @@ namespace WPF_UI
             InitializeComponent();
 
             bl = new ourBL();
-         
+            ch = new Child();
+            this.DataContext = ch;
             this.UpdateButton.IsEnabled = false;
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "Yes" });
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });
@@ -42,15 +43,14 @@ namespace WPF_UI
         {
             try
             {
-                ch = new Child()
-                {
-                    mom = bl.GetMother(int.Parse(comboBoxMothers.Text)),
-                    id = int.Parse(IDtextBox.Text),
-                    momId= int.Parse(comboBoxMothers.Text),
-                    name = NAMEtextBox.Text,
-                    kindSpecial = DescOfDisabilityTextBox.Text
-                };
-                this.DataContext = ch;
+
+                ch.mom = bl.GetMother(int.Parse(comboBoxMothers.Text));
+                    ch.id = int.Parse(IDtextBox.Text);
+                ch.momId = int.Parse(comboBoxMothers.Text);
+                ch.name = NAMEtextBox.Text;
+                ch.kindSpecial = DescOfDisabilityTextBox.Text;
+               
+               
                 if (comboBoxBool.Text == "Yes")
                     ch.special = true;
                 else

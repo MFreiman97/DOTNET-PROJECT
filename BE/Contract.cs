@@ -13,7 +13,7 @@ namespace BE
         public Child c { get; set; }
         public bool Meet { get; set; }
         public bool Signature { get; set; }
-        public double SalaryPerHour { get; set; }
+        public double? SalaryPerHour { get; set; }
         public double SalaryPerMonth { get; set; }
         public ContractType ContType { get; set; }
 
@@ -38,7 +38,7 @@ namespace BE
         public override string ToString()
         {
             //string str=format
-            return "Contract: " +string.Format("{0:00000000}",contnum)  ;
+            return "Contract: " + string.Format("{0:00000000}", contnum) + " Nanny: " + n.ToString() + " Child: " + c.ToString();
         }
 
         public int CompareTo(object obj)

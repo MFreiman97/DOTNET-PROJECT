@@ -48,7 +48,7 @@ namespace BE
 
         public override string ToString()
         {
-            return name + " " + fname;
+            return name + " " + fname +" her ID is: "+id;
         }
 
         public int CompareTo(object obj)

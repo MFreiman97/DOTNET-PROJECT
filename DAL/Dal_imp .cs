@@ -11,7 +11,7 @@ namespace DAL
 {
     public  class Dal_imp : Idal
     {
-        public static int Contnum = 0;
+        public static int Contnum = 1;
         public Dal_imp()
         {
            new DataSource();
@@ -146,6 +146,10 @@ namespace DAL
         public Nanny GetNanny(int id)
         {
             return DataSource.nannies.Find(n => n.id == id);
+        }
+        public Contract GetContract(int co)
+        {
+            return DataSource.contracts.Find(n => n.contnum == co);
         }
         #endregion
         #region update functions

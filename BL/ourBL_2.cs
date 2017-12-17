@@ -106,7 +106,9 @@ namespace BL//MATANYA FUNCTIONS
           public IEnumerable<Nanny> DestinationRealm(Mother m)
         {
 
-            return dal.GetAllNannies(n => (CalculateDistance(m.address, n.address) <= m.nannyArea));
+            //    return dal.GetAllNannies(n => (CalculateDistance(m.address, n.address) <= m.nannyArea));
+         
+            return dal.GetAllNannies(n => (6 <= m.nannyArea));
         }
          public IEnumerable<Nanny> WorkingByTheGov()
         {
@@ -193,6 +195,11 @@ namespace BL//MATANYA FUNCTIONS
             var result= from item1 in term1 from item2 in term2
                         where (item1 == item2) select item1;
             return result;
+        }
+
+        public Contract GetContract(int cont)
+        {
+            return dal.GetContract(cont);
         }
     }
 }

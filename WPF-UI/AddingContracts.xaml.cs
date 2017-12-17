@@ -36,11 +36,12 @@ namespace WPF_UI
         {
             InitializeComponent();
             bl = new ourBL();
-           
+             
+         
             //this.comboBoxChild.ItemsSource = bl.GetAllChilds();
             //this.comboBoxChild.DisplayMemberPath = "name";
             //this.comboBoxChild.SelectedValuePath = "id";
-            foreach (var item in bl.GetAllChilds())
+            foreach (var item in bl.NeedNanny())
             {
                 comboBoxChild.Items.Add(new ComboBoxItem() { Content = item.id });
             }
@@ -53,14 +54,14 @@ namespace WPF_UI
         {
             try
             {
-                Cont = new Contract()
-                {
-                    n = bl.GetNanny(int.Parse(NannyChosedTextBox.Text)),
-                    c = bl.GetChild(int.Parse(comboBoxChild.Text))
-                };
-                 this.DataContext = Cont;
+               
+                Cont.n = bl.GetNanny(int.Parse(NannyChosedTextBox.Text));
+                Cont.c = bl.GetChild(int.Parse(comboBoxChild.Text));
+         
+                
                
                 bl.addContract(Cont);
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -75,38 +76,20 @@ namespace WPF_UI
        
 
         private void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //ComboBoxItem cbi = (ComboBoxItem)TypecomboBox.sel;
-
+        {    Cont = new Contract();
+                 this.DataContext = Cont;
             string selectedText = TypecomboBox.Text;
-          
-           
             Child SelChi = bl.GetChild(int.Parse(comboBoxChild.Text));
             MatchedNanniesTextBox.Text = "";
             if ((BE.ContractType)TypecomboBox.SelectedValue==  ContractType.hourly)
             {
-                var drivingDirectionRequest = new DirectionsRequest ()
+
+
+                foreach (var item in bl.GetAllMatchedNannies(SelChi.mom, true))
                 {
-                    TravelMode = TravelMode.Driving,
-                    
-                    Origin = bl.GetAllMothers().ElementAt(0).address,
-                    Destination = bl.GetAllMothers().ElementAt(1).address
-                    
-                };
-           
-                DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
-              // var v= drivingDirections.Routes.OrderBy(r => r.Legs).First();
-               
-                Route route = drivingDirections.Routes.First();
-                Leg leg = route.Legs.First();
+                    MatchedNanniesTextBox.Text += item.ToString() + '\n';
 
-                MatchedNanniesTextBox.Text += leg.Distance.Value + '\n';
-
-                //foreach (var item in   bl.GetAllMatchedNannies(SelChi.mom, true))
-                //{
-                //    
-
-                //}
+                }
 
 
             }

@@ -31,7 +31,8 @@ namespace BL
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
             if (childAge(ch) == true && nannyContracts(na) == true)
             {
-                cont.distance = CalculateDistance(ch.mom.address, na.address);
+                //     cont.distance = CalculateDistance(ch.mom.address, na.address);
+                cont.distance = 6;//****************************************
                 cont.SalaryPerMonth = monthSalary(cont, ch, na);
                 cont.DateBegin = DateTime.Now;
                 cont.Meet = true;

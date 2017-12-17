@@ -38,6 +38,7 @@ namespace DAL//
         /// </summary>
         /// <param name="c"></param>
         void addContract(Contract c);
+        Contract GetContract(int cont);
         void deleteContract(Contract c);
         void updateContract(Contract c);//.i assume that the comparapble paramater is the id.
         IEnumerable<Nanny> GetAllNannies(Func<Nanny, bool> predicat = null);
