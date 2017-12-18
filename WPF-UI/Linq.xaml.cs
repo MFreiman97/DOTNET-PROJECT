@@ -43,60 +43,60 @@ namespace WPF_UI
 
         private void NeededChildsButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";
+            textBoxOutput.Text = "";//cleaning reason
             foreach (var item in bl.NeedNanny())
             {
-                textBoxOutput.Text = item.ToString() + '\n';
+                textBoxOutput.Text += item.ToString() + '\n';
 
             }
         }
 
         private void SpecialChildsButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";
+            textBoxOutput.Text = "";//cleaning reason
             foreach (var item in bl.GetSpecialChilds())
             {
-                textBoxOutput.Text = item.ToString() + '\n';
+                textBoxOutput.Text += item.ToString() + '\n';
 
             }
         }
 
         private void NannyByTheGov_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";
+            textBoxOutput.Text = "";//cleaning reason
             foreach (var item in bl.WorkingByTheGov())
             {
-                textBoxOutput.Text = item.ToString() + '\n';
+                textBoxOutput.Text += item.ToString() + '\n';
 
             }
         }
 
         private void JerusalemNannyButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";
+            textBoxOutput.Text = "";//cleaning reason
             foreach (var item in bl.GetAllNanniesFromJerusalem())
             {
-                textBoxOutput.Text = item.ToString() + '\n';
+                textBoxOutput.Text += item.ToString() + '\n';
 
             }
         }
 
         private void JerusalemMothersButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";
+            textBoxOutput.Text = "";//cleaning reason
             foreach (var item in bl.GetAllMothersFromJerusalem())
             {
-                textBoxOutput.Text = item.ToString() + '\n';
+                textBoxOutput.Text += item.ToString() + '\n';
 
             }
         }
 
         private void ContractsDistanceAbove40_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";
+            textBoxOutput.Text = "";//cleaning reason
             foreach (var item in bl.GetAllContracts(c=>c.distance>=40))
             {
-                textBoxOutput.Text = item.ToString() + '\n';
+                textBoxOutput.Text += item.ToString() + '\n';
 
             }
         }

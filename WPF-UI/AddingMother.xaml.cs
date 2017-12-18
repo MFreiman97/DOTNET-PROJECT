@@ -29,40 +29,6 @@ namespace WPF_UI
          
             this.UpdateButton.IsEnabled = false;
             bl = new ourBL();  
-            #region init for debugging
-                Mother m1 = new Mother() {
-                    id = int.Parse("2222"),
-                    lName = "Lev",
-                    fName = "Nava",
-                    phone = "0523748738"
-                ,
-                    address = "Jerusalem" + "," + "Yaffo" + "," + "4"
-                ,
-                    note = ""
-                };
-            m1.nannyArea = 10;
-            m1.needNanny[0] = true;
-                m1.timeWork[0, 0] = DateTime.Parse("8:00");
-                m1.timeWork[1, 0] = DateTime.Parse("16:00");
-                bl.addMom(m1);
-                Mother m2 = new Mother()
-                {
-                    id = int.Parse("3333"),
-                    lName = "Ana",
-                    fName = "Fridman",
-                    phone = "0533232323"
-                ,
-                    address = "Jerusalem" + "," + "Havaad Haleumi" + "," + "21"
-                ,
-                    note = ""
-                };
-                m2.needNanny[0] = true;
-                m2.timeWork[0, 0] = DateTime.Parse("8:00");
-                m2.timeWork[1, 0] = DateTime.Parse("16:00");
-            m2.nannyArea = 50;
-                bl.addMom(m2);
-
-                #endregion
         }
 
         private void MotherAdded_Click(object sender, RoutedEventArgs e)

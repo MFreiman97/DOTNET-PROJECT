@@ -42,10 +42,9 @@ namespace WPF_UI
         {
             try
             {
-                foreach (var item in bl.GetAllContracts(co => co.contnum==int.Parse(ContractComboBox.Text)))
-                {
-                    bl.deleteContract(item);
-                }
+           
+              Contract c=  bl.GetContract(int.Parse(ContractComboBox.Text));
+                bl.deleteContract(c);
                 this.Close();
             }
 

@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using BL;
+using BE;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -26,6 +27,66 @@ namespace WPF_UI
         {
             InitializeComponent();
             bl = new ourBL();
+            #region init for dubugging
+            Nanny n1 = new Nanny()
+            {
+                id = int.Parse("3214"),
+                fname = "Barnel",
+                name = "Nicki",
+                cell = "0532445356",
+                address = "Jerusalem" + "," + "Erich Mendelson" + "," + "4",
+                elevator = false,
+                experience = int.Parse("5"),
+                Maxkids = int.Parse("5"),
+                MinAge = int.Parse("3"),
+                MaxAge = int.Parse("14"),
+                SalaryPerHour = true,
+                HolidaysByTheGOV = true,
+                recom = ""
+            };
+            n1.HourSalary = double.Parse("30.5");
+            n1.born = new DateTime(1990, 3, 20);
+            n1.floor = FLOORS.Fourth;
+            n1.DaysOfWork[0] = true;
+            n1.schedule[0, 0] = DateTime.Parse("8:00");
+            n1.schedule[1, 0] = DateTime.Parse("16:00");
+            bl.addNanny(n1);
+            #endregion//adding Nanny
+            #region init for debugging
+            Mother m1 = new Mother()
+            {
+                id = int.Parse("2222"),
+                lName = "Lev",
+                fName = "Nava",
+                phone = "0523748738"
+            ,
+                address = "Jerusalem" + "," + "Yaffo" + "," + "4"
+            ,
+                note = ""
+            };
+            m1.nannyArea = 10;
+            m1.needNanny[0] = true;
+            m1.timeWork[0, 0] = DateTime.Parse("8:00");
+            m1.timeWork[1, 0] = DateTime.Parse("16:00");
+            bl.addMom(m1);
+            Mother m2 = new Mother()
+            {
+                id = int.Parse("3333"),
+                lName = "Ana",
+                fName = "Fridman",
+                phone = "0533232323"
+            ,
+                address = "Jerusalem" + "," + "Havaad Haleumi" + "," + "21"
+            ,
+                note = ""
+            };
+            m2.needNanny[0] = true;
+            m2.timeWork[0, 0] = DateTime.Parse("8:00");
+            m2.timeWork[1, 0] = DateTime.Parse("16:00");
+            m2.nannyArea = 50;
+            bl.addMom(m2);
+
+            #endregion//Adding 2 Mothers
         }
 
         private void AddNanny_Click(object sender, RoutedEventArgs e)

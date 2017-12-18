@@ -29,6 +29,7 @@ namespace WPF_UI
             InitializeComponent();
              bl = new ourBL();
             temp = new Contract();
+            temp = bl.GetContract(co.contnum);//the paramater of updating is only the date of the ending of the contract
             ContractTextBox.Text =""+ co.contnum;
             this.DataContext = temp;
         }
@@ -36,6 +37,7 @@ namespace WPF_UI
         private void button_Click(object sender, RoutedEventArgs e)
         {
             bl.updateContract(temp);
+            this.Close();
         }
     }
 }
