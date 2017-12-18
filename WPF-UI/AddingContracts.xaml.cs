@@ -32,10 +32,10 @@ namespace WPF_UI
     {
         BL.ourBL bl;
         BE.Contract Cont;
+        static Random r = new Random();
         public AddingContracts()
         {
             InitializeComponent();
-          
             bl = new ourBL();
              
          

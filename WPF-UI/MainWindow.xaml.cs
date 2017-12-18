@@ -190,13 +190,6 @@ namespace WPF_UI
                     }
         }
 
-        public  void button_Click(object sender, RoutedEventArgs e)
-        {
-            CheckingTextBox.Text = "";
-       Calcu.CalculateDistance("Jerusalem,Havaad haleumi,21", "Jerusalem,Yaffo,10");
-
-
-          // CheckingTextBox.Text += x;
-        }
+       
     }
 }
