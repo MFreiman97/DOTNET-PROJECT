@@ -3,7 +3,7 @@ using GoogleMapsApi;
 using GoogleMapsApi.Entities.Directions.Request;
 using GoogleMapsApi.Entities.Directions.Response;
 using System;
-
+using GoogleMapsApi;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,10 +25,10 @@ using GoogleMapsApi.StaticMaps.Entities;
 
 namespace BL//MATANYA FUNCTIONS
 {
-    public partial class ourBL:IBL
+     public  partial class ourBL:IBL
     {
       
-        public bool CheckSchedule(Mother m,Nanny n)
+        public  bool CheckSchedule(Mother m,Nanny n)
         {
             for(int i=0;i<6;i++)
             {
@@ -42,7 +42,7 @@ namespace BL//MATANYA FUNCTIONS
             }
             return true;
         }
-        public IEnumerable<Child> NeedNanny()
+        public  IEnumerable<Child> NeedNanny()
         {
             return dal.GetAllChilds( c=>c.nannyID==null);
 
@@ -62,20 +62,7 @@ namespace BL//MATANYA FUNCTIONS
             }
             return counter;
         }
-        public  int CalculateDistance(string source, string dest)
-        {
-            var drivingDirectionRequest = new DirectionsRequest
-            {
-                TravelMode = TravelMode.Walking,
-                Origin = source,
-                Destination = dest,
-            };
-
-            DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
-            Route route = drivingDirections.Routes.First();
-            Leg leg = route.Legs.First();
-            return leg.Distance.Value;
-        }
+     
         private string GetDistanceType(int d)
         {
            
@@ -115,15 +102,15 @@ namespace BL//MATANYA FUNCTIONS
         {
             var v1 = dal.GetAllNannies(n => CheckSchedule(m, n)==true);
             var v2 = DestinationRealm(m);
-            var result= from item1 in v1 from item2 in v2 where (item1.GetHashCode() == item2.GetHashCode()) select item1;
+            var result= from item1 in v1 from item2 in v2 where (item1 == item2) select item1;
             return result;
         }
           public IEnumerable<Nanny> DestinationRealm(Mother m)
         {
 
-                return dal.GetAllNannies(n => (CalculateDistance(m.address, n.address) <= m.nannyArea*1000));
+           //     return dal.GetAllNannies(n => (Calcu.CalculateDistance(m.address, n.address) <= m.nannyArea*1000));
          
-           // return dal.GetAllNannies(n => (6 <= m.nannyArea));
+            return dal.GetAllNannies(n => (6 <= m.nannyArea));
         }
          public IEnumerable<Nanny> WorkingByTheGov()
         {
@@ -133,7 +120,7 @@ namespace BL//MATANYA FUNCTIONS
         public IEnumerable<Nanny> TheBestFive(Mother m)//i assume that mother preffer to compromise on the distance of the address of the nanny and dont changing the schedule 
         {
             var v=    dal.GetAllNannies(n => CheckSchedule(m, n)==true);
-            return v.OrderBy(i => CalculateDistance(i.address,m.address)).Take(5);
+            return v.OrderBy(i => Calcu.CalculateDistance(i.address,m.address)).Take(5);//error
         }
         #endregion 
         #region mother functions
@@ -215,6 +202,24 @@ namespace BL//MATANYA FUNCTIONS
         public Contract GetContract(int cont)
         {
             return dal.GetContract(cont);
+        }
+    }
+    public static class Calcu
+    {
+
+        public static int CalculateDistance(string source, string dest)
+        {
+            var drivingDirectionRequest = new DirectionsRequest()
+            {
+                TravelMode = TravelMode.Walking,
+                Origin = source,
+                Destination = dest,
+            };
+       
+            DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+            Route route = drivingDirections.Routes.First();
+            Leg leg = route.Legs.First();
+            return leg.Distance.Value;
         }
     }
 }

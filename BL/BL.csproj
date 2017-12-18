@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="FactoryBL.cs" />
     <Compile Include="IBL.cs" />
     <Compile Include="ourBL.cs" />
     <Compile Include="ourBL_2.cs" />

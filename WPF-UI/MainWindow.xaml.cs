@@ -31,13 +31,13 @@ namespace WPF_UI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public  partial class MainWindow : Window
+    public partial class MainWindow : Window
     {
         BL.ourBL bl;
-       public MainWindow()
+        public MainWindow()
         {
             InitializeComponent();
-            bl = new ourBL();
+             bl = new ourBL();
             #region init for dubugging
             Nanny n1 = new Nanny()
             {
@@ -192,18 +192,11 @@ namespace WPF_UI
 
         public  void button_Click(object sender, RoutedEventArgs e)
         {
-  var drivingDirectionRequest = new DirectionsRequest()
-            {
-                TravelMode = TravelMode.Walking,
-                Origin = "Jerusalem,Havaad haleumi,21",
-                Destination = "Jerusalem,Yaffo,10"
+            CheckingTextBox.Text = "";
+       Calcu.CalculateDistance("Jerusalem,Havaad haleumi,21", "Jerusalem,Yaffo,10");
 
-            };
-            DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
-            Route route = drivingDirections.Routes.First();
-            Leg leg = route.Legs.First();
-         
-            CheckingTextBox.Text  = leg.Distance.Text;
+
+          // CheckingTextBox.Text += x;
         }
     }
 }

@@ -35,6 +35,7 @@ namespace WPF_UI
         public AddingContracts()
         {
             InitializeComponent();
+          
             bl = new ourBL();
              
          
@@ -48,6 +49,9 @@ namespace WPF_UI
 
            
             this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
+            Cont = new Contract();
+         this.   DataContext = Cont;
+            TypecomboBox.IsEnabled = false;
         }
 
         private void AddTheContract_Click(object sender, RoutedEventArgs e)
@@ -75,43 +79,49 @@ namespace WPF_UI
 
        
 
-        public void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {    Cont = new Contract();
-                 this.DataContext = Cont;
-            string selectedText = TypecomboBox.Text;
-            Child SelChi = bl.GetChild(int.Parse(comboBoxChild.Text));
-            MatchedNanniesTextBox.Text = "";
-            if ((BE.ContractType)TypecomboBox.SelectedValue==  ContractType.hourly)
+        private void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TypecomboBox.IsEnabled == true)
             {
-         
-
-                foreach (var item in bl.GetAllMatchedNannies(SelChi.mom, true))
+                Child SelChi = bl.GetChild(int.Parse(comboBoxChild.Text));
+                MatchedNanniesTextBox.Text = "";
+                if ((BE.ContractType)TypecomboBox.SelectedValue == ContractType.hourly)
                 {
-                    MatchedNanniesTextBox.Text += item.ToString() + '\n';
+                    MatchedNanniesTextBox.Text = "";
+
+                    foreach (var item in bl.GetAllMatchedNannies(SelChi.mom, true))
+                    {
+                        MatchedNanniesTextBox.Text += item.ToString() + '\n';
+
+                    }
+
 
                 }
+                if ((BE.ContractType)TypecomboBox.SelectedValue == ContractType.monthly)
+                {
+                    MatchedNanniesTextBox.Text = "";
+                    foreach (var item in bl.GetAllMatchedNannies(SelChi.mom, false))
+                    {
+                        MatchedNanniesTextBox.Text += item.ToString() + '\n';
+
+                    }
 
 
+                }
+                if (bl.GetAllNanniesByTerm(SelChi.mom).Count() == 0)//when there is no match to the demands of the mother
+                {
+                    MatchedNanniesTextBox.Text = "";
+                    MessageBox.Show("there is no match to the mother demands. the nannies are shown is the best five");
+                    foreach (var item in bl.TheBestFive(SelChi.mom))
+                    {
+                        //       MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + Calcu.CalculateDistance(Cont.c.mom.address, Cont.n.address) + '\n';
+                        MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + 4 + '\n';
+                    }
+                }
             }
-            if ((BE.ContractType)TypecomboBox.SelectedValue == ContractType.monthly)
+            else
             {
-
-                foreach (var item in bl.GetAllMatchedNannies(SelChi.mom, false))
-                {
-                    MatchedNanniesTextBox.Text += item.ToString() + '\n';
-
-                }
-
-
-            }
-            if (bl.GetAllNanniesByTerm(SelChi.mom).Count() == 0)//when there is no match to the demands of the mother
-            {
-                MessageBox.Show("there is no match to the mother demands. the nannies are shown is the best five");
-                foreach (var item in bl.TheBestFive(SelChi.mom))
-                {
-                    MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + bl.CalculateDistance(Cont.c.mom.address, Cont.n.address) + '\n';
-
-                }
+                TypecomboBox.IsEnabled = true;
             }
 
         }

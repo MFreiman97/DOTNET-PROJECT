@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-   public interface IBL
+   public  interface IBL
     {
         void addNanny(Nanny n);
         void deleteNanny(Nanny n);
@@ -55,7 +55,7 @@ namespace BL
         IEnumerable<Nanny> GetAllNanniesFromJerusalem();
         IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null);
         int GetSumOfContracts(Func<Contract, bool> predicat = null);
-       int CalculateDistance(string source, string destination);
+     
 
         IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool sorted);
         IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract();//sorted by the distances that i divided to types in sting
