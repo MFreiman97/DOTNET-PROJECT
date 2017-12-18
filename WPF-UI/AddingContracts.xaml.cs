@@ -75,7 +75,7 @@ namespace WPF_UI
 
        
 
-        private void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {    Cont = new Contract();
                  this.DataContext = Cont;
             string selectedText = TypecomboBox.Text;
@@ -83,7 +83,7 @@ namespace WPF_UI
             MatchedNanniesTextBox.Text = "";
             if ((BE.ContractType)TypecomboBox.SelectedValue==  ContractType.hourly)
             {
-
+         
 
                 foreach (var item in bl.GetAllMatchedNannies(SelChi.mom, true))
                 {

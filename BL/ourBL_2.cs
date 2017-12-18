@@ -3,10 +3,25 @@ using GoogleMapsApi;
 using GoogleMapsApi.Entities.Directions.Request;
 using GoogleMapsApi.Entities.Directions.Response;
 using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading;
+using GoogleMapsApi;
+using GoogleMapsApi.Entities.Common;
+using GoogleMapsApi.Entities.Directions.Request;
+using GoogleMapsApi.Entities.Directions.Response;
+using GoogleMapsApi.Entities.Elevation.Request;
+using GoogleMapsApi.Entities.Geocoding.Request;
+using GoogleMapsApi.Entities.Geocoding.Response;
+using GoogleMapsApi.StaticMaps;
+using GoogleMapsApi.StaticMaps.Entities;
 
 namespace BL//MATANYA FUNCTIONS
 {
@@ -51,7 +66,7 @@ namespace BL//MATANYA FUNCTIONS
         {
             var drivingDirectionRequest = new DirectionsRequest
             {
-                TravelMode = TravelMode.Driving,
+                TravelMode = TravelMode.Walking,
                 Origin = source,
                 Destination = dest,
             };
@@ -106,9 +121,9 @@ namespace BL//MATANYA FUNCTIONS
           public IEnumerable<Nanny> DestinationRealm(Mother m)
         {
 
-            //    return dal.GetAllNannies(n => (CalculateDistance(m.address, n.address) <= m.nannyArea));
+                return dal.GetAllNannies(n => (CalculateDistance(m.address, n.address) <= m.nannyArea*1000));
          
-            return dal.GetAllNannies(n => (6 <= m.nannyArea));
+           // return dal.GetAllNannies(n => (6 <= m.nannyArea));
         }
          public IEnumerable<Nanny> WorkingByTheGov()
         {

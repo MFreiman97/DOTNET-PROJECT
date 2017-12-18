@@ -8,22 +8,33 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using BL;
+using System.Configuration;
+using System.Data;
 using BE;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GoogleMapsApi;
+using Newtonsoft.Json.Converters;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using GoogleMapsApi.Entities.DistanceMatrix.Request;
+using GoogleMapsApi.Entities.Geocoding.Request;
+using GoogleMapsApi.Entities.Geocoding.Response;
+using GoogleMapsApi.Entities.Directions.Request;
+using GoogleMapsApi.Entities.Directions.Response;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public  partial class MainWindow : Window
     {
         BL.ourBL bl;
-        public MainWindow()
+       public MainWindow()
         {
             InitializeComponent();
             bl = new ourBL();
@@ -87,6 +98,7 @@ namespace WPF_UI
             bl.addMom(m2);
 
             #endregion//Adding 2 Mothers
+          
         }
 
         private void AddNanny_Click(object sender, RoutedEventArgs e)
@@ -176,6 +188,22 @@ namespace WPF_UI
             var v = new DeletingContracts();
             v.ShowDialog();
                     }
+        }
+
+        public  void button_Click(object sender, RoutedEventArgs e)
+        {
+  var drivingDirectionRequest = new DirectionsRequest()
+            {
+                TravelMode = TravelMode.Walking,
+                Origin = "Jerusalem,Havaad haleumi,21",
+                Destination = "Jerusalem,Yaffo,10"
+
+            };
+            DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+            Route route = drivingDirections.Routes.First();
+            Leg leg = route.Legs.First();
+         
+            CheckingTextBox.Text  = leg.Distance.Text;
         }
     }
 }

@@ -18,6 +18,8 @@
         <Button x:Name="DeleteMother" Content="Delete Mother" HorizontalAlignment="Left" Height="38" Margin="319,93,0,0" VerticalAlignment="Top" Width="119" Click="DeleteMother_Click" />
         <Button x:Name="DeleteChild" Content="Delete Child" HorizontalAlignment="Left" Height="38" Margin="319,159,0,0" VerticalAlignment="Top" Width="119" Click="DeleteChild_Click" />
         <Button x:Name="DeleteContract" Content="Delete Contract" HorizontalAlignment="Left" Height="38" Margin="319,225,0,0" VerticalAlignment="Top" Width="119" Click="DeleteContract_Click" />
+        <TextBox x:Name="CheckingTextBox" HorizontalAlignment="Left" Height="29" Margin="173,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="127"/>
+        <Button x:Name="button" Content="CheckGoogleMAPS" HorizontalAlignment="Left" Height="38" Margin="173,35,0,0" VerticalAlignment="Top" Width="127" Click="button_Click"/>
 
     </Grid>
 </Window>
