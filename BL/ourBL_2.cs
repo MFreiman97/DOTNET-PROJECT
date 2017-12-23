@@ -32,12 +32,15 @@ namespace BL//MATANYA FUNCTIONS
         {
             for(int i=0;i<6;i++)
             {
+                if(m.needNanny[i]==true)
+                { 
                 for (int j = 0; j < 2; j++)
                 {
                     if (j==0 && 0 < n.schedule[j, i].CompareTo(m.timeWork[j, i]))//the starting time of the nanny should be earlier than of the mother
                         return false;
                     if (j == 1 && 0 > n.schedule[j, i].CompareTo(m.timeWork[j, i]))
                         return false;
+                }
                 }
             }
             return true;
