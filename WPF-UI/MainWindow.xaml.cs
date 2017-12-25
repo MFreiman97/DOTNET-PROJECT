@@ -26,7 +26,7 @@ using GoogleMapsApi.Entities.Geocoding.Request;
 using GoogleMapsApi.Entities.Geocoding.Response;
 using GoogleMapsApi.Entities.Directions.Request;
 using GoogleMapsApi.Entities.Directions.Response;
-
+using FirstFloor.ModernUI.Windows.Controls;
 namespace WPF_UI
 {
     /// <summary>
@@ -38,6 +38,7 @@ namespace WPF_UI
         public MainWindow()
         {
             InitializeComponent();
+            ModernButton m = new ModernButton();
              bl = new ourBL();
             #region init for dubugging
             Nanny n1 = new Nanny()
