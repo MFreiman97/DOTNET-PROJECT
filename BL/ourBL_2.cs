@@ -193,7 +193,7 @@ namespace BL//MATANYA FUNCTIONS
             return dal.GetAllNannies(m => m.address.Substring(0, 9) == "Jerusalem");
         }
 
-        public IEnumerable<Nanny> GetAllMatchedNannies(Mother m, bool salary)
+        public IEnumerable<Nanny> GetAllMatchedNannies(Mother m, bool salary)//if the salary is T =salary per hour
         {
             var term1 = GetAllNanniesByTerm(m);
             var term2 = dal.GetAllNannies(n => n.SalaryPerHour == salary);
