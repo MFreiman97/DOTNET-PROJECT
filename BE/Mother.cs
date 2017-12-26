@@ -29,5 +29,13 @@ namespace BE
             Mother m = obj as Mother;
             return id.CompareTo(m.id);
         }
+        private string myVar;
+
+        public string FullName
+        {
+            get { return fName+" "+lName; }
+         
+        }
+
     }
 }

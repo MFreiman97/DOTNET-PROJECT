@@ -29,24 +29,30 @@ namespace WPF_UI
 
             bl = new ourBL();
             ch = new Child();
-            this.DataContext = ch;
+            this.DataContext = ch;//to allow binding connection
             this.UpdateButton.IsEnabled = false;
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "Yes" });
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });
-            foreach (var item in bl.GetAllMothers())
-            {
-                comboBoxMothers.Items.Add(new ComboBoxItem() { Content = item.id });
-            }
-           
+            comboBoxMothers.ItemsSource = bl.GetAllMothers();
+            comboBoxMothers.DisplayMemberPath = "FullName";//the combobox will display the Full NAME of the Mothers 
+            comboBoxMothers.SelectedValuePath = "id";//the selected value is the id of the mother
+
+
+
         }
+        /// <summary>
+        /// This function added to the event of the clicking on the button. the details that entered will be inserted to the object of the child and the child will be inserted to the repository 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChildAdded_Click(object sender, RoutedEventArgs e)
         {
             try
             {
 
-                ch.mom = bl.GetMother(int.Parse(comboBoxMothers.Text));
+                ch.mom = bl.GetMother((int)comboBoxMothers.SelectedValue);
                     ch.id = int.Parse(IDtextBox.Text);
-                ch.momId = int.Parse(comboBoxMothers.Text);
+                ch.momId = ((int)comboBoxMothers.SelectedValue);
                 ch.name = NAMEtextBox.Text;
                 ch.kindSpecial = DescOfDisabilityTextBox.Text;
                
@@ -73,7 +79,11 @@ namespace WPF_UI
 
 
         }
-
+        /// <summary>
+        ///if the id that inserted in the textbox is belonged to existing Child .the updating oppurtunity is enabling .this function inserting the element by the terms
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             ch = new Child()

@@ -94,7 +94,7 @@ namespace WPF_UI
         private void ContractsDistanceAbove40_Click(object sender, RoutedEventArgs e)
         {
             textBoxOutput.Text = "";//cleaning reason
-            foreach (var item in bl.GetAllContracts(c=>c.distance>=40))
+            foreach (var item in bl.GetAllContracts(c=>c.distance>=40000))
             {
                 textBoxOutput.Text += item.ToString() + '\n';
 

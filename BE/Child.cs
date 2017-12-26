@@ -27,5 +27,13 @@ namespace BE
         {
             return id.CompareTo(((Child)obj).id);
         }
+        private string myVar;
+
+        public string FullName
+        {
+            get { return name+ " "+mom.fName; }
+        
+        }
+
     }
 }

@@ -31,6 +31,11 @@ namespace WPF_UI
             bl = new ourBL();  
         }
 
+        /// <summary>
+        /// function that added to the event of the clicking that adding the mother
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MotherAdded_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -102,7 +107,11 @@ namespace WPF_UI
             }
 
         }
-
+        /// <summary>
+        ///if the id that inserted in the textbox is belonged to existing mother .the updating oppurtunity is enabling this function inserting the element by the terms
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
 

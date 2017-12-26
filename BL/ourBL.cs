@@ -3,32 +3,7 @@ using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE;
-using GoogleMapsApi;
-using GoogleMapsApi.Entities.Directions.Request;
-using GoogleMapsApi.Entities.Directions.Response;
-using System;
-using GoogleMapsApi;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading;
-using GoogleMapsApi;
-using GoogleMapsApi.Entities.Common;
-using GoogleMapsApi.Entities.Directions.Request;
-using GoogleMapsApi.Entities.Directions.Response;
-using GoogleMapsApi.Entities.Elevation.Request;
-using GoogleMapsApi.Entities.Geocoding.Request;
-using GoogleMapsApi.Entities.Geocoding.Response;
-using GoogleMapsApi.StaticMaps;
-using GoogleMapsApi.StaticMaps.Entities;
+
 
 namespace BL
 {
@@ -44,19 +19,26 @@ namespace BL
 
         }
         #region adding functions
+        /// <summary>
+        /// Adding the child to the repository
+        /// </summary>
+        /// <param name="ch"></param>
         public void addChild(Child ch)
         {
             dal.addChild(ch);
         }
-
+        /// <summary>
+        /// Adding the Contract to the repository
+        /// </summary>
+        /// <param name="ch"></param>
         public void addContract(Contract cont)
         {
             Child ch = cont.c; // Get The Child (Of The Contract)
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
             if (childAge(ch) == true && nannyContracts(na) == true)
             {
-                     //cont.distance = CalculateDistance(ch.mom.address, na.address);
-                cont.distance = 5;//****************************************
+                     cont.distance = CalculateDistance(ch.mom.address, na.address);
+            
                 cont.SalaryPerMonth = monthSalary(cont, ch, na);
                 cont.c.nannyID = cont.n.id;//refreshing the data in the child
                 cont.DateBegin = DateTime.Now;
@@ -65,12 +47,18 @@ namespace BL
 
             }
         }
-
+        /// <summary>
+        /// Adding the Mother to the repository
+        /// </summary>
+        /// <param name="ch"></param>
         public void addMom(Mother m)
         {
             dal.addMom(m);
         }
-
+        /// <summary>
+        /// Adding the Nanny to the repository
+        /// </summary>
+        /// <param name="ch"></param>
         public void addNanny(Nanny n)
         {
 
@@ -126,12 +114,19 @@ namespace BL
         }
         #endregion
         #region Update functions
+        /// <summary>
+        /// Updating the child by overriding 
+        /// </summary>
+        /// <param name="c"></param>
         public void updateChild(Child c)
         {
 
             dal.updateChild(c);
         }
-
+        /// <summary>
+        /// Updating the Contract by overriding 
+        /// </summary>
+        /// <param name="c"></param>
         public void updateContract(Contract cont)
         {
             Child ch = cont.c; // Get The Child (Of The Contract)
@@ -145,12 +140,18 @@ namespace BL
             }
            
         }
-
+        /// <summary>
+        /// Updating the Mother by overriding 
+        /// </summary>
+        /// <param name="c"></param>
         public void updateMom(Mother m)
         {
             dal.updateMom(m);
         }
-
+        /// <summary>
+        /// Updating the Nanny by overriding . the  
+        /// </summary>
+        /// <param name="c"></param>
         public void updateNanny(Nanny n)
         {
             DateTime t = DateTime.Today; // Today's Date
@@ -163,6 +164,9 @@ namespace BL
             */
             if (check <= 0)
                 dal.updateNanny(n);
+            else
+                new Exception("the details of the  Nanny you tried to add are wrong");
+
         }
 
 

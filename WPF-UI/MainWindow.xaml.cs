@@ -27,6 +27,9 @@ using GoogleMapsApi.Entities.Geocoding.Response;
 using GoogleMapsApi.Entities.Directions.Request;
 using GoogleMapsApi.Entities.Directions.Response;
 using FirstFloor.ModernUI.Windows.Controls;
+using System.Threading;
+using System.ComponentModel;
+
 namespace WPF_UI
 {
     /// <summary>
@@ -35,6 +38,7 @@ namespace WPF_UI
     public partial class MainWindow : Window
     {
         BL.ourBL bl;
+        int x;
         public MainWindow()
         {
             InitializeComponent();
@@ -100,9 +104,20 @@ namespace WPF_UI
             bl.addMom(m2);
 
             #endregion//Adding 2 Mothers
-          
+           
+
         }
 
+      
+
+        private void W_DoWork(object sender, DoWorkEventArgs e)
+        {
+          
+          
+          //  CheckingApiText.Text = x.ToString();
+        }
+
+       
         private void AddNanny_Click(object sender, RoutedEventArgs e)
         {
            var v= new AddingNanny();
@@ -192,6 +207,6 @@ namespace WPF_UI
                     }
         }
 
-       
+
     }
 }

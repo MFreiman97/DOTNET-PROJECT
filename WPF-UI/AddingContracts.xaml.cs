@@ -22,6 +22,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
+using System.ComponentModel;
 
 namespace WPF_UI
 {
@@ -32,6 +34,9 @@ namespace WPF_UI
     {
         BL.ourBL bl;
         BE.Contract Cont;
+        BE.Child child;
+        BE.ContractType ContType;//usefull for using the thread of the distance calculation
+        string str;//usefull for using the thread of the distance calculation
         static Random r = new Random();
         public AddingContracts()
         {
@@ -39,15 +44,9 @@ namespace WPF_UI
             bl = new ourBL();
              
          
-            //this.comboBoxChild.ItemsSource = bl.GetAllChilds();
-            //this.comboBoxChild.DisplayMemberPath = "name";
-            //this.comboBoxChild.SelectedValuePath = "id";
-            foreach (var item in bl.NeedNanny())
-            {
-                comboBoxChild.Items.Add(new ComboBoxItem() { Content = item.id });
-            }
-
-           
+            this.comboBoxChild.ItemsSource = bl.GetAllChilds();
+            this.comboBoxChild.DisplayMemberPath = "FullName";
+            this.comboBoxChild.SelectedValuePath = "id";
             this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
             Cont = new Contract();
          this.   DataContext = Cont;
@@ -60,11 +59,12 @@ namespace WPF_UI
             {
                
                 Cont.n = bl.GetNanny(int.Parse(NannyChosedTextBox.Text));
-                Cont.c = bl.GetChild(int.Parse(comboBoxChild.Text));
-         
-                
-               
-                bl.addContract(Cont);
+                Cont.c = bl.GetChild((int)comboBoxChild.SelectedValue);
+
+
+
+                Thread t = new Thread(() => bl.addContract(Cont));
+                t.Start();
                 this.Close();
             }
             catch (Exception ex)
@@ -75,49 +75,25 @@ namespace WPF_UI
 
         }
 
-      
 
-       
+
+        
 
         private void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (TypecomboBox.IsEnabled == true)
             {
-                Child SelChi = bl.GetChild(int.Parse(comboBoxChild.Text));
-                MatchedNanniesTextBox.Text = "";
-                if ((BE.ContractType)TypecomboBox.SelectedValue == ContractType.hourly)
-                {
-                    MatchedNanniesTextBox.Text = "";
+                BackgroundWorker work = new BackgroundWorker();
+                work.WorkerSupportsCancellation = true;
+                Cont.c = bl.GetChild((int)comboBoxChild.SelectedValue);
 
-                    foreach (var item in bl.GetAllMatchedNannies(SelChi.mom, true))
-                    {
-                        MatchedNanniesTextBox.Text += item.ToString() + '\n';
-
-                    }
-
-
-                }
-                if ((BE.ContractType)TypecomboBox.SelectedValue == ContractType.monthly)
-                {
-                    MatchedNanniesTextBox.Text = "";
-                    foreach (var item in bl.GetAllMatchedNannies(SelChi.mom, false))
-                    {
-                        MatchedNanniesTextBox.Text += item.ToString() + '\n';
-
-                    }
-
-
-                }
-                if (bl.GetAllNanniesByTerm(SelChi.mom).Count() == 0)//when there is no match to the demands of the mother
-                {
-                    MatchedNanniesTextBox.Text = "";
-                    MessageBox.Show("there is no match to the mother demands. the nannies are shown is the best five");
-                    foreach (var item in bl.TheBestFive(SelChi.mom))
-                    {
-                        //       MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + Calcu.CalculateDistance(Cont.c.mom.address, Cont.n.address) + '\n';
-                        MatchedNanniesTextBox.Text += item.ToString() + " The distance is: " + 4 + '\n';
-                    }
-                }
+            
+                child = bl.GetChild((int)comboBoxChild.SelectedValue);
+                ContType = (BE.ContractType)TypecomboBox.SelectedValue;
+                str = "";
+                work.DoWork += W_DoWork;
+                work.RunWorkerCompleted += W_RunWorkerCompleted;
+                work.RunWorkerAsync();
             }
             else
             {
@@ -125,5 +101,56 @@ namespace WPF_UI
             }
 
         }
+
+        private void W_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MatchedNanniesTextBox.Text = str;
+            BackgroundWorker work = sender as BackgroundWorker;
+            work.CancelAsync();
+        }
+
+        private void W_DoWork(object sender, DoWorkEventArgs e)
+        {
+          
+            if (ContType == ContractType.hourly)
+            {
+              
+
+                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, true))
+                {
+
+                    str += item.ToString() + '\n';
+
+                }
+
+
+            }
+            if (ContType == ContractType.monthly)
+            {
+               
+                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, false))
+                {
+
+                    str += item.ToString() + '\n';
+
+                }
+
+
+            }
+            if (bl.GetAllNanniesByTerm(Cont.c.mom).Count() == 0)//when there is no match to the demands of the mother
+            {
+           
+                MessageBox.Show("there is no match to the mother demands. the nannies are shown is the best five");
+                foreach (var item in bl.TheBestFive(Cont.c.mom))
+                {
+                  str += item.ToString();
+                }
+
+            }
+
+
+        }
+
+   
     }
 }
