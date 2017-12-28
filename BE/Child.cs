@@ -31,7 +31,7 @@ namespace BE
 
         public string FullName
         {
-            get { return name+ " "+mom.fName; }
+            get { return name+ " "+mom.lName; }
         
         }
 

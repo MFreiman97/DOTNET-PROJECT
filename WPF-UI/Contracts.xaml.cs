@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 
 namespace WPF_UI
 {
-    
+
     public partial class Contracts : Window
     {
         IBL bl;
@@ -26,9 +26,9 @@ namespace WPF_UI
             InitializeComponent();
             bl = new ourBL();
             ContactsTextBox.Text = "";
-          foreach (var item in bl.GetAllContracts())
+            foreach (var item in bl.GetAllContracts())
             {
-                ContactsTextBox.Text = item.ToString()+'\n';
+                ContactsTextBox.Text = item.ToString() + '\n';
             }
 
 
@@ -36,9 +36,18 @@ namespace WPF_UI
 
         private void UpdateButton_Click_1(object sender, RoutedEventArgs e)
         {
-             var v = new UpdateContract(bl.GetContract(int.Parse(ContractUpdatetextBox.Text)));
-            v.Show();
-          
+            try
+            {
+                var v = new UpdateContract(bl.GetContract(int.Parse(ContractUpdatetextBox.Text)));
+                v.Show();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The contract you chosed isnt exist");
+
+            }
         }
     }
 }

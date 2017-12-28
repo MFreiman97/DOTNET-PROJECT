@@ -118,8 +118,8 @@ namespace WPF_UI
             mother = new Mother()
             {
                 id = int.Parse(IDtextBox.Text),
-                lName = PNAMEtextBox.Text,
-                fName = FnameTextBox.Text,
+                fName = PNAMEtextBox.Text,
+                lName = FnameTextBox.Text,
                 phone = PhoneNumTextBox.Text
                ,
                 address = CityTextBox.Text + "," + StreetTextBox.Text + "," + ApartmentTextBox.Text

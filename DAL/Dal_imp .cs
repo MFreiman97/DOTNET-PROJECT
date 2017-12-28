@@ -153,19 +153,26 @@ namespace DAL
         }
         #endregion
         #region update functions
+        /// <summary>
+        /// The Function get a Child to update,looking for the id of all the childs and update by overriding
+        /// </summary>
+        /// <param name="c"></param>
         public void updateChild(Child c)
         {
-            int index = DataSource.childs.IndexOf(c);// i need to use the icomparable 
+            int index = DataSource.childs.FindIndex(x=>x.id==c.id);// i need to use the icomparable 
             if(index!=-1)
             {
                 DataSource.childs[index] = c;
             }
        
         }
-
+        /// <summary>
+        /// The Function get a contract to update,looking for the contnum of all the contracts and update by overriding
+        /// </summary>
+        /// <param name="c"></param>
         public void updateContract(Contract c)
         {
-            int index = DataSource.contracts.IndexOf(c);// i need to use the icomparable 
+            int index = DataSource.contracts.FindIndex(x=>x.contnum==c.contnum);// i need to use the icomparable 
             if (index != -1)
             {
                 DataSource.contracts[index] = c;
@@ -173,11 +180,13 @@ namespace DAL
 
 
         }
-
+        /// <summary>
+        /// The Function get a Mother to update,looking for the id of all the Mothers and update by overriding
+        /// </summary>
+        /// <param name="c"></param>
         public void updateMom(Mother m)
         {
-        //    IEnumerable<Mother> v = DataSource.mothers;
-           
+        
 
             int index = DataSource.mothers.FindIndex(x=>x.id==m.id);
             if (index != -1)
@@ -186,10 +195,13 @@ namespace DAL
             }
 
         }
-
+        /// <summary>
+        /// The Function get a Nanny to update,looking for the id of all the nannies and update by overriding
+        /// </summary>
+        /// <param name="c"></param>
         public void updateNanny(Nanny n)
         {
-            int index = DataSource.nannies.IndexOf(n);
+            int index = DataSource.nannies.FindIndex(x=>x.id==n.id);
             if (index != -1)
             {
                 DataSource.nannies[index] = n;
