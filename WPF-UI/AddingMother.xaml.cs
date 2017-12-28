@@ -164,6 +164,7 @@ namespace WPF_UI
 
 
             bl.updateMom(mother);
+            this.Close();
         }
 
        

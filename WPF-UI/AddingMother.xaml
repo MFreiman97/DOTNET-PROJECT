@@ -7,10 +7,8 @@
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="WPF_UI.AddingMother"
         mc:Ignorable="d"
         Title="AddingMother" Height="700" Width="600" >
-    <Window.Resources>
-        <CollectionViewSource x:Key="motherViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Mother}, CreateList=True}"/>
-    </Window.Resources>
-    <Grid DataContext="{StaticResource motherViewSource}">
+
+    <Grid >
         <TextBox x:Name="IDtextBox"   HorizontalAlignment="Left" Height="21" Margin="201,10,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="PNAMEtextBox" HorizontalAlignment="Left" Height="21" Margin="201,59,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label" Content="id" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113" Height="27"/>

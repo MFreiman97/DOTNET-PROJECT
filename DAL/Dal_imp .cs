@@ -176,7 +176,10 @@ namespace DAL
 
         public void updateMom(Mother m)
         {
-            int index = DataSource.mothers.IndexOf(m);
+        //    IEnumerable<Mother> v = DataSource.mothers;
+           
+
+            int index = DataSource.mothers.FindIndex(x=>x.id==m.id);
             if (index != -1)
             {
                 DataSource.mothers[index] = m;
