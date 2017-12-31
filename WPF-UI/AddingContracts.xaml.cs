@@ -33,6 +33,7 @@ namespace WPF_UI
     public partial class AddingContracts : Window
     {
         BL.ourBL bl;
+        bool BestFive=false;
         BE.Contract Cont;
         BE.Child child;
         BE.ContractType ContType;//usefull for using the thread of the distance calculation
@@ -103,7 +104,9 @@ namespace WPF_UI
         }
 
         private void W_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+            
         {
+            
             MatchedNanniesTextBox.Text = str;
             BackgroundWorker work = sender as BackgroundWorker;
             work.CancelAsync();
@@ -139,11 +142,11 @@ namespace WPF_UI
             }
             if (bl.GetAllNanniesByTerm(Cont.c.mom).Count() == 0)//when there is no match to the demands of the mother
             {
-           
-                MessageBox.Show("there is no match to the mother demands. the nannies are shown is the best five");
+    
+                str += "the nannies are shown is the best 5"+'\n';
                 foreach (var item in bl.TheBestFive(Cont.c.mom))
                 {
-                  str += item.ToString();
+                    str += item.ToString();
                 }
 
             }

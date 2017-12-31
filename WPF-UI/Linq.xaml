@@ -9,13 +9,13 @@
     <Grid>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="22" Margin="207,16,0,0" VerticalAlignment="Top" Width="128" SelectionChanged="comboBox_SelectionChanged" TextInput="comboBox_TextInput" />
         <TextBox x:Name="x" HorizontalAlignment="Left" Height="31" Margin="10,16,0,0" TextWrapping="Wrap" Text="select what to show" VerticalAlignment="Top" Width="149"/>
-        <TextBox x:Name="textBoxOutput" HorizontalAlignment="Left" Height="223" Margin="10,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="560" Padding="6,0,0,0" BorderThickness="2" IsReadOnly="True"/>
         <Button x:Name="NeededChildsButton" Content="Show the childs that need nanny" HorizontalAlignment="Left" Height="28" Margin="10,84,0,0" VerticalAlignment="Top" Width="198" Click="NeededChildsButton_Click" RenderTransformOrigin="0.512,0.157"/>
         <Button x:Name="SpecialChildsButton" Content="show the special childs" HorizontalAlignment="Left" Height="27" Margin="10,117,0,0" VerticalAlignment="Top" Width="198" Click="SpecialChildsButton_Click"/>
         <Button x:Name="NannyByTheGovButton" Content="Show the nannies that work by the gov" HorizontalAlignment="Left" Height="28" Margin="330,84,0,0" VerticalAlignment="Top" Width="217" RenderTransformOrigin="0.512,0.157" Click="NannyByTheGov_Click"/>
         <Button x:Name="JerusalemNannyButton" Content="show the nannies from jerusalem" HorizontalAlignment="Left" Height="27" Margin="343,125,0,0" VerticalAlignment="Top" Width="227" Click="JerusalemNannyButton_Click"/>
         <Button x:Name="JerusalemMothersButton" Content="show the mothers from jerusalem" HorizontalAlignment="Left" Height="27" Margin="10,149,0,0" VerticalAlignment="Top" Width="227" Click="JerusalemMothersButton_Click"/>
         <Button x:Name="ContractsDistanceAbove40" Content="show the contracts with distance above 40" HorizontalAlignment="Left" Height="27" Margin="303,157,0,0" VerticalAlignment="Top" Width="251" Click="ContractsDistanceAbove40_Click"/>
+        <DataGrid x:Name="dataGridLinq" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Height="261" Width="572"/>
 
     </Grid>
 </Window>

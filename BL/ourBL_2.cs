@@ -23,8 +23,7 @@ namespace BL//MATANYA FUNCTIONS
         {
 
                 return dal.GetAllNannies(n => (CalculateDistance(m.address, n.address) <= m.nannyArea*1000));
-         
-         //   return dal.GetAllNannies(n => (6 <= m.nannyArea));
+        
         }
          public IEnumerable<Nanny> WorkingByTheGov()
         {

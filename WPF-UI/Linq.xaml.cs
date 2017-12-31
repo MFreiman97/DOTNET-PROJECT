@@ -43,62 +43,44 @@ namespace WPF_UI
 
         private void NeededChildsButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";//cleaning reason
-            foreach (var item in bl.NeedNanny())
-            {
-                textBoxOutput.Text += item.ToString() + '\n';
 
-            }
+            dataGridLinq.ItemsSource = bl.NeedNanny();
+            
         }
 
         private void SpecialChildsButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";//cleaning reason
-            foreach (var item in bl.GetSpecialChilds())
-            {
-                textBoxOutput.Text += item.ToString() + '\n';
 
-            }
+            dataGridLinq.ItemsSource = bl.GetSpecialChilds();
+       
         }
 
         private void NannyByTheGov_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";//cleaning reason
-            foreach (var item in bl.WorkingByTheGov())
-            {
-                textBoxOutput.Text += item.ToString() + '\n';
 
-            }
+            dataGridLinq.ItemsSource = bl.WorkingByTheGov();
+            
         }
 
         private void JerusalemNannyButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";//cleaning reason
-            foreach (var item in bl.GetAllNanniesFromJerusalem())
-            {
-                textBoxOutput.Text += item.ToString() + '\n';
 
-            }
+            dataGridLinq.ItemsSource = bl.GetAllNanniesFromJerusalem();
+          
         }
 
         private void JerusalemMothersButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";//cleaning reason
-            foreach (var item in bl.GetAllMothersFromJerusalem())
-            {
-                textBoxOutput.Text += item.ToString() + '\n';
 
-            }
+            dataGridLinq.ItemsSource = bl.GetAllMothersFromJerusalem();
+            
         }
 
         private void ContractsDistanceAbove40_Click(object sender, RoutedEventArgs e)
         {
-            textBoxOutput.Text = "";//cleaning reason
-            foreach (var item in bl.GetAllContracts(c=>c.distance>=40000))
-            {
-                textBoxOutput.Text += item.ToString() + '\n';
 
-            }
+            dataGridLinq.ItemsSource = bl.GetAllContracts(c => c.distance >= 40000);
+         
         }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -110,44 +92,32 @@ namespace WPF_UI
             NannyByTheGovButton.IsEnabled = false;
             JerusalemNannyButton.IsEnabled = false;
             JerusalemMothersButton.IsEnabled = false;
-            textBoxOutput.Text = "";
+          
             ComboBoxItem cbi = (ComboBoxItem)comboBox.SelectedItem;
             string selectedText = cbi.Content.ToString();//this codes are actually help me to relate to the selected item as the current selected item
             if ( selectedText=="childs")
             {
-                foreach (var item in bl.GetAllChilds())
-                {
-                    textBoxOutput.Text += item.ToString() + '\n';
-
-                }
+                dataGridLinq.ItemsSource = bl.GetAllChilds();
+               
                 NeededChildsButton.IsEnabled = true;
                 SpecialChildsButton.IsEnabled = true;
             }
             if ((selectedText == "contracts"))
             {
-                foreach (var item in bl.GetAllContracts())
-                {
-                    textBoxOutput.Text += item.ToString() + '\n';
-
-                }
+                dataGridLinq.ItemsSource = bl.GetAllContracts();
+            
                 ContractsDistanceAbove40.IsEnabled = true;
             }
             if ((selectedText == "mothers"))
             {
-                foreach (var item in bl.GetAllMothers())
-                {
-                    textBoxOutput.Text += item.ToString() + '\n';
-
-                }
+                dataGridLinq.ItemsSource = bl.GetAllMothers();
+             
                 JerusalemMothersButton.IsEnabled = true;
             }
             if ((selectedText == "nannies"))
             {
-                foreach (var item in bl.GetAllNannies())
-                {
-                    textBoxOutput.Text += item.ToString() + '\n';
-
-                }
+                dataGridLinq.ItemsSource = bl.GetAllNannies();
+            
                 JerusalemNannyButton.IsEnabled = true;
                 NannyByTheGovButton.IsEnabled = true;
             }
@@ -163,42 +133,29 @@ namespace WPF_UI
             NannyByTheGovButton.IsEnabled = false;
             JerusalemNannyButton.IsEnabled = false;
             JerusalemMothersButton.IsEnabled = false;
-            textBoxOutput.Text = "";
+        
             if ((comboBox.SelectedItem).ToString() == "childs" || comboBox.Text == "childs")
             {
-                foreach (var item in bl.GetAllChilds())
-                {
-                    textBoxOutput.Text += item.ToString() + '\n';
-
-                }
+                dataGridLinq.ItemsSource = bl.GetAllChilds();
+     
                 NeededChildsButton.IsEnabled = true;
                 SpecialChildsButton.IsEnabled = true;
             }
             if ((comboBox.SelectedValue).ToString() == "contracts")
             {
-                foreach (var item in bl.GetAllContracts())
-                {
-                    textBoxOutput.Text += item.ToString() + '\n';
-
-                }
+                dataGridLinq.ItemsSource = bl.GetAllContracts();
                 ContractsDistanceAbove40.IsEnabled = true;
             }
             if ((comboBox.SelectedValue).ToString() == "mothers")
             {
-                foreach (var item in bl.GetAllMothers())
-                {
-                    textBoxOutput.Text += item.ToString() + '\n';
-
-                }
+                dataGridLinq.ItemsSource = bl.GetAllMothers();
+             
                 JerusalemMothersButton.IsEnabled = true;
             }
             if ((comboBox.SelectedValue).ToString() == "nannies")
             {
-                foreach (var item in bl.GetAllNannies())
-                {
-                    textBoxOutput.Text += item.ToString() + '\n';
-
-                }
+                dataGridLinq.ItemsSource = bl.GetAllNannies();
+               
                 JerusalemNannyButton.IsEnabled = true;
                 NannyByTheGovButton.IsEnabled = true;
             }
