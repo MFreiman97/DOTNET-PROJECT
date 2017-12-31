@@ -35,6 +35,11 @@ namespace WPF_UI
             this.FloorComboBox.ItemsSource = Enum.GetValues(typeof(BE.FLOORS));
         }
 
+        /// <summary>
+        /// function that added to the event of the clicking that adding the nanny
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NannyAdded_Click(object sender, RoutedEventArgs e)
         {
 
@@ -115,6 +120,11 @@ namespace WPF_UI
 
         }
 
+        /// <summary>
+        /// if the id that inserted in the textbox is belonged to existing nanny .the updating oppurtunity is enabling this function inserting the element by the terms
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             try

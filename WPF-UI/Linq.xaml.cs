@@ -83,6 +83,11 @@ namespace WPF_UI
          
         }
 
+        /// <summary>
+        /// Make At First All The Buttons As Enable & Change Them In Accordance With What Been Chosen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
     
@@ -125,6 +130,11 @@ namespace WPF_UI
 
         }
 
+        /// <summary>
+        /// Make At First All The Buttons As Enable & Change Them In Accordance With What Been Chosen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox_TextInput(object sender, TextCompositionEventArgs e)
         {
             ContractsDistanceAbove40.IsEnabled = false;

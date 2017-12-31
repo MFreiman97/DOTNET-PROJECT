@@ -1,4 +1,4 @@
-﻿using BL;//matanya
+﻿using BL;
 using BE;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using System;//MATANYA PART
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +18,10 @@ namespace DAL
 
         }
         #region add and delete functions
+        /// <summary>
+        /// Add A New Child - In Case He Is Already Exist Throw An exeption
+        /// </summary>
+        /// <param name="c"></param>
         public void addChild(Child c)
         {
             if (GetChild(c.id) == null)  
@@ -34,7 +38,10 @@ namespace DAL
     
             c.n.contracts++;
         }
-
+        /// <summary>
+        ///  Add A New Mom - In Case She Is Already Exist Throw An exeption
+        /// </summary>
+        /// <param name="m"></param>
         public void addMom(Mother m)
         {
             if (GetMother(m.id) == null)
@@ -44,7 +51,10 @@ namespace DAL
           else
                 throw new Exception("the Mother you tried to add already exist!");
         }
-
+        /// <summary>
+        /// Add A New Nanny - In Case She Is Already Exist Throw An exeption
+        /// </summary>
+        /// <param name="n"></param>
         public void addNanny(Nanny n)
         {
             if(GetNanny(n.id) == null)
@@ -55,7 +65,10 @@ namespace DAL
                 throw new Exception("the Nanny you tried to add already exist!");
    
         }
-
+        /// <summary>
+        /// Delete A Child - In Case He Doesn't Exist Throw An exeption
+        /// </summary>
+        /// <param name="c"></param>
         public void deleteChild(Child c)
         {
             if(GetChild(c.id)!=null)
@@ -69,7 +82,10 @@ namespace DAL
             DataSource.contracts.Remove(c);
             c.n.contracts--;
         }
-
+        /// <summary>
+        /// Delete A Mom - In Case She Doesn't Exist Throw An exeption
+        /// </summary>
+        /// <param name="m"></param>
         public void deleteMom(Mother m)
         {
             if(GetMother(m.id) != null)
@@ -80,7 +96,10 @@ namespace DAL
                 throw new Exception("the Mother you tried to delete wasnt exist!");
            
         }
-
+        /// <summary>
+        /// Delete A Nanny - In Case She Doesn't Exist Throw An exeption
+        /// </summary>
+        /// <param name="n"></param>
         public void deleteNanny(Nanny n)
         {
           
@@ -102,12 +121,20 @@ namespace DAL
 
             return DataSource.childs.Where(predicat);
         }
-
+        /// <summary>
+        /// Get All The Childs Who Have Mother With The Same ID As The Given Mother
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
         public IEnumerable<Child> GetAllChildsByMother(Mother m)
         {
             return DataSource.childs.Where(c => c.momId == m.id);
         }
-
+        /// <summary>
+        /// Get All The Contracts By The Term(If There Is)
+        /// </summary>
+        /// <param name="predicat"></param>
+        /// <returns></returns>
         public IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null)
         {
             if (predicat == null)
@@ -115,7 +142,11 @@ namespace DAL
 
             return DataSource.contracts.Where(predicat);
         }
-
+        /// <summary>
+        /// Get All The Moms By The Term(If There Is)
+        /// </summary>
+        /// <param name="predicat"></param>
+        /// <returns></returns>
         public IEnumerable<Mother> GetAllMothers(Func<Mother, bool> predicat = null)
         {
             if (predicat == null)
@@ -123,7 +154,11 @@ namespace DAL
 
             return DataSource.mothers.Where(predicat);
         }
-
+        /// <summary>
+        /// Get All The Nannies By The Term(If There Is)
+        /// </summary>
+        /// <param name="predicat"></param>
+        /// <returns></returns>
         public IEnumerable<Nanny> GetAllNannies(Func<Nanny, bool> predicat = null)
         {
             if (predicat == null)
@@ -133,20 +168,38 @@ namespace DAL
         }
         #endregion
         #region get by id functions
+        /// <summary>
+        /// Find A Child By His ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Child GetChild(int id)
         {
             return DataSource.childs.Find(c => c.id == id);
         }
-
+        /// <summary>
+        /// Find A Mom By Her ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Mother GetMother(int id)
         {
             return DataSource.mothers.Find(m => m.id == id);
         }
-
+        /// <summary>
+        /// Find A Nanny By Her ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Nanny GetNanny(int id)
         {
             return DataSource.nannies.Find(n => n.id == id);
         }
+        /// <summary>
+        /// Find A Contract By It's Number
+        /// </summary>
+        /// <param name="co"></param>
+        /// <returns></returns>
         public Contract GetContract(int co)
         {
             return DataSource.contracts.Find(n => n.contnum == co);

@@ -7,11 +7,16 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace BL//MATANYA FUNCTIONS
+namespace BL
 {
      public  partial class ourBL:IBL
     {
         #region nanny functions
+        /// <summary>
+        /// Get All The Nannies Who Match To Specific Mom By Checking Their Schedules And Destinations
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
         public IEnumerable<Nanny> GetAllNanniesByTerm(Mother m)
         {
             var v1 = dal.GetAllNannies(n => CheckSchedule(m, n)==true);

@@ -78,6 +78,10 @@ namespace BL
         }
         #endregion
         #region delete functions
+        /// <summary>
+        /// Check That The Wanted Child Is Exist & Doesn't Have Any Contract & Then Delete Him 
+        /// </summary>
+        /// <param name="ch"></param>
         public void deleteChild(Child ch)
         {
             if (ch == null)
@@ -95,6 +99,10 @@ namespace BL
             dal.deleteContract(c);
         }
 
+        /// <summary>
+        /// Check That The Wanted Mom Is Exist & Doesn't Have Any Childs & Then Delete Her 
+        /// </summary>
+        /// <param name="m"></param>
         public void deleteMom(Mother m)
         {
             if (m == null)
@@ -104,6 +112,10 @@ namespace BL
             dal.deleteMom(m);
         }
 
+        /// <summary>
+        /// Check That The Wanted Nanny Is Exist & Doesn't Have Any Contracts & Then Delete Her 
+        /// </summary>
+        /// <param name="n"></param>
         public void deleteNanny(Nanny n)
         {
             if (n == null)
@@ -183,6 +195,7 @@ namespace BL
                 return false;
             return true;
         }
+
         public bool childAge(Child ch)
         {
             DateTime t = DateTime.Today; // Today's Date
@@ -197,6 +210,12 @@ namespace BL
                 return true;
             return false;
         }
+
+        /// <summary>
+        /// Calculate How Many Hours The Nanny Works In A Week
+        /// </summary>
+        /// <param name="na"></param>
+        /// <returns></returns>
         public TimeSpan hoursAmountForWeek(Nanny na)
         {
             TimeSpan sum = na.schedule[1, 0].Subtract(na.schedule[0, 0]);
@@ -204,6 +223,7 @@ namespace BL
                  sum += na.schedule[1, i].Subtract(na.schedule[0, i]);
             return (sum);
         }
+
         public double monthSalary(Contract cont, Child ch, Nanny na)
         {
             int count = -1; // Count The Brothers

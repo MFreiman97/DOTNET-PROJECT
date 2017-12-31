@@ -36,6 +36,11 @@ namespace WPF_UI
 
         }
 
+        /// <summary>
+        /// Deleting Mother By ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteMom_Click(object sender, RoutedEventArgs e)
         {
             try

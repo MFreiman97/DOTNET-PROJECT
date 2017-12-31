@@ -23,6 +23,11 @@ namespace WPF_UI
     {
         BL.ourBL bl;
         Contract temp;
+
+        /// <summary>
+        /// Get The Contract By Number & Changes It's Date
+        /// </summary>
+        /// <param name="co"></param>
         public UpdateContract(Contract co)
         {
            

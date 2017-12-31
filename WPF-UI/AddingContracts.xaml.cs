@@ -39,6 +39,7 @@ namespace WPF_UI
         BE.ContractType ContType;//usefull for using the thread of the distance calculation
         string str;//usefull for using the thread of the distance calculation
         static Random r = new Random();
+
         public AddingContracts()
         {
             InitializeComponent();
@@ -54,6 +55,11 @@ namespace WPF_UI
             TypecomboBox.IsEnabled = false;
         }
 
+        /// <summary>
+        /// function that added to the event of the clicking that adding the contract
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddTheContract_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -72,7 +78,6 @@ namespace WPF_UI
             {
                 MessageBox.Show(ex.Message);
             }
-
 
         }
 

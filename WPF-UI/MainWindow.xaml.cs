@@ -1,4 +1,4 @@
-﻿using System;//matanya
+﻿using System;
 
 using System.Collections.Generic;
 using System.Linq;
@@ -117,7 +117,8 @@ namespace WPF_UI
           //  CheckingApiText.Text = x.ToString();
         }
 
-       
+        #region Adding Clicks
+
         private void AddNanny_Click(object sender, RoutedEventArgs e)
         {
            var v= new AddingNanny();
@@ -149,6 +150,7 @@ namespace WPF_UI
          
             v.ShowDialog();
         }
+        #endregion
 
         private void All_Contracts_Click_1(object sender, RoutedEventArgs e)
         {
@@ -162,6 +164,8 @@ namespace WPF_UI
             var v = new Linq();
             v.ShowDialog();
         }
+
+        #region Deleting Clicks
 
         private void DeleteNanny_Click(object sender, RoutedEventArgs e)
         {
@@ -201,12 +205,12 @@ namespace WPF_UI
         {
             if (bl.GetAllContracts().Count() == 0)
                 MessageBox.Show("There is no Contract to delete");
-            else { 
+            else
+            { 
             var v = new DeletingContracts();
             v.ShowDialog();
-                    }
+            }
         }
-
-
+        #endregion
     }
 }
