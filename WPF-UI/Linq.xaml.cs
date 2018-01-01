@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
@@ -20,7 +21,7 @@ namespace WPF_UI
     /// </summary>
     /// 
   
-    public partial class Linq : Window
+    public partial class Linq : MetroWindow
     {
         BL.IBL bl; 
         public Linq()

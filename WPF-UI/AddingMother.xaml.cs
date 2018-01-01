@@ -1,5 +1,6 @@
 ﻿using BE;
 using BL;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace WPF_UI
     /// <summary>
     /// Interaction logic for AddingMother.xaml
     /// </summary>
-    public partial class AddingMother : Window
+    public partial class AddingMother : MetroWindow
     {
         BL.ourBL bl;
         BE.Mother mother;

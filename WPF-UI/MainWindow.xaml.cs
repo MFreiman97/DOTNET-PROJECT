@@ -26,23 +26,25 @@ using GoogleMapsApi.Entities.Geocoding.Request;
 using GoogleMapsApi.Entities.Geocoding.Response;
 using GoogleMapsApi.Entities.Directions.Request;
 using GoogleMapsApi.Entities.Directions.Response;
-using FirstFloor.ModernUI.Windows.Controls;
+
+
 using System.Threading;
 using System.ComponentModel;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         BL.ourBL bl;
         int x;
         public MainWindow()
         {
             InitializeComponent();
-            ModernButton m = new ModernButton();
+         
              bl = new ourBL();
             #region init for dubugging
             Nanny n1 = new Nanny()

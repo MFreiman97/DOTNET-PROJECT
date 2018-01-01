@@ -1,14 +1,15 @@
-﻿<Window x:Class="WPF_UI.Linq"
+﻿<controls:MetroWindow x:Class="WPF_UI.Linq"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
         Title="Linq" Height="500" Width="600">
     <Grid>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="22" Margin="207,16,0,0" VerticalAlignment="Top" Width="128" SelectionChanged="comboBox_SelectionChanged" TextInput="comboBox_TextInput" />
-        <TextBox x:Name="x" HorizontalAlignment="Left" Height="31" Margin="10,16,0,0" TextWrapping="Wrap" Text="select what to show" VerticalAlignment="Top" Width="149"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="22" Margin="228,21,0,0" VerticalAlignment="Top" Width="128" SelectionChanged="comboBox_SelectionChanged" TextInput="comboBox_TextInput" />
+        <TextBox x:Name="x" HorizontalAlignment="Left" Height="31" Margin="28,25,0,0" TextWrapping="Wrap" Text="select what to show" VerticalAlignment="Top" Width="149"/>
         <Button x:Name="NeededChildsButton" Content="Show the childs that need nanny" HorizontalAlignment="Left" Height="28" Margin="10,84,0,0" VerticalAlignment="Top" Width="198" Click="NeededChildsButton_Click" RenderTransformOrigin="0.512,0.157"/>
         <Button x:Name="SpecialChildsButton" Content="show the special childs" HorizontalAlignment="Left" Height="27" Margin="10,117,0,0" VerticalAlignment="Top" Width="198" Click="SpecialChildsButton_Click"/>
         <Button x:Name="NannyByTheGovButton" Content="Show the nannies that work by the gov" HorizontalAlignment="Left" Height="28" Margin="330,84,0,0" VerticalAlignment="Top" Width="217" RenderTransformOrigin="0.512,0.157" Click="NannyByTheGov_Click"/>
@@ -18,4 +19,4 @@
         <DataGrid x:Name="dataGridLinq" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Height="261" Width="572"/>
 
     </Grid>
-</Window>
+</controls:MetroWindow>
