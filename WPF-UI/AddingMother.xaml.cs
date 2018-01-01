@@ -172,7 +172,10 @@ namespace WPF_UI
             try
             {
                 if (IDtextBox.Text.Any(char.IsLetter))
+                {
+                    IDtextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Numbers Please!");
+                }
             }
             catch (Exception ex)
             {
@@ -185,7 +188,10 @@ namespace WPF_UI
             try
             {
                 if (PhoneNumTextBox.Text.Any(char.IsLetter))
+                {
+                    PhoneNumTextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Numbers Please!");
+                }
             }
             catch (Exception ex)
             {
@@ -198,7 +204,10 @@ namespace WPF_UI
             try
             {
                 if (PNAMEtextBox.Text.Any(char.IsDigit))
+                {
+                    PNAMEtextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Letters Please!");
+                }
             }
             catch (Exception ex)
             {
@@ -211,7 +220,10 @@ namespace WPF_UI
             try
             {
                 if (FnameTextBox.Text.Any(char.IsDigit))
+                {
+                    FnameTextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Letters Please!");
+                }
             }
             catch (Exception ex)
             {
@@ -224,7 +236,10 @@ namespace WPF_UI
             try
             {
                 if (CityTextBox.Text.Any(char.IsDigit))
+                {
+                    CityTextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Letters Please!");
+                }
             }
             catch (Exception ex)
             {
@@ -237,7 +252,10 @@ namespace WPF_UI
             try
             {
                 if (StreetTextBox.Text.Any(char.IsDigit))
+                {
+                    StreetTextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Letters Please!");
+                }
             }
             catch (Exception ex)
             {

@@ -108,7 +108,10 @@ namespace WPF_UI
             try
             {
                 if (IDtextBox.Text.Any(char.IsLetter))
+                {
+                    IDtextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Numbers Please!");
+                }
             }
             catch (Exception ex)
             {
@@ -121,7 +124,10 @@ namespace WPF_UI
             try
             {
                 if (NAMEtextBox.Text.Any(char.IsDigit))
+                {
+                    NAMEtextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Letters Please!");
+                }
             }
             catch (Exception ex)
             {

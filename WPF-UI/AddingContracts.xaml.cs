@@ -164,7 +164,10 @@ namespace WPF_UI
             try
             {
                 if (NannyChosedTextBox.Text.Any(char.IsLetter))
+                {
+                    NannyChosedTextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Numbers Please!");
+                }
             }
             catch (Exception ex)
             {
