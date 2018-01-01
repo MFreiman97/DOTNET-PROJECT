@@ -24,13 +24,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Threading;
 using System.ComponentModel;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for MainContracts.xaml
     /// </summary>
-    public partial class AddingContracts : Window
+    public partial class AddingContracts : MetroWindow
     {
         BL.ourBL bl;
         bool BestFive=false;

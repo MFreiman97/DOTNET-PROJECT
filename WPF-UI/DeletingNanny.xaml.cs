@@ -13,13 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
 using BE;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for DeletingNanny.xaml
     /// </summary>
-    public partial class DeletingNanny : Window
+    public partial class DeletingNanny : MetroWindow
     {
         BL.ourBL bl;
         BE.Nanny n;

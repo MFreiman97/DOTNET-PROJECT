@@ -13,13 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
 using BE;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for DeletingMother.xaml
     /// </summary>
-    public partial class DeletingMother : Window
+    public partial class DeletingMother : MetroWindow
     {
         BL.ourBL bl;
         BE.Mother mo;
@@ -29,11 +30,11 @@ namespace WPF_UI
             mo = new Mother();
             bl = new ourBL();
          
-            foreach (var item in bl.GetAllMothers())
-            {
-              MotherComboBox.Items.Add(new ComboBoxItem() { Content = item.id });
-            }
-
+          
+            MotherComboBox.ItemsSource = bl.GetAllMothers();
+            MotherComboBox.DisplayMemberPath = "FullName";
+            MotherComboBox.SelectedValuePath = "id";
+            MotherComboBox.SelectedItem = bl.GetAllMothers().ElementAt(0);
         }
 
         /// <summary>
@@ -41,11 +42,12 @@ namespace WPF_UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DeleteMom_Click(object sender, RoutedEventArgs e)
+    
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Mother m = bl.GetMother(int.Parse(MotherComboBox.Text));
+                Mother m = bl.GetMother((int)MotherComboBox.SelectedValue);
                 bl.deleteMom(m);
                    this.Close();
             }
@@ -53,8 +55,6 @@ namespace WPF_UI
             {
                 MessageBox.Show(ex.Message);
             }
- 
         }
-
     }
 }

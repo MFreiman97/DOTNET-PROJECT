@@ -13,11 +13,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
 
-    public partial class Contracts : Window
+    public partial class Contracts : MetroWindow
     {
         IBL bl;
         public Contracts()

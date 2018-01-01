@@ -14,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace WPF_UI
 {
@@ -29,7 +31,9 @@ namespace WPF_UI
             InitializeComponent();  
          
             this.UpdateButton.IsEnabled = false;
-            bl = new ourBL();  
+            bl = new ourBL();
+
+      
         }
 
         /// <summary>

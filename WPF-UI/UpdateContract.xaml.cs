@@ -13,13 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
 using BE;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for UpdateContract.xaml
     /// </summary>
-    public partial class UpdateContract : Window
+    public partial class UpdateContract : MetroWindow
     {
         BL.ourBL bl;
         Contract temp;

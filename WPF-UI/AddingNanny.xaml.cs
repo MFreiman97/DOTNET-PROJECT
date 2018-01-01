@@ -13,13 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BE;
 using BL;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for AddingNanny.xaml
     /// </summary>
-    public partial class AddingNanny : Window
+    public partial class AddingNanny : MetroWindow
     {
         BL.ourBL bl;
        BE.Nanny nanny;

@@ -13,13 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BL;
 using BE;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for DeletingChild.xaml
     /// </summary>
-    public partial class DeletingChild : Window
+    public partial class DeletingChild : MetroWindow
     {
         BL.ourBL bl;
         BE.Child ch;

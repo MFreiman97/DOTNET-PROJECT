@@ -13,13 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BE;
 using BL;
+using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for DeletingContracts.xaml
     /// </summary>
-    public partial class DeletingContracts : Window
+    public partial class DeletingContracts : MetroWindow
     {
         BL.ourBL bl;
         BE.Contract co;
