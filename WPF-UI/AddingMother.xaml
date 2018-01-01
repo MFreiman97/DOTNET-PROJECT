@@ -9,21 +9,21 @@
         Title="AddingMother" Height="700" Width="600" >
 
     <Grid >
-        <TextBox x:Name="IDtextBox"   HorizontalAlignment="Left" Height="21" Margin="201,10,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="PNAMEtextBox" HorizontalAlignment="Left" Height="21" Margin="201,59,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="IDtextBox"   HorizontalAlignment="Left" Height="21" Margin="201,10,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="IDtextBox_LostFocus" />
+        <TextBox x:Name="PNAMEtextBox" HorizontalAlignment="Left" Height="21" Margin="201,59,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="PNAMEtextBox_LostFocus" />
         <Label x:Name="label" Content="id" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy1" Content="Private Name" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy4" Content="comments" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Button x:Name="MotherAdded" Content="Add The Mother" HorizontalAlignment="Left" Height="33" Margin="150,607,0,0" VerticalAlignment="Top" Width="211" Click="MotherAdded_Click"/>
         <Label x:Name="label_Copy" Content="Family Name" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <TextBox x:Name="FnameTextBox" HorizontalAlignment="Left" Height="21" Margin="201,100,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="FnameTextBox" HorizontalAlignment="Left" Height="21" Margin="201,100,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="FnameTextBox_LostFocus" />
         <Label x:Name="label_Copy2" Content="Phone Number" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <TextBox x:Name="PhoneNumTextBox" HorizontalAlignment="Left" Height="21" Margin="201,145,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PhoneNumTextBox" HorizontalAlignment="Left" Height="21" Margin="201,145,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="PhoneNumTextBox_LostFocus" />
         <Label x:Name="label_Copy5" Content="city" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy6" Content="street" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy7" Content="number of the apartment" HorizontalAlignment="Left" Margin="0,247,0,0" VerticalAlignment="Top" Width="144" Height="27"/>
-        <TextBox x:Name="CityTextBox" HorizontalAlignment="Left" Height="21" Margin="201,187,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="StreetTextBox" HorizontalAlignment="Left" Height="21" Margin="201,221,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="CityTextBox" HorizontalAlignment="Left" Height="21" Margin="201,187,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="CityTextBox_LostFocus" />
+        <TextBox x:Name="StreetTextBox" HorizontalAlignment="Left" Height="21" Margin="201,221,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="StreetTextBox_LostFocus" />
         <TextBox x:Name="ApartmentTextBox" HorizontalAlignment="Left" Height="21" Margin="201,253,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="CommentsTextBox" HorizontalAlignment="Left" Height="63" Margin="150,290,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
         <Label x:Name="label_Copy3" Content="days of working" HorizontalAlignment="Left" Margin="10,352,0,0" VerticalAlignment="Top" Width="113" Height="27"/>

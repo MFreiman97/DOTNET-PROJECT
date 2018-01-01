@@ -167,6 +167,82 @@ namespace WPF_UI
             this.Close();
         }
 
-       
+        private void IDtextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (IDtextBox.Text.Any(char.IsLetter))
+                    throw new Exception("ERROR - Enter Only Numbers Please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void PhoneNumTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (PhoneNumTextBox.Text.Any(char.IsLetter))
+                    throw new Exception("ERROR - Enter Only Numbers Please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void PNAMEtextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (PNAMEtextBox.Text.Any(char.IsDigit))
+                    throw new Exception("ERROR - Enter Only Letters Please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void FnameTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (FnameTextBox.Text.Any(char.IsDigit))
+                    throw new Exception("ERROR - Enter Only Letters Please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void CityTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (CityTextBox.Text.Any(char.IsDigit))
+                    throw new Exception("ERROR - Enter Only Letters Please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void StreetTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (StreetTextBox.Text.Any(char.IsDigit))
+                    throw new Exception("ERROR - Enter Only Letters Please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

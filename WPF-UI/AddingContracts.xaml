@@ -22,7 +22,7 @@
         <ComboBox x:Name="TypecomboBox" HorizontalAlignment="Left" Height="20" Margin="145,71,0,0" VerticalAlignment="Top" Width="104" SelectedItem="{Binding ContType}" SelectionChanged="TypecomboBox_SelectionChanged"/>
         <Label x:Name="TypeOfSalary" Content="Type Of Salary:" HorizontalAlignment="Left" Height="26" Margin="15,65,0,0" VerticalAlignment="Top" Width="95"/>
         <Button x:Name="AddTheContract" Content="Add the contract" HorizontalAlignment="Left" Height="33" Margin="274,495,0,0" VerticalAlignment="Top" Width="201" Click="AddTheContract_Click"/>
-        <TextBox x:Name="NannyChosedTextBox" HorizontalAlignment="Left" Height="26" Margin="158,317,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145"/>
+        <TextBox x:Name="NannyChosedTextBox" HorizontalAlignment="Left" Height="26" Margin="158,317,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145" LostFocus="NannyChosedTextBox_LostFocus" />
 
     </Grid>
 </Window>

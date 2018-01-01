@@ -159,6 +159,17 @@ namespace WPF_UI
 
         }
 
-   
+        private void NannyChosedTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (NannyChosedTextBox.Text.Any(char.IsLetter))
+                    throw new Exception("ERROR - Enter Only Numbers Please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

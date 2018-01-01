@@ -102,6 +102,32 @@ namespace WPF_UI
 
             bl.updateChild(ch);
         }
+
+        private void IDtextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (IDtextBox.Text.Any(char.IsLetter))
+                    throw new Exception("ERROR - Enter Only Numbers Please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void NAMEtextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (NAMEtextBox.Text.Any(char.IsDigit))
+                    throw new Exception("ERROR - Enter Only Letters Please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
-    }
+}
 
