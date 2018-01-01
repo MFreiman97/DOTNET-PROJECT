@@ -51,7 +51,7 @@ namespace WPF_UI
             {
 
                 ch.mom = bl.GetMother((int)comboBoxMothers.SelectedValue);
-                    ch.id = int.Parse(IDtextBox.Text);
+                ch.id = int.Parse(IDtextBox.Text);
                 ch.momId = ((int)comboBoxMothers.SelectedValue);
                 ch.name = NAMEtextBox.Text;
                 ch.kindSpecial = DescOfDisabilityTextBox.Text;

@@ -23,7 +23,7 @@ namespace DAL
         /// </summary>
         /// <param name="c"></param>
         public void addChild(Child c)
-        {
+        {           
             if (GetChild(c.id) == null)  
                 DataSource.childs.Add(c);
             else
