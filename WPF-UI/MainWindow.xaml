@@ -4,42 +4,55 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
      Title="MainWindow"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-              Background="CadetBlue"        
+             
               >
 
+    <TabControl>
+        <TabItem Header="Project"  BorderBrush="Black">
+            <Grid >
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-
-
-        <Button x:Name="AddNanny"  Style="{DynamicResource SquareButtonStyle}" Content="Add Nanny" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230"  VerticalAlignment="Top" Click="AddNanny_Click" Margin="10,35,0,0"  />
-        <Button x:Name="AddMother"  Style="{DynamicResource SquareButtonStyle}" Content="Add Mother" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230" Margin="10,26,0,0" VerticalAlignment="Top"  Click="AddMother_Click" Grid.Row="1" />
-        <Button x:Name="AddChild"  Style="{DynamicResource SquareButtonStyle}" Content="Add Child" HorizontalAlignment="Center" Height="83" FontSize="20" Width="230" Margin="10,26,0,0" VerticalAlignment="Top"  Click="AddChild_Click" Grid.Row="2"/>
-        <Button x:Name="AddContract"  Style="{DynamicResource SquareButtonStyle}" Content="Add contract" HorizontalAlignment="Center" Height="83" FontSize="20" Width="230" Margin="10,10,0,0" VerticalAlignment="Top"  Click="Adding_Contracts_Click" Grid.Row="3"/>
-        <Button x:Name="Contracts"  Style="{DynamicResource SquareButtonStyle}" Content="All Contracts" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230" Margin="10,26,0,0" VerticalAlignment="Top"  Click="All_Contracts_Click_1" Grid.Row="1" Grid.Column="1" />
-        <Button x:Name="LinqButton"  Style="{DynamicResource SquareButtonStyle}" Content="linq" HorizontalAlignment="Center" Margin="10,26,0,0" FontSize="20" VerticalAlignment="Top"  Click="LinqButton_Click" Grid.Row="2" Grid.Column="1" Height="83" Width="234"/>
-        <Button x:Name="DeleteNanny"  Style="{DynamicResource SquareButtonStyle}" Content="Delete Nanny" HorizontalAlignment="Center" Height="83" FontSize="20" Width="230" Margin="10,35,0,0" VerticalAlignment="Top"  Click="DeleteNanny_Click" Grid.Column="2" />
-        <Button x:Name="DeleteMother"  Style="{DynamicResource SquareButtonStyle}" Content="Delete Mother" HorizontalAlignment="Center" Height="83" FontSize="20" Width="230" Margin="10,26,0,0" VerticalAlignment="Top"  Click="DeleteMother_Click" Grid.Column="2" Grid.Row="1" />
-        <Button x:Name="DeleteChild"  Style="{DynamicResource SquareButtonStyle}" Content="Delete Child" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230" Margin="10,26,0,0" VerticalAlignment="Top"  Click="DeleteChild_Click" Grid.Row="2" Grid.Column="2" />
-        <Button x:Name="DeleteContract"  Style="{DynamicResource SquareButtonStyle}" Content="Delete Contract" HorizontalAlignment="Center" FontSize="20" Height="83"  Width="230" Margin="10,10,0,0" VerticalAlignment="Top"  Click="DeleteContract_Click" Grid.Row="3" Grid.Column="2" />
-        <Button x:Name="Servers"  Style="{DynamicResource SquareButtonStyle}" Content="About as" HorizontalAlignment="Center" FontSize="20" Height="83"  Width="230" Margin="17,10,7,0" VerticalAlignment="Top"  Grid.Row="3" Grid.Column="1" />
-        <Button x:Name="Deletions"  Style="{DynamicResource SquareButtonStyle}" Content="Deletions" HorizontalAlignment="Center" FontSize="20" Height="83"  Width="230" Margin="17,35,7,0" VerticalAlignment="Top" Grid.Column="1" Click="Deletions_Click" />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
 
-    </Grid>
+                <Button x:Name="AddNanny"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Add Nanny" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230"  VerticalAlignment="Top" Click="AddNanny_Click" Margin="10,22,11,0"  />
+                <Button x:Name="AddMother"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Add Mother" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230" Margin="11,22,10,0" VerticalAlignment="Top"  Click="AddMother_Click" Grid.Row="1" />
+                <Button x:Name="AddChild"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Add Child" HorizontalAlignment="Center" Height="83" FontSize="20" Width="230" Margin="11,10,10,0" VerticalAlignment="Top"  Click="AddChild_Click" Grid.Row="2"/>
+                <Button x:Name="AddContract"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Add contract" HorizontalAlignment="Center" Height="83" FontSize="20" Width="230" Margin="10,10,11,0" VerticalAlignment="Top"  Click="Adding_Contracts_Click" Grid.Row="2" Grid.Column="2"/>
+                <Button x:Name="Contracts"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="All Contracts" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230" Margin="10,22,11,0" VerticalAlignment="Top"  Click="All_Contracts_Click_1" Grid.Row="1" Grid.Column="2" />
+                <Button x:Name="LinqButton"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="linq" HorizontalAlignment="Center" Margin="8,22,10,0" FontSize="20" VerticalAlignment="Top"  Click="LinqButton_Click" Grid.Row="1" Grid.Column="1" Height="83" Width="234"/>
+                <Button x:Name="Deletions"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Deletions" HorizontalAlignment="Center" FontSize="20" Height="83"  Width="230" Margin="10,22,11,0" VerticalAlignment="Top" Grid.Column="2" Click="Deletions_Click" />
 
 
+            </Grid>
+        </TabItem>
+        <TabItem Header="About us">
+            <Grid>
+                <Label x:Name="Server" Content="Servers:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="105"/>
+                <iconPacks:PackIconFontAwesome Kind="GraduationCapSolid" VerticalAlignment="Center" HorizontalAlignment="Center" Height="24" Margin="10,44,722,391" Width="22" />
+                <iconPacks:PackIconFontAwesome Kind="GraduationCapSolid" VerticalAlignment="Center" HorizontalAlignment="Center" Height="24" Margin="10,81,722,354" Width="22" />
+                <iconPacks:PackIconFontAwesome Kind="JenkinsBrands" VerticalAlignment="Center" HorizontalAlignment="Center" Height="24" Margin="10,160,722,275" Width="22" />
+                <Label x:Name="label"  Content="Aviel Hassid" HorizontalAlignment="Left" Height="24" Margin="39,44,0,0" VerticalAlignment="Top" Width="154"/>
+                <Label x:Name="label1" Content="Matanya Freiman" HorizontalAlignment="Left" Height="24" Margin="39,81,0,0" VerticalAlignment="Top" Width="154"/>
+                <Label x:Name="Lectur" Content="Lecturer" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Height="24" Width="54"/>
+                <Label x:Name="Lecu" Content="Oshri Cohen" HorizontalAlignment="Left" Margin="39,160,0,0" VerticalAlignment="Top" Height="24" Width="84"/>
+
+            </Grid>
+
+
+        </TabItem>
+    </TabControl>
 </controls:MetroWindow>

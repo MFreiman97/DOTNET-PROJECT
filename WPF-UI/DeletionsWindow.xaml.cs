@@ -83,7 +83,9 @@ namespace WPF_UI
                 {
                     Mother m = bl.GetMother((int)listBoxMother.SelectedValue);
                     bl.deleteMom(m);
+                    bl = new ourBL();
                     listBoxMother.ItemsSource = bl.GetAllMothers();
+       
                     listBoxMother.DisplayMemberPath = "FullName";
                     listBoxMother.SelectedValuePath = "id";
                 }

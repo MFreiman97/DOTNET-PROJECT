@@ -12,7 +12,7 @@
         <TabItem Header="Mother">
 
             <Grid>
-                <ListBox x:Name="listBoxMother" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="466" Margin="10,0,0,0"/>
+                <ListBox x:Name="listBoxMother" IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Left" Height="140" VerticalAlignment="Top" Width="466" Margin="10,0,0,0"/>
                 <Button x:Name="button3"   Content="{iconPacks:FontAwesome Kind=TrashSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button3_Click"  ></Button>
 
             </Grid>
@@ -31,7 +31,7 @@
 
             <Grid>
                 <Button x:Name="button1"   Content="{iconPacks:FontAwesome Kind=TrashSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button1_Click"  ></Button>
-                <DataGrid x:Name="dataGridContracts" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466"/>
+                <DataGrid x:Name="dataGridContracts" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466"/>
 
             </Grid>
         </TabItem>
