@@ -214,5 +214,16 @@ namespace WPF_UI
             }
         }
         #endregion
+
+        private void Servers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Deletions_Click(object sender, RoutedEventArgs e)
+        {
+            var v = new DeletionsWindow();
+            v.ShowDialog();
+        }
     }
 }

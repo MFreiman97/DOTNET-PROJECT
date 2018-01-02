@@ -86,6 +86,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DeletionsWindow.xaml.cs">
+      <DependentUpon>DeletionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Servers.xaml.cs">
+      <DependentUpon>Servers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateContract.xaml.cs">
       <DependentUpon>UpdateContract.xaml</DependentUpon>
     </Compile>
@@ -122,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DeletingNanny.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeletionsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +181,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Servers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UpdateContract.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
