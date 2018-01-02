@@ -28,13 +28,13 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Button x:Name="AddNanny"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Add Nanny" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230"  VerticalAlignment="Top" Click="AddNanny_Click" Margin="10,22,11,0"  />
-                <Button x:Name="AddMother"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Add Mother" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230" Margin="11,22,10,0" VerticalAlignment="Top"  Click="AddMother_Click" Grid.Row="1" />
-                <Button x:Name="AddChild"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Add Child" HorizontalAlignment="Center" Height="83" FontSize="20" Width="230" Margin="11,10,10,0" VerticalAlignment="Top"  Click="AddChild_Click" Grid.Row="2"/>
-                <Button x:Name="AddContract"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Add contract" HorizontalAlignment="Center" Height="83" FontSize="20" Width="230" Margin="10,10,11,0" VerticalAlignment="Top"  Click="Adding_Contracts_Click" Grid.Row="2" Grid.Column="2"/>
-                <Button x:Name="Contracts"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="All Contracts" HorizontalAlignment="Center" Height="83" FontSize="20"  Width="230" Margin="10,22,11,0" VerticalAlignment="Top"  Click="All_Contracts_Click_1" Grid.Row="1" Grid.Column="2" />
-                <Button x:Name="LinqButton"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="linq" HorizontalAlignment="Center" Margin="8,22,10,0" FontSize="20" VerticalAlignment="Top"  Click="LinqButton_Click" Grid.Row="1" Grid.Column="1" Height="83" Width="234"/>
-                <Button x:Name="Deletions"  Style="{DynamicResource SquareButtonStyle}" Background="CadetBlue" Content="Deletions" HorizontalAlignment="Center" FontSize="20" Height="83"  Width="230" Margin="10,22,11,0" VerticalAlignment="Top" Grid.Column="2" Click="Deletions_Click" />
+                <Button x:Name="AddNanny" Style="{StaticResource ModernButt}"   Content="Add Nanny"     Click="AddNanny_Click" Margin="10,22,11,0"  />
+                <Button x:Name="AddMother"  Style="{StaticResource ModernButt}"  Content="Add Mother"  Margin="11,22,10,0"   Click="AddMother_Click" Grid.Row="1" />
+                <Button x:Name="AddChild" Style="{StaticResource ModernButt}"   Content="Add Child"  Margin="11,10,10,0"   Click="AddChild_Click" Grid.Row="2"/>
+                <Button x:Name="AddContract" Style="{StaticResource ModernButt}"   Content="Add contract"   Margin="10,10,11,0"   Click="Adding_Contracts_Click" Grid.Row="2" Grid.Column="2"/>
+                <Button x:Name="Contracts" Style="{StaticResource ModernButt}"    Content="All Contracts"  Margin="10,22,11,0"   Click="All_Contracts_Click_1" Grid.Row="1" Grid.Column="2" />
+                <Button x:Name="LinqButton" Style="{StaticResource ModernButt}"    Content="linq"  Margin="8,22,10,0"  Click="LinqButton_Click" Grid.Row="1" Grid.Column="1"/>
+                <Button x:Name="Deletions"  Style="{StaticResource ModernButt}"  Content="Deletions"  Height="83"  Width="230" Margin="10,22,11,0" Grid.Column="2" Click="Deletions_Click" />
 
 
             </Grid>

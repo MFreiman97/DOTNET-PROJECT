@@ -13,7 +13,12 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
-               
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterial.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconOcticons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
+
             </ResourceDictionary.MergedDictionaries>
             <!-- WPF 4.0 workaround -->
             <Style TargetType="{x:Type Rectangle}"  />
@@ -24,8 +29,18 @@
                 <Setter Property="Width" Value="180"/>
                 <Setter Property="Height" Value="65"/>
             </Style>
-            <SolidColorBrush x:Key="ButtonStyle" Color="#FF707070"/>
-            <System:Double x:Key="ButtonSTYLE">30</System:Double>
+            <Style x:Key="ModernButt" 
+                       TargetType="{x:Type Button}" BasedOn="{StaticResource SquareButtonStyle}">
+                <Setter Property="Width" Value="230" />
+                <Setter Property="Height" Value="83" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Background" Value="CadetBlue" />
+                <Setter Property="VerticalAlignment" Value="Top" />
+             
+            </Style>
+        
+          
         </ResourceDictionary>
     </Application.Resources>
 </Application>
