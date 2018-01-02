@@ -31,8 +31,17 @@
 
             <Grid>
                 <Button x:Name="button1"   Content="{iconPacks:FontAwesome Kind=TrashSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button1_Click"  ></Button>
-                <DataGrid x:Name="dataGridContracts" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466"/>
-
+                <DataGrid x:Name="dataGridContracts" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns ="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466">
+                <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nanny" Binding="{Binding n}" />
+                        <DataGridTextColumn Header="Child" Binding="{Binding c}" />
+                        <DataGridTextColumn Header="Salary Per Month" Binding="{Binding SalaryPerMonth}" />
+                        <DataGridTextColumn Header="Date Begin" Binding="{Binding DateBegin, StringFormat='dd/mm/yyyy'}" />
+                        <DataGridTextColumn Header="Date End" Binding="{Binding DateEnd, StringFormat='dd/mm/yyyy'}" />
+                        <DataGridTextColumn Header="Distance" Binding="{Binding distance}" />
+                        <DataGridTextColumn Header="Contract Number" Binding="{Binding contnum}" />
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </TabItem>
 
