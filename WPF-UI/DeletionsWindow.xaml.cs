@@ -27,27 +27,31 @@ namespace WPF_UI
         {
             bl = new ourBL();
             InitializeComponent();
-            listBoxChild.ItemsSource = bl.GetAllChilds();
-            listBoxChild.DisplayMemberPath = "FullName";
-            listBoxChild.SelectedValuePath= "id";
+            dataGridChilds.ItemsSource = bl.GetAllChilds();
+            dataGridChilds.SelectedValuePath = "id";
+       
+         
             dataGridContracts.ItemsSource = bl.GetAllContracts();
             dataGridContracts.SelectedValuePath = "contnum";
-            listBoxMother.ItemsSource = bl.GetAllMothers();
-            listBoxMother.DisplayMemberPath = "FullName";
-            listBoxMother.SelectedValuePath = "id";
+         
+           dataGridMothers.ItemsSource = bl.GetAllMothers();
+            dataGridMothers.SelectedValuePath = "id";
 
+            dataGridNannies.ItemsSource = bl.GetAllNannies();
+            dataGridNannies.SelectedValuePath = "id";
 
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            if (listBoxChild.SelectedValue != null)
+            if (dataGridChilds.SelectedValue != null)
             {
                 try
                 {
-                    Child m = bl.GetChild((int)listBoxChild.SelectedValue);
+                    Child m = bl.GetChild((int)dataGridChilds.SelectedValue);
                     bl.deleteChild(m);
-                    listBoxChild.ItemsSource = bl.GetAllChilds();
+                     dataGridChilds.ItemsSource = null;
+                    dataGridChilds.ItemsSource = bl.GetAllChilds();
                 }
                 catch (Exception ex)
                 {
@@ -64,8 +68,9 @@ namespace WPF_UI
                 {
                     Contract c = bl.GetContract((int)dataGridContracts.SelectedValue);
                     bl.deleteContract(c);
+                    dataGridContracts.ItemsSource = null;
                     dataGridContracts.ItemsSource = bl.GetAllContracts();
-                    dataGridContracts.SelectedValuePath = "contnum";
+                 
                 }
                 catch (Exception ex)
                 {
@@ -77,20 +82,38 @@ namespace WPF_UI
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            if (listBoxMother.SelectedValue != null)
+            if (dataGridMothers.SelectedValue != null)
             {
                 try
                 {
-                    Mother m = bl.GetMother((int)listBoxMother.SelectedValue);
+                    Mother m = bl.GetMother((int)dataGridMothers.SelectedValue);
                     bl.deleteMom(m);
-                    bl = new ourBL();
-                    listBoxMother.ItemsSource = bl.GetAllMothers();
-       
-                    listBoxMother.DisplayMemberPath = "FullName";
-                    listBoxMother.SelectedValuePath = "id";
+                    dataGridMothers.ItemsSource = null;//neccesary!!!!
+              dataGridMothers.ItemsSource = bl.GetAllMothers();
+                 
+
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridMothers.SelectedValue != null)
+            {
+                try
+                {
+                    Nanny n = bl.GetNanny((int)dataGridNannies.SelectedValue);
+                    bl.deleteNanny(n);
+                    dataGridNannies.ItemsSource = null;//neccesary!!!!
+                    dataGridNannies.ItemsSource = bl.GetAllNannies();
+                }
+                catch (Exception ex)
+                {
+
                     MessageBox.Show(ex.Message);
                 }
             }

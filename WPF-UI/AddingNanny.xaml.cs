@@ -32,6 +32,7 @@ namespace WPF_UI
           
             nanny = new Nanny();
             this.DataContext = nanny;
+            nanny.born = DateTime.Parse("07/09/97");
             this.UpdateButton.IsEnabled = false;
             this.FloorComboBox.ItemsSource = Enum.GetValues(typeof(BE.FLOORS));
         }

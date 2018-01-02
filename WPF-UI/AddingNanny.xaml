@@ -2,24 +2,28 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  
                 xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                          xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
         Title="AddingNanny" Height="660" Width="590">
     <Grid Margin="0,1,0,1">
-        <TextBox x:Name="IDtextBox" HorizontalAlignment="Center" Height="22" Margin="42,14,428,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="112" LostFocus="IDtextBox_LostFocus"/>
-        <TextBox x:Name="fNametextBox" HorizontalAlignment="Center" Height="22" Margin="237,14,234,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="111" LostFocus="fNametextBox_LostFocus" />
+        <TextBox x:Name="IDtextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="42,14,428,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="112" LostFocus="IDtextBox_LostFocus"/>
+        <TextBox x:Name="fNametextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Center" Height="22" Margin="237,14,234,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="111" LostFocus="fNametextBox_LostFocus" />
 
-        <TextBox x:Name="lNametextBox" HorizontalAlignment="Center" Height="22" Margin="463,14,14,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" LostFocus="lNametextBox_LostFocus" />
+        <TextBox x:Name="lNametextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Center" Height="22" Margin="463,14,14,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" LostFocus="lNametextBox_LostFocus" />
         <TextBox x:Name="phoneNumbertextBox"
                  HorizontalAlignment="Center"
                  Height="22" Margin="348,52,122,0"
+                 Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="05XXXXXXX"
                  TextWrapping="Wrap"
                  Text="???"
                  VerticalAlignment="Top"
                  Width="112" LostFocus="phoneNumbertextBox_LostFocus" />
         <TextBox x:Name="CitytextBox"
+                 Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!"
                  HorizontalAlignment="Center"
                  Height="22" Margin="51,99,421,0"
                  TextWrapping="Wrap"
@@ -27,6 +31,7 @@
                  VerticalAlignment="Top"
                  Width="110" LostFocus="CitytextBox_LostFocus" />
         <TextBox x:Name="StreettextBox"
+                  Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!"
                  HorizontalAlignment="Center"
                  Height="22" Margin="241,99,234,0"
                  TextWrapping="Wrap"
@@ -34,23 +39,24 @@
                  VerticalAlignment="Top"
                  Width="107" LostFocus="StreettextBox_LostFocus" />
         <TextBox x:Name="FlattextBox"
+                  Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!"
                  HorizontalAlignment="Center"
                  Height="22" Margin="463,99,19,0"
                  TextWrapping="Wrap"
                  Text="???"
                  VerticalAlignment="Top" Width="100" />
-        <CheckBox x:Name="LiftCheckBox" Content="CheckBox" HorizontalAlignment="Center" Height="15" Margin="141,144,421,0" VerticalAlignment="Top" Width="20" />
+        <CheckBox x:Name="LiftCheckBox" Content="CheckBox" HorizontalAlignment="Center" Height="20" Margin="140,144,421,0" VerticalAlignment="Top" Width="21" />
         <ComboBox x:Name="FloorComboBox" SelectedItem="{Binding floor}" HorizontalAlignment="Center" Height="22" Margin="312,144,165,0" VerticalAlignment="Top" Width="105"  />
 
-        <TextBox x:Name="ExperienceextBox" HorizontalAlignment="Center" Height="22" Margin="248,185,229,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
-        <TextBox x:Name="MaxKidstextBox" HorizontalAlignment="Center" Height="22" Margin="72,235,405,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
-        <TextBox x:Name="MinAgetextBox" HorizontalAlignment="Center" Height="22" Margin="388,235,91,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="103" />
-        <TextBox x:Name="MaxAgetextBox" HorizontalAlignment="Center" Height="22" Margin="108,283,368,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="106" />
-        <CheckBox x:Name="SalaryPerHourCheckBox" Content="" HorizontalAlignment="Center" Height="15" Margin="431,279,129,0" VerticalAlignment="Top" Width="22" />
-        <TextBox x:Name="HourSalarytextBox" IsEnabled="{Binding ElementName= SalaryPerHourCheckBox, Path=IsChecked }" HorizontalAlignment="Center" Height="22" Margin="104,331,374,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="104" />
-        <TextBox x:Name="MonthSalarytextBox"  HorizontalAlignment="Center" Height="22" Margin="348,335,129,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
-        <CheckBox x:Name="HolidaysByGovCheckBox" IsChecked="{Binding HolidaysByTheGOV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Content="" HorizontalAlignment="Center" Height="15" Margin="281,507,279,0" VerticalAlignment="Top" Width="22" />
-        <TextBox x:Name="RecommendationstextBox" HorizontalAlignment="Center" Height="22" Margin="109,536,371,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="102" />
+        <TextBox x:Name="ExperienceextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="248,185,229,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
+        <TextBox x:Name="MaxKidstextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="72,235,405,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
+        <TextBox x:Name="MinAgetextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="388,235,91,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="103" />
+        <TextBox x:Name="MaxAgetextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="108,283,368,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="106" />
+        <CheckBox x:Name="SalaryPerHourCheckBox"    Content="" HorizontalAlignment="Center" Height="15" Margin="431,279,129,0" VerticalAlignment="Top" Width="22" />
+        <TextBox x:Name="HourSalarytextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" IsEnabled="{Binding ElementName= SalaryPerHourCheckBox, Path=IsChecked }" HorizontalAlignment="Center" Height="22" Margin="104,331,374,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="104" />
+        <TextBox x:Name="MonthSalarytextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!"  HorizontalAlignment="Center" Height="22" Margin="348,335,129,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
+        <CheckBox x:Name="HolidaysByGovCheckBox" Background="#FFCDCDCD" IsChecked="{Binding HolidaysByTheGOV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Content="" HorizontalAlignment="Center" Height="15" Margin="275,501,285,0" VerticalAlignment="Top" Width="22" />
+        <TextBox x:Name="RecommendationstextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="109,536,371,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="102" />
 
 
         <Label x:Name="IDlabel"
@@ -132,27 +138,27 @@
 
 
         <Label x:Name="label_Copy3" Content="Days Of Working" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Width="113" Height="27" />
-        <TextBox x:Name="start1" HorizontalAlignment="Left" Height="20" Margin="33,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end1" HorizontalAlignment="Left" Height="20" Margin="33,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start2" HorizontalAlignment="Left" Height="20" Margin="128,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end2" HorizontalAlignment="Left" Height="20" Margin="128,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start3" HorizontalAlignment="Left" Height="20" Margin="218,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end3" HorizontalAlignment="Left" Height="20" Margin="218,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start4" HorizontalAlignment="Left" Height="20" Margin="308,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end4" HorizontalAlignment="Left" Height="20" Margin="308,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start5" HorizontalAlignment="Left" Height="20" Margin="398,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end5" HorizontalAlignment="Left" Height="20" Margin="398,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start6" HorizontalAlignment="Left" Height="20" Margin="488,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end6" HorizontalAlignment="Left" Height="20" Margin="488,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <CheckBox x:Name="sunday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="67,462,0,0" VerticalAlignment="Top" Width="17" />
-        <CheckBox x:Name="monday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="160,462,0,0" VerticalAlignment="Top" Width="17" />
-        <CheckBox x:Name="tuesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="253,462,0,0" VerticalAlignment="Top" Width="17" />
-        <CheckBox x:Name="wednesday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="337,462,0,0" VerticalAlignment="Top" Width="16" />
-        <CheckBox x:Name="thursday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="423,462,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.5,0.5" />
-        <CheckBox x:Name="friday" Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="518,462,0,0" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5" />
-        <Button x:Name="NannyAdded" Content="Add The Nanny" HorizontalAlignment="Center" Margin="22,580,270,0" VerticalAlignment="Top" Width="300" Height="30" Click="NannyAdded_Click" />
+        <TextBox x:Name="start1" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }"  Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="33,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end1" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="33,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start2" IsEnabled="{Binding ElementName=monday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="128,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end2" IsEnabled="{Binding ElementName=monday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="128,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start3" IsEnabled="{Binding ElementName=tuesday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="218,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end3" IsEnabled="{Binding ElementName=tuesday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="218,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start4" IsEnabled="{Binding ElementName=wednesday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="308,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end4" IsEnabled="{Binding ElementName=wednesday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="308,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start5" IsEnabled="{Binding ElementName=thursday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="398,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end5" IsEnabled="{Binding ElementName=thursday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="398,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start6" IsEnabled="{Binding ElementName=friday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="488,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="end6" IsEnabled="{Binding ElementName=friday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="488,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
+        <CheckBox x:Name="sunday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="67,462,0,0" VerticalAlignment="Top" Width="17" />
+        <CheckBox x:Name="monday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="160,462,0,0" VerticalAlignment="Top" Width="17" />
+        <CheckBox x:Name="tuesday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="253,462,0,0" VerticalAlignment="Top" Width="17" />
+        <CheckBox x:Name="wednesday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="337,462,0,0" VerticalAlignment="Top" Width="16" />
+        <CheckBox x:Name="thursday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="423,462,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.5,0.5" />
+        <CheckBox x:Name="friday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="518,462,0,0" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5" />
+        <Button x:Name="NannyAdded" Style="{StaticResource ModernButt}" Content="Add The Nanny" HorizontalAlignment="Center" Margin="18,574,258,0" VerticalAlignment="Top" Width="306" Height="37" Click="NannyAdded_Click" />
         <Button x:Name="UpdateButton" Content="Update Nanny" HorizontalAlignment="Left" Height="31" Margin="374,580,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click"/>
-        <DatePicker x:Name="BornDatePicker" SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127"/>
+        <DatePicker x:Name="BornDatePicker"  SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true }"   HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127"/>
 
     </Grid>
 </controls:MetroWindow>

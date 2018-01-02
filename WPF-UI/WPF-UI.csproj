@@ -64,6 +64,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -89,8 +91,8 @@
     <Compile Include="DeletionsWindow.xaml.cs">
       <DependentUpon>DeletionsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Servers.xaml.cs">
-      <DependentUpon>Servers.xaml</DependentUpon>
+    <Compile Include="MatrixOfHours.xaml.cs">
+      <DependentUpon>MatrixOfHours.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateContract.xaml.cs">
       <DependentUpon>UpdateContract.xaml</DependentUpon>
@@ -112,22 +114,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Contracts.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeletingChild.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeletingContracts.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeletingMother.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeletingNanny.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,18 +148,6 @@
     <Compile Include="Contracts.xaml.cs">
       <DependentUpon>Contracts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DeletingChild.xaml.cs">
-      <DependentUpon>DeletingChild.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DeletingContracts.xaml.cs">
-      <DependentUpon>DeletingContracts.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DeletingMother.xaml.cs">
-      <DependentUpon>DeletingMother.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DeletingNanny.xaml.cs">
-      <DependentUpon>DeletingNanny.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Linq.xaml.cs">
       <DependentUpon>Linq.xaml</DependentUpon>
     </Compile>
@@ -181,7 +155,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Servers.xaml">
+    <Page Include="MatrixOfHours.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

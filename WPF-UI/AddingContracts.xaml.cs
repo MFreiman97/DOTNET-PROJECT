@@ -38,15 +38,15 @@ namespace WPF_UI
         BE.Contract Cont;
         BE.Child child;
         BE.ContractType ContType;//usefull for using the thread of the distance calculation
-        string str;//usefull for using the thread of the distance calculation
+        List<Nanny> str;//usefull for using the thread of the distance calculation
         static Random r = new Random();
 
         public AddingContracts()
         {
             InitializeComponent();
             bl = new ourBL();
-             
-         
+
+            str = new List<Nanny>();
             this.comboBoxChild.ItemsSource = bl.GetAllChilds();
             this.comboBoxChild.DisplayMemberPath = "FullName";
             this.comboBoxChild.SelectedValuePath = "id";
@@ -54,6 +54,8 @@ namespace WPF_UI
             Cont = new Contract();
          this.   DataContext = Cont;
             TypecomboBox.IsEnabled = false;
+            dataGridNannies.ItemsSource = str.AsEnumerable();
+            dataGridNannies.SelectedValuePath = "id";
         }
 
         /// <summary>
@@ -63,23 +65,25 @@ namespace WPF_UI
         /// <param name="e"></param>
         private void AddTheContract_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (dataGridNannies.SelectedValue != null)
             {
-               
-                Cont.n = bl.GetNanny(int.Parse(NannyChosedTextBox.Text));
-                Cont.c = bl.GetChild((int)comboBoxChild.SelectedValue);
+                try
+                {
+
+                    Cont.n = bl.GetNanny((int)dataGridNannies.SelectedValue);
+                    Cont.c = bl.GetChild((int)comboBoxChild.SelectedValue);
 
 
 
-                Thread t = new Thread(() => bl.addContract(Cont));
-                t.Start();
-                this.Close();
+                    Thread t = new Thread(() => bl.addContract(Cont));
+                    t.Start();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
 
 
@@ -97,7 +101,8 @@ namespace WPF_UI
             
                 child = bl.GetChild((int)comboBoxChild.SelectedValue);
                 ContType = (BE.ContractType)TypecomboBox.SelectedValue;
-                str = "";
+                str = new List<Nanny>();
+                
                 work.DoWork += W_DoWork;
                 work.RunWorkerCompleted += W_RunWorkerCompleted;
                 work.RunWorkerAsync();
@@ -112,8 +117,9 @@ namespace WPF_UI
         private void W_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
             
         {
-            
-            MatchedNanniesTextBox.Text = str;
+            dataGridNannies.ItemsSource = null;
+            dataGridNannies.ItemsSource = str.AsEnumerable();
+            dataGridNannies.SelectedValuePath = "id";
             BackgroundWorker work = sender as BackgroundWorker;
             work.CancelAsync();
         }
@@ -128,7 +134,7 @@ namespace WPF_UI
                 foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, true))
                 {
 
-                    str += item.ToString() + '\n';
+                    str.Add(item);
 
                 }
 
@@ -140,8 +146,7 @@ namespace WPF_UI
                 foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, false))
                 {
 
-                    str += item.ToString() + '\n';
-
+                    str.Add(item);
                 }
 
 
@@ -149,10 +154,10 @@ namespace WPF_UI
             if (bl.GetAllNanniesByTerm(Cont.c.mom).Count() == 0)//when there is no match to the demands of the mother
             {
     
-                str += "the nannies are shown is the best 5"+'\n';
+              //***************************************************
                 foreach (var item in bl.TheBestFive(Cont.c.mom))
                 {
-                    str += item.ToString();
+                    str.Add(item);
                 }
 
             }
@@ -160,20 +165,6 @@ namespace WPF_UI
 
         }
 
-        private void NannyChosedTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (NannyChosedTextBox.Text.Any(char.IsLetter))
-                {
-                    NannyChosedTextBox.Text = "";
-                    throw new Exception("ERROR - Enter Only Numbers Please!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+      
     }
 }

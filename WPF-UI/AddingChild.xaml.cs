@@ -31,6 +31,7 @@ namespace WPF_UI
             bl = new ourBL();
             ch = new Child();
             this.DataContext = ch;//to allow binding connection
+            ch.birth = DateTime.Now;
             this.UpdateButton.IsEnabled = false;
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "Yes" });
             comboBoxBool.Items.Add(new ComboBoxItem() { Content = "No" });

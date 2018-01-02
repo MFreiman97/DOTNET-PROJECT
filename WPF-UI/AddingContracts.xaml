@@ -11,19 +11,17 @@
 
         <Label x:Name="label" Content="choose child" HorizontalAlignment="Left" Height="26" Margin="28,20,0,0" VerticalAlignment="Top" Width="88"/>
         <Label x:Name="label_Copy" Content="matched nannies:" HorizontalAlignment="Left" Height="26" Margin="15,174,0,0" VerticalAlignment="Top" Width="113"/>
-        <Label x:Name="label_Copy1" Content="choose the nanny by id:" HorizontalAlignment="Left" Height="26" Margin="10,313,0,0" VerticalAlignment="Top" Width="143"/>
+        <Label x:Name="label_Copy1" Content="choose the nanny by pressing on the grid:" HorizontalAlignment="Left" Height="26" Margin="10,313,0,0" VerticalAlignment="Top" Width="239"/>
         <ComboBox x:Name="comboBoxChild" HorizontalAlignment="Left" Height="26" Margin="145,20,0,0" VerticalAlignment="Top" Width="101" />
-        <TextBox x:Name="MatchedNanniesTextBox" HorizontalAlignment="Left" Height="113" Margin="145,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" BorderThickness="2" BorderBrush="#FF322727" Background="#FFFDD0D0" IsReadOnly="True" SelectionBrush="Black" IsInactiveSelectionHighlightEnabled="True">
-            <TextBox.BindingGroup>
-                <BindingGroup/>
-            </TextBox.BindingGroup>
-        </TextBox>
+
         <DatePicker SelectedDate="{Binding DateEnd}" HorizontalAlignment="Left" Height="28" Margin="200,130,0,0" VerticalAlignment="Top" Width="154" IsHitTestVisible="True"/>
         <Label x:Name="label1" Content="when is the end of the contract" HorizontalAlignment="Left" Height="28" Margin="0,129,0,0" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="TypecomboBox" HorizontalAlignment="Left" Height="20" Margin="145,71,0,0" VerticalAlignment="Top" Width="104" SelectedItem="{Binding ContType}" SelectionChanged="TypecomboBox_SelectionChanged"/>
+
+
         <Label x:Name="TypeOfSalary" Content="Type Of Salary:" HorizontalAlignment="Left" Height="26" Margin="15,65,0,0" VerticalAlignment="Top" Width="95"/>
         <Button x:Name="AddTheContract" Content="Add the contract" HorizontalAlignment="Left" Height="33" Margin="274,495,0,0" VerticalAlignment="Top" Width="201" Click="AddTheContract_Click"/>
-        <TextBox x:Name="NannyChosedTextBox" HorizontalAlignment="Left" Height="26" Margin="158,317,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145" LostFocus="NannyChosedTextBox_LostFocus" />
+        <DataGrid x:Name="dataGridNannies" IsReadOnly="True" HorizontalAlignment="Left" Margin="75,205,0,0" VerticalAlignment="Top" Height="103" Width="337" BorderThickness="1"/>
 
     </Grid>
 </controls:MetroWindow>

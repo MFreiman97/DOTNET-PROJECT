@@ -1,5 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MahApps.Metro.IconPacks;
+
 namespace WPF_UI
 {
     /// <summary>
-    /// Interaction logic for Servers.xaml
+    /// Interaction logic for MatrixOfHours.xaml
     /// </summary>
-    public partial class Servers : MetroWindow
+    public partial class MatrixOfHours : UserControl
     {
-        public Servers()
+        public MatrixOfHours()
         {
             InitializeComponent();
         }
