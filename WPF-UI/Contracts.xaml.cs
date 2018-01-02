@@ -17,7 +17,7 @@ using MahApps.Metro.Controls;
 
 namespace WPF_UI
 {
-
+    //
     public partial class Contracts : MetroWindow
     {
         IBL bl;
