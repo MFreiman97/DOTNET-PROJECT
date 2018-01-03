@@ -35,7 +35,7 @@
                 <Setter Property="Height" Value="83" />
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="Background" Value="CadetBlue" />
+                <Setter Property="Background" Value="SteelBlue" />
                 <Setter Property="VerticalAlignment" Value="Top" />
              
             </Style>

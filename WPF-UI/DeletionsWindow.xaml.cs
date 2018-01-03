@@ -120,7 +120,7 @@ namespace WPF_UI
         }
 
         private void dataGridMothers_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
+        {   
             if (dataGridMothers.SelectedValue != null)
             {
                 try

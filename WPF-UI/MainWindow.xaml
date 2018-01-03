@@ -28,7 +28,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Button x:Name="AddNanny" Style="{StaticResource ModernButt}"   Content="Add Nanny"     Click="AddNanny_Click" Margin="10,22,11,0"  />
+                <Button x:Name="AddNanny" Style="{StaticResource ModernButt}"    Content="Add Nanny"     Click="AddNanny_Click" Margin="10,22,11,0"  />
                 <Button x:Name="AddMother"  Style="{StaticResource ModernButt}"  Content="Add Mother"  Margin="11,22,10,0"   Click="AddMother_Click" Grid.Row="1" />
                 <Button x:Name="AddChild" Style="{StaticResource ModernButt}"   Content="Add Child"  Margin="11,10,10,0"   Click="AddChild_Click" Grid.Row="2"/>
                 <Button x:Name="AddContract" Style="{StaticResource ModernButt}"   Content="Add contract"   Margin="10,10,11,0"   Click="Adding_Contracts_Click" Grid.Row="2" Grid.Column="2"/>
