@@ -248,17 +248,17 @@
 
     </Grid>
 
-    <Window.Style>
-        <Style TargetType="{x:Type Window}" >
+    <controls:MetroWindow.Style>
+        <Style TargetType="{x:Type controls:MetroWindow}" >
             <Setter Property="Height" Value="300"/>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ElementName=WhatToShowTB,Path=Text}" Value="Nanny">
-                    <Setter Property="Height" Value="600"/>
+                    <Setter Property="Height" Value="700"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding ElementName=WhatToShowTB,Path=Text}" Value="Contract">
                 <Setter Property="Height" Value="700"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-    </Window.Style>
+    </controls:MetroWindow.Style>
 </controls:MetroWindow>

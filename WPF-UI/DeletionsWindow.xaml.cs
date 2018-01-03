@@ -118,5 +118,73 @@ namespace WPF_UI
                 }
             }
         }
+
+        private void dataGridMothers_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridMothers.SelectedValue != null)
+            {
+                try
+                {
+                    var v = new Details((object)dataGridMothers.SelectedItem);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void dataGridNannies_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridNannies.SelectedValue != null)
+            {
+                try
+                {
+                    var v = new Details((object)dataGridNannies.SelectedItem);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void dataGridContracts_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridContracts.SelectedValue != null)
+            {
+                try
+                {
+                    var v = new Details((object)dataGridContracts.SelectedItem);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void dataGridChilds_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridChilds.SelectedValue != null)
+            {
+                try
+                {
+                    var v = new Details((object)dataGridChilds.SelectedItem);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }

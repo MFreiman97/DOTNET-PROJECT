@@ -13,7 +13,7 @@
 
             <Grid>
                 <Button x:Name="button3"   Content="{iconPacks:FontAwesome Kind=TrashSolid  }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button3_Click"  ></Button>
-                <DataGrid x:Name="dataGridMothers" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466"/>
+                <DataGrid x:Name="dataGridMothers" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="dataGridMothers_MouseDoubleClick"/>
 
             </Grid>
         </TabItem>
@@ -21,7 +21,7 @@
         <TabItem Header="Nanny">
 
             <Grid>
-                <DataGrid x:Name="dataGridNannies" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466"/>
+                <DataGrid x:Name="dataGridNannies" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="dataGridNannies_MouseDoubleClick"/>
 
                 <Button x:Name="button2"   Content="{iconPacks:FontAwesome Kind=TrashSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button2_Click"  ></Button>
 
@@ -32,7 +32,7 @@
 
             <Grid>
                 <Button x:Name="button1"   Content="{iconPacks:FontAwesome Kind=TrashSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button1_Click"  ></Button>
-                <DataGrid x:Name="dataGridContracts" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns ="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466">
+                <DataGrid x:Name="dataGridContracts" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns ="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="dataGridContracts_MouseDoubleClick">
                 <DataGrid.Columns>
                         <DataGridTextColumn Header="Nanny" Binding="{Binding n}" />
                         <DataGridTextColumn Header="Child" Binding="{Binding c}" />
@@ -51,7 +51,7 @@
 
             <Grid>
                 <Button x:Name="button"   Content="{iconPacks:FontAwesome Kind=TrashSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button_Click" ></Button>
-                <DataGrid x:Name="dataGridChilds" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466"/>
+                <DataGrid x:Name="dataGridChilds" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="dataGridChilds_MouseDoubleClick"/>
 
             </Grid>
         </TabItem>
