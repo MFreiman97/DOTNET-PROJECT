@@ -87,7 +87,6 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-            <Button x:Name="UpdateButtonContract"   Content="{iconPacks:FontAwesome Kind=SyncSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left"  Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="246,215,0,0" Click="UpdateContractClicked"  ></Button>
 
             <Label Content="contnum:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
             <TextBox x:Name="contnumTextBox" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding contnum, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>

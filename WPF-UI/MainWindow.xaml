@@ -28,16 +28,44 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Button x:Name="AddNanny" Style="{StaticResource ModernButt}"    Content="Add Nanny"     Click="AddNanny_Click" Margin="10,22,11,0"  />
-                <Button x:Name="AddMother"  Style="{StaticResource ModernButt}"  Content="Add Mother"  Margin="11,22,10,0"   Click="AddMother_Click" Grid.Row="1" />
-                <Button x:Name="AddChild" Style="{StaticResource ModernButt}"   Content="Add Child"  Margin="11,10,10,0"   Click="AddChild_Click" Grid.Row="2"/>
-                <Button x:Name="AddContract" Style="{StaticResource ModernButt}"   Content="Add contract"   Margin="10,10,11,0"   Click="Adding_Contracts_Click" Grid.Row="2" Grid.Column="2"/>
-                <Button x:Name="Contracts" Style="{StaticResource ModernButt}"    Content="All Contracts"  Margin="10,22,11,0"   Click="All_Contracts_Click_1" Grid.Row="1" Grid.Column="2" />
-                <Button x:Name="LinqButton" Style="{StaticResource ModernButt}"    Content="linq"  Margin="8,22,10,0"  Click="LinqButton_Click" Grid.Row="1" Grid.Column="1"/>
-                <Button x:Name="Deletions"  Style="{StaticResource ModernButt}"  Content="Deletions"  Height="83"  Width="230" Margin="10,22,11,0" Grid.Column="2" Click="Deletions_Click" />
+
+                <Button x:Name="LinqButton" Style="{StaticResource ModernButt}"    Content="linq"  Margin="10,22,11,0"  Click="LinqButton_Click" RenderTransformOrigin="-0.417,1.663"/>
+                <Button x:Name="Deletions"  Style="{StaticResource ModernButt}"  Content="Deletions"  Height="83"  Width="230" Margin="11,21,10,0" Grid.Column="2" Click="Deletions_Click" Grid.Row="2" />
+                <Button x:Name="Updating"  Style="{StaticResource ModernButt}"  Content="Updating"  Height="83"  Width="230" Margin="12,22,10,0" Grid.Column="1" Grid.Row="1" />
 
 
             </Grid>
+        </TabItem>
+
+
+
+
+        <TabItem Header="Add Object">
+            <Grid Margin="0,7,0,-7">
+
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <iconPacks:PackIconMaterial Kind="BabyBuggy" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="246,30,165,10" Grid.Row="2" Height="74" Width="92" Grid.ColumnSpan="2" />
+                <iconPacks:PackIconFontAwesome Kind="FemaleSolid" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="167.5,22,230,7" Height="86" Width="105" Grid.ColumnSpan="2" Grid.Column="1" />
+                <Button x:Name="AddNanny" Style="{StaticResource ModernButt}"    Content="Add Nanny"     Click="AddNanny_Click" Margin="10,10,11,0" Grid.Column="2"  />
+                <Button x:Name="AddMother"  Style="{StaticResource ModernButt}"  Content="Add Mother"  Margin="10,22,11,0"   Click="AddMother_Click" />
+                <Button x:Name="AddChild" Style="{StaticResource ModernButt}"   Content="Add Child"  Margin="11,21,10,0"   Click="AddChild_Click" Grid.Row="2"/>
+                <Button x:Name="AddContract" Style="{StaticResource ModernButt}"   Content="Add contract"   Margin="11,21,10,0"   Click="Adding_Contracts_Click" Grid.Row="2" Grid.Column="2"/>
+                <iconPacks:PackIconFontAwesome Kind="EditRegular" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="167.5,21,9,10" Height="83" Width="75" Grid.Column="1" Grid.Row="2" />
+                <iconPacks:PackIconMaterial Kind="HumanPregnant" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="240,22,189,10" Height="83" Width="74" Grid.ColumnSpan="2" />
+
+            </Grid>
+
         </TabItem>
         <TabItem Header="About us">
             <Grid>
@@ -51,8 +79,6 @@
                 <Label x:Name="Lecu" Content="Oshri Cohen" HorizontalAlignment="Left" Margin="39,160,0,0" VerticalAlignment="Top" Height="24" Width="84"/>
 
             </Grid>
-
-
         </TabItem>
     </TabControl>
 </controls:MetroWindow>

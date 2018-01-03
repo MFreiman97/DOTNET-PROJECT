@@ -112,12 +112,6 @@ namespace WPF_UI
 
       
 
-        private void W_DoWork(object sender, DoWorkEventArgs e)
-        {
-          
-          
-          //  CheckingApiText.Text = x.ToString();
-        }
 
         #region Adding Clicks
 
@@ -154,12 +148,7 @@ namespace WPF_UI
         }
         #endregion
 
-        private void All_Contracts_Click_1(object sender, RoutedEventArgs e)
-        {
-            var v = new Contracts();
-
-            v.ShowDialog();
-        }
+      
 
         private void LinqButton_Click(object sender, RoutedEventArgs e)
         {
