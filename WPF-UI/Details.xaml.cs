@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using BL;
 namespace WPF_UI
 {
     /// <summary>
@@ -21,12 +21,14 @@ namespace WPF_UI
     /// </summary>
     public partial class Details : MetroWindow
     {
-        //Child c;
-        //Nanny n;
-        //Contract co;
-        //Mother m;
+        Child c;
+        Nanny n;
+        Contract co;
+        Mother m;
+        BL.ourBL bl;
         public Details(Object obj)
         {
+            bl = new ourBL();
             InitializeComponent();
             if(obj is Child)
             {
@@ -53,7 +55,132 @@ namespace WPF_UI
                DetailsOfContract.DataContext = co;
             }
         }
+        #region Updating Mother
+        private void UpdateMotherClicked(object sender, RoutedEventArgs e)
+        {
 
+            m = new Mother()
+            {
+
+                fName = fNameTextBox.Text,
+                lName = lNameTextBox.Text,
+                phone = phoneTextBox.Text
+                 ,
+                address = addressTextBox.Text
+                 ,
+                note = noteTextBox.Text,
+                nannyArea = int.Parse(nannyAreaTextBox.Text)
+            };
+            bl.updateMom(m);
+
+        }
        
+        private void PhoneNumTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (phoneTextBox.Text.Any(char.IsLetter))
+                {
+                    phoneTextBox.Text = "";
+                    throw new Exception("ERROR - Enter Only Numbers Please!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void fNAMEtextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (fNameTextBox.Text.Any(char.IsDigit))
+                {
+                    fNameTextBox.Text = "";
+                    throw new Exception("ERROR - Enter Only Letters Please!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void lnameTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (lNameTextBox.Text.Any(char.IsDigit))
+                {
+                    lNameTextBox.Text = "";
+                    throw new Exception("ERROR - Enter Only Letters Please!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void Address_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (addressTextBox.Text.Any(char.IsDigit))
+                {
+                    addressTextBox.Text = "";
+                    throw new Exception("ERROR - Enter Only Letters Please!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void NannyAREA_LostFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (nannyAreaTextBox.Text.Any(char.IsLetter))
+                {
+                    nannyAreaTextBox.Text = "";
+                    throw new Exception("ERROR - Enter Only NUMBERS Please!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion 
+     
+      
+        //private void UpdateChildClicked(object sender, RoutedEventArgs e)
+        //{
+        //    c= new Child() { 
+      
+        //        name = nameTextBox.Text,
+        //        kindSpecial = kindSpecialTextBox.Text
+        //    };
+        //c.special= specialCheckBox.IsChecked.GetValueOrDefault();
+
+        //    bl.updateChild(c);
+
+
+        //}
+        //private void UpdateContractClicked(object sender, RoutedEventArgs e)
+        //{
+
+
+
+        //}
+        //private void UpdateNannyClicked(object sender, RoutedEventArgs e)
+        
+
+
+
+        }
+         
+
     }
 }
