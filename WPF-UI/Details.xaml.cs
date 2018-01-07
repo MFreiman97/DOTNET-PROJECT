@@ -25,7 +25,7 @@ namespace WPF_UI
         Nanny n;
         Contract co;
         Mother m;
-        BL.ourBL bl;
+        BL.IBL bl;
         public Details(Object obj)
         {
             bl = new ourBL();
