@@ -25,7 +25,7 @@ namespace WPF_UI
         {
 
             InitializeComponent();
-            bl = new ourBL();
+            bl = BL.FactoryBL.GetBL();
             ContactsTextBox.Text = "";
             foreach (var item in bl.GetAllContracts())
             {

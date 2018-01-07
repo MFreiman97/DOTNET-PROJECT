@@ -22,14 +22,14 @@ namespace WPF_UI
     /// </summary>
     public partial class AddingNanny : MetroWindow
     {
-        BL.ourBL bl;
+       BL.IBL bl;
        BE.Nanny nanny;
 
         public AddingNanny()
         {
             InitializeComponent();
-            bl = new ourBL();
-          
+            bl = BL.FactoryBL.GetBL();
+
             nanny = new Nanny();
             this.DataContext = nanny;
             nanny.born = DateTime.Parse("07/09/97");
@@ -218,6 +218,8 @@ namespace WPF_UI
                     IDtextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Numbers Please!");
                 }
+                if (IDtextBox.Text.Length != 9)
+                    throw new Exception("ERROR - Enter Nine Digits Please!");
             }
             catch (Exception ex)
             {
@@ -266,6 +268,11 @@ namespace WPF_UI
                     phoneNumbertextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Numbers Please!");
                 }
+                if (phoneNumbertextBox.Text.Length != 10)
+                    throw new Exception("ERROR - Enter Ten Digits Please!");
+                if (phoneNumbertextBox.Text[0] != '0' || phoneNumbertextBox.Text[1] != '5')
+                    throw new Exception("ERROR - Enter Valid Number Please!");
+
             }
             catch (Exception ex)
             {

@@ -22,7 +22,7 @@ namespace WPF_UI
     /// </summary>
     public partial class UpdateContract : MetroWindow
     {
-        BL.ourBL bl;
+        BL.IBL bl;
         Contract temp;
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace WPF_UI
         {
            
             InitializeComponent();
-             bl = new ourBL();
+            bl = BL.FactoryBL.GetBL();
             temp = new Contract();
             temp = bl.GetContract(co.contnum);//the paramater of updating is only the date of the ending of the contract
             ContractTextBox.Text =""+ co.contnum;

@@ -11,126 +11,43 @@
         mc:Ignorable="d"
         Title="AddingNanny" Height="660" Width="590">
     <Grid Margin="0,1,0,1">
-        <TextBox x:Name="IDtextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="42,14,428,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="112" LostFocus="IDtextBox_LostFocus"/>
+        <TextBox x:Name="IDtextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="42,14,428,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="112" LostFocus="IDtextBox_LostFocus" />
         <TextBox x:Name="fNametextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Center" Height="22" Margin="237,14,234,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="111" LostFocus="fNametextBox_LostFocus" />
 
         <TextBox x:Name="lNametextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Center" Height="22" Margin="463,14,14,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" LostFocus="lNametextBox_LostFocus" />
-        <TextBox x:Name="phoneNumbertextBox"
-                 HorizontalAlignment="Center"
-                 Height="22" Margin="348,52,122,0"
-                 Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="05XXXXXXX"
-                 TextWrapping="Wrap"
-                 Text="???"
-                 VerticalAlignment="Top"
-                 Width="112" LostFocus="phoneNumbertextBox_LostFocus" />
-        <TextBox x:Name="CitytextBox"
-                 Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!"
-                 HorizontalAlignment="Center"
-                 Height="22" Margin="51,99,421,0"
-                 TextWrapping="Wrap"
-                 Text="???"
-                 VerticalAlignment="Top"
-                 Width="110" LostFocus="CitytextBox_LostFocus" />
-        <TextBox x:Name="StreettextBox"
-                  Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!"
-                 HorizontalAlignment="Center"
-                 Height="22" Margin="241,99,234,0"
-                 TextWrapping="Wrap"
-                 Text="???"
-                 VerticalAlignment="Top"
-                 Width="107" LostFocus="StreettextBox_LostFocus" />
-        <TextBox x:Name="FlattextBox"
-                  Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!"
-                 HorizontalAlignment="Center"
-                 Height="22" Margin="463,99,19,0"
-                 TextWrapping="Wrap"
-                 Text="???"
-                 VerticalAlignment="Top" Width="100" />
+        <TextBox x:Name="phoneNumbertextBox" HorizontalAlignment="Center" Height="22" Margin="348,52,122,0" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="05XXXXXXX" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="112" LostFocus="phoneNumbertextBox_LostFocus" />
+        <TextBox x:Name="CitytextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Center" Height="22" Margin="51,99,421,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="110" LostFocus="CitytextBox_LostFocus" />
+        <TextBox x:Name="StreettextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Center" Height="22" Margin="241,99,234,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="107" LostFocus="StreettextBox_LostFocus" />
+        <TextBox x:Name="FlattextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="463,99,19,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" />
         <CheckBox x:Name="LiftCheckBox" Content="CheckBox" HorizontalAlignment="Center" Height="20" Margin="140,144,421,0" VerticalAlignment="Top" Width="21" />
-        <ComboBox x:Name="FloorComboBox" SelectedItem="{Binding floor}" HorizontalAlignment="Center" Height="22" Margin="312,144,165,0" VerticalAlignment="Top" Width="105"  />
-        <Button x:Name="UpdateButtonContract"   Content="{iconPacks:FontAwesome Kind=SyncSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left"  Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="518,567,0,0"   ></Button>
+        <ComboBox x:Name="FloorComboBox" SelectedItem="{Binding floor}" HorizontalAlignment="Center" Height="22" Margin="312,144,165,0" VerticalAlignment="Top" Width="105" />
+        <Button x:Name="UpdateButtonContract" Content="{iconPacks:FontAwesome Kind=SyncSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178" Margin="518,567,0,0"></Button>
 
-        <TextBox x:Name="ExperienceextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="248,185,229,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
-        <TextBox x:Name="MaxKidstextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="72,235,405,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
-        <TextBox x:Name="MinAgetextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="388,235,91,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="103" />
-        <TextBox x:Name="MaxAgetextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="108,283,368,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="106" />
-        <CheckBox x:Name="SalaryPerHourCheckBox"    Content="" HorizontalAlignment="Center" Height="15" Margin="431,279,129,0" VerticalAlignment="Top" Width="22" />
-        <TextBox x:Name="HourSalarytextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" IsEnabled="{Binding ElementName= SalaryPerHourCheckBox, Path=IsChecked }" HorizontalAlignment="Center" Height="22" Margin="104,331,374,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="104" />
-        <TextBox x:Name="MonthSalarytextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!"  HorizontalAlignment="Center" Height="22" Margin="348,335,129,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
+        <TextBox x:Name="ExperienceextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="248,185,229,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
+        <TextBox x:Name="MaxKidstextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="72,235,405,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
+        <TextBox x:Name="MinAgetextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="388,235,91,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="103" />
+        <TextBox x:Name="MaxAgetextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="108,283,368,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="106" />
+        <CheckBox x:Name="SalaryPerHourCheckBox" Content="" HorizontalAlignment="Center" Height="15" Margin="431,279,129,0" VerticalAlignment="Top" Width="22" />
+        <TextBox x:Name="HourSalarytextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" IsEnabled="{Binding ElementName= SalaryPerHourCheckBox, Path=IsChecked }" HorizontalAlignment="Center" Height="22" Margin="104,331,374,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="104" />
+        <TextBox x:Name="MonthSalarytextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="348,335,129,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="105" />
         <CheckBox x:Name="HolidaysByGovCheckBox" Background="#FFCDCDCD" IsChecked="{Binding HolidaysByTheGOV, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Content="" HorizontalAlignment="Center" Height="15" Margin="275,501,285,0" VerticalAlignment="Top" Width="22" />
-        <TextBox x:Name="RecommendationstextBox"   Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="109,536,371,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="102" />
+        <TextBox x:Name="RecommendationstextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="109,536,371,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="102" />
 
 
-        <Label x:Name="IDlabel"
-               Content="ID"
-               HorizontalAlignment="Left"
-               Margin="10,10,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="fNamelabel"
-               Content="First Name"
-               HorizontalAlignment="Left"
-               Margin="165,10,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="lNamelabel"
-               Content="Last Name"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Top"
-               Margin="374,10,0,0" />
-        <Label x:Name="BornYearlabel"
-               Content="Born Year"
-               HorizontalAlignment="Left"
-               Margin="8,51,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="PhoneNumberlabel"
-               Content="Phone Number"
-               HorizontalAlignment="Left"
-               Margin="253,51,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="Citylabel"
-               Content="City"
-               HorizontalAlignment="Left"
-               Margin="10,95,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="Streetlabel"
-               Content="Street"
-               HorizontalAlignment="Left"
-               Margin="200,95,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="Flatlabel"
-               Content="Flat Number"
-               HorizontalAlignment="Left"
-               Margin="364,95,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="Liftlabel"
-               Content="Does She Have A Lift?"
-               HorizontalAlignment="Left"
-               Margin="0,138,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="Floorlabel"
-               Content="Floor"
-               HorizontalAlignment="Left"
-               Margin="253,140,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="Experiencelabel"
-               Content=" enter a number of years of experience"
-               HorizontalAlignment="Left"
-               Margin="0,181,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="MaxKidslabel"
-               Content="Max Kids"
-               HorizontalAlignment="Left"
-               Margin="10,231,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="MinAgelabel"
-               Content="Kid's Min Age (in months)"
-               HorizontalAlignment="Left"
-               Margin="208,231,0,0"
-               VerticalAlignment="Top" />
-        <Label x:Name="MaxAgelabel"
-               Content="Kid's Max Age"
-               HorizontalAlignment="Left"
-               Margin="10,279,0,0"
-               VerticalAlignment="Top" />
+        <Label x:Name="IDlabel" Content="ID" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
+        <Label x:Name="fNamelabel" Content="First Name" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" />
+        <Label x:Name="lNamelabel" Content="Last Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="374,10,0,0" />
+        <Label x:Name="BornYearlabel" Content="Born Year" HorizontalAlignment="Left" Margin="8,51,0,0" VerticalAlignment="Top" />
+        <Label x:Name="PhoneNumberlabel" Content="Phone Number" HorizontalAlignment="Left" Margin="253,51,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Citylabel" Content="City" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Streetlabel" Content="Street" HorizontalAlignment="Left" Margin="200,95,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Flatlabel" Content="Flat Number" HorizontalAlignment="Left" Margin="364,95,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Liftlabel" Content="Does She Have A Lift?" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Floorlabel" Content="Floor" HorizontalAlignment="Left" Margin="253,140,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Experiencelabel" Content=" enter a number of years of experience" HorizontalAlignment="Left" Margin="0,181,0,0" VerticalAlignment="Top" />
+        <Label x:Name="MaxKidslabel" Content="Max Kids" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" />
+        <Label x:Name="MinAgelabel" Content="Kid's Min Age (in months)" HorizontalAlignment="Left" Margin="208,231,0,0" VerticalAlignment="Top" />
+        <Label x:Name="MaxAgelabel" Content="Kid's Max Age" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" />
         <Label x:Name="SalaryPerHourlabel" Content="Does She Get Salary Per Hour?" HorizontalAlignment="Left" Margin="237,274,0,0" VerticalAlignment="Top" Width="184" />
         <Label x:Name="HourSalarylabel" Content="Hour's Salary" HorizontalAlignment="Left" Margin="10,327,0,0" VerticalAlignment="Top" Width="89" />
         <Label x:Name="MonthSalarylabel" Content="Month's Salary" HorizontalAlignment="Left" Margin="253,331,0,0" VerticalAlignment="Top" />
@@ -140,7 +57,7 @@
 
 
         <Label x:Name="label_Copy3" Content="Days Of Working" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Width="113" Height="27" />
-        <TextBox x:Name="start1" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }"  Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="33,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
+        <TextBox x:Name="start1" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="33,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
         <TextBox x:Name="end1" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="33,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
         <TextBox x:Name="start2" IsEnabled="{Binding ElementName=monday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="128,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
         <TextBox x:Name="end2" IsEnabled="{Binding ElementName=monday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="128,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
@@ -158,9 +75,31 @@
         <CheckBox x:Name="wednesday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="337,462,0,0" VerticalAlignment="Top" Width="16" />
         <CheckBox x:Name="thursday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="423,462,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.5,0.5" />
         <CheckBox x:Name="friday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="518,462,0,0" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5" />
-        <Button x:Name="NannyAdded" Style="{StaticResource ModernButt}" Content="Add The Nanny" HorizontalAlignment="Center" Margin="18,574,258,0" VerticalAlignment="Top" Width="306" Height="37" Click="NannyAdded_Click" />
-        <Button x:Name="UpdateButton" Content="Update Nanny" HorizontalAlignment="Left" Height="31" Margin="374,580,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click"/>
-        <DatePicker x:Name="BornDatePicker"  SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true }"   HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127"/>
+        <Button x:Name="UpdateButton" Content="Update Nanny" HorizontalAlignment="Left" Height="31" Margin="374,580,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click" />
+        <DatePicker x:Name="BornDatePicker" SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true }" HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127" />
+
+        <Button x:Name="NannyAdded"  Content="Add The Nanny" HorizontalAlignment="Center" Margin="18,574,258,0" VerticalAlignment="Top" Width="306" Height="37" Click="NannyAdded_Click">
+
+        <Button.Style>
+        <Style>
+                <Setter Property="Button.IsEnabled" Value="False" />
+                <Style.Triggers>
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Binding="{Binding ElementName=IDtextBox, Path=Text}" Value="" />
+                            <Condition Binding="{Binding ElementName=fNametextBox, Path=Text}" Value="" />
+                            <Condition Binding="{Binding ElementName=lNametextBox, Path=Text}" Value="" />
+                            <Condition Binding="{Binding ElementName=phoneNumbertextBox, Path=Text}" Value="" />
+                            <Condition Binding="{Binding ElementName=CitytextBox, Path=Text}" Value="" />
+                            <Condition Binding="{Binding ElementName=StreettextBox, Path=Text}" Value="" />
+                            <Condition Binding="{Binding ElementName=FlattextBox, Path=Text}" Value="" />
+                        </MultiTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="True" />
+                    </MultiTrigger>
+                    </Style.Triggers>
+            </Style>
+        </Button.Style>
+       </Button>
 
     </Grid>
 </controls:MetroWindow>

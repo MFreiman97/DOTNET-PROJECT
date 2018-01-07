@@ -27,7 +27,7 @@ namespace WPF_UI
         public Linq()
         {
             InitializeComponent();
-            bl=new ourBL();
+            bl = BL.FactoryBL.GetBL();
             ContractsDistanceAbove40.IsEnabled = false;
             NeededChildsButton.IsEnabled = false;
             SpecialChildsButton.IsEnabled = false;

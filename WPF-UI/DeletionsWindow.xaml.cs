@@ -22,10 +22,11 @@ namespace WPF_UI
     /// </summary>
  
     public partial class DeletionsWindow : MetroWindow
-    {   BL.ourBL bl;
+    {
+        BL.IBL bl;
         public DeletionsWindow()
         {
-            bl = new ourBL();
+            bl = BL.FactoryBL.GetBL();
             InitializeComponent();
             dataGridChilds.ItemsSource = bl.GetAllChilds();
             dataGridChilds.SelectedValuePath = "id";

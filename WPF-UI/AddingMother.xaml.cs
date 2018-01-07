@@ -24,16 +24,16 @@ namespace WPF_UI
     /// </summary>
     public partial class AddingMother : MetroWindow
     {
-        BL.ourBL bl;
+        BL.IBL bl;
         BE.Mother mother;
         public AddingMother()
         {
             InitializeComponent();  
          
             this.UpdateButton.IsEnabled = false;
-            bl = new ourBL();
+            bl = BL.FactoryBL.GetBL();
 
-      
+
         }
 
         /// <summary>
@@ -181,6 +181,8 @@ namespace WPF_UI
                     IDtextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Numbers Please!");
                 }
+                if (IDtextBox.Text.Length != 9)
+                    throw new Exception("ERROR - Enter Nine Digits Please!");
             }
             catch (Exception ex)
             {
@@ -197,6 +199,10 @@ namespace WPF_UI
                     PhoneNumTextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Numbers Please!");
                 }
+                if (PhoneNumTextBox.Text.Length != 10)
+                    throw new Exception("ERROR - Enter Ten Digits Please!");
+                if (PhoneNumTextBox.Text[0] != '0' || PhoneNumTextBox.Text[1] != '5')
+                    throw new Exception("ERROR - Enter Valid Number Please!");
             }
             catch (Exception ex)
             {

@@ -39,13 +39,13 @@ namespace WPF_UI
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        BL.ourBL bl;
+        BL.IBL bl;
         int x;
         public MainWindow()
         {
             InitializeComponent();
-         
-             bl = new ourBL();
+
+            bl = BL.FactoryBL.GetBL();
             #region init for dubugging
             Nanny n1 = new Nanny()
             {

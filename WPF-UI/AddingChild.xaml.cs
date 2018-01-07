@@ -28,7 +28,7 @@ namespace WPF_UI
         {
             InitializeComponent();
 
-            bl = new ourBL();
+            bl = BL.FactoryBL.GetBL();
             ch = new Child();
             this.DataContext = ch;//to allow binding connection
             ch.birth = DateTime.Now;
@@ -114,6 +114,9 @@ namespace WPF_UI
                     IDtextBox.Text = "";
                     throw new Exception("ERROR - Enter Only Numbers Please!");
                 }
+
+                if (IDtextBox.Text.Length != 9)
+                        throw new Exception("ERROR - Enter Nine Digits Please!");
             }
             catch (Exception ex)
             {

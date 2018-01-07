@@ -33,7 +33,7 @@ namespace WPF_UI
     /// </summary>
     public partial class AddingContracts : MetroWindow
     {
-        BL.ourBL bl;
+        BL.IBL bl;
         bool BestFive=false;
         BE.Contract Cont;
         BE.Child child;
@@ -44,7 +44,7 @@ namespace WPF_UI
         public AddingContracts()
         {
             InitializeComponent();
-            bl = new ourBL();
+            bl = BL.FactoryBL.GetBL();
 
             str = new List<Nanny>();
             this.comboBoxChild.ItemsSource = bl.GetAllChilds();

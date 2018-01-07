@@ -28,7 +28,7 @@ namespace WPF_UI
         BL.IBL bl;
         public Details(Object obj)
         {
-            bl = new ourBL();
+            bl = BL.FactoryBL.GetBL();
             InitializeComponent();
             if(obj is Child)
             {
