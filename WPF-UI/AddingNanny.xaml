@@ -10,7 +10,7 @@
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
         Title="AddingNanny" Height="660" Width="590">
-    <Grid Margin="0,1,0,1">
+    <Grid Margin="0,2,0,0">
         <TextBox x:Name="IDtextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="42,14,428,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="112" LostFocus="IDtextBox_LostFocus" />
         <TextBox x:Name="fNametextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Center" Height="22" Margin="237,14,234,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="111" LostFocus="fNametextBox_LostFocus" />
 
@@ -81,22 +81,28 @@
         <Button x:Name="NannyAdded" Content="Add The Nanny" HorizontalAlignment="Center" Margin="18,574,258,0" VerticalAlignment="Top" Width="306" Height="37" Click="NannyAdded_Click">
 
         <Button.Style>
-                <Style TargetType="Button">
+                <Style>
+                    <!--Style="{StaticResource ModernButt}"-->
                     <Style.Triggers>
-                        <MultiDataTrigger>
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding ElementName=IDtextBox, Path=Text}" Value="" />
-                                <Condition Binding="{Binding ElementName=fNametextBox, Path=Text}" Value="" />
-                                <Condition Binding="{Binding ElementName=lNametextBox, Path=Text}" Value="" />
-                                <Condition Binding="{Binding ElementName=phoneNumbertextBox, Path=Text}" Value="" />
-                                <Condition Binding="{Binding ElementName=CitytextBox, Path=Text}" Value="" />
-                                <Condition Binding="{Binding ElementName=StreettextBox, Path=Text}" Value="" />
-                                <Condition Binding="{Binding ElementName=FlattextBox, Path=Text}" Value="" />
-                            </MultiDataTrigger.Conditions>
-                            <Setter Property="IsEnabled" Value="False" />
-                        </MultiDataTrigger>
-
-                        <DataTrigger Binding="{Binding ElementName=IDtextBox, Path=Text}" Value="">
+                        <DataTrigger Binding="{Binding ElementName=IDtextBox, Path=Text}" Value="???">
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=fNametextBox, Path=Text}" Value="???">
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=lNametextBox, Path=Text}" Value="???">
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=phoneNumbertextBox, Path=Text}" Value="???">
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=CitytextBox, Path=Text}" Value="???">
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=StreettextBox, Path=Text}" Value="???">
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=FlattextBox, Path=Text}" Value="???">
                             <Setter Property="Button.IsEnabled" Value="false" />
                         </DataTrigger>
 
