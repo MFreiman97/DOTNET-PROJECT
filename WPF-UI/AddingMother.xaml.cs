@@ -98,6 +98,7 @@ namespace WPF_UI
 
 
                 bl.addMom(mother);
+                this.ShowMessageAsync("New Mother was added successfully!", "I assume that the mother add childrens -> lets add child!");
                 this.Close(); 
 
             }

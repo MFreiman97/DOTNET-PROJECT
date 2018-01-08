@@ -78,10 +78,10 @@
         <Button x:Name="UpdateButton" Content="Update Nanny" HorizontalAlignment="Left" Height="31" Margin="374,580,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click" />
         <DatePicker x:Name="BornDatePicker" SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true }" HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127" />
 
-        <Button x:Name="NannyAdded" Content="Add The Nanny" HorizontalAlignment="Center" Margin="18,574,258,0" VerticalAlignment="Top" Width="306" Height="37" Click="NannyAdded_Click">
+        <Button x:Name="NannyAdded" Content="Add The Nanny" HorizontalAlignment="Center" Margin="56,574,258,0" VerticalAlignment="Top" Width="268" Height="37" Click="NannyAdded_Click">
 
-        <Button.Style>
-                <Style>
+            <Button.Style>
+                <Style TargetType="Button" BasedOn="{StaticResource ModernButt}">
                     <!--Style="{StaticResource ModernButt}"-->
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ElementName=IDtextBox, Path=Text}" Value="???">
@@ -107,9 +107,9 @@
                         </DataTrigger>
 
                     </Style.Triggers>
-            </Style>
-        </Button.Style>
-       </Button>
+                </Style>
+            </Button.Style>
+        </Button>
 
     </Grid>
 </controls:MetroWindow>

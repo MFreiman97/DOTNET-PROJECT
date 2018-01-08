@@ -14,7 +14,7 @@
         <Label x:Name="label_Copy1" Content="choose the nanny by pressing on the grid:" HorizontalAlignment="Left" Height="26" Margin="10,313,0,0" VerticalAlignment="Top" Width="239"/>
         <ComboBox x:Name="comboBoxChild" HorizontalAlignment="Left" Height="26" Margin="145,20,0,0" VerticalAlignment="Top" Width="101" />
 
-        <DatePicker SelectedDate="{Binding DateEnd}" HorizontalAlignment="Left" Height="28" Margin="200,130,0,0" VerticalAlignment="Top" Width="154" IsHitTestVisible="True"/>
+        <DatePicker SelectedDate="{Binding DateEnd , Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="28" Margin="200,130,0,0" VerticalAlignment="Top" Width="154" IsHitTestVisible="True"/>
         <Label x:Name="label1" Content="when is the end of the contract" HorizontalAlignment="Left" Height="28" Margin="0,129,0,0" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="TypecomboBox" HorizontalAlignment="Left" Height="20" Margin="145,71,0,0" VerticalAlignment="Top" Width="104" SelectedItem="{Binding ContType}" SelectionChanged="TypecomboBox_SelectionChanged"/>
 
@@ -22,6 +22,7 @@
         <Label x:Name="TypeOfSalary" Content="Type Of Salary:" HorizontalAlignment="Left" Height="26" Margin="15,65,0,0" VerticalAlignment="Top" Width="95"/>
         <Button x:Name="AddTheContract" Content="Add the contract" HorizontalAlignment="Left" Height="33" Margin="274,495,0,0" VerticalAlignment="Top" Width="201" Click="AddTheContract_Click"/>
         <DataGrid x:Name="dataGridNannies" IsReadOnly="True" HorizontalAlignment="Left" Margin="75,205,0,0" VerticalAlignment="Top" Height="103" Width="337" BorderThickness="1"/>
+        <controls:ProgressRing x:Name="ProgressRing" HorizontalAlignment="Left" Height="45" IsActive="False" Margin="200,174,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="1.083,0.613"/>
 
     </Grid>
 </controls:MetroWindow>

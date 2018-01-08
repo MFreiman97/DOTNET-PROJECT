@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using BE;
 using BL;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace WPF_UI
 {
@@ -107,7 +108,8 @@ namespace WPF_UI
                 
                 this.DataContext = nanny;
                 bl.addNanny(nanny);
-               this. Close();
+                this.ShowMessageAsync("New Nanny was added successfully!","");
+
            }
 
             catch (Exception ex)

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="AddingChild" Height="500" Width="500">
     <Grid>
-        <TextBox x:Name="IDtextBox" Text="" HorizontalAlignment="Left" Height="21" Margin="201,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="IDtextBox_LostFocus" />
+        <TextBox x:Name="IDtextBox" Text="" HorizontalAlignment="Left" Height="21" MaxLength="9" Margin="201,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="IDtextBox_LostFocus" />
         <TextBox x:Name="NAMEtextBox" Text="" HorizontalAlignment="Left" Height="21" Margin="201,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="NAMEtextBox_LostFocus" />
         <TextBox x:Name="DescOfDisabilityTextBox" HorizontalAlignment="Left" Height="21" Margin="201,292,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" />
         <Label x:Name="label" Content="id" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113" Height="27" />
@@ -23,20 +23,20 @@
 
         <ComboBox x:Name="comboBoxMothers" HorizontalAlignment="Left" Height="27" Margin="201,40,0,0" VerticalAlignment="Top" Width="120" />
         <Button x:Name="UpdateButton" Content="Update Child" HorizontalAlignment="Left" Height="31" Margin="322,333,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click" />
-        <Button x:Name="ChildAdded" Content="Add this child to the rep" HorizontalAlignment="Left" Height="33" Margin="138,380,0,0" VerticalAlignment="Top" Width="211" Click="ChildAdded_Click">
+        <Button x:Name="ChildAdded" Content="Add this child to the rep" HorizontalAlignment="Left" Height="55" Margin="115,387,0,0" VerticalAlignment="Top" Width="241" Click="ChildAdded_Click">
 
-        <Button.Style>
-            <Style>
+            <Button.Style>
+                <Style TargetType="Button" BasedOn="{StaticResource ModernButt}">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ElementName=IDtextBox, Path=Text}" Value="">
-                        <Setter Property="Button.IsEnabled" Value="false" />
-                    </DataTrigger>
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=NAMEtextBox, Path=Text}" Value="">
                             <Setter Property="Button.IsEnabled" Value="false" />
                         </DataTrigger>
                     </Style.Triggers>
-            </Style>
-        </Button.Style>
+                </Style>
+            </Button.Style>
         </Button>
 
     </Grid>

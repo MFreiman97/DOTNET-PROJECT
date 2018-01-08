@@ -12,7 +12,7 @@
 
     <Grid>
 
-        <TextBox   x:Name="IDtextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Left" Height="21" Margin="201,15,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="IDtextBox_LostFocus" BorderThickness="2" ></TextBox>
+        <TextBox   x:Name="IDtextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" MaxLength="9"  HorizontalAlignment="Left" Height="21" Margin="201,15,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="IDtextBox_LostFocus" BorderThickness="2" ></TextBox>
 
         <TextBox x:Name="PNAMEtextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Left" Height="21" Margin="201,59,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="PNAMEtextBox_LostFocus" />
         <Label x:Name="label" Content="id"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
@@ -21,7 +21,7 @@
         <Label x:Name="label_Copy" Content="Family Name" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <TextBox x:Name="FnameTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY" HorizontalAlignment="Left" Height="21" Margin="201,100,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="FnameTextBox_LostFocus" />
         <Label x:Name="label_Copy2" Content="Phone Number" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <TextBox x:Name="PhoneNumTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="05XXXXXXXX" HorizontalAlignment="Left" Height="21" Margin="201,145,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="PhoneNumTextBox_LostFocus" />
+        <TextBox x:Name="PhoneNumTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="05XXXXXXXX"  SelectionLength="10" MaxLength="10" HorizontalAlignment="Left" Height="21" Margin="201,145,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="PhoneNumTextBox_LostFocus" />
         <Label x:Name="label_Copy5" Content="city" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy6" Content="street" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy7" Content="number of the apartment" HorizontalAlignment="Left" Margin="10,248,0,0" VerticalAlignment="Top" Width="144" Height="27"/>
@@ -31,8 +31,8 @@
         <TextBox x:Name="CommentsTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="???" HorizontalAlignment="Left" Height="63" Margin="150,290,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
         <Label x:Name="label_Copy3"  Content="days of working" HorizontalAlignment="Left" Margin="10,352,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <TextBox x:Name="start1" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="38,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85">
-            
-           
+
+
         </TextBox>
 
         <TextBox x:Name="end1" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="38,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
@@ -55,37 +55,39 @@
         <Label x:Name="NannyAreaTextBox" Content="what is the maximum distance of the nanny you want?" HorizontalAlignment="Left" Margin="10,496,0,0" VerticalAlignment="Top" Width="303" Height="27"/>
         <TextBox x:Name="NannyAreaTextBoxAnswer" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Left" Height="42" Margin="47,536,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
         <Button x:Name="UpdateButton" Content="Update Mother" HorizontalAlignment="Left" Height="31" Margin="401,609,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click"/>
-        <Button x:Name="MotherAdded" Content="Add The Mother" HorizontalAlignment="Left" Height="33" Margin="150,607,0,0" VerticalAlignment="Top" Width="211" Click="MotherAdded_Click">
+        <Button x:Name="MotherAdded" Content="Add The Mother" HorizontalAlignment="Left" Height="38" Margin="144,607,0,0" VerticalAlignment="Top" Width="217" Click="MotherAdded_Click">
 
-        <Button.Style>
-            <Style>
-                    <!--Style="{StaticResource ModernButt}"-->
+            <Button.Style>
+                <Style TargetType="Button" BasedOn="{StaticResource ModernButt}">
+
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ElementName=IDtextBox, Path=Text}" Value="???">
-                        <Setter Property="Button.IsEnabled" Value="false" />
-                    </DataTrigger>
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=PNAMEtextBox, Path=Text}" Value="???">
-                        <Setter Property="Button.IsEnabled" Value="false" />
-                    </DataTrigger>
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=FnameTextBox, Path=Text}" Value="???">
-                        <Setter Property="Button.IsEnabled" Value="false" />
-                    </DataTrigger>
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=PhoneNumTextBox, Path=Text}" Value="???">
-                        <Setter Property="Button.IsEnabled" Value="false" />
-                    </DataTrigger>
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=CityTextBox, Path=Text}" Value="???">
-                        <Setter Property="Button.IsEnabled" Value="false" />
-                    </DataTrigger>
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=StreetTextBox, Path=Text}" Value="???">
-                        <Setter Property="Button.IsEnabled" Value="false" />
-                    </DataTrigger>
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
                         <DataTrigger Binding="{Binding ElementName=ApartmentTextBox, Path=Text}" Value="???">
-                        <Setter Property="Button.IsEnabled" Value="false" />
-                    </DataTrigger>
+                            <Setter Property="Button.IsEnabled" Value="false" />
+                        </DataTrigger>
 
-                </Style.Triggers>
-            </Style>
-        </Button.Style>
+                    </Style.Triggers>
+
+                </Style>
+
+            </Button.Style>
         </Button>
 
     </Grid>

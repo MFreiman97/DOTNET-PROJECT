@@ -35,6 +35,8 @@ namespace BL
         {
             Child ch = cont.c; // Get The Child (Of The Contract)
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
+            if (cont.DateEnd.CompareTo(DateTime.Now) < 0)
+                 new Exception("The end of the contract have to be later than the starting date");
             if (childAge(ch) == true && nannyContracts(na) == true)
             {
                      cont.distance = CalculateDistance(ch.mom.address, na.address);

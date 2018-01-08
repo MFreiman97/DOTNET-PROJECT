@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BE;
 using BL;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace WPF_UI
 {
@@ -53,6 +54,7 @@ namespace WPF_UI
                     bl.deleteChild(m);
                      dataGridChilds.ItemsSource = null;
                     dataGridChilds.ItemsSource = bl.GetAllChilds();
+                    this.ShowMessageAsync("New Child was deleted successfully!", "");
                 }
                 catch (Exception ex)
                 {
@@ -71,7 +73,8 @@ namespace WPF_UI
                     bl.deleteContract(c);
                     dataGridContracts.ItemsSource = null;
                     dataGridContracts.ItemsSource = bl.GetAllContracts();
-                 
+                    this.ShowMessageAsync("New Contract was deleted successfully!", "");
+
                 }
                 catch (Exception ex)
                 {
@@ -91,7 +94,8 @@ namespace WPF_UI
                     bl.deleteMom(m);
                     dataGridMothers.ItemsSource = null;//neccesary!!!!
               dataGridMothers.ItemsSource = bl.GetAllMothers();
-                 
+                    this.ShowMessageAsync("New Mother was deleted successfully!", "");
+
 
                 }
                 catch (Exception ex)
@@ -111,6 +115,7 @@ namespace WPF_UI
                     bl.deleteNanny(n);
                     dataGridNannies.ItemsSource = null;//neccesary!!!!
                     dataGridNannies.ItemsSource = bl.GetAllNannies();
+                    this.ShowMessageAsync("New Nanny was deleted successfully!", "");
                 }
                 catch (Exception ex)
                 {

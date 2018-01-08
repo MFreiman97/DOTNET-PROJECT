@@ -1,6 +1,7 @@
 ﻿using BE;
 using BL;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,7 +67,8 @@ namespace WPF_UI
 
              
                 bl.addChild(ch);
-                this.Close();
+                this.ShowMessageAsync("New Child was added successfully!", "Now you can add contract to the child");
+            
             }
             catch (Exception ex)
             {

@@ -41,7 +41,7 @@
 
 
         <TabItem Header="Add Object">
-            <Grid Margin="0,7,0,-7">
+            <Grid Margin="0,5,0,-5">
 
 
                 <Grid.RowDefinitions>
@@ -61,7 +61,7 @@
                 <Button x:Name="AddMother"  Style="{StaticResource ModernButt}"  Content="Add Mother"  Margin="10,22,11,0"   Click="AddMother_Click" />
                 <Button x:Name="AddChild" Style="{StaticResource ModernButt}"   Content="Add Child"  Margin="11,21,10,0"   Click="AddChild_Click" Grid.Row="2"/>
                 <Button x:Name="AddContract" Style="{StaticResource ModernButt}"   Content="Add contract"   Margin="11,21,10,0"   Click="Adding_Contracts_Click" Grid.Row="2" Grid.Column="2"/>
-                <iconPacks:PackIconFontAwesome Kind="EditRegular" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="176.5,21,0,10" Height="83" Width="75" Grid.Column="1" Grid.Row="2" />
+                <iconPacks:PackIconFontAwesome Kind="EditRegular" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="182.5,21,245,10" Height="83" Width="75" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" />
                 <iconPacks:PackIconMaterial Kind="HumanPregnant" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="240,22,189,10" Height="83" Width="74" Grid.ColumnSpan="2" />
 
             </Grid>

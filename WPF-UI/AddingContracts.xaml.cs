@@ -39,6 +39,7 @@ namespace WPF_UI
         BE.Child child;
         BE.ContractType ContType;//usefull for using the thread of the distance calculation
         List<Nanny> str;//usefull for using the thread of the distance calculation
+        BackgroundWorker work;
         static Random r = new Random();
 
         public AddingContracts()
@@ -53,6 +54,8 @@ namespace WPF_UI
             this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
             Cont = new Contract();
          this.   DataContext = Cont;
+            Cont.DateEnd = DateTime.Now;
+            Cont.DateEnd=Cont.DateEnd.AddYears(1);
             TypecomboBox.IsEnabled = false;
             dataGridNannies.ItemsSource = str.AsEnumerable();
             dataGridNannies.SelectedValuePath = "id";
@@ -94,7 +97,7 @@ namespace WPF_UI
         {
             if (TypecomboBox.IsEnabled == true)
             {
-                BackgroundWorker work = new BackgroundWorker();
+                 work = new BackgroundWorker();
                 work.WorkerSupportsCancellation = true;
                 Cont.c = bl.GetChild((int)comboBoxChild.SelectedValue);
 
@@ -105,6 +108,8 @@ namespace WPF_UI
                 
                 work.DoWork += W_DoWork;
                 work.RunWorkerCompleted += W_RunWorkerCompleted;
+                work.ProgressChanged += Work_ProgressChanged;
+                work.WorkerReportsProgress = true;
                 work.RunWorkerAsync();
             }
             else
@@ -114,19 +119,39 @@ namespace WPF_UI
 
         }
 
+        private void Work_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            ProgressRing.IsActive = true;
+        }
+
         private void W_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
             
         {
-            dataGridNannies.ItemsSource = null;
-            dataGridNannies.ItemsSource = str.AsEnumerable();
-            dataGridNannies.SelectedValuePath = "id";
-            BackgroundWorker work = sender as BackgroundWorker;
-            work.CancelAsync();
+            if (e.Error == null)
+            {
+                ProgressRing.IsActive = false;
+                dataGridNannies.ItemsSource = null;
+                dataGridNannies.ItemsSource = str.AsEnumerable();
+                dataGridNannies.SelectedValuePath = "id";
+                BackgroundWorker work = sender as BackgroundWorker;
+                  work.CancelAsync();
+            }
+            if (e.Error != null && e.Error.Message != "הרצף לא מכיל תווים")
+            {
+                ProgressRing.IsActive = false;
+                MessageBox.Show("Error: " + e.Error.Message);
+                work.CancelAsync();
+            }
+            if (e.Error.Message == "הרצף לא מכיל תווים")
+            {
+                MessageBox.Show("Check your connection to the internet");
+            }
         }
 
         private void W_DoWork(object sender, DoWorkEventArgs e)
         {
-          
+
+            work.ReportProgress(5);
             if (ContType == ContractType.hourly)
             {
               
