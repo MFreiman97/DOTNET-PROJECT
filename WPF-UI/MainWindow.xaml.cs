@@ -46,6 +46,7 @@ namespace WPF_UI
             InitializeComponent();
 
             bl = BL.FactoryBL.GetBL();
+          
             #region init for dubugging
             Nanny n1 = new Nanny()
             {
@@ -106,7 +107,12 @@ namespace WPF_UI
             bl.addMom(m2);
 
             #endregion//Adding 2 Mothers
-           
+             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "childs" });
+            comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "contracts" });
+            comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "mothers" });
+            comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "nannies" });
+     
+     
 
         }
 
@@ -164,5 +170,32 @@ namespace WPF_UI
             var v = new DeletionsWindow();
             v.ShowDialog();
         }
+
+        private void DoubleClickedOnChild(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridChild.SelectedValue != null)
+            {
+                try
+                {
+                    var v = new SmallWindowUpdating((object)dataGridChild.SelectedItem);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        private void ComboBoxChanged(object sender, RoutedEventArgs e)
+        {
+           
+                dataGridChild.ItemsSource = bl.GetAllChilds();
+                dataGridChild.DisplayMemberPath = "FullName";
+                dataGridChild.SelectedValuePath = "id";
+           
+           
+        }
+
     }
 }

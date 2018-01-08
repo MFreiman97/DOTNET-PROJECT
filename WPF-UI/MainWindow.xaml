@@ -31,7 +31,7 @@
 
                 <Button x:Name="LinqButton" Style="{StaticResource ModernButt}"    Content="linq"  Margin="10,22,11,0"  Click="LinqButton_Click" RenderTransformOrigin="-0.417,1.663"/>
                 <Button x:Name="Deletions"  Style="{StaticResource ModernButt}"  Content="Deletions"  Height="83"  Width="230" Margin="11,21,10,0" Grid.Column="2" Click="Deletions_Click" Grid.Row="2" />
-                <Button x:Name="Updating"  Style="{StaticResource ModernButt}"  Content="Updating"  Height="83"  Width="230" Margin="12,22,10,0" Grid.Column="1" Grid.Row="1" />
+                <Button x:Name="Updating"  Style="{StaticResource ModernButt}"  Content="Updating"  Height="83"  Width="230" Margin="12,22,10,0" Grid.Column="1"  Grid.Row="1"  />
 
 
             </Grid>
@@ -64,6 +64,53 @@
                 <iconPacks:PackIconFontAwesome Kind="EditRegular" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="182.5,21,245,10" Height="83" Width="75" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" />
                 <iconPacks:PackIconMaterial Kind="HumanPregnant" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="240,22,189,10" Height="83" Width="74" Grid.ColumnSpan="2" />
 
+            </Grid>
+
+        </TabItem>
+        <TabItem Header="Update Object">
+         
+                
+          
+
+                <Grid Margin="0,-1,0,1" x:Name="MainGrid">
+                <ComboBox x:Name="comboBoxWhatToUpdate" HorizontalAlignment="Left" Margin="192,19,0,0" VerticalAlignment="Top" Width="134" Height="34" SelectionChanged="ComboBoxChanged" />
+            
+                    <Grid x:Name="GridChild">
+                        
+                  
+                    <DataGrid x:Name="dataGridChild" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnChild"/>
+
+                    <Grid.Style>
+
+                        <Style TargetType="{x:Type Grid}" >
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboBoxWhatToUpdate, Path=Text}" Value="childs">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                             
+
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+          
+                </Grid>
+                    <Grid x:Name="GridContract">
+
+
+                        <ListBox x:Name="listBoxContract" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734" /> 
+                    </Grid>
+                    <Grid x:Name="GridMother">
+                        
+                
+                <ListBox x:Name="listBoxMother" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734" Visibility="Hidden"/> 
+                    </Grid>
+                    <Grid x:Name="GridNanny">
+                        
+                 
+                <ListBox x:Name="listBoxNanny" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734" Visibility="Hidden"/>
+
+               </Grid>
             </Grid>
 
         </TabItem>

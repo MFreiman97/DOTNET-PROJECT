@@ -28,6 +28,13 @@ namespace BE
         public bool HolidaysByTheGOV { get; set; }
         public string recom;//recommendations
         public  int contracts = 0;
+        private string fullname;
+
+        public string FullName
+        {
+            get { return fname + " " + name;  }
+         
+        }
 
         public int Contracts
         {

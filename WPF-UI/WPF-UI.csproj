@@ -97,6 +97,9 @@
     <Compile Include="MatrixOfHours.xaml.cs">
       <DependentUpon>MatrixOfHours.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SmallWindowUpdating.xaml.cs">
+      <DependentUpon>SmallWindowUpdating.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateContract.xaml.cs">
       <DependentUpon>UpdateContract.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MatrixOfHours.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SmallWindowUpdating.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,13 +15,14 @@ using System.Windows.Shapes;
 using BE;
 using BL;
 using MahApps.Metro.Controls.Dialogs;
+using System.Globalization;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for DeletionsWindow.xaml
     /// </summary>
- 
+
     public partial class DeletionsWindow : MetroWindow
     {
         BL.IBL bl;
@@ -31,12 +32,12 @@ namespace WPF_UI
             InitializeComponent();
             dataGridChilds.ItemsSource = bl.GetAllChilds();
             dataGridChilds.SelectedValuePath = "id";
-       
-         
+
+
             dataGridContracts.ItemsSource = bl.GetAllContracts();
             dataGridContracts.SelectedValuePath = "contnum";
-         
-           dataGridMothers.ItemsSource = bl.GetAllMothers();
+
+            dataGridMothers.ItemsSource = bl.GetAllMothers();
             dataGridMothers.SelectedValuePath = "id";
 
             dataGridNannies.ItemsSource = bl.GetAllNannies();
@@ -52,7 +53,7 @@ namespace WPF_UI
                 {
                     Child m = bl.GetChild((int)dataGridChilds.SelectedValue);
                     bl.deleteChild(m);
-                     dataGridChilds.ItemsSource = null;
+                    dataGridChilds.ItemsSource = null;
                     dataGridChilds.ItemsSource = bl.GetAllChilds();
                     this.ShowMessageAsync("New Child was deleted successfully!", "");
                 }
@@ -93,7 +94,7 @@ namespace WPF_UI
                     Mother m = bl.GetMother((int)dataGridMothers.SelectedValue);
                     bl.deleteMom(m);
                     dataGridMothers.ItemsSource = null;//neccesary!!!!
-              dataGridMothers.ItemsSource = bl.GetAllMothers();
+                    dataGridMothers.ItemsSource = bl.GetAllMothers();
                     this.ShowMessageAsync("New Mother was deleted successfully!", "");
 
 
@@ -126,7 +127,7 @@ namespace WPF_UI
         }
 
         private void dataGridMothers_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {   
+        {
             if (dataGridMothers.SelectedValue != null)
             {
                 try
@@ -193,4 +194,39 @@ namespace WPF_UI
             }
         }
     }
+        public class IDChildToName : IValueConverter
+        {
+            IBL bl = FactoryBL.GetBL();
+
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                Child c = bl.GetChild((int)value);
+              
+                    return c.FullName;
+               
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                throw new NotImplementedException();
+            }
+        }
+    public class IDNannyToName : IValueConverter
+    {
+        IBL bl = FactoryBL.GetBL();
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            Nanny n = bl.GetNanny((int)value);
+
+            return n.FullName;
+
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
+

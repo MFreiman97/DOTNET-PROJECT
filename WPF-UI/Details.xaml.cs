@@ -28,8 +28,9 @@ namespace WPF_UI
         BL.IBL bl;
         public Details(Object obj)
         {
-            bl = BL.FactoryBL.GetBL();
+         
             InitializeComponent();
+            bl = BL.FactoryBL.GetBL();
             if(obj is Child)
             {
                 WhatToShowTB.Text = "Child";

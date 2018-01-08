@@ -25,6 +25,7 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.ComponentModel;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace WPF_UI
 {
@@ -48,7 +49,7 @@ namespace WPF_UI
             bl = BL.FactoryBL.GetBL();
 
             str = new List<Nanny>();
-            this.comboBoxChild.ItemsSource = bl.GetAllChilds();
+            this.comboBoxChild.ItemsSource = bl.NeedNanny();
             this.comboBoxChild.DisplayMemberPath = "FullName";
             this.comboBoxChild.SelectedValuePath = "id";
             this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
@@ -80,7 +81,7 @@ namespace WPF_UI
 
                     Thread t = new Thread(() => bl.addContract(Cont));
                     t.Start();
-                    this.Close();
+                    this.ShowMessageAsync("New Contract was added successfully!", "Good Day!!!");
                 }
                 catch (Exception ex)
                 {
@@ -136,13 +137,13 @@ namespace WPF_UI
                 BackgroundWorker work = sender as BackgroundWorker;
                   work.CancelAsync();
             }
-            if (e.Error != null && e.Error.Message != "הרצף לא מכיל תווים")
+            else if (e.Error != null && e.Error.Message != "הרצף לא מכיל תווים")
             {
                 ProgressRing.IsActive = false;
                 MessageBox.Show("Error: " + e.Error.Message);
                 work.CancelAsync();
             }
-            if (e.Error.Message == "הרצף לא מכיל תווים")
+        else
             {
                 MessageBox.Show("Check your connection to the internet");
             }

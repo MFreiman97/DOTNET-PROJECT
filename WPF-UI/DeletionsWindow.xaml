@@ -8,6 +8,12 @@
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
         Title="DeletionsWindow" Height="300" Width="500">
+    <Window.Resources>
+        <local:IDChildToName
+         x:Key="IDChildToName" />
+        <local:IDNannyToName
+         x:Key="IDNannyToName" />
+    </Window.Resources>
     <TabControl>
         <TabItem Header="Mother">
 
@@ -34,8 +40,8 @@
                 <Button x:Name="button1"   Content="{iconPacks:FontAwesome Kind=TrashSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button1_Click"  ></Button>
                 <DataGrid x:Name="dataGridContracts" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns ="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="dataGridContracts_MouseDoubleClick">
                 <DataGrid.Columns>
-                        <DataGridTextColumn Header="Nanny" Binding="{Binding n}" />
-                        <DataGridTextColumn Header="Child" Binding="{Binding c}" />
+                        <DataGridTextColumn Header="Nanny" Binding="{Binding n.id , Converter={StaticResource ResourceKey=IDNannyToName}}" />
+                        <DataGridTextColumn Header="Child" Binding="{Binding c.id, Converter={StaticResource ResourceKey=IDChildToName}}" />
                         <DataGridTextColumn Header="Salary Per Month" Binding="{Binding SalaryPerMonth}" />
                         <DataGridTextColumn Header="Date Begin" Binding="{Binding DateBegin, StringFormat='dd/mm/yyyy'}" />
                         <DataGridTextColumn Header="Date End" Binding="{Binding DateEnd, StringFormat='dd/mm/yyyy'}" />
