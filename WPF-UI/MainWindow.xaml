@@ -74,15 +74,15 @@
 
                 <Grid Margin="0,-1,0,1" x:Name="MainGrid">
                 <ComboBox x:Name="comboBoxWhatToUpdate" HorizontalAlignment="Left" Margin="192,19,0,0" VerticalAlignment="Top" Width="134" Height="34" SelectionChanged="ComboBoxChanged" />
-            
-                    <Grid x:Name="GridChild">
+
+                <Grid x:Name="GridChild" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
                         
                   
-                    <DataGrid x:Name="dataGridChild" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnChild"/>
+                    <DataGrid x:Name="dataGridChild"  IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnChild"/>
 
                     <Grid.Style>
 
-                        <Style TargetType="{x:Type Grid}" >
+                        <Style TargetType="{x:Type Grid}"  >
                             <Setter Property="Visibility" Value="Hidden"/>
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding ElementName=comboBoxWhatToUpdate, Path=Text}" Value="childs">
@@ -95,22 +95,67 @@
                     </Grid.Style>
           
                 </Grid>
-                    <Grid x:Name="GridContract">
+                    
+                <Grid x:Name="GridContract" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
+
+                    <DataGrid x:Name="dataGridContract"  IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnContract"/>
+
+                    <Grid.Style>
+
+                        <Style TargetType="{x:Type Grid}" >
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboBoxWhatToUpdate, Path=Text}" Value="contracts">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
 
 
-                        <ListBox x:Name="listBoxContract" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734" /> 
-                    </Grid>
-                    <Grid x:Name="GridMother">
-                        
-                
-                <ListBox x:Name="listBoxMother" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734" Visibility="Hidden"/> 
-                    </Grid>
-                    <Grid x:Name="GridNanny">
-                        
-                 
-                <ListBox x:Name="listBoxNanny" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734" Visibility="Hidden"/>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
 
-               </Grid>
+                </Grid>
+                    
+                <Grid x:Name="GridMother" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
+
+                        <DataGrid x:Name="dataGridMother"  IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnMother"/>
+
+                    <Grid.Style>
+
+                        <Style TargetType="{x:Type Grid}" >
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboBoxWhatToUpdate, Path=Text}" Value="mothers">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+
+
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+
+                </Grid>
+
+                <Grid x:Name="GridNanny" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
+
+                    <DataGrid x:Name="dataGridNanny"  IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnNanny"/>
+
+                    <Grid.Style>
+
+                        <Style TargetType="{x:Type Grid}" >
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=comboBoxWhatToUpdate, Path=Text}" Value="nannies">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+
+
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+
+                </Grid>
+                    
             </Grid>
 
         </TabItem>

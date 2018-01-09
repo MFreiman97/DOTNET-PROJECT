@@ -76,7 +76,7 @@
         <CheckBox x:Name="thursday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="423,462,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.5,0.5" />
         <CheckBox x:Name="friday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="518,462,0,0" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5" />
         <Button x:Name="UpdateButton" Content="Update Nanny" HorizontalAlignment="Left" Height="31" Margin="374,580,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click" />
-        <DatePicker x:Name="BornDatePicker" SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true }" HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127" />
+        <DatePicker x:Name="BornDatePicker" DisplayDateStart="1/1/2000" SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true }" HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127" />
 
         <Button x:Name="NannyAdded" Content="Add The Nanny" HorizontalAlignment="Center" Margin="56,574,258,0" VerticalAlignment="Top" Width="268" Height="37" Click="NannyAdded_Click">
 

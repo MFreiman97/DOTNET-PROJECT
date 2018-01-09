@@ -193,8 +193,65 @@ namespace WPF_UI
                 dataGridChild.ItemsSource = bl.GetAllChilds();
                 dataGridChild.DisplayMemberPath = "FullName";
                 dataGridChild.SelectedValuePath = "id";
+
+
+            dataGridContract.ItemsSource = bl.GetAllContracts();
            
-           
+            dataGridContract.SelectedValuePath = "contnum";
+
+
+            dataGridNanny.ItemsSource = bl.GetAllNannies();
+            dataGridNanny.DisplayMemberPath = "FullName";
+            dataGridNanny.SelectedValuePath = "id";
+
+        }
+        private void DoubleClickedOnMother(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridChild.SelectedValue != null)
+            {
+                try
+                {
+                    var v = new SmallWindowUpdating((object)dataGridChild.SelectedItem);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        private void DoubleClickedOnContract(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridChild.SelectedValue != null)
+            {
+                try
+                {
+                    var v = new SmallWindowUpdating((object)dataGridChild.SelectedItem);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        private void DoubleClickedOnNanny(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridChild.SelectedValue != null)
+            {
+                try
+                {
+                    var v = new SmallWindowUpdating((object)dataGridChild.SelectedItem);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
     }

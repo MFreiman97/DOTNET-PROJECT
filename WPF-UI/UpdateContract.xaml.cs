@@ -38,6 +38,7 @@ namespace WPF_UI
             temp = bl.GetContract(co.contnum);//the paramater of updating is only the date of the ending of the contract
             ContractTextBox.Text =""+ co.contnum;
             this.DataContext = temp;
+            dt.DisplayDateStart = DateTime.Now.AddDays(1);//day from today
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

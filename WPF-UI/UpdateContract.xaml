@@ -3,16 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                 xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                          xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
         Title="UpdateContract" Height="300" Width="300">
     <Grid>
-        <TextBox x:Name="ContractTextBox" HorizontalAlignment="Left" Height="23" Margin="94,21,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="" VerticalAlignment="Top" Width="120"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="78*"/>
+            <RowDefinition Height="101*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="ContractTextBox"  HorizontalAlignment="Left" Height="23" Margin="94,21,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="Label" Content="The contract:" HorizontalAlignment="Left" Height="23" Margin="10,21,0,0" VerticalAlignment="Top" Width="79"/>
         <Label x:Name="label" Content="Update the end of the contract:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,0,0" Width="176"/>
-        <DatePicker SelectedDate="{Binding DateEnd}" HorizontalAlignment="Left" Margin="77,120,0,0" VerticalAlignment="Top" Width="124"/>
-        <Button x:Name="button" Content="Update" HorizontalAlignment="Left" Margin="68,187,0,0" VerticalAlignment="Top" Width="146" Height="32" Click="button_Click"/>
+        <DatePicker x:Name="dt" DisplayDateStart="12/12/2050" SelectedDate="{Binding DateEnd}" HorizontalAlignment="Left"   Margin="83,20,0,0" VerticalAlignment="Top" Width="131" Height="32" Grid.Row="1"/>
+        <Button x:Name="UpdateButtonContract" Content="{iconPacks:FontAwesome Kind=SyncSolid }" Style="{DynamicResource MetroCircleButtonStyle}" Click="button_Click" BorderBrush="Black" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="48" RenderTransformOrigin="-2.826,0.178" Margin="119,19,0,0" Grid.Row="2"></Button>
+
+
 
     </Grid>
 </controls:MetroWindow>
