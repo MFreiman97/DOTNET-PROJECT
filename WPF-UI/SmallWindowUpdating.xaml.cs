@@ -35,6 +35,8 @@ namespace WPF_UI
                 WhatToShowTB.Text = "Child";
                 Child c = obj as Child;
                 DetailsOfChild.DataContext = c;
+                SetValue(MyPropertyProperty, c.FullName);
+              
             }
             if (obj is Mother)
             {
@@ -52,32 +54,33 @@ namespace WPF_UI
             {
                 WhatToShowTB.Text = "Contract";//using the trigger
                 Contract co = obj as Contract;
-                DetailsOfContract.DataContext = co;
+               DetailsOfContract.DataContext = co;
             }
+            
         }
-    }
-   public class MyClass:DependencyObject
-    {
 
 
         public string MyProperty
         {
             get { return (string)GetValue(MyPropertyProperty); }
-          
+            set { SetValue(MyPropertyProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MyPropertyProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(MyClass), new PropertyMetadata("", PropertyChangedCallback));
-        public static void PropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            DependencyProperty.Register("MyProperty", typeof(string), typeof(SmallWindowUpdating), new PropertyMetadata(""));
+
+    
+
+        private void nameTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
 
-            var THIS = d as TextBox;
-       
+        bl = BL.FactoryBL.GetBL();
+            Child c = bl.GetChild(int.Parse(idTextBox.Text));
 
 
+            SetValue(MyPropertyProperty, c.FullName);
         }
-
-
     }
+
 }
