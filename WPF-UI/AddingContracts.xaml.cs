@@ -57,6 +57,7 @@ namespace WPF_UI
             this.DataContext = Cont;
             Cont.DateEnd = DateTime.Now;
             Cont.DateEnd=Cont.DateEnd.AddYears(1);
+            ContDatePicker.DisplayDateStart = DateTime.Now.AddDays(1);
             TypecomboBox.IsEnabled = false;
             dataGridNannies.ItemsSource = str.AsEnumerable();
             dataGridNannies.SelectedValuePath = "id";

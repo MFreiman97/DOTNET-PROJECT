@@ -17,7 +17,7 @@
         <TextBox x:Name="ContractTextBox"  HorizontalAlignment="Left" Height="23" Margin="94,21,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="Label" Content="The contract:" HorizontalAlignment="Left" Height="23" Margin="10,21,0,0" VerticalAlignment="Top" Width="79"/>
         <Label x:Name="label" Content="Update the end of the contract:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,0,0" Width="176"/>
-        <DatePicker x:Name="dt" DisplayDateStart="12/12/2050" SelectedDate="{Binding DateEnd}" HorizontalAlignment="Left"   Margin="83,20,0,0" VerticalAlignment="Top" Width="131" Height="32" Grid.Row="1"/>
+        <DatePicker x:Name="dt" DisplayDateEnd="12/12/2050" SelectedDate="{Binding DateEnd}" HorizontalAlignment="Left"   Margin="83,20,0,0" VerticalAlignment="Top" Width="131" Height="32" Grid.Row="1"/>
         <Button x:Name="UpdateButtonContract" Content="{iconPacks:FontAwesome Kind=SyncSolid }" Style="{DynamicResource MetroCircleButtonStyle}" Click="button_Click" BorderBrush="Black" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="48" RenderTransformOrigin="-2.826,0.178" Margin="119,19,0,0" Grid.Row="2"></Button>
 
 

@@ -14,7 +14,7 @@
         <Label x:Name="label_Copy1" Content="choose the nanny by pressing on the grid:" HorizontalAlignment="Left" Height="26" Margin="10,313,0,0" VerticalAlignment="Top" Width="239"/>
         <ComboBox x:Name="comboBoxChild" HorizontalAlignment="Left" Height="26" Margin="145,20,0,0" VerticalAlignment="Top" Width="101" />
 
-        <DatePicker x:Name="ContDatePicker" SelectedDate="{Binding DateEnd , Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="28" Margin="200,130,0,0" VerticalAlignment="Top" Width="154" IsHitTestVisible="True"/>
+        <DatePicker x:Name="ContDatePicker" DisplayDateEnd="12/12/2050" SelectedDate="{Binding DateEnd , Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="28" Margin="200,130,0,0" VerticalAlignment="Top" Width="154" IsHitTestVisible="True"/>
         <Label x:Name="label1" Content="when is the end of the contract" HorizontalAlignment="Left" Height="28" Margin="0,129,0,0" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="TypecomboBox" HorizontalAlignment="Left" Height="20" Margin="145,71,0,0" VerticalAlignment="Top" Width="104" SelectedItem="{Binding ContType}" SelectionChanged="TypecomboBox_SelectionChanged"/>
 
