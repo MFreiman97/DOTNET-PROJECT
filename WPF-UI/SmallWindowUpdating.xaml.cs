@@ -35,7 +35,7 @@ namespace WPF_UI
                 WhatToShowTB.Text = "Child";
                 Child c = obj as Child;
                 DetailsOfChild.DataContext = c;
-                SetValue(MyPropertyProperty, c.FullName);
+             
               
             }
             if (obj is Mother)
@@ -60,27 +60,9 @@ namespace WPF_UI
         }
 
 
-        public string MyProperty
-        {
-            get { return (string)GetValue(MyPropertyProperty); }
-            set { SetValue(MyPropertyProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty MyPropertyProperty =
-            DependencyProperty.Register("MyProperty", typeof(string), typeof(SmallWindowUpdating), new PropertyMetadata(""));
-
     
 
-        private void nameTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-
-        bl = BL.FactoryBL.GetBL();
-            Child c = bl.GetChild(int.Parse(idTextBox.Text));
-
-
-            SetValue(MyPropertyProperty, c.FullName);
-        }
+      
     }
 
 }
