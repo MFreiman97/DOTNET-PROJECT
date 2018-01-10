@@ -97,6 +97,17 @@ namespace BL
                 return result.Reverse();
 
         }
+        public IEnumerable<IGrouping<int, Nanny>> NannyGroupByExperience(bool MinOrMax)//min is false.  max is true
+        {
+            var result = from item in dal.GetAllNannies()
+                         orderby GetTypeOfExperience(item.experience)
+                         group item by GetTypeOfExperience(item.experience);
+            if (MinOrMax == false)//minimum order
+                return result;
+            else//maximum order
+                return result.Reverse();
+
+        }
 
         public IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract()//the key that allow me to compare is the key thar returned from the GetDistanceType
         {
@@ -130,6 +141,21 @@ private int GetTypeOfAge(int d)
                 return 6;
             else
                 return 7;
+
+        }
+        private int GetTypeOfExperience(int d)
+        {
+
+            if (d <= 3)
+                return 1;
+            if (d <= 5)
+                return 2;
+            if (d <= 8)
+                return 3;
+            if (d <= 15)
+                return 4;
+            else
+                return 5;
 
         }
 

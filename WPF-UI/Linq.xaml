@@ -6,7 +6,10 @@
                          xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="Linq" Height="500" Width="600">
+        Title="Linq" Height="550" Width="600">
+    <TabControl>
+        <TabItem Header="Queries">
+    
     <Grid>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="22" Margin="228,21,0,0" VerticalAlignment="Top" Width="128" SelectionChanged="comboBox_SelectionChanged" TextInput="comboBox_TextInput" />
         <TextBox x:Name="x" HorizontalAlignment="Left" Height="31" Margin="28,25,0,0" TextWrapping="Wrap" Text="select what to show" VerticalAlignment="Top" Width="149"/>
@@ -19,4 +22,15 @@
         <DataGrid x:Name="dataGridLinq" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Height="261" Width="572" BorderThickness="1"/>
 
     </Grid>
+        </TabItem>
+        <TabItem Header="Group By">
+            <TabControl TabStripPlacement="Bottom">
+                <TabItem Header="">
+                    
+                </TabItem>
+                
+            </TabControl>
+
+        </TabItem>
+    </TabControl>
 </controls:MetroWindow>
