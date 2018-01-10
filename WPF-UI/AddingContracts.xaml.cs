@@ -54,7 +54,7 @@ namespace WPF_UI
             this.comboBoxChild.SelectedValuePath = "id";
             this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
             Cont = new Contract();
-         this.   DataContext = Cont;
+            this.DataContext = Cont;
             Cont.DateEnd = DateTime.Now;
             Cont.DateEnd=Cont.DateEnd.AddYears(1);
             TypecomboBox.IsEnabled = false;

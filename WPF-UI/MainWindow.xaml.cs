@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -107,7 +106,7 @@ namespace WPF_UI
             bl.addMom(m2);
 
             #endregion//Adding 2 Mothers
-             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "childs" });
+            comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "childs" });
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "contracts" });
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "mothers" });
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "nannies" });
@@ -162,13 +161,34 @@ namespace WPF_UI
             v.ShowDialog();
         }
 
-        
-
        
         private void Deletions_Click(object sender, RoutedEventArgs e)
         {
             var v = new DeletionsWindow();
             v.ShowDialog();
+        }
+
+        private void ComboBoxChanged(object sender, RoutedEventArgs e)
+        {
+           
+            dataGridChild.ItemsSource = bl.GetAllChilds();
+            dataGridChild.DisplayMemberPath = "FullName";
+            dataGridChild.SelectedValuePath = "id";
+
+
+            dataGridContract.ItemsSource = bl.GetAllContracts();
+            dataGridContract.SelectedValuePath = "contnum";
+
+
+            dataGridNanny.ItemsSource = bl.GetAllNannies();
+            dataGridNanny.DisplayMemberPath = "FullName";
+            dataGridNanny.SelectedValuePath = "id";
+
+
+            dataGridMother.ItemsSource = bl.GetAllMothers();
+            dataGridMother.DisplayMemberPath = "FullName";
+            dataGridMother.SelectedValuePath = "id";
+
         }
 
         private void DoubleClickedOnChild(object sender, MouseButtonEventArgs e)
@@ -182,73 +202,54 @@ namespace WPF_UI
                 }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show(ex.Message);
                 }
             }
         }
-        private void ComboBoxChanged(object sender, RoutedEventArgs e)
-        {
-           
-                dataGridChild.ItemsSource = bl.GetAllChilds();
-                dataGridChild.DisplayMemberPath = "FullName";
-                dataGridChild.SelectedValuePath = "id";
 
-
-            dataGridContract.ItemsSource = bl.GetAllContracts();
-           
-            dataGridContract.SelectedValuePath = "contnum";
-
-
-            dataGridNanny.ItemsSource = bl.GetAllNannies();
-            dataGridNanny.DisplayMemberPath = "FullName";
-            dataGridNanny.SelectedValuePath = "id";
-
-        }
         private void DoubleClickedOnMother(object sender, MouseButtonEventArgs e)
         {
-            if (dataGridChild.SelectedValue != null)
+            if (dataGridMother.SelectedValue != null)
             {
                 try
                 {
-                    var v = new SmallWindowUpdating((object)dataGridChild.SelectedItem);
+                    var v = new SmallWindowUpdating((object)dataGridMother.SelectedItem);
                     v.ShowDialog();
                 }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show(ex.Message);
                 }
             }
         }
+
         private void DoubleClickedOnContract(object sender, MouseButtonEventArgs e)
         {
-            if (dataGridChild.SelectedValue != null)
+            if (dataGridContract.SelectedValue != null)
             {
                 try
                 {
-                    var v = new SmallWindowUpdating((object)dataGridChild.SelectedItem);
+                    var v = new UpdateContract((object)dataGridContract.SelectedItem as Contract);
                     v.ShowDialog();
                 }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show(ex.Message);
                 }
             }
         }
+
         private void DoubleClickedOnNanny(object sender, MouseButtonEventArgs e)
         {
-            if (dataGridChild.SelectedValue != null)
+            if (dataGridNanny.SelectedValue != null)
             {
                 try
                 {
-                    var v = new SmallWindowUpdating((object)dataGridChild.SelectedItem);
+                    var v = new SmallWindowUpdating((object)dataGridNanny.SelectedItem);
                     v.ShowDialog();
                 }
                 catch (Exception ex)
                 {
-
                     MessageBox.Show(ex.Message);
                 }
             }
