@@ -87,6 +87,7 @@ namespace WPF_UI
                     this.comboBoxChild.ItemsSource = bl.NeedNanny();
                     this.comboBoxChild.DisplayMemberPath = "FullName";
                     this.comboBoxChild.SelectedValuePath = "id";
+                    dataGridNannies.ItemsSource = null;
                 }
                 catch (Exception ex)
                 {
@@ -141,11 +142,14 @@ namespace WPF_UI
                 dataGridNannies.SelectedValuePath = "id";
                 BackgroundWorker work = sender as BackgroundWorker;
                   work.CancelAsync();
+                if (str.Count == 0)
+                    this.ShowMessageAsync("There is no matched nanny to this child", "good day!");
             }
             else if (e.Error != null || e.Error.Message == "הרצף לא מכיל תווים"||e.Error.Message== "הרצף לא מכיל רכיבים")
             {
-                ProgressRing.IsActive = false;
+            
                 MessageBox.Show("Error: " + e.Error.Message);
+                ProgressRing.IsActive = false;
                 work.CancelAsync();
             }
         else
@@ -154,6 +158,7 @@ namespace WPF_UI
                 MessageBox.Show("Check your connection to the internet");
                 work.CancelAsync();
             }
+            
         }
 
         private void W_DoWork(object sender, DoWorkEventArgs e)

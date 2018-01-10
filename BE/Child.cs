@@ -23,7 +23,7 @@ namespace BE
           
                 PropertyChanged(this, new PropertyChangedEventArgs("name")); 
              
-           //     PropertyChanged(this, new PropertyChangedEventArgs("FullName"));
+              //  PropertyChanged(this, new PropertyChangedEventArgs("FullName")); ********************delete the dp and allow this line
             }
         }
 

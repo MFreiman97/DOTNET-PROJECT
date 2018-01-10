@@ -53,13 +53,15 @@ namespace BL
             var term1 = GetAllNanniesByTerm(m);
             var term2 = dal.GetAllNannies(n => n.SalaryPerHour == salary);
             var result1= from item1 in term1 from item2 in term2
-                        where (item1 == item2) select item1;
+                        where (item1.id == item2.id) select item1;
 
-       
-            long elapsedTicks = c.birth.Ticks - DateTime.Now.Ticks;
+            long elapsedTicks = DateTime.Now.Ticks - c.birth.Ticks;
             TimeSpan elapsedSpan = new TimeSpan(elapsedTicks);
-            var result2 = result1.Where(n => n.MinAge >= elapsedSpan.Days / 30 && n.MaxAge <= elapsedSpan.Days / 30);
+            var result2 =
+                result1.Where(nanny => (nanny.MinAge <= (elapsedSpan.TotalDays / 30) && nanny.MaxAge >= (elapsedSpan.TotalDays / 30)));
+          
             return result2;
+          
         }
 
         public IEnumerable<Nanny> TheBestFive(Mother m)//i assume that mother preffer to compromise on the distance of the address of the nanny and dont changing the schedule 
