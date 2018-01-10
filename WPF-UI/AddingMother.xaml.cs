@@ -33,7 +33,8 @@ namespace WPF_UI
             this.UpdateButton.IsEnabled = false;
             bl = BL.FactoryBL.GetBL();
             mother = new Mother();
-            MyMatrix.Value = mother.timeWork;
+            MyMatrix.ValueTimes = mother.timeWork;
+            MyMatrix.ValueBool = mother.needNanny;
 
     
         }
@@ -47,23 +48,20 @@ namespace WPF_UI
         {
             try
             {
-            
 
 
 
 
-                mother = new Mother() {id=int.Parse(IDtextBox.Text),lName= PNAMEtextBox.Text,fName= FnameTextBox.Text,phone= PhoneNumTextBox.Text
-                ,address=CityTextBox.Text+","+StreetTextBox.Text+","+ApartmentTextBox.Text
-                ,note=CommentsTextBox.Text
-               ,nannyArea= int.Parse(NannyAreaTextBoxAnswer.Text)
-                };
-            
-                
-                 
 
+                mother.id = int.Parse(IDtextBox.Text);
+                mother.lName = PNAMEtextBox.Text;
+                mother.fName = FnameTextBox.Text;
+                mother.phone = PhoneNumTextBox.Text;
 
-
-
+                mother.address = CityTextBox.Text + "," + StreetTextBox.Text + "," + ApartmentTextBox.Text;
+                mother.note = CommentsTextBox.Text;
+                mother.nannyArea = int.Parse(NannyAreaTextBoxAnswer.Text);
+             
                 bl.addMom(mother);
                 this.ShowMessageAsync("New Mother was added successfully!", "I assume that the mother add childrens -> lets add child!");
                 this.Close(); 
@@ -100,7 +98,9 @@ namespace WPF_UI
                 note = CommentsTextBox.Text,
                 nannyArea = int.Parse(NannyAreaTextBoxAnswer.Text)
             };
-          
+            MyMatrix.ValueTimes = mother.timeWork;
+            MyMatrix.ValueBool = mother.needNanny;
+
 
 
 

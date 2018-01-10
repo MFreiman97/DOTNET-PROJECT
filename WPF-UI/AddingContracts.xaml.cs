@@ -83,6 +83,10 @@ namespace WPF_UI
                     Thread t = new Thread(() => bl.addContract(Cont));
                     t.Start();
                     this.ShowMessageAsync("New Contract was added successfully!", "Good Day!!!");
+                    this.comboBoxChild.ItemsSource = null;
+                    this.comboBoxChild.ItemsSource = bl.NeedNanny();
+                    this.comboBoxChild.DisplayMemberPath = "FullName";
+                    this.comboBoxChild.SelectedValuePath = "id";
                 }
                 catch (Exception ex)
                 {
@@ -138,7 +142,7 @@ namespace WPF_UI
                 BackgroundWorker work = sender as BackgroundWorker;
                   work.CancelAsync();
             }
-            else if (e.Error != null && e.Error.Message != "הרצף לא מכיל תווים")
+            else if (e.Error != null || e.Error.Message == "הרצף לא מכיל תווים"||e.Error.Message== "הרצף לא מכיל רכיבים")
             {
                 ProgressRing.IsActive = false;
                 MessageBox.Show("Error: " + e.Error.Message);
@@ -146,7 +150,9 @@ namespace WPF_UI
             }
         else
             {
+                ProgressRing.IsActive = false;
                 MessageBox.Show("Check your connection to the internet");
+                work.CancelAsync();
             }
         }
 
@@ -158,7 +164,7 @@ namespace WPF_UI
             {
               
 
-                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, true))
+                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom,Cont.c, true))
                 {
 
                     str.Add(item);
@@ -170,7 +176,7 @@ namespace WPF_UI
             if (ContType == ContractType.monthly)
             {
                
-                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, false))
+                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, Cont.c, false))
                 {
 
                     str.Add(item);

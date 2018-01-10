@@ -29,12 +29,12 @@
         <Custom:TimePicker x:Name="tp41" DataContext="{Binding}" IsEnabled="{Binding ElementName=thursday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="4,81,0,0" VerticalAlignment="Top" Width="102" Grid.Column="4"/>
         <Custom:TimePicker x:Name="tp50" DataContext="{Binding}" IsEnabled="{Binding ElementName=friday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="2.385,50,0,0" VerticalAlignment="Top" Width="102" Grid.Column="5"/>
         <Custom:TimePicker x:Name="tp51" DataContext="{Binding}" IsEnabled="{Binding ElementName=friday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="2.385,81,0,0" VerticalAlignment="Top" Width="102" Grid.Column="5"/>
-        <CheckBox x:Name="sunday"  Background="#FFCDCDCD"  Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="45,112,0,0" VerticalAlignment="Top" Width="17" BorderThickness="1"/>
-        <CheckBox x:Name="monday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="45,114,0,0" VerticalAlignment="Top" Width="17" Grid.Column="1"/>
-        <CheckBox x:Name="tuesday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="49,112,0,0" VerticalAlignment="Top" Width="17" Grid.Column="2"/>
-        <CheckBox x:Name="wednesday" Content="CheckBox"   Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="51,112,0,0" VerticalAlignment="Top" Width="17" Grid.Column="3"/>
-        <CheckBox x:Name="thursday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="52,112,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" Grid.Column="4"/>
-        <CheckBox x:Name="friday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="44,112,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" Grid.Column="5"/>
+        <CheckBox x:Name="sunday" DataContext="{Binding}" Background="#FFCDCDCD"  Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="45,112,0,0" VerticalAlignment="Top" Width="17" BorderThickness="1"/>
+        <CheckBox x:Name="monday" DataContext="{Binding}" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="45,114,0,0" VerticalAlignment="Top" Width="17" Grid.Column="1"/>
+        <CheckBox x:Name="tuesday" DataContext="{Binding}" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="49,112,0,0" VerticalAlignment="Top" Width="17" Grid.Column="2"/>
+        <CheckBox x:Name="wednesday" DataContext="{Binding}" Content="CheckBox"   Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="51,112,0,0" VerticalAlignment="Top" Width="17" Grid.Column="3"/>
+        <CheckBox x:Name="thursday" DataContext="{Binding}" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="52,112,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" Grid.Column="4"/>
+        <CheckBox x:Name="friday" DataContext="{Binding}" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="44,112,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" Grid.Column="5"/>
 
     </Grid>
 </UserControl>

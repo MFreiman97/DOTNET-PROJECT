@@ -24,24 +24,29 @@ namespace WPF_UI
         {
             InitializeComponent();
 
-            tp00.DataContext = Value[0, 0];
-      tp01.DataContext = Value[1, 0];
-            tp10.DataContext = Value[0, 1];
-            tp11.DataContext = Value[1, 1];
-            tp20.DataContext = Value[0, 2];
-            tp21.DataContext = Value[1, 2];
-            tp30.DataContext = Value[0, 3];
-            tp31.DataContext = Value[1, 3];
-            tp40.DataContext = Value[0, 4];
-            tp41.DataContext = Value[1, 4];
-            tp50.DataContext = Value[0, 5];
-            tp51.DataContext = Value[1, 5];
-
+            tp00.DataContext = ValueTimes[0, 0];
+      tp01.DataContext = ValueTimes[1, 0];
+            tp10.DataContext = ValueTimes[0, 1];
+            tp11.DataContext = ValueTimes[1, 1];
+            tp20.DataContext = ValueTimes[0, 2];
+            tp21.DataContext = ValueTimes[1, 2];
+            tp30.DataContext = ValueTimes[0, 3];
+            tp31.DataContext = ValueTimes[1, 3];
+            tp40.DataContext = ValueTimes[0, 4];
+            tp41.DataContext = ValueTimes[1, 4];
+            tp50.DataContext = ValueTimes[0, 5];
+            tp51.DataContext = ValueTimes[1, 5];
+            sunday.DataContext = ValueBool[0];
+            monday.DataContext = ValueBool[1];
+            tuesday.DataContext = ValueBool[2];
+            wednesday.DataContext = ValueBool[3];
+            thursday.DataContext = ValueBool[4];
+            friday.DataContext = ValueBool[5];
         }
   
 
 
-        public DateTime[,] Value
+        public DateTime[,] ValueTimes   
         {
             get { return (DateTime[,])GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
@@ -49,7 +54,19 @@ namespace WPF_UI
 
         // Using a DependencyProperty as the backing store for Value.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("Value", typeof(DateTime[,]), typeof(MatrixOfHours), new PropertyMetadata(new DateTime[6,6]));
+            DependencyProperty.Register("ValueTimes", typeof(DateTime[,]), typeof(MatrixOfHours), new PropertyMetadata(new DateTime[6,6]));
+
+
+        public bool[] ValueBool
+        {
+            get { return (bool[])GetValue(MyPropertyProperty); }
+            set { SetValue(MyPropertyProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MyPropertyProperty =
+            DependencyProperty.Register("ValueBool", typeof(bool[]), typeof(MatrixOfHours), new PropertyMetadata(new bool[6]));
+
 
 
     }
