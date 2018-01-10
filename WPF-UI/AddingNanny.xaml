@@ -9,7 +9,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="AddingNanny" Height="660" Width="590">
+        Title="AddingNanny" Height="660" Width="650">
     <Grid Margin="0,2,0,0">
         <TextBox x:Name="IDtextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Center" Height="22" Margin="42,14,428,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="112" LostFocus="IDtextBox_LostFocus" />
         <TextBox x:Name="fNametextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Center" Height="22" Margin="237,14,234,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="111" LostFocus="fNametextBox_LostFocus" />
@@ -57,24 +57,6 @@
 
 
         <Label x:Name="label_Copy3" Content="Days Of Working" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Width="113" Height="27" />
-        <TextBox x:Name="start1" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="33,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end1" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="33,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start2" IsEnabled="{Binding ElementName=monday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="128,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end2" IsEnabled="{Binding ElementName=monday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="128,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start3" IsEnabled="{Binding ElementName=tuesday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="218,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end3" IsEnabled="{Binding ElementName=tuesday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="218,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start4" IsEnabled="{Binding ElementName=wednesday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="308,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end4" IsEnabled="{Binding ElementName=wednesday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="308,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start5" IsEnabled="{Binding ElementName=thursday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="398,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end5" IsEnabled="{Binding ElementName=thursday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="398,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="start6" IsEnabled="{Binding ElementName=friday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="488,412,0,0" TextWrapping="Wrap" Text="Start" VerticalAlignment="Top" Width="85" />
-        <TextBox x:Name="end6" IsEnabled="{Binding ElementName=friday , Path=IsChecked }" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="488,437,0,0" TextWrapping="Wrap" Text="End" VerticalAlignment="Top" Width="85" />
-        <CheckBox x:Name="sunday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="67,462,0,0" VerticalAlignment="Top" Width="17" />
-        <CheckBox x:Name="monday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="160,462,0,0" VerticalAlignment="Top" Width="17" />
-        <CheckBox x:Name="tuesday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="253,462,0,0" VerticalAlignment="Top" Width="17" />
-        <CheckBox x:Name="wednesday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="337,462,0,0" VerticalAlignment="Top" Width="16" />
-        <CheckBox x:Name="thursday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="423,462,0,0" VerticalAlignment="Top" Width="17" RenderTransformOrigin="0.5,0.5" />
-        <CheckBox x:Name="friday" Content="CheckBox" Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="518,462,0,0" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.5,0.5" />
         <Button x:Name="UpdateButton" Content="Update Nanny" HorizontalAlignment="Left" Height="31" Margin="374,580,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click" />
         <DatePicker x:Name="BornDatePicker" DisplayDateStart="1/1/2000" SelectedDate="{Binding born, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true }" HorizontalAlignment="Left" Height="26" Margin="84,52,0,0" VerticalAlignment="Top" Width="127" />
 
@@ -110,6 +92,7 @@
                 </Style>
             </Button.Style>
         </Button>
+        <local:MatrixOfHours x:Name="MyMatrixNanny" HorizontalAlignment="Right" Height="135" Margin="-1,361,0,0" VerticalAlignment="Top" Width="643"/>
 
     </Grid>
 </controls:MetroWindow>

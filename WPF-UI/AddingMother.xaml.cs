@@ -44,7 +44,7 @@ namespace WPF_UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MotherAdded_Click(object sender, RoutedEventArgs e)
+        private async void MotherAdded_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -61,16 +61,19 @@ namespace WPF_UI
                 mother.address = CityTextBox.Text + "," + StreetTextBox.Text + "," + ApartmentTextBox.Text;
                 mother.note = CommentsTextBox.Text;
                 mother.nannyArea = int.Parse(NannyAreaTextBoxAnswer.Text);
-             
+
                 bl.addMom(mother);
-                this.ShowMessageAsync("New Mother was added successfully!", "I assume that the mother add childrens -> lets add child!");
-                this.Close(); 
+                var Message = await this.ShowMessageAsync("New Mother was added successfully!", "I assume that the mother add childrens -> lets add child!");
+
+                if (Message == MessageDialogResult.Affirmative)
+                    this.Close();
+             
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                if(ex.Message== "the Mother you tried to add already exist!")
+                if (ex.Message == "the Mother you tried to add already exist!")
                 {
                     this.UpdateButton.IsEnabled = true;
                     this.IDtextBox.IsEnabled = false;

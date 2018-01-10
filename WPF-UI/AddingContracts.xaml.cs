@@ -68,7 +68,7 @@ namespace WPF_UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddTheContract_Click(object sender, RoutedEventArgs e)
+        private async void AddTheContract_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridNannies.SelectedValue != null)
             {
@@ -82,12 +82,15 @@ namespace WPF_UI
 
                     Thread t = new Thread(() => bl.addContract(Cont));
                     t.Start();
-                    this.ShowMessageAsync("New Contract was added successfully!", "Good Day!!!");
+                    var Message = await this.ShowMessageAsync("New Contract was added successfully!", "Good Day!!!");
                     this.comboBoxChild.ItemsSource = null;
                     this.comboBoxChild.ItemsSource = bl.NeedNanny();
                     this.comboBoxChild.DisplayMemberPath = "FullName";
                     this.comboBoxChild.SelectedValuePath = "id";
                     dataGridNannies.ItemsSource = null;
+
+                    if (Message == MessageDialogResult.Affirmative)
+                        this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -98,7 +101,7 @@ namespace WPF_UI
 
 
 
-        
+
 
         private void TypecomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

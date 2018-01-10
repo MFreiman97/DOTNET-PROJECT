@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WPF_UI
 {
@@ -49,7 +50,7 @@ namespace WPF_UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ChildAdded_Click(object sender, RoutedEventArgs e)
+        private async void ChildAdded_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -59,17 +60,20 @@ namespace WPF_UI
                 ch.momId = ((int)comboBoxMothers.SelectedValue);
                 ch.name = NAMEtextBox.Text;
                 ch.kindSpecial = DescOfDisabilityTextBox.Text;
-               
-               
+
+
                 if (comboBoxBool.Text == "Yes")
                     ch.special = true;
                 else
                     ch.special = false;
 
-             
+
                 bl.addChild(ch);
-                this.ShowMessageAsync("New Child was added successfully!", "Now you can add contract to the child");
-            
+
+                var Message = await this.ShowMessageAsync("New Child was added successfully!", "Now you can add contract to the child");
+                if (Message == MessageDialogResult.Affirmative)
+                    this.Close();
+
             }
             catch (Exception ex)
             {
@@ -80,7 +84,7 @@ namespace WPF_UI
                     this.IDtextBox.IsEnabled = false;
                 }
             }
-            
+
 
 
         }
@@ -141,7 +145,23 @@ namespace WPF_UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }private void StartCloseTimer()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(10d);
+            timer.Tick += TimerTick;
+            timer.Start();
+        }
+
+        private void TimerTick(object sender, EventArgs e)
+        {
+            DispatcherTimer timer = (DispatcherTimer)sender;
+            timer.Stop();
+            timer.Tick -= TimerTick;
+            Close();
         }
     }
-}
+   
+    }
+
 
