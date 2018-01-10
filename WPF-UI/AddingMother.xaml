@@ -8,7 +8,7 @@
        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="WPF_UI.AddingMother"
         mc:Ignorable="d"
-        Title="AddingMother" Height="700" Width="600" >
+        Title="AddingMother" Height="700" Width="650" >
 
     <Grid>
 
@@ -36,22 +36,6 @@
         </TextBox>
 
         <TextBox x:Name="end1" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }" Text="{Binding Path=Value, StringFormat='HH:mm' , ElementName=tp01}" Visibility="Hidden" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="26,430,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start2" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=monday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="126,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end2" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="HH:MM" IsEnabled="{Binding ElementName=monday , Path=IsChecked }" HorizontalAlignment="Left" Height="20" Margin="126,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start3" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=tuesday , Path=IsChecked }"  Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="216,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end3" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=tuesday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="216,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start4" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=wednesday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="306,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end4" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=wednesday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="306,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start5" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=thursday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="396,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end5" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=thursday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="396,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="start6" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=friday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="486,404,0,0" TextWrapping="Wrap" Text="start" VerticalAlignment="Top" Width="85"/>
-        <TextBox x:Name="end6" Controls:TextBoxHelper.ClearTextButton="True" IsEnabled="{Binding ElementName=friday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="486,429,0,0" TextWrapping="Wrap" Text="end" VerticalAlignment="Top" Width="85"/>
-        <CheckBox x:Name="sunday"  Background="#FFCDCDCD"  Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="54,459,0,0" VerticalAlignment="Top" Width="17" BorderThickness="1"/>
-        <CheckBox x:Name="monday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="160,454,0,0" VerticalAlignment="Top" Width="17"/>
-        <CheckBox x:Name="tuesday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="253,454,0,0" VerticalAlignment="Top" Width="17"/>
-        <CheckBox x:Name="wednesday" Content="CheckBox"   Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="335,454,0,0" VerticalAlignment="Top" Width="17"/>
-        <CheckBox x:Name="thursday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="422,457,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5"/>
-        <CheckBox x:Name="friday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="519,457,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5"/>
         <Label x:Name="NannyAreaTextBox" Content="what is the maximum distance of the nanny you want?" HorizontalAlignment="Left" Margin="10,496,0,0" VerticalAlignment="Top" Width="303" Height="27"/>
         <TextBox x:Name="NannyAreaTextBoxAnswer" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="NUMBERS ONLY!" HorizontalAlignment="Left" Height="42" Margin="47,536,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
         <Button x:Name="UpdateButton" Content="Update Mother" HorizontalAlignment="Left" Height="31" Margin="401,609,0,0" VerticalAlignment="Top" Width="137" Click="UpdateButton_Click"/>
@@ -89,18 +73,7 @@
 
             </Button.Style>
         </Button>
-        <controls:TimePicker  x:Name="tp00"  HorizontalAlignment="Left"  IsEnabled="{Binding ElementName=sunday , Path=IsChecked }"   Height="30" Margin="13,397,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp01" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }"   Height="30" Margin="13,430,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp10" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=monday , Path=IsChecked }"   Height="30" Margin="422,333,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp11" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=monday , Path=IsChecked }"   Height="30" Margin="428,272,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp20" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=tuesday , Path=IsChecked }"   Height="30" Margin="106,362,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp21" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=tuesday , Path=IsChecked }"   Height="30" Margin="428,310,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp30" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=wednesday , Path=IsChecked }"   Height="30" Margin="191,419,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp31" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=wednesday , Path=IsChecked }"   Height="30" Margin="316,419,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp40" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=thursday , Path=IsChecked }"   Height="30" Margin="454,422,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp41" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=thursday , Path=IsChecked }"   Height="30" Margin="216,374,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp50" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=friday , Path=IsChecked }"   Height="30" Margin="331,372,0,0" VerticalAlignment="Top" Width="110"/>
-        <controls:TimePicker  x:Name="tp51" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=friday , Path=IsChecked }"   Height="30" Margin="454,372,0,0" VerticalAlignment="Top" Width="110"/>
+        <local:MatrixOfHours x:Name="MyMatrix" HorizontalAlignment="Left" Height="144" Margin="0,358,0,0" VerticalAlignment="Top" Width="642"/>
 
     </Grid>
 </controls:MetroWindow>

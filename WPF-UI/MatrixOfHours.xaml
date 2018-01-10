@@ -1,12 +1,40 @@
-﻿<UserControl x:Class="WPF_UI.MatrixOfHours"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_UI"
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Class="WPF_UI.MatrixOfHours"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignHeight="150" d:DesignWidth="650">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Custom:TimePicker x:Name="tp00" DataContext="{Binding}" IsEnabled="{Binding ElementName=sunday ,Path=IsChecked}"  HorizontalAlignment="Center" Height="25" Margin="0,50,6,0" VerticalAlignment="Top" Width="102"/>
+        <Custom:TimePicker x:Name="tp01" DataContext="{Binding}" IsEnabled="{Binding ElementName=sunday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="0,81,6,0" VerticalAlignment="Top" Width="102"/>
+        <Custom:TimePicker x:Name="tp10"  DataContext="{Binding}" IsEnabled="{Binding ElementName=monday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="3,50,0,0" VerticalAlignment="Top" Width="102" Grid.Column="1"/>
+        <Custom:TimePicker x:Name="tp11" DataContext="{Binding}" IsEnabled="{Binding ElementName=monday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="3,81,0,0" VerticalAlignment="Top" Width="102" Grid.Column="1"/>
+        <Custom:TimePicker x:Name="tp20" DataContext="{Binding }" IsEnabled="{Binding ElementName=tuesday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="2,50,0,0" VerticalAlignment="Top" Width="102" Grid.Column="2"/>
+        <Custom:TimePicker x:Name="tp21" DataContext="{Binding}" IsEnabled="{Binding ElementName=tuesday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="2,81,0,0" VerticalAlignment="Top" Width="102" Grid.Column="2"/>
+        <Custom:TimePicker x:Name="tp30" DataContext="{Binding}" IsEnabled="{Binding ElementName=wednesday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="3,50,0,0" VerticalAlignment="Top" Width="102" Grid.Column="3"/>
+        <Custom:TimePicker x:Name="tp31" DataContext="{Binding}" IsEnabled="{Binding ElementName=wednesday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="3,81,0,0" VerticalAlignment="Top" Width="102" Grid.Column="3"/>
+        <Custom:TimePicker x:Name="tp40" DataContext="{Binding}" IsEnabled="{Binding ElementName=thursday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="4,50,0,0" VerticalAlignment="Top" Width="102" Grid.Column="4"/>
+        <Custom:TimePicker x:Name="tp41" DataContext="{Binding}" IsEnabled="{Binding ElementName=thursday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="4,81,0,0" VerticalAlignment="Top" Width="102" Grid.Column="4"/>
+        <Custom:TimePicker x:Name="tp50" DataContext="{Binding}" IsEnabled="{Binding ElementName=friday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="2.385,50,0,0" VerticalAlignment="Top" Width="102" Grid.Column="5"/>
+        <Custom:TimePicker x:Name="tp51" DataContext="{Binding}" IsEnabled="{Binding ElementName=friday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="2.385,81,0,0" VerticalAlignment="Top" Width="102" Grid.Column="5"/>
+        <CheckBox x:Name="sunday"  Background="#FFCDCDCD"  Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="45,112,0,0" VerticalAlignment="Top" Width="17" BorderThickness="1"/>
+        <CheckBox x:Name="monday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="45,114,0,0" VerticalAlignment="Top" Width="17" Grid.Column="1"/>
+        <CheckBox x:Name="tuesday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="49,112,0,0" VerticalAlignment="Top" Width="17" Grid.Column="2"/>
+        <CheckBox x:Name="wednesday" Content="CheckBox"   Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="51,112,0,0" VerticalAlignment="Top" Width="17" Grid.Column="3"/>
+        <CheckBox x:Name="thursday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="52,112,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" Grid.Column="4"/>
+        <CheckBox x:Name="friday" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="44,112,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" Grid.Column="5"/>
+
     </Grid>
 </UserControl>
