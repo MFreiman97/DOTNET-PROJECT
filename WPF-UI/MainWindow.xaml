@@ -75,10 +75,10 @@
                 <Grid Margin="0,-1,0,1" x:Name="MainGrid">
                 <ComboBox x:Name="comboBoxWhatToUpdate" HorizontalAlignment="Left" Margin="192,19,0,0" VerticalAlignment="Top" Width="134" Height="34" SelectionChanged="ComboBoxChanged" />
 
-                <Grid x:Name="GridChild" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
-                        
-                  
-                    <DataGrid x:Name="dataGridChild"  IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnChild"/>
+                <Grid x:Name="GridChild"  HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
+
+
+                    <DataGrid x:Name="dataGridChild" DataContext="{Binding}" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnChild"/>
 
                     <Grid.Style>
 
@@ -98,7 +98,7 @@
                     
                 <Grid x:Name="GridContract" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
 
-                    <DataGrid x:Name="dataGridContract"  IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnContract"/>
+                    <DataGrid x:Name="dataGridContract" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnContract"/>
 
                     <Grid.Style>
 

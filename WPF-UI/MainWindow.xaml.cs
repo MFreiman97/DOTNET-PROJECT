@@ -172,7 +172,7 @@ namespace WPF_UI
         {
            
             dataGridChild.ItemsSource = bl.GetAllChilds();
-            dataGridChild.DisplayMemberPath = "FullName";
+           dataGridChild.DataContext = bl.GetAllChilds();
             dataGridChild.SelectedValuePath = "id";
 
 
