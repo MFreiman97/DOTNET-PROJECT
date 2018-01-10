@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using System.Globalization;
+using BE;
 
 namespace WPF_UI
 {
@@ -38,6 +40,9 @@ namespace WPF_UI
             comboBox.Items.Add(new ComboBoxItem() { Content = "contracts" });
             comboBox.Items.Add(new ComboBoxItem() { Content = "mothers" });
             comboBox.Items.Add(new ComboBoxItem() { Content = "nannies" });
+            GroupByExperience.ItemsSource = bl.NannyGroupByExperience();
+            GroupBySpecialChilds.ItemsSource = bl.ChildsGroupBySpecial();
+            ContractByDistance.ItemsSource = bl.GroupOfSortedContract();
         }
 
       
@@ -173,6 +178,23 @@ namespace WPF_UI
 
 
         }
-    }
+        
+    }public class IDCMotherToName : IValueConverter
+        {
+            IBL bl = FactoryBL.GetBL();
+
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+               Mother m = bl.GetMother((int)value);
+
+                return m.FullName;
+
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 

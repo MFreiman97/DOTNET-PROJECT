@@ -97,15 +97,55 @@ namespace BL
                 return result.Reverse();
 
         }
-        public IEnumerable<IGrouping<int, Nanny>> NannyGroupByExperience(bool MinOrMax)//min is false.  max is true
+        public IEnumerable<IGrouping<string, Nanny>> NannyGroupByExperience()
         {
             var result = from item in dal.GetAllNannies()
                          orderby GetTypeOfExperience(item.experience)
-                         group item by GetTypeOfExperience(item.experience);
-            if (MinOrMax == false)//minimum order
+                         group item by GetTypeOfExperienceString(GetTypeOfExperience(item.experience));
+
+
                 return result;
-            else//maximum order
-                return result.Reverse();
+      
+
+        }
+
+        private string GetTypeOfExperienceString(int exp)
+        {
+            if (exp == 1)
+                return "amateur";
+            if (exp == 2)
+                return "Internship";
+            if (exp == 3)
+                return "Nanny as a Job";
+            if (exp == 4)
+                return "Professional Nanny";
+       else
+                return "Super Nanny!";
+
+        }
+   private int GetTypeOfExperience(int d)
+        {
+
+            if (d <= 3)
+                return 1;
+            if (d <= 5)
+                return 2;
+            if (d <= 8)
+                return 3;
+            if (d <= 15)
+                return 4;
+            else
+                return 5;
+
+        }
+        public IEnumerable<IGrouping<string, Child>> ChildsGroupBySpecial()//min is false.  max is true
+        {
+            var result = from item in dal.GetAllChilds()
+                         orderby (item.special)
+                         group item by ((item.special) ? "Special Child" : "Simple Child");
+
+            return result;
+
 
         }
 
@@ -143,21 +183,7 @@ private int GetTypeOfAge(int d)
                 return 7;
 
         }
-        private int GetTypeOfExperience(int d)
-        {
-
-            if (d <= 3)
-                return 1;
-            if (d <= 5)
-                return 2;
-            if (d <= 8)
-                return 3;
-            if (d <= 15)
-                return 4;
-            else
-                return 5;
-
-        }
+     
 
 
         public IEnumerable<Child> GetAllChilds()
@@ -220,13 +246,13 @@ private int GetTypeOfAge(int d)
         private string GetDistanceType(int d)
         {
            
-            if (d <=5)
+            if (d <=500)
                 return "Small Distance";
-            if (d<= 10)
+            if (d<= 1000)
                 return "Not big Distance";
-            if (d <= 20)
+            if (d <= 20000)
                 return "Plausible Distance";
-            if (d <= 50)
+            if (d <= 50000)
                 return "Almost unacceptable Distance";
             else
                 return "enormous distance";

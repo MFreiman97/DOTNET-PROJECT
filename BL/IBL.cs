@@ -55,8 +55,8 @@ namespace BL
         IEnumerable<Nanny> GetAllNanniesFromJerusalem();
         IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null);
         int GetSumOfContracts(Func<Contract, bool> predicat = null);
-     
-
+         IEnumerable<IGrouping<string, Nanny>> NannyGroupByExperience();
+        IEnumerable<IGrouping<string, Child>> ChildsGroupBySpecial();
         IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool sorted);
         IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract();//sorted by the distances that i divided to types in sting
 
