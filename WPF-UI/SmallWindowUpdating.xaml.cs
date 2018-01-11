@@ -28,11 +28,16 @@ namespace WPF_UI
         BL.IBL bl;
         public SmallWindowUpdating(object obj)
         {
+           
             InitializeComponent();
+            AllowEditingCB.IsChecked = false;
+            AllowEditingCBMother.IsChecked = false;
+            AllowEditing.Text = "";
             bl = BL.FactoryBL.GetBL();
             if (obj is Child)
             {
                 WhatToShowTB.Text = "Child";
+
                 Child c = obj as Child;
                 DetailsOfChild.DataContext = c;
              
@@ -43,12 +48,33 @@ namespace WPF_UI
                 WhatToShowTB.Text = "Mother";
                 Mother m = obj as Mother;
                 DetailsOfMother.DataContext = m;
+                if(bl.GetNumOfContracts(m)==0)
+                {
+
+                    AllowEditing.Text = "True";
+                    AllowEditingCBMother.IsChecked = true;
+                    AllowEditingCB.IsChecked =false ;
+                    MatrixMother.ValueTimes = m.timeWork;
+                    MatrixMother.ValueBool = m.needNanny;
+                }
+
             }
             if (obj is Nanny)
             {
                 WhatToShowTB.Text = "Nanny";//using the trigger
                 Nanny n = obj as Nanny;
                 DetailsOfNanny.DataContext = n;
+
+                if (bl.GetNumOfContracts(n) == 0)
+                {
+                    AllowEditing.Text = "True";
+                    AllowEditingCB.IsChecked = true;
+                    AllowEditingCBMother.IsChecked = false;
+                    MatrixNanny.ValueTimes =n.schedule;
+                    MatrixNanny.ValueBool = n.DaysOfWork;
+                 
+                    
+                }
             }
             if (obj is Contract)
             {

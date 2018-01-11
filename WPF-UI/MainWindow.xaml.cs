@@ -91,8 +91,8 @@ namespace WPF_UI
             Mother m2 = new Mother()
             {
                 id = int.Parse("3333"),
-                lName = "Ana",
-                fName = "Fridman",
+                lName = "Fridman",
+                fName = "Ana",
                 phone = "0533232323"
             ,
                 address = "Jerusalem" + "," + "Havaad Haleumi" + "," + "21"
@@ -104,8 +104,61 @@ namespace WPF_UI
             m2.timeWork[1, 0] = DateTime.Parse("16:00");
             m2.nannyArea = 50;
             bl.addMom(m2);
-
+           m1 = new Mother()
+            {
+                id = int.Parse("4444"),
+                lName = "Levy",
+                fName = "Lea",
+                phone = "05237748298"
+          ,
+                address = "Jerusalem" + "," + "Yaffo" + "," + "40"
+          ,
+                note = ""
+            };
+            m1.nannyArea = 30;
+            m1.needNanny[0] = true;
+            m1.timeWork[0, 0] = DateTime.Parse("8:00");
+            m1.timeWork[1, 0] = DateTime.Parse("16:00");
+            bl.addMom(m1);
             #endregion//Adding 2 Mothers
+            #region init CHILDS FOR DEBUGGING
+            //Child ch = new Child();
+            //ch.birth = DateTime.Now.AddYears(-1);
+
+            //ch.mom = bl.GetMother(2222);
+
+            //ch.momId = (2222);
+            //ch.id = int.Parse("74382");
+
+            //ch.kindSpecial = "";
+            //ch.special = true;
+            // ch.name = "Miki";
+            //bl.addChild(ch);
+            //ch = new Child();
+            // ch.birth = DateTime.Now.AddYears(-1);
+            // ch.birth = ch.birth.AddDays(2);
+            // ch.mom = bl.GetMother(3333);
+            // ch.id = int.Parse("728429");
+            // ch.momId = (3333);
+            // ch.name = "Yanki";
+            // ch.kindSpecial = "";
+            // ch.special = false;
+            // bl.addChild(ch);
+
+            // ch = new Child();
+            // ch.birth = DateTime.Now.AddYears(-1);
+            // ch.birth = ch.birth.AddDays(20);
+            // ch.mom = bl.GetMother(2222);
+            // ch.id = int.Parse("542352");
+            // ch.momId = (2222);
+            // ch.name = "Moshe";
+            // ch.kindSpecial = "";
+            // ch.special = true;
+            // bl.addChild(ch);
+
+
+
+            #endregion
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "childs" });
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "contracts" });
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "mothers" });
@@ -254,6 +307,12 @@ namespace WPF_UI
                 }
             }
         }
+        private void Information_Click(object sender, RoutedEventArgs e)
+        {
+            if (InformationFlyout.IsOpen == false) InformationFlyout.IsOpen = true;
+            else InformationFlyout.IsOpen = false;
+        }
 
+       
     }
 }

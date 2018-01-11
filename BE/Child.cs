@@ -21,7 +21,7 @@ namespace BE
             get { return name1; }
             set { name1 = value;
           
-                PropertyChanged(this, new PropertyChangedEventArgs("name")); 
+         
              
             PropertyChanged(this, new PropertyChangedEventArgs("FullName")); 
             }

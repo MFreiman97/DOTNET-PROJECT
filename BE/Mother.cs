@@ -1,16 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BE
 {
-  public  class Mother:IComparable  
+  public  class Mother: IComparable 
     {
 
         public int id { get; set; }
-        public string lName { get; set; }
+       
+        private string myVar;
+
+        public string lName
+        {
+            get { return myVar; }
+            set { myVar = value;
+            
+            }
+        }
+
         public string fName { get; set; }
         public string phone { get; set; }
         public string address { get; set; }
@@ -29,9 +40,8 @@ namespace BE
             Mother m = obj as Mother;
             return id.CompareTo(m.id);
         }
-        private string myVar;
 
-        public string FullName
+       public string FullName
         {
             get { return fName+" "+lName; }
          

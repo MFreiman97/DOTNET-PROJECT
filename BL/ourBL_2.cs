@@ -272,7 +272,39 @@ private int GetTypeOfAge(int d)
             Leg leg = route.Legs.First();
             return leg.Distance.Value;
         }
-        #endregion   
+
+        public int GetNumOfContracts(object obj)
+        {
+            int id;
+            int sum = 0;
+          if(obj is Mother)
+            {
+                Mother temp = obj as Mother;
+                id = temp.id;
+                var v = GetAllContracts();
+                foreach(var item in v)
+
+                {
+                    if (item.c.momId == id)
+                        sum++;
+                }
+            }
+            if (obj is Nanny)
+            {
+                Nanny temp = obj as Nanny;
+                id = temp.id;
+                var v = GetAllContracts();
+                foreach (var item in v)
+
+                {
+                    if (item.n.id == id)
+                        sum++;
+                }
+
+            }
+            return sum;
+        }
+        #endregion
     }
   
 }

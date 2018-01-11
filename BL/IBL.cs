@@ -58,6 +58,7 @@ namespace BL
          IEnumerable<IGrouping<string, Nanny>> NannyGroupByExperience();
         IEnumerable<IGrouping<string, Child>> ChildsGroupBySpecial();
         IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool sorted);
+        int GetNumOfContracts(object obj);
         IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract();//sorted by the distances that i divided to types in sting
 
 
