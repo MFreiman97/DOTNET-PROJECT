@@ -12,6 +12,14 @@
         mc:Ignorable="d"
              
           Background="Cornsilk"    >
+    <Window.Resources>
+        <local:IDChildToName
+         x:Key="IDChildToName" />
+        <local:IDNannyToName
+         x:Key="IDNannyToName" />
+        <local:IDCMotherToName
+         x:Key="IDCMotherToName" />
+    </Window.Resources>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button x:Name="information" Click="Information_Click" >
@@ -86,11 +94,17 @@
             <Grid Margin="0,-1,0,1" x:Name="MainGrid" Background="Cornsilk">
                 <ComboBox x:Name="comboBoxWhatToUpdate" HorizontalAlignment="Left" Margin="298,10,0,0" VerticalAlignment="Top" Width="134" Height="34" SelectionChanged="ComboBoxChanged" />
 
-                <Grid x:Name="GridChild"  HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
+                <Grid x:Name="GridChild" Background="Cornsilk"  HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
 
-                    <DataGrid x:Name="dataGridChild" DataContext="{Binding}" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnChild"/>
-
-                    <Grid.Style>
+                    <DataGrid x:Name="dataGridChild" AutoGenerateColumns="False"  Background="Transparent" DataContext="{Binding}" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnChild">
+                    <DataGrid.Columns>
+                            <DataGridTextColumn Header="Child" Binding="{Binding id , Converter={StaticResource ResourceKey=IDChildToName}}" />
+                           <DataGridTextColumn Header="Mother" Binding="{Binding momId, Converter={StaticResource ResourceKey=IDCMotherToName}}" />
+                            <DataGridTextColumn Header="BirthDay" Binding="{Binding birth, StringFormat='dd/mm/yyyy'}" />
+                            <DataGridTextColumn Header="Special?" Binding="{Binding special}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                        <Grid.Style>
 
                         <Style TargetType="{x:Type Grid}"  >
                             <Setter Property="Visibility" Value="Hidden"/>
@@ -108,8 +122,19 @@
                     
                 <Grid x:Name="GridContract" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
 
-                    <DataGrid x:Name="dataGridContract" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnContract"/>
-
+                    <DataGrid x:Name="dataGridContract" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnContract">
+                        
+               
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nanny" Binding="{Binding n.id , Converter={StaticResource ResourceKey=IDNannyToName}}" />
+                        <DataGridTextColumn Header="Child" Binding="{Binding c.id, Converter={StaticResource ResourceKey=IDChildToName}}" />
+                        <DataGridTextColumn Header="Salary Per Month" Binding="{Binding SalaryPerMonth}" />
+                        <DataGridTextColumn Header="Date Begin" Binding="{Binding DateBegin, StringFormat='dd/mm/yyyy'}" />
+                        <DataGridTextColumn Header="Date End" Binding="{Binding DateEnd, StringFormat='dd/mm/yyyy'}" />
+                        <DataGridTextColumn Header="Distance" Binding="{Binding distance}" />
+                        <DataGridTextColumn Header="Contract Number" Binding="{Binding contnum}" />
+                    </DataGrid.Columns>   
+                    </DataGrid>
                     <Grid.Style>
 
                         <Style TargetType="{x:Type Grid}" >

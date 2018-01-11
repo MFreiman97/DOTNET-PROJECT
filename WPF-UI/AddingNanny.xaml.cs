@@ -51,6 +51,7 @@ namespace WPF_UI
 
             try
             {
+                
 
                 nanny.id = int.Parse(IDtextBox.Text); nanny.fname = fNametextBox.Text; nanny.name = lNametextBox.Text;
                 nanny.cell = phoneNumbertextBox.Text; nanny.address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text;

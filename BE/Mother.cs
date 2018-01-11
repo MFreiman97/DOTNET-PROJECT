@@ -7,25 +7,101 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-  public  class Mother: IComparable 
+  public  class Mother: IComparable ,INotifyPropertyChanged
     {
 
-        public int id { get; set; }
-       
-        private string myVar;
+ 
+        private int id_;
 
-        public string lName
+        public int id
         {
-            get { return myVar; }
-            set { myVar = value;
-            
+            get { return id_; }
+            set {
+                 int x;
+                if (int.TryParse(value.ToString(),out x)==false)
+                {
+
+                    throw new Exception("ERROR - Enter Only DIGITS Please!");
+                  }
+                else
+                id_ = value;
             }
         }
 
-        public string fName { get; set; }
-        public string phone { get; set; }
+    
+        private string lname_  ;
+
+        public string lName
+        {
+            get { return lname_; }
+            set {
+                if (value.Any(char.IsDigit))
+                {
+
+                    throw new Exception("ERROR - Enter Only Chars Please!");
+                }
+                else
+                {
+                    lname_ = value;
+                    if (PropertyChanged != null)//neccesary!!!
+                        PropertyChanged(this, new PropertyChangedEventArgs("FullName"));
+                }
+            }
+        }
+         public event PropertyChangedEventHandler PropertyChanged;
+     
+        private string fname_;
+
+        public string fName
+        {
+            get { return fname_; }
+            set {
+
+                if (value.Any(char.IsDigit))
+                {
+
+                    throw new Exception("ERROR - Enter Only Chars Please!");
+                }
+                else
+                {
+                    fname_ = value;
+
+                    if (PropertyChanged != null)
+                        PropertyChanged(this, new PropertyChangedEventArgs("FullName"));
+                }
+            }
+        }
+
+    
+        private string phone_;
+
+        public string phone
+        {
+            get { return phone_; }
+            set {
+
+               if(value.Any(char.IsLetter))
+                    throw new Exception("ERROR - Enter Only Numbers Please!");
+              else if(value.Count()!=10)
+                    throw new Exception("ERROR - The Phone number have to contain 10 digits!");
+               else
+                phone_ = value; }
+        }
+
         public string address { get; set; }
-        public int nannyArea { get; set; }
+     
+        private int nannyArea_;
+
+        public int nannyArea
+        {
+            get { return nannyArea_; }
+            set {
+                if (value.ToString().Any(char.IsLetter)==true)
+                    throw new Exception("ERROR - Enter Only numbers Please!");
+                else
+                nannyArea_ = value; }
+        }
+
         public bool[] needNanny = new bool[6];
         public DateTime[,] timeWork = new DateTime[2, 6];
         public string note { get; set; }
@@ -46,6 +122,6 @@ namespace BE
             get { return fName+" "+lName; }
          
         }
-
+    
     }
 }

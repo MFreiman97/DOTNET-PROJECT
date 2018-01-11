@@ -109,7 +109,7 @@ namespace WPF_UI
                 id = int.Parse("4444"),
                 lName = "Levy",
                 fName = "Lea",
-                phone = "05237748298"
+                phone = "0523774828"
           ,
                 address = "Jerusalem" + "," + "Yaffo" + "," + "40"
           ,
@@ -122,39 +122,39 @@ namespace WPF_UI
             bl.addMom(m1);
             #endregion//Adding 2 Mothers
             #region init CHILDS FOR DEBUGGING
-            //Child ch = new Child();
-            //ch.birth = DateTime.Now.AddYears(-1);
+            Child ch = new Child();
+            ch.birth = DateTime.Now.AddYears(-1);
 
-            //ch.mom = bl.GetMother(2222);
+            ch.mom = bl.GetMother(2222);
 
-            //ch.momId = (2222);
-            //ch.id = int.Parse("74382");
+            ch.momId = (2222);
+            ch.id = int.Parse("74382");
 
-            //ch.kindSpecial = "";
-            //ch.special = true;
-            // ch.name = "Miki";
-            //bl.addChild(ch);
-            //ch = new Child();
-            // ch.birth = DateTime.Now.AddYears(-1);
-            // ch.birth = ch.birth.AddDays(2);
-            // ch.mom = bl.GetMother(3333);
-            // ch.id = int.Parse("728429");
-            // ch.momId = (3333);
-            // ch.name = "Yanki";
-            // ch.kindSpecial = "";
-            // ch.special = false;
-            // bl.addChild(ch);
+            ch.kindSpecial = "";
+            ch.special = true;
+            ch.name = "Miki";
+            bl.addChild(ch);
+            ch = new Child();
+            ch.birth = DateTime.Now.AddYears(-1);
+            ch.birth = ch.birth.AddDays(2);
+            ch.mom = bl.GetMother(3333);
+            ch.id = int.Parse("728429");
+            ch.momId = (3333);
+            ch.name = "Yanki";
+            ch.kindSpecial = "";
+            ch.special = false;
+            bl.addChild(ch);
 
-            // ch = new Child();
-            // ch.birth = DateTime.Now.AddYears(-1);
-            // ch.birth = ch.birth.AddDays(20);
-            // ch.mom = bl.GetMother(2222);
-            // ch.id = int.Parse("542352");
-            // ch.momId = (2222);
-            // ch.name = "Moshe";
-            // ch.kindSpecial = "";
-            // ch.special = true;
-            // bl.addChild(ch);
+            ch = new Child();
+            ch.birth = DateTime.Now.AddYears(-1);
+            ch.birth = ch.birth.AddDays(20);
+            ch.mom = bl.GetMother(2222);
+            ch.id = int.Parse("542352");
+            ch.momId = (2222);
+            ch.name = "Moshe";
+            ch.kindSpecial = "";
+            ch.special = true;
+            bl.addChild(ch);
 
 
 
@@ -226,8 +226,9 @@ namespace WPF_UI
            
             dataGridChild.ItemsSource = bl.GetAllChilds();
            dataGridChild.DataContext = bl.GetAllChilds();
+         
             dataGridChild.SelectedValuePath = "id";
-
+        
 
             dataGridContract.ItemsSource = bl.GetAllContracts();
             dataGridContract.SelectedValuePath = "contnum";
@@ -242,6 +243,7 @@ namespace WPF_UI
             dataGridMother.DisplayMemberPath = "FullName";
             dataGridMother.SelectedValuePath = "id";
 
+       
         }
 
         private void DoubleClickedOnChild(object sender, MouseButtonEventArgs e)

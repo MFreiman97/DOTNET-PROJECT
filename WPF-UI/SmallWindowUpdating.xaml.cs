@@ -32,7 +32,8 @@ namespace WPF_UI
         {
        
             InitializeComponent();
-            AllowEditingCB.IsChecked = false;
+            this.IsCloseButtonEnabled = false;//i want to verify that the updated was good
+          AllowEditingCB.IsChecked = false;
             AllowEditingCBMother.IsChecked = false;
             AllowEditing.Text = "";
             bl = BL.FactoryBL.GetBL();
@@ -87,7 +88,7 @@ namespace WPF_UI
             }
             
         }
-
+       
         private void validation_Error(object sender, ValidationErrorEventArgs e)
         {
             if (e.Action == ValidationErrorEventAction.Added)

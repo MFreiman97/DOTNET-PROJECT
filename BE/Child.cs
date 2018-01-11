@@ -45,7 +45,7 @@ namespace BE
                 else
                 {
                     name1 = value;
-
+                    if(PropertyChanged!=null)
                     PropertyChanged(this, new PropertyChangedEventArgs("FullName"));
                 }
             }
