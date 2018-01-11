@@ -1,5 +1,6 @@
 ﻿using BE;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,14 +27,16 @@ namespace WPF_UI
         Contract co;
         Mother m;
         BL.IBL bl;
+        private List<string> errorMessages;
         public SmallWindowUpdating(object obj)
         {
-           
+       
             InitializeComponent();
             AllowEditingCB.IsChecked = false;
             AllowEditingCBMother.IsChecked = false;
             AllowEditing.Text = "";
             bl = BL.FactoryBL.GetBL();
+            errorMessages = new List<string>();
             if (obj is Child)
             {
                 WhatToShowTB.Text = "Child";
@@ -85,10 +88,32 @@ namespace WPF_UI
             
         }
 
+        private void validation_Error(object sender, ValidationErrorEventArgs e)
+        {
+            if (e.Action == ValidationErrorEventAction.Added)
+                errorMessages.Add(e.Error.Exception.Message);
+            else
+                errorMessages.Remove(e.Error.Exception.Message);
+        }
 
-    
-
-      
+        private async void UpdateButtonContract_Click(object sender, RoutedEventArgs e)
+        {
+            if (errorMessages.Any())
+            {
+                string err = "";
+                foreach (var item in errorMessages)
+                    err += "\n" + item;
+                var Message=     await this.ShowMessageAsync("There is some ERRORS", err);
+                if (Message == MessageDialogResult.Affirmative)
+                return;
+            }
+            else
+            {
+                var Message = await this.ShowMessageAsync("New Update was succeed", "Good Day");
+                if (Message == MessageDialogResult.Affirmative)
+                    this.Close();
+            }
+        }
     }
 
 }

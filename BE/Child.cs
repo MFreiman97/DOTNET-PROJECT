@@ -10,7 +10,23 @@ namespace BE
    public class Child:IComparable, INotifyPropertyChanged
     {
 
-        public int id { get; set; }
+        private int id_;
+
+        public int id
+        {
+            get { return id_; }
+            set
+            {
+                int x;
+                if (int.TryParse(value.ToString(),out x)==false)
+                {
+
+                    throw new Exception("ERROR - Enter Only DIGITS Please!");
+                }
+                else
+                id_ = value; }
+        }
+
         public int momId { get; set; }
         public Mother mom { get; set; }
        
@@ -19,15 +35,44 @@ namespace BE
         public string name
         {
             get { return name1; }
-            set { name1 = value;
-          
-         
-             
-            PropertyChanged(this, new PropertyChangedEventArgs("FullName")); 
+            set {
+
+                if (value.Any(char.IsDigit))
+                {
+
+                    throw new Exception("ERROR - Enter Only Chars Please!");
+                }
+                else
+                {
+                    name1 = value;
+
+                    PropertyChanged(this, new PropertyChangedEventArgs("FullName"));
+                }
             }
         }
 
-        public DateTime birth { get; set; }
+     
+        private DateTime birth_;
+
+        public DateTime birth
+        {
+            get { return birth_; }
+            set {
+                if (value.Ticks>DateTime.Now.Ticks)
+                {
+
+                    throw new Exception("The birth Have to be earlier than today");
+                }
+                else
+                {
+                    birth_ = value;
+
+              
+                }
+
+        }
+        }
+
         public bool special { get; set; }
         public string kindSpecial { get; set; }
         public int? nannyID { get; set; }
@@ -41,8 +86,7 @@ namespace BE
         {
             return id.CompareTo(((Child)obj).id);
         }
-        private string myVar;
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string FullName

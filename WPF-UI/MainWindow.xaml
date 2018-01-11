@@ -170,19 +170,7 @@
             </Grid>
 
         </TabItem>
-        <TabItem Header="About us">
-            <Grid>
-                <Label x:Name="Server" Content="Servers:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="29" Width="105"/>
-                <iconPacks:PackIconFontAwesome Kind="GraduationCapSolid" VerticalAlignment="Center" HorizontalAlignment="Center" Height="24" Margin="10,44,722,391" Width="22" />
-                <iconPacks:PackIconFontAwesome Kind="GraduationCapSolid" VerticalAlignment="Center" HorizontalAlignment="Center" Height="24" Margin="10,81,722,354" Width="22" />
-                <iconPacks:PackIconFontAwesome Kind="JenkinsBrands" VerticalAlignment="Center" HorizontalAlignment="Center" Height="24" Margin="10,160,722,275" Width="22" />
-                <Label x:Name="label"  Content="Aviel Hassid" HorizontalAlignment="Left" Height="24" Margin="39,44,0,0" VerticalAlignment="Top" Width="154"/>
-                <Label x:Name="label1" Content="Matanya Freiman" HorizontalAlignment="Left" Height="24" Margin="39,81,0,0" VerticalAlignment="Top" Width="154"/>
-                <Label x:Name="Lectur" Content="Lecturer" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Height="24" Width="54"/>
-                <Label x:Name="Lecu" Content="Oshri Cohen" HorizontalAlignment="Left" Margin="39,160,0,0" VerticalAlignment="Top" Height="24" Width="84"/>
 
-            </Grid>
-        </TabItem>
     </TabControl>
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
