@@ -49,6 +49,7 @@ namespace WPF_UI
             bl = BL.FactoryBL.GetBL();
 
             str = new List<Nanny>();
+            this.comboBoxChild.Text = "-";
             this.comboBoxChild.ItemsSource = bl.NeedNanny();
             this.comboBoxChild.DisplayMemberPath = "FullName";
             this.comboBoxChild.SelectedValuePath = "id";
@@ -58,7 +59,7 @@ namespace WPF_UI
             Cont.DateEnd = DateTime.Now;
             Cont.DateEnd=Cont.DateEnd.AddYears(1);
             ContDatePicker.DisplayDateStart = DateTime.Now.AddDays(1);
-            TypecomboBox.IsEnabled = false;
+            this.TypecomboBox.IsEnabled = false;
             dataGridNannies.ItemsSource = str.AsEnumerable();
             dataGridNannies.SelectedValuePath = "id";
         }
@@ -107,24 +108,20 @@ namespace WPF_UI
         {
             if (TypecomboBox.IsEnabled == true)
             {
-                 work = new BackgroundWorker();
+                work = new BackgroundWorker();
                 work.WorkerSupportsCancellation = true;
                 Cont.c = bl.GetChild((int)comboBoxChild.SelectedValue);
 
-            
+
                 child = bl.GetChild((int)comboBoxChild.SelectedValue);
                 ContType = (BE.ContractType)TypecomboBox.SelectedValue;
                 str = new List<Nanny>();
-                
+
                 work.DoWork += W_DoWork;
                 work.RunWorkerCompleted += W_RunWorkerCompleted;
                 work.ProgressChanged += Work_ProgressChanged;
                 work.WorkerReportsProgress = true;
                 work.RunWorkerAsync();
-            }
-            else
-            {
-                TypecomboBox.IsEnabled = true;
             }
 
         }
@@ -206,6 +203,10 @@ namespace WPF_UI
 
         }
 
-      
+        private void comboBoxChild_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            comboBoxChild.Text = comboBoxChild.Text;
+            TypecomboBox.IsEnabled = true;
+        }
     }
 }

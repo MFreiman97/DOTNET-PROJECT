@@ -100,7 +100,7 @@
                     <DataGrid.Columns>
                             <DataGridTextColumn Header="Child" Binding="{Binding id , Converter={StaticResource ResourceKey=IDChildToName}}" />
                            <DataGridTextColumn Header="Mother" Binding="{Binding momId, Converter={StaticResource ResourceKey=IDCMotherToName}}" />
-                            <DataGridTextColumn Header="BirthDay" Binding="{Binding birth, StringFormat='dd/mm/yyyy'}" />
+                            <DataGridTextColumn Header="BirthDay" Binding="{Binding birth, StringFormat='dd/MMMM/yyyy'}" />
                             <DataGridTextColumn Header="Special?" Binding="{Binding special}" />
                         </DataGrid.Columns>
                     </DataGrid>

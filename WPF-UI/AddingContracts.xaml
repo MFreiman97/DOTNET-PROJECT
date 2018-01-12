@@ -6,17 +6,29 @@
                 xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="MainContracts" Height="600" Width="500">
+        Title="MainContracts" Height="600"   Width="500">
     <Grid>
-
+        
         <Label x:Name="label" Content="choose child" HorizontalAlignment="Left" Height="26" Margin="28,20,0,0" VerticalAlignment="Top" Width="88"/>
         <Label x:Name="label_Copy" Content="matched nannies:" HorizontalAlignment="Left" Height="26" Margin="15,174,0,0" VerticalAlignment="Top" Width="113"/>
         <Label x:Name="label_Copy1" Content="choose the nanny by pressing on the grid:" HorizontalAlignment="Left" Height="26" Margin="10,313,0,0" VerticalAlignment="Top" Width="239"/>
-        <ComboBox x:Name="comboBoxChild" HorizontalAlignment="Left" Height="26" Margin="145,20,0,0" VerticalAlignment="Top" Width="101" />
+        <ComboBox x:Name="comboBoxChild"  HorizontalAlignment="Left" Height="26" Margin="145,20,0,0" Text="-" VerticalAlignment="Top" Width="101"  SelectionChanged="comboBoxChild_SelectionChanged" />
 
-        <DatePicker x:Name="ContDatePicker" DisplayDateEnd="12/12/2050" SelectedDate="{Binding DateEnd , Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="28" Margin="200,130,0,0" VerticalAlignment="Top" Width="154" IsHitTestVisible="True"/>
+        <DatePicker x:Name="ContDatePicker"  DisplayDateEnd="12/12/2050" SelectedDate="{Binding DateEnd , Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="28" Margin="200,130,0,0" VerticalAlignment="Top" Width="154" IsHitTestVisible="True"/>
         <Label x:Name="label1" Content="when is the end of the contract" HorizontalAlignment="Left" Height="28" Margin="0,129,0,0" VerticalAlignment="Top" Width="178"/>
-        <ComboBox x:Name="TypecomboBox" HorizontalAlignment="Left" Height="20" Margin="145,71,0,0" VerticalAlignment="Top" Width="104" SelectedItem="{Binding ContType}" SelectionChanged="TypecomboBox_SelectionChanged"/>
+        <ComboBox x:Name="TypecomboBox"  HorizontalAlignment="Left" Height="20" Margin="145,71,0,0" VerticalAlignment="Top" Width="104" SelectedItem="{Binding ContType}" SelectionChanged="TypecomboBox_SelectionChanged">
+            <ComboBox.Style>
+                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroComboBox}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=comboBoxChild,Path=Text }" Value="-">
+                            <Setter Property="ComboBox.IsEnabled" Value="True" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ComboBox.Style>
+
+
+        </ComboBox>
 
 
         <Label x:Name="TypeOfSalary" Content="Type Of Salary:" HorizontalAlignment="Left" Height="26" Margin="15,65,0,0" VerticalAlignment="Top" Width="95"/>
