@@ -67,7 +67,11 @@ namespace BL
         public IEnumerable<Nanny> TheBestFive(Mother m)//i assume that mother preffer to compromise on the distance of the address of the nanny and dont changing the schedule 
         {
             var v=    dal.GetAllNannies(n => CheckSchedule(m, n)==true);
-            return v.OrderBy(i => CalculateDistance(i.address,m.address)).Take(5);//error
+            var result=v.OrderBy(i => CalculateDistance(i.address,m.address)).FirstOrDefault();
+            if (result != null)
+                return v.OrderBy(i => CalculateDistance(i.address, m.address)).Take(5);
+            else
+                return null;
         }
         #endregion 
         #region mother functions
@@ -260,17 +264,26 @@ private int GetTypeOfAge(int d)
 
         public static int CalculateDistance(string source, string dest)
         {
-            var drivingDirectionRequest = new DirectionsRequest()
+            try
             {
-                TravelMode = TravelMode.Walking,
-                Origin = source,
-                Destination = dest,
-            };
-       
-            DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
-            Route route = drivingDirections.Routes.First();
-            Leg leg = route.Legs.First();
-            return leg.Distance.Value;
+                var drivingDirectionRequest = new DirectionsRequest()
+                {
+                    TravelMode = TravelMode.Walking,
+                    Origin = source,
+                    Destination = dest,
+                };
+
+                DirectionsResponse drivingDirections = GoogleMaps.Directions.Query(drivingDirectionRequest);
+                Route route = drivingDirections.Routes.First();
+                Leg leg = route.Legs.First();
+                return leg.Distance.Value;
+            }
+            catch (Exception ex)
+            {
+                new Exception(ex.Message);
+                return 0;
+            }
+            
         }
 
         public int GetNumOfContracts(object obj)

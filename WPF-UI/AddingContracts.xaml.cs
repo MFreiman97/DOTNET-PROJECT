@@ -195,6 +195,7 @@ namespace WPF_UI
               //***************************************************
                 foreach (var item in bl.TheBestFive(Cont.c.mom))
                 {
+                    if(bl.TheBestFive(Cont.c.mom)!=null)
                     str.Add(item);
                 }
 
