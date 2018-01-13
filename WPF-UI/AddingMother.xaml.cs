@@ -28,16 +28,15 @@ namespace WPF_UI
         BE.Mother mother;
         public AddingMother()
         {
-            InitializeComponent();  
-         
+            InitializeComponent();
+
             this.UpdateButton.IsEnabled = false;
             bl = BL.FactoryBL.GetBL();
             mother = new Mother();
-            MyMatrix.ValueTimes = mother.timeWork;
-            MyMatrix.ValueBool = mother.needNanny;
 
-    
+
         }
+    
 
         /// <summary>
         /// function that added to the event of the clicking that adding the mother
@@ -51,6 +50,8 @@ namespace WPF_UI
 
 
 
+             mother.timeWork = MyMatrix.ValueTimes;
+             mother.needNanny = MyMatrix.ValueBool;
 
 
                 mother.id = int.Parse(IDtextBox.Text);
@@ -58,7 +59,7 @@ namespace WPF_UI
                 mother.fName = FnameTextBox.Text;
                 mother.phone = PhoneNumTextBox.Text;
 
-                mother.address = CityTextBox.Text + "," + StreetTextBox.Text + "," + ApartmentTextBox.Text;
+                mother.address = AddressUC.Text;
                 mother.note = CommentsTextBox.Text;
                 mother.nannyArea = int.Parse(NannyAreaTextBoxAnswer.Text);
 
@@ -67,7 +68,7 @@ namespace WPF_UI
 
                 if (Message == MessageDialogResult.Affirmative)
                     this.Close();
-             
+
 
             }
             catch (Exception ex)
@@ -96,7 +97,7 @@ namespace WPF_UI
                 lName = FnameTextBox.Text,
                 phone = PhoneNumTextBox.Text
                ,
-                address = CityTextBox.Text + "," + StreetTextBox.Text + "," + ApartmentTextBox.Text
+                address = AddressUC.Text
                ,
                 note = CommentsTextBox.Text,
                 nannyArea = int.Parse(NannyAreaTextBoxAnswer.Text)
@@ -182,36 +183,6 @@ namespace WPF_UI
             }
         }
 
-        private void CityTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (CityTextBox.Text.Any(char.IsDigit))
-                {
-                    CityTextBox.Text = "";
-                    throw new Exception("ERROR - Enter Only Letters Please!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
-        private void StreetTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (StreetTextBox.Text.Any(char.IsDigit))
-                {
-                    StreetTextBox.Text = "";
-                    throw new Exception("ERROR - Enter Only Letters Please!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
     }
 }

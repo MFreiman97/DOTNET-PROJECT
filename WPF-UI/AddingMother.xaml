@@ -17,18 +17,12 @@
         <TextBox x:Name="PNAMEtextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY!" HorizontalAlignment="Left" Height="21" Margin="201,59,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="PNAMEtextBox_LostFocus" />
         <Label x:Name="label" Content="id"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy1"  Content="Private Name" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <Label x:Name="label_Copy4"  Content="comments" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
+        <Label x:Name="label_Copy4"  Content="comments" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <Label x:Name="label_Copy" Content="Family Name" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <TextBox x:Name="FnameTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="CHARS ONLY" HorizontalAlignment="Left" Height="21" Margin="201,100,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="FnameTextBox_LostFocus" />
         <Label x:Name="label_Copy2" Content="Phone Number" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <TextBox x:Name="PhoneNumTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="05XXXXXXXX"  SelectionLength="10" MaxLength="10" HorizontalAlignment="Left" Height="21" Margin="201,145,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="PhoneNumTextBox_LostFocus" />
-        <Label x:Name="label_Copy5" Content="city" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <Label x:Name="label_Copy6" Content="street" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-        <Label x:Name="label_Copy7" Content="number of the apartment" HorizontalAlignment="Left" Margin="10,248,0,0" VerticalAlignment="Top" Width="144" Height="27"/>
-        <TextBox x:Name="CityTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="???" HorizontalAlignment="Left" Height="21" Margin="201,187,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="CityTextBox_LostFocus" />
-        <TextBox x:Name="StreetTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="???" HorizontalAlignment="Left" Height="21" Margin="201,221,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120" LostFocus="StreetTextBox_LostFocus" />
-        <TextBox x:Name="ApartmentTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="???" HorizontalAlignment="Left" Height="21" Margin="201,253,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="CommentsTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="???" HorizontalAlignment="Left" Height="63" Margin="150,290,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
+        <TextBox x:Name="CommentsTextBox" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="???" HorizontalAlignment="Left" Height="63" Margin="165,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="254" BorderThickness="2"/>
         <Label x:Name="label_Copy3"  Content="days of working" HorizontalAlignment="Left" Margin="10,352,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
         <TextBox x:Name="start1" Controls:TextBoxHelper.ClearTextButton="True" Visibility="Hidden"  Text="{Binding Path=Value, StringFormat='HH:MM' , ElementName=tp00}" IsEnabled="{Binding ElementName=sunday , Path=IsChecked }" Controls:TextBoxHelper.Watermark="HH:MM" HorizontalAlignment="Left" Height="20" Margin="38,404,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="85">
 
@@ -73,7 +67,9 @@
 
             </Button.Style>
         </Button>
-        <local:MatrixOfHours x:Name="MyMatrix" HorizontalAlignment="Left" Height="144" Margin="0,358,0,0" VerticalAlignment="Top" Width="642"/>
+        <local:MatrixOfHours x:Name="MyMatrix" HorizontalAlignment="Left" Height="144" Margin="0,352,0,0" VerticalAlignment="Top" Width="642"/>
+        <local:PlaceAutoCompleteUC x:Name="AddressUC" HorizontalAlignment="Left" Height="34" Margin="165,203,0,0" VerticalAlignment="Top" Width="196"/>
+        <Label x:Name="AddressTB" Content="Address" HorizontalAlignment="Left" Height="34" Margin="10,203,0,0" VerticalAlignment="Top" Width="101"/>
 
     </Grid>
 </controls:MetroWindow>

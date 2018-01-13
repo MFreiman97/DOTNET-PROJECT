@@ -262,8 +262,8 @@
         </Grid>
         <Grid Grid.ColumnSpan="2" Grid.RowSpan="2">
 
-            <Label x:Name="labe" Content="Time Of Work"   FontSize="17" FontWeight="Bold" FontFamily="Yu Gothic Medium"  HorizontalAlignment="Left" Height="40" Margin="257,435,-83,-206" VerticalAlignment="Top" Width="118"/>
-            <local:MatrixOfHours x:Name="MatrixNanny"   HorizontalAlignment="Left" Height="173" Margin="0,435,-355,-339" VerticalAlignment="Top" Width="647"/>
+            <Label x:Name="labe" Content="Time Of Work"   FontSize="17" FontWeight="Bold" FontFamily="Yu Gothic Medium"  HorizontalAlignment="Left" Height="40" Margin="266,456,-92,-227" VerticalAlignment="Top" Width="118"/>
+            <local:MatrixOfHours x:Name="MatrixNanny"   HorizontalAlignment="Left" Height="173" Margin="7,456,-362,-360" VerticalAlignment="Top" Width="647"/>
 
             <Grid.Style>
                 <Style TargetType="{x:Type Grid}" >

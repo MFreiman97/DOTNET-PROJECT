@@ -220,9 +220,9 @@ namespace BL
         /// <returns></returns>
         public TimeSpan hoursAmountForWeek(Nanny na)
         {
-            TimeSpan sum = na.schedule[1, 0].Subtract(na.schedule[0, 0]);
+            TimeSpan sum = na.schedule[1][ 0].Subtract(na.schedule[0][ 0]);
             for (int i = 1; i < 6; i++)
-                 sum += na.schedule[1, i].Subtract(na.schedule[0, i]);
+                 sum += na.schedule[1][ i].Subtract(na.schedule[0][ i]);
             return (sum);
         }
 

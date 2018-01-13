@@ -34,8 +34,7 @@ namespace WPF_UI
             nanny = new Nanny();
             this.DataContext = nanny;
             nanny.born = DateTime.Parse("07/09/97");
-            MyMatrixNanny.ValueTimes = nanny.schedule;
-            MyMatrixNanny.ValueBool = nanny.DaysOfWork;
+    
             BornDatePicker.DisplayDateEnd = DateTime.Now;
             this.UpdateButton.IsEnabled = false;
             this.FloorComboBox.ItemsSource = Enum.GetValues(typeof(BE.FLOORS));
@@ -51,7 +50,8 @@ namespace WPF_UI
 
             try
             {
-                
+       nanny.schedule = MyMatrixNanny.ValueTimes;
+         nanny.DaysOfWork = MyMatrixNanny.ValueBool;
 
                 nanny.id = int.Parse(IDtextBox.Text); nanny.fname = fNametextBox.Text; nanny.name = lNametextBox.Text;
                 nanny.cell = phoneNumbertextBox.Text; nanny.address = CitytextBox.Text + "," + StreettextBox.Text + "," + FlattextBox.Text;

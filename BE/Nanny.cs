@@ -169,7 +169,7 @@ namespace BE
         public double HourSalary { get; set; }
         public double MonthSalary { get; set; }
         public bool[] DaysOfWork = new bool[6];
-        public DateTime[,] schedule = new DateTime[2, 6];
+        public TimeSpan[][] schedule = new TimeSpan[2][];
         public bool HolidaysByTheGOV { get; set; }
         public string recom;//recommendations
         public  int contracts = 0;
@@ -207,6 +207,13 @@ namespace BE
         {
             Nanny n_ = obj as Nanny;
             return id.CompareTo(n_.id);
+        }
+        public Nanny()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                schedule[i] = new TimeSpan[6];
+            }
         }
     }
 

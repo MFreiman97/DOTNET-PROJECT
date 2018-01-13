@@ -97,6 +97,9 @@
     <Compile Include="MatrixOfHours.xaml.cs">
       <DependentUpon>MatrixOfHours.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlaceAutoCompleteUC.xaml.cs">
+      <DependentUpon>PlaceAutoCompleteUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SmallWindowUpdating.xaml.cs">
       <DependentUpon>SmallWindowUpdating.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MatrixOfHours.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlaceAutoCompleteUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -67,8 +67,9 @@ namespace WPF_UI
             n1.born = new DateTime(1990, 3, 20);
             n1.floor = FLOORS.Fourth;
             n1.DaysOfWork[0] = true;
-            n1.schedule[0, 0] = DateTime.Parse("8:00");
-            n1.schedule[1, 0] = DateTime.Parse("16:00");
+            n1.schedule[0][ 0] = TimeSpan.Parse("8:00");
+            n1.schedule[1][ 0] = TimeSpan.Parse("16:00");
+
             bl.addNanny(n1);
             #endregion//adding Nanny
             #region init for debugging
@@ -85,8 +86,8 @@ namespace WPF_UI
             };
             m1.nannyArea = 10;
             m1.needNanny[0] = true;
-            m1.timeWork[0, 0] = DateTime.Parse("8:00");
-            m1.timeWork[1, 0] = DateTime.Parse("16:00");
+            m1.timeWork[0][ 0] = TimeSpan.Parse("8:00");
+            m1.timeWork[1][ 0] = TimeSpan.Parse("15:20");
             bl.addMom(m1);
             Mother m2 = new Mother()
             {
@@ -100,8 +101,8 @@ namespace WPF_UI
                 note = ""
             };
             m2.needNanny[0] = true;
-            m2.timeWork[0, 0] = DateTime.Parse("8:00");
-            m2.timeWork[1, 0] = DateTime.Parse("16:00");
+            m2.timeWork[0][ 0] = TimeSpan.Parse("8:00");
+            m2.timeWork[1][ 0] = TimeSpan.Parse("16:00");
             m2.nannyArea = 50;
             bl.addMom(m2);
            m1 = new Mother()
@@ -117,8 +118,8 @@ namespace WPF_UI
             };
             m1.nannyArea = 30;
             m1.needNanny[0] = true;
-            m1.timeWork[0, 0] = DateTime.Parse("8:00");
-            m1.timeWork[1, 0] = DateTime.Parse("16:00");
+            m1.timeWork[0][ 0] = TimeSpan.Parse("8:00");
+            m1.timeWork[1][ 0] = TimeSpan.Parse("16:00");
             bl.addMom(m1);
             #endregion//Adding 2 Mothers
             #region init CHILDS FOR DEBUGGING
@@ -223,22 +224,22 @@ namespace WPF_UI
 
         private void ComboBoxChanged(object sender, RoutedEventArgs e)
         {
-           
+            dataGridChild.ItemsSource = null;
             dataGridChild.ItemsSource = bl.GetAllChilds();
            dataGridChild.DataContext = bl.GetAllChilds();
          
             dataGridChild.SelectedValuePath = "id";
-        
 
+            dataGridContract.ItemsSource = null;
             dataGridContract.ItemsSource = bl.GetAllContracts();
             dataGridContract.SelectedValuePath = "contnum";
 
-
+            dataGridNanny.ItemsSource = null;
             dataGridNanny.ItemsSource = bl.GetAllNannies();
             dataGridNanny.DisplayMemberPath = "FullName";
             dataGridNanny.SelectedValuePath = "id";
 
-
+            dataGridMother.ItemsSource = null;
             dataGridMother.ItemsSource = bl.GetAllMothers();
             dataGridMother.DisplayMemberPath = "FullName";
             dataGridMother.SelectedValuePath = "id";

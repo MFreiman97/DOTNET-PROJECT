@@ -103,7 +103,7 @@ namespace BE
         }
 
         public bool[] needNanny = new bool[6];
-        public DateTime[,] timeWork = new DateTime[2, 6];
+        public TimeSpan[][] timeWork = new TimeSpan[2][];
         public string note { get; set; }
 
         public override string ToString()
@@ -122,6 +122,12 @@ namespace BE
             get { return fName+" "+lName; }
          
         }
-    
+        public Mother()
+        {
+            for(int i=0; i<2;i++)
+            {
+                timeWork[i] = new TimeSpan[6];
+            }
+        }
     }
 }

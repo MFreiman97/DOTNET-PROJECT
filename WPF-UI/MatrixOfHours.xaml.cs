@@ -23,38 +23,24 @@ namespace WPF_UI
         public MatrixOfHours()
         {
             InitializeComponent();
-
-            tp00.DataContext = ValueTimes[0, 0];
-      tp01.DataContext = ValueTimes[1, 0];
-            tp10.DataContext = ValueTimes[0, 1];
-            tp11.DataContext = ValueTimes[1, 1];
-            tp20.DataContext = ValueTimes[0, 2];
-            tp21.DataContext = ValueTimes[1, 2];
-            tp30.DataContext = ValueTimes[0, 3];
-            tp31.DataContext = ValueTimes[1, 3];
-            tp40.DataContext = ValueTimes[0, 4];
-            tp41.DataContext = ValueTimes[1, 4];
-            tp50.DataContext = ValueTimes[0, 5];
-            tp51.DataContext = ValueTimes[1, 5];
-            sunday.DataContext = ValueBool[0];
-            monday.DataContext = ValueBool[1];
-            tuesday.DataContext = ValueBool[2];
-            wednesday.DataContext = ValueBool[3];
-            thursday.DataContext = ValueBool[4];
-            friday.DataContext = ValueBool[5];
+            for (int i = 0; i < 2; i++)
+            {
+                ValueTimes[i] = new TimeSpan[6];
+            }
+            DataContext = this;
         }
   
 
 
-        public DateTime[,] ValueTimes   
+        public TimeSpan[][] ValueTimes   
         {
-            get { return (DateTime[,])GetValue(ValueProperty); }
+            get { return (TimeSpan[][])GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Value.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("ValueTimes", typeof(DateTime[,]), typeof(MatrixOfHours), new PropertyMetadata(new DateTime[6,6]));
+            DependencyProperty.Register("ValueTimes", typeof(TimeSpan[][]), typeof(MatrixOfHours), new PropertyMetadata(new TimeSpan[2][]));
 
 
         public bool[] ValueBool
