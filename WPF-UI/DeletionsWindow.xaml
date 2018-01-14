@@ -18,8 +18,9 @@
         <TabItem Header="Mother">
 
             <Grid>
-                <Button x:Name="button3"   Content="{iconPacks:FontAwesome Kind=TrashSolid  }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button3_Click"  ></Button>
+                <Button x:Name="button3"   Content="{iconPacks:FontAwesome Kind=TrashSolid  }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="236,180,0,0" Click="button3_Click"  ></Button>
                 <DataGrid x:Name="dataGridMothers" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="dataGridMothers_MouseDoubleClick"/>
+                <Button x:Name="MapMother" Content="{iconPacks:FontAwesome Kind=StreetViewSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" Click="MapMother_Click" RenderTransformOrigin="-2.826,0.178" Margin="190,180,0,0"/>
 
             </Grid>
         </TabItem>
@@ -29,7 +30,8 @@
             <Grid>
                 <DataGrid x:Name="dataGridNannies" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,-9,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="dataGridNannies_MouseDoubleClick"/>
 
-                <Button x:Name="button2"   Content="{iconPacks:FontAwesome Kind=TrashSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="222,180,0,0" Click="button2_Click"  ></Button>
+                <Button x:Name="button2"   Content="{iconPacks:FontAwesome Kind=TrashSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="234,180,0,0" Click="button2_Click"  ></Button>
+                <Button x:Name="MapNanny" Content="{iconPacks:FontAwesome Kind=StreetViewSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" Click="MapNanny_Click" RenderTransformOrigin="-2.826,0.178" Margin="188,180,0,0"/>
 
             </Grid>
         </TabItem>

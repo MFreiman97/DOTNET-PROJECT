@@ -47,8 +47,8 @@ namespace BE
                 }
             }
         }
-
-     
+        public double co1 { get; set; }
+        public double co2 { get; set; }
         private string name_;
 
         public string name

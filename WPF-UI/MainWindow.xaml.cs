@@ -96,14 +96,14 @@ namespace WPF_UI
                 fName = "Ana",
                 phone = "0533232323"
             ,
-                address = "Jerusalem" + "," + "Havaad Haleumi" + "," + "21"
+                address = "Kiryat Atta" + "," + "Pinsker" + "," + "6"
             ,
                 note = ""
             };
             m2.needNanny[0] = true;
             m2.timeWork[0][ 0] = TimeSpan.Parse("8:00");
             m2.timeWork[1][ 0] = TimeSpan.Parse("16:00");
-            m2.nannyArea = 50;
+            m2.nannyArea = 200;
             bl.addMom(m2);
            m1 = new Mother()
             {

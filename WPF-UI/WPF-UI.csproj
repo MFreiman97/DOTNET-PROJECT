@@ -94,6 +94,9 @@
     <Compile Include="Details.xaml.cs">
       <DependentUpon>Details.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MapWindow.xaml.cs">
+      <DependentUpon>MapWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MatrixOfHours.xaml.cs">
       <DependentUpon>MatrixOfHours.xaml</DependentUpon>
     </Compile>
@@ -168,6 +171,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MapWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MatrixOfHours.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,25 +233,6 @@
       <Project>{206ed559-2798-4398-a5bf-87b0337a53f5}</Project>
       <Name>BL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="types\MicrosoftMaps\CustomMapStyles.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Microsoft.Maps.All.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Microsoft.Maps.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Autosuggest.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Clustering.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Contour.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\DataBinning.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Directions.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\DrawingTools.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\GeoJson.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\GeoXml.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\HeatMapLayer.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Search.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\SpatialDataService.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\SpatialMath.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Traffic.d.ts" />
-    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\WellKnownText.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,6 +15,8 @@ using BE;
 using BL;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using System.Threading;
+
 
 namespace WPF_UI
 {
@@ -68,6 +70,7 @@ namespace WPF_UI
                 // Indicating What Days The Nanny Works
 
                 this.DataContext = nanny;
+                Thread t = new Thread(() => bl.addNanny(nanny));
                 bl.addNanny(nanny);
                 var Message = await this.ShowMessageAsync("New Nanny was added successfully!", "");
 
@@ -131,6 +134,8 @@ namespace WPF_UI
 
             }
         }
+    
+       
 
         private void IDtextBox_LostFocus(object sender, RoutedEventArgs e)
         {

@@ -132,6 +132,7 @@
         </Grid>
        
         <Grid x:Name="DetailsOfNanny" DataContext="{Binding}" HorizontalAlignment="Left" Margin="17,0,0,-242" VerticalAlignment="Top">
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -187,9 +188,10 @@
             <TextBox x:Name="nameTextBox1" IsReadOnly="True" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="14" Text="{Binding name, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Salary Per Hour:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
             <CheckBox x:Name="salaryPerHourCheckBox" IsEnabled="False" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding SalaryPerHour, Mode=OneWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="15" VerticalAlignment="Center"/>
+            
             <Grid.Style>
                 <Style TargetType="{x:Type Grid}" >
-                    <Setter Property="Visibility" Value="Hidden"/>
+                    <Setter Property="Visibility" Value="Visible"/>
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ElementName=WhatToShowTB,Path=Text}" Value="Nanny">
                             <Setter Property="Visibility" Value="Visible"/>

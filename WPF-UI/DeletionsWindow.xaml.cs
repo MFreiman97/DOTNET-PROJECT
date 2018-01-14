@@ -193,8 +193,42 @@ namespace WPF_UI
                 }
             }
         }
+
+        private void MapMother_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridMothers.SelectedValue != null)
+            {
+                try
+                {
+                    Mother m = bl.GetMother((int)dataGridMothers.SelectedValue);
+                    var v = new MapWindow(m);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void MapNanny_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridNannies.SelectedValue != null)
+            {
+                try
+                {
+                    Nanny n = bl.GetNanny((int)dataGridNannies.SelectedValue);
+                    var v = new MapWindow(n);
+                    v.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
-        public class IDChildToName : IValueConverter
+    public class IDChildToName : IValueConverter
         {
             IBL bl = FactoryBL.GetBL();
 

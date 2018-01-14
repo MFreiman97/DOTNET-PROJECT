@@ -91,7 +91,8 @@ namespace BE
         public string address { get; set; }
      
         private int nannyArea_;
-
+        public double co1 { get; set; }
+        public double co2 { get; set; }
         public int nannyArea
         {
             get { return nannyArea_; }

@@ -8,8 +8,7 @@ using GoogleMapsApi.Entities.Geocoding.Response;
 using GoogleMapsApi.Entities.Directions.Request;
 using GoogleMapsApi.Entities.Directions.Response;
 
-using Microsoft.Maps.MapControl.WPF;
-using Microsoft.Maps.MapControl.WPF.Design;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

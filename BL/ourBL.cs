@@ -3,7 +3,7 @@ using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using GoogleMapsGeocoding;
 
 namespace BL
 {
@@ -78,6 +78,7 @@ namespace BL
                 dal.addNanny(n);
            
         }
+
         #endregion
         #region delete functions
         /// <summary>
