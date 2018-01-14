@@ -54,6 +54,9 @@ namespace WPF_UI
             DependencyProperty.Register("ValueBool", typeof(bool[]), typeof(MatrixOfHours), new PropertyMetadata(new bool[6]));
 
 
+     
+
+
 
     }
 }

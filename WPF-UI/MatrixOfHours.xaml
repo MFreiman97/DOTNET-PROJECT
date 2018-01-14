@@ -30,12 +30,18 @@
         <Custom:TimePicker x:Name="tp50" SelectedTime="{Binding Path=ValueTimes[0][5],Mode=TwoWay}" DataContext="{Binding}" IsEnabled="{Binding ElementName=friday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="2.385,50,0,0" VerticalAlignment="Top" Width="102" Grid.Column="5"/>
         <Custom:TimePicker x:Name="tp51" SelectedTime="{Binding Path=ValueTimes[1][5],Mode=TwoWay}" IsEnabled="{Binding ElementName=friday ,Path=IsChecked}" HorizontalAlignment="Center" Height="25" Margin="2.385,81,0,0" VerticalAlignment="Top" Width="102" Grid.Column="5"/>
 
-        <CheckBox x:Name="sunday" IsChecked="{Binding Path=ValueBool[0],Mode=TwoWay}"  Background="#FFCDCDCD"  Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="45,112,0,0" VerticalAlignment="Top" Width="17" BorderThickness="1"/>
+        <CheckBox x:Name="sunday"  IsChecked="{Binding Path=ValueBool[0],Mode=TwoWay}"  Background="#FFCDCDCD"  Content="CheckBox" HorizontalAlignment="Left" Height="15" Margin="45,112,0,0" VerticalAlignment="Top" Width="17" BorderThickness="1"/>
         <CheckBox x:Name="monday" IsChecked="{Binding Path=ValueBool[1],Mode=TwoWay}" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="45,114,0,0" VerticalAlignment="Top" Width="17" Grid.Column="1"/>
         <CheckBox x:Name="tuesday" IsChecked="{Binding Path=ValueBool[2],Mode=TwoWay}" Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="49,112,0,0" VerticalAlignment="Top" Width="17" Grid.Column="2"/>
         <CheckBox x:Name="wednesday" IsChecked="{Binding Path=ValueBool[3],Mode=TwoWay}" Content="CheckBox"   Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="51,112,0,0" VerticalAlignment="Top" Width="17" Grid.Column="3"/>
         <CheckBox x:Name="thursday" IsChecked="{Binding Path=ValueBool[4],Mode=TwoWay}"  Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="52,112,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" Grid.Column="4"/>
         <CheckBox x:Name="friday" IsChecked="{Binding Path=ValueBool[5],Mode=TwoWay}"  Content="CheckBox"  Background="#FFCDCDCD" HorizontalAlignment="Left" Height="15" Margin="44,112,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" Grid.Column="5"/>
-        
+        <Label x:Name="label" Content="Sunday" FontSize="12" FontWeight="Bold" FontFamily="Yu Gothic Medium" HorizontalAlignment="Left" Height="40" Margin="25,10,0,0" VerticalAlignment="Top" Width="51"/>
+        <Label x:Name="label1" Content="Monday" FontSize="12" FontWeight="Bold" FontFamily="Yu Gothic Medium" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="25,10,0,0" Width="60" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="tuesday" FontSize="12" FontWeight="Bold" FontFamily="Yu Gothic Medium" Grid.Column="2" Height="40" Margin="25,10,0,0" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="wednesday" FontSize="12" FontWeight="Bold" FontFamily="Yu Gothic Medium" Grid.Column="3" Height="40" Margin="10,10,0,0" Width="89" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="thursday" FontSize="12" FontWeight="Bold" FontFamily="Yu Gothic Medium" Grid.Column="4" Height="40" Margin="10,10,0,0" Width="89" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="2.011,0.35"/>
+        <Label x:Name="Friday" Content="friday" FontSize="12" FontWeight="Bold" FontFamily="Yu Gothic Medium" Grid.Column="5" Height="40" Margin="10,10,0,0" Width="89" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="2.011,0.35"/>
+
     </Grid>
 </UserControl>
