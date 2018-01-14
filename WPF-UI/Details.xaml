@@ -191,7 +191,7 @@
             
             <Grid.Style>
                 <Style TargetType="{x:Type Grid}" >
-                    <Setter Property="Visibility" Value="Visible"/>
+                    <Setter Property="Visibility" Value="Hidden"/>
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ElementName=WhatToShowTB,Path=Text}" Value="Nanny">
                             <Setter Property="Visibility" Value="Visible"/>

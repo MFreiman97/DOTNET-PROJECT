@@ -9,10 +9,10 @@
         mc:Ignorable="d"
         Title="MapWindow" Height="300" Width="300">
     <Grid>
-    
 
-            <m:Map  x:Name="myMap"  
-                  ZoomLevel="10"   >
+
+        <m:Map  x:Name="myMap" Center="31.714009, 34.909578"  
+                  ZoomLevel="7"   >
 
                 <Image x:Name="image"  HorizontalAlignment="Left" Height="204" Margin="0,10,0,0" VerticalAlignment="Top" Width="237" />
 

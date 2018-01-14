@@ -46,20 +46,29 @@ namespace WPF_UI
                 pin = new Pushpin();
                 pin.Location = pinLocation;
                 pin.Background = Brushes.Green;
-           
+              
                 myMap.Children.Add(pin);
+                myMap.Center.Latitude = latitude ;
+                myMap.Center.Longitude = longitude;
 
             }
             if (obj is Mother)
             {
                Mother obj_ = obj as Mother;
-                myMap.Center.Latitude = obj_.co1;
-                myMap.Center.Longitude = obj_.co2;
-                Location pinLocation = new Location(obj_.co1, obj_.co2);
+                var locationService = new GoogleLocationService();
+                var point = locationService.GetLatLongFromAddress(obj_.address);
+
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
+                Location pinLocation = new Location(latitude, longitude);
+
                 pin = new Pushpin();
                 pin.Location = pinLocation;
                 pin.Background = Brushes.Green;
+
                 myMap.Children.Add(pin);
+                myMap.Center.Latitude = latitude;
+                myMap.Center.Longitude = longitude;
             }
          
         
