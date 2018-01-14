@@ -54,7 +54,7 @@
             <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="mom Id:"/>
             <TextBox x:Name="momIdTextBox"  IsReadOnly="True" Width="120" VerticalAlignment="Center" Text="{Binding momId, Mode=OneWay,ValidatesOnDataErrors=True, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="name:"/>
-            <TextBox x:Name="nameTextBox" IsReadOnly="False" Width="120" VerticalAlignment="Center" Text="{Binding name, Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"   />
+            <TextBox x:Name="nameTextBox"  Width="120" VerticalAlignment="Center" Text="{Binding name, Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"   />
             <Label VerticalAlignment="Center" Grid.Row="6" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="nanny ID:"/>
             <TextBox x:Name="nannyIDTextBox"  IsReadOnly="True" Width="120" VerticalAlignment="Center" Text="{Binding nannyID, Mode=OneWay,ValidatesOnDataErrors=True, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="7" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="special:"/>

@@ -37,7 +37,7 @@ namespace BE
             get { return name1; }
             set {
 
-                if (value.Any(char.IsDigit))
+                if (value.Any(char.IsDigit)==true)
                 {
 
                     throw new Exception("ERROR - Enter Only Chars Please!");

@@ -12,9 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Maps.MapControl.WPF;
+using GoogleMapsGeocoding;
 using BE;
 
+
 using Microsoft.Maps.MapControl.WPF.Design;
+using GoogleMaps.LocationServices;
+
 namespace WPF_UI
 {
     /// <summary>
@@ -30,12 +34,19 @@ namespace WPF_UI
             if (obj is Nanny)
             {
              Nanny   obj_ = obj as Nanny;
-                myMap.Center.Latitude = obj_.co1;
-                myMap.Center.Longitude = obj_.co2;
-                Location pinLocation = new Location(obj_.co1, obj_.co2);
+
+
+                var locationService = new GoogleLocationService();
+                var point = locationService.GetLatLongFromAddress(obj_.address);
+
+                var latitude = point.Latitude;
+                var longitude = point.Longitude;
+                Location pinLocation = new Location(latitude,longitude);
+                    
                 pin = new Pushpin();
                 pin.Location = pinLocation;
                 pin.Background = Brushes.Green;
+           
                 myMap.Children.Add(pin);
 
             }

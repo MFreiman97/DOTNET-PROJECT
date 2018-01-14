@@ -66,7 +66,8 @@ namespace WPF_UI
             request.ApiKey = API_KEY;
             request.Input = str;
 
-            var response = GoogleMaps.PlaceAutocomplete.Query(request);
+        
+            var response =GoogleMapsApi.GoogleMaps.PlaceAutocomplete.Query(request);
 
             foreach (var item in response.Results)
             {
