@@ -34,7 +34,7 @@ namespace WPF_UI
     public partial class AddingContracts : MetroWindow
     {
         BL.IBL bl;
-        bool BestFive=false;
+     
         BE.Contract Cont;
         BE.Child child;
         BE.ContractType ContType;//usefull for using the thread of the distance calculation
@@ -116,7 +116,7 @@ namespace WPF_UI
                 child = bl.GetChild((int)comboBoxChild.SelectedValue);
                 ContType = (BE.ContractType)TypecomboBox.SelectedValue;
                 str = new List<Nanny>();
-
+                Best5 = false;
                 work.DoWork += W_DoWork;
                 work.RunWorkerCompleted += W_RunWorkerCompleted;
                 work.ProgressChanged += Work_ProgressChanged;
@@ -129,6 +129,7 @@ namespace WPF_UI
         private void Work_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             ProgressRing.IsActive = true;
+            TypecomboBox.IsEnabled = false;
         }
 
         private void W_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -140,27 +141,33 @@ namespace WPF_UI
                 dataGridNannies.ItemsSource = null;
                 dataGridNannies.ItemsSource = str.AsEnumerable();
                 dataGridNannies.SelectedValuePath = "id";
+                TypecomboBox.IsEnabled = true;
+             
                 BackgroundWorker work = sender as BackgroundWorker;
-                  work.CancelAsync();
-                if(Best5==true)
+                work.CancelAsync();
+
+
+                if (Best5 == true)
                 {
+                    Best5 = false;
                     this.ShowMessageAsync("There is no matched nanny to this child", "The Nannies that you see is the best 5!");
+                    ProgressRing.IsActive = false;
+            
                 }
                 if (str.Count == 0)
+                {
                     this.ShowMessageAsync("There is no matched nanny to this child", "good day!");
-            }
-            else if (e.Error != null || e.Error.Message == "הרצף לא מכיל תווים"||e.Error.Message== "הרצף לא מכיל רכיבים")
-            {
+                    ProgressRing.IsActive = false;
+             
+                } }
             
+            else if (e.Error != null || e.Error.Message == "הרצף לא מכיל תווים" || e.Error.Message == "הרצף לא מכיל רכיבים")
+            {
+                TypecomboBox.IsEnabled = true;
                 MessageBox.Show("Error: " + e.Error.Message);
                 ProgressRing.IsActive = false;
                 work.CancelAsync();
-            }
-        else
-            {
-                ProgressRing.IsActive = false;
-                MessageBox.Show("Check your connection to the internet");
-                work.CancelAsync();
+           
             }
             
         }
@@ -179,6 +186,8 @@ namespace WPF_UI
                     str.Add(item);
 
                 }
+                if (str.Count() != 0)
+                    return;
 
 
             }
@@ -190,12 +199,13 @@ namespace WPF_UI
 
                     str.Add(item);
                 }
-
+                if (str.Count() != 0)
+                    return;
 
             }
-            if (bl.GetAllNanniesByTerm(Cont.c.mom).Count() == 0)//when there is no match to the demands of the mother
+            if (str.Count() == 0)//when there is no match to the demands of the mother
             {
-                Best5 = true;
+               
             
                 foreach (var item in bl.TheBestFive(Cont.c.mom))
                 {
@@ -203,6 +213,7 @@ namespace WPF_UI
                         str.Add(item);
                 }
 
+       Best5 = true;
             }
 
 

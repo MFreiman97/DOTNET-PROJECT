@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using BE;
 using System.Xml.Linq;
 using System.IO;
-
+using System.Xml.Serialization;
+using DS;
 namespace DAL
 {
    public class Dal_XML_imp : Idal
@@ -17,58 +18,123 @@ namespace DAL
                 CreateFiles();
             else
                 LoadData();
-        }
+
+            LoadMothers();
+            LoadNannies();
+           
+            LoadContracts();
+
+
+
+        }//
 
         private void CreateFiles()
         {
             ChildRoot = new XElement("Child");
             ChildRoot.Save(ChildPath);
-        }
+        }//
 
         private void LoadData()
         {
-            try
-            {
+          
                 ChildRoot = XElement.Load(ChildPath);
-            }
-            catch
-            {
-                throw new Exception("File upload problem");
-            }
-        }
+                try
+                {
+                    DataSource.childs = (from stu in ChildRoot.Elements()
+                                         select new Child()
+                                         {
+                                             id = int.Parse(stu.Element("id").Value),
+                                             name = stu.Element("OtherDetails").Element("firstName").Value,
+                                             momId = int.Parse(stu.Element("OtherDetails").Element("Motherid").Value),
+                                             nannyID = int.Parse(stu.Element("OtherDetails").Element("Nannyid").Value),
+                                             kindSpecial = stu.Element("kindSpecial").Value,
+                                             special = bool.Parse(stu.Element("special").Value),
+                                             birth = DateTime.Parse(stu.Element("OtherDetails").Element("birth").Value),
+                                             mom = GetMother(int.Parse(stu.Element("OtherDetails").Element("Motherid").Value))
 
-        XElement  ChildRoot;
-        string ChildPath = @"ChildXml.xml";
+
+                                         }).ToList();
+
+                }
+                catch
+                {
+               
+                
+                }
+           
+          
+        }//
+
+   public     XElement  ChildRoot;
+     public   string ChildPath = @"ChildXml.xml";
+       public string MotherPath = @"MotherXml.xml";
+      public  string NannyPath = @"NannyXml.xml";
+     public   string ContractPath = @"ContractXml.xml";
         public void addChild(Child c)
         {
-         
-            XElement firstName = new XElement("firstName", c.name);
-            XElement year = new XElement("year", c.birth.Year);
-            XElement month = new XElement("month", c.birth.Month);
-            XElement day = new XElement("day", c.birth.Day);
+            if (GetChild(c.id) == null)
+            {
+                DataSource.childs.Add(c);
+                XElement firstName = new XElement("firstName", c.name);
 
-            XElement birth = new XElement("birth",year,month,day);
-            XElement id = new XElement("id", c.id);
-            XElement Nannyid = new XElement("Nannyid", c.nannyID);
-            XElement Motherid = new XElement("Motherid", c.momId);
-            XElement OtherDetails = new XElement("OtherDetails", firstName , Nannyid, birth,Motherid);
-            ChildRoot.Add(new XElement("Child", id, OtherDetails));
-            ChildRoot.Save(ChildPath);
+
+                XElement birth = new XElement("birth", c.birth);
+                XElement id = new XElement("id", c.id);
+                XElement special = new XElement("special", c.special);
+                XElement kindSpecial = new XElement("kindSpecial", c.kindSpecial);
+
+                XElement Nannyid = new XElement("Nannyid", c.nannyID);
+                XElement Motherid = new XElement("Motherid", c.momId);
+                XElement OtherDetails = new XElement("OtherDetails", firstName, Nannyid, birth, Motherid);
+                ChildRoot.Add(new XElement("Child", id, OtherDetails, special, kindSpecial));
+                ChildRoot.Save(ChildPath);
+            }
         }
 
         public void addContract(Contract c)
         {
-            throw new NotImplementedException();
+            DataSource.contracts.Add(c);
+            SaveContracts();
+        }//
+
+        private void SaveContracts()
+        {
+            FileStream file = new FileStream(ContractPath, FileMode.Create);
+            XmlSerializer xmlSerializer = new XmlSerializer(DataSource.contracts.GetType());
+            xmlSerializer.Serialize(file, DataSource.contracts);
+            file.Close();
         }
 
         public void addMom(Mother m)
         {
-            throw new NotImplementedException();
+            if (GetMother(m.id) == null)
+            {
+                DataSource.mothers.Add(m);
+            }
+            SaveMothers();
+        }//
+
+        private void SaveMothers()
+        {
+            FileStream file = new FileStream(MotherPath, FileMode.Create);
+            XmlSerializer xmlSerializer = new XmlSerializer(DataSource.mothers.GetType());
+            xmlSerializer.Serialize(file, DataSource.mothers);
+            file.Close();
         }
 
         public void addNanny(Nanny n)
         {
-            throw new NotImplementedException();
+            if (GetNanny(n.id) == null)
+            DataSource.nannies.Add(n);
+            SaveNannies();
+        }//
+
+        private void SaveNannies()
+        {
+            FileStream file = new FileStream(NannyPath, FileMode.Create);
+            XmlSerializer xmlSerializer = new XmlSerializer(DataSource.nannies.GetType());
+            xmlSerializer.Serialize(file, DataSource.nannies);
+            file.Close();
         }
 
         public void deleteChild(Child c)
@@ -81,7 +147,7 @@ namespace DAL
                                   select p).FirstOrDefault();
                 ChildElement.Remove();
                 ChildRoot.Save(ChildPath);
-              
+                DataSource.childs.Remove(c);
             }
             catch
             {
@@ -91,62 +157,138 @@ namespace DAL
 
         public void deleteContract(Contract c)
         {
-            throw new NotImplementedException();
-        }
+            if (GetContract(c.contnum) != null)
+            {
+                DataSource.contracts.Remove(c);
+                SaveContracts();
+            }
+            else
+                throw new Exception("the Contract you tried to delete wasnt exist!");
+
+        }//
 
         public void deleteMom(Mother m)
         {
-            throw new NotImplementedException();
+            if (GetMother(m.id) != null)
+            {
+                DataSource.mothers.Remove(m);
+                SaveMothers();
+            }
+            else
+                throw new Exception("the Mother you tried to delete wasnt exist!");
+
         }
 
         public void deleteNanny(Nanny n)
         {
-            throw new NotImplementedException();
+            if (GetNanny(n.id) != null)
+            {
+                DataSource.nannies.Remove(n);
+                SaveNannies();
+            }
+            else
+                throw new Exception("the Mother you tried to delete wasnt exist!");
+
         }
 
-        public IEnumerable<Child> GetAllChilds(Func<Child, bool> predicat = null)
+        public IEnumerable<Child> GetAllChilds(Func<Child, bool> predicat = null)//need to be linqto xml
         {
-            throw new NotImplementedException();
-        }
+            LoadData();
+
+
+            if (predicat == null)
+                return DataSource.childs.AsEnumerable();
+
+            return DataSource.childs.Where(predicat);
+
+
+
+
+        }//
 
         public IEnumerable<Child> GetAllChildsByMother(Mother m)
         {
-            throw new NotImplementedException();
-        }
+            var v = GetAllChilds();
+            return v.Where(i => i.mom.id == m.id);
+        }//
 
         public IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null)
         {
-            throw new NotImplementedException();
+            LoadContracts();
+            if (predicat == null)
+                return DataSource.contracts.AsEnumerable();
+
+            return DataSource.contracts.Where(predicat);
+
+        }//
+
+        private void LoadContracts()
+        {
+            FileStream file = new FileStream(ContractPath, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Contract>));
+            DataSource.contracts = (List<Contract>)xmlSerializer.Deserialize(file);
+            file.Close();
         }
 
         public IEnumerable<Mother> GetAllMothers(Func<Mother, bool> predicat = null)
         {
-            throw new NotImplementedException();
+            LoadMothers();
+            if (predicat == null)
+                return DataSource.mothers.AsEnumerable();
+
+            return DataSource.mothers.Where(predicat);
+
+        }//
+
+        private void LoadMothers()
+        {
+            FileStream file = new FileStream(MotherPath, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Mother>));
+            DataSource.mothers = (List<Mother>)xmlSerializer.Deserialize(file);
+            file.Close();
         }
 
         public IEnumerable<Nanny> GetAllNannies(Func<Nanny, bool> predicat = null)
         {
-            throw new NotImplementedException();
+            LoadNannies();
+            if (predicat == null)
+                return DataSource.nannies.AsEnumerable();
+
+            return DataSource.nannies.Where(predicat);
+
+        }//
+
+        private void LoadNannies()
+        {
+            FileStream file = new FileStream(NannyPath, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Nanny>));
+            DataSource.nannies = (List<Nanny>)xmlSerializer.Deserialize(file);
+            file.Close();
         }
 
         public Child GetChild(int id)
         {
-            throw new NotImplementedException();
+              LoadData();
+            return DataSource.childs.Find(c => c.id == id);
         }
 
         public Contract GetContract(int cont)
         {
-            throw new NotImplementedException();
-        }
+            LoadContracts();
+            return DataSource.contracts.Find(n => n.contnum == cont);
+
+        }//
 
         public Mother GetMother(int id)
         {
-            throw new NotImplementedException();
+            LoadMothers();
+            return DataSource.mothers.Find(m => m.id == id);
         }
 
         public Nanny GetNanny(int id)
         {
-            throw new NotImplementedException();
+            LoadNannies();
+            return DataSource.nannies.Find(n => n.id == id);
         }
 
         public void updateChild(Child c)
@@ -164,21 +306,42 @@ namespace DAL
             ChildElement.Element("OtherDetails").Element("birth").Element("day").Value = c.birth.Day.ToString();
 
             ChildRoot.Save(ChildPath);
-        }
+        }//
 
         public void updateContract(Contract c)
         {
-            throw new NotImplementedException();
+            LoadContracts();
+            int index = DataSource.contracts.FindIndex(x => x.contnum == c.contnum);// i need to use the icomparable 
+            if (index != -1)
+            {
+                DataSource.contracts[index] = c;
+                SaveContracts();
+            }
         }
 
         public void updateMom(Mother m)
         {
-            throw new NotImplementedException();
+            LoadMothers();
+            int index = DataSource.mothers.FindIndex(x => x.id ==m.id);// i need to use the icomparable 
+            if (index != -1)
+            {
+                DataSource.mothers[index] = m;
+                SaveMothers();
+
+            }
         }
 
         public void updateNanny(Nanny n)
         {
-            throw new NotImplementedException();
+            LoadNannies();
+            int index = DataSource.nannies.FindIndex(x => x.id == n.id);// i need to use the icomparable 
+            if (index != -1)
+            {
+                DataSource.nannies[index] = n;
+                SaveNannies();
+
+            }
+
         }
     }
 }

@@ -307,7 +307,7 @@ private int GetTypeOfAge(int d)
             {
                 Nanny temp = obj as Nanny;
                 id = temp.id;
-                var v = GetAllContracts();
+var v = GetAllContracts();
                 foreach (var item in v)
 
                 {

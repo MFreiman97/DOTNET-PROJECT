@@ -35,36 +35,38 @@ namespace WPF_UI
             Pushpin pin;
             point = new MapPoint();
            
-            if (obj is Nanny)
-            {
-             Nanny   obj_ = obj as Nanny;
+          
+
+                try
+                {
+                if (obj is Nanny)
+                {
+
+                    Nanny obj_ = obj as Nanny;
+                    var locationService = new GoogleLocationService();
+                    point = locationService.GetLatLongFromAddress(obj_.address);
 
 
-                var locationService = new GoogleLocationService();
-                Thread t = new Thread(()=>point= locationService.GetLatLongFromAddress(obj_.address));
-                t.Start();
-              
+                    var latitude = point.Latitude;
+                    var longitude = point.Longitude;
+                    Location pinLocation = new Location(latitude, longitude);
 
-                var latitude = point.Latitude;
-                var longitude = point.Longitude;
-                Location pinLocation = new Location(latitude,longitude);
-                    
-                pin = new Pushpin();
-                pin.Location = pinLocation;
-                pin.Background = Brushes.Green;
-              
-                myMap.Children.Add(pin);
-                myMap.Center.Latitude = latitude ;
-                myMap.Center.Longitude = longitude;
-              
+                    pin = new Pushpin();
+                    pin.Location = pinLocation;
+                    pin.Background = Brushes.Green;
 
-            }
+                    myMap.Children.Add(pin);
+                    myMap.Center.Latitude = latitude;
+                    myMap.Center.Longitude = longitude;
+
+                }
+         
             if (obj is Mother)
             {
                Mother obj_ = obj as Mother;
                 var locationService = new GoogleLocationService();
-                Thread t = new Thread(() => point = locationService.GetLatLongFromAddress(obj_.address));
-                t.Start();
+              point = locationService.GetLatLongFromAddress(obj_.address);
+               
 
                 var latitude = point.Latitude;
                 var longitude = point.Longitude;
@@ -78,7 +80,14 @@ namespace WPF_UI
                 myMap.Center.Latitude = latitude;
                 myMap.Center.Longitude = longitude;
             }
-        
+           }
+                
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+               
         
         }
  

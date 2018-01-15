@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
@@ -168,6 +169,8 @@ namespace BE
         public double HourSalary { get; set; }
         public double MonthSalary { get; set; }
         public bool[] DaysOfWork = new bool[6];
+
+        [XmlIgnore]
         public TimeSpan[][] schedule = new TimeSpan[2][];
         public bool HolidaysByTheGOV { get; set; }
         public string recom;//recommendations
@@ -212,6 +215,45 @@ namespace BE
             for (int i = 0; i < 2; i++)
             {
                 schedule[i] = new TimeSpan[6];
+            }
+        }
+        public string TempUserMatrix
+        {
+            get
+            {
+                if (schedule == null)
+                    return null;
+                string result = "";
+                if (schedule != null)
+                {
+                    int sizeA = 2;
+                    int sizeB =6;
+                 
+                    for (int i = 0; i < sizeA; i++)
+                        for (int j = 0; j < sizeB; j++)
+                            result +=  schedule[i][j].ToString()+"|";
+                }
+                return result;
+            }
+            set
+            {
+
+                if (value != null && value.Length > 0)
+                {
+                    string[] values = value.Split('|');
+                    int sizeA = 2;
+                    int sizeB = 6;
+                    schedule = new TimeSpan[sizeA][];
+                    for (int i = 0; i < sizeA; i++)
+                    {
+                        schedule[i] = new TimeSpan[sizeB];
+                    }
+
+                    int index = 0;
+                    for (int i = 0; i < sizeA; i++)
+                        for (int j = 0; j < sizeB; j++)
+                            schedule[i][j] = TimeSpan.Parse(values[index++]);
+                }
             }
         }
     }

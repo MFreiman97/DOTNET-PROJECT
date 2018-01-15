@@ -15,7 +15,7 @@ namespace BL
         public ourBL()
         {
 
-            dal = new DAL.Dal_imp();
+            dal = new DAL.Dal_XML_imp();
 
         }
         #region adding functions
@@ -245,6 +245,9 @@ namespace BL
                 cont.SalaryPerMonth = 4 * hoursAmountForWeek(na).TotalHours * na.HourSalary * ((100 - count * 2) / 100);
             else
                 cont.SalaryPerMonth = na.MonthSalary * (100 - count * 2) / 100;
+
+            if (cont.SalaryPerMonth == 0)//in case of best5
+                cont.SalaryPerMonth = 4 * hoursAmountForWeek(na).TotalHours * na.HourSalary;
 
             return cont.SalaryPerMonth;
         }

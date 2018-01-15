@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
@@ -103,6 +104,7 @@ namespace BE
         }
 
         public bool[] needNanny = new bool[6];
+        [XmlIgnore]
         public TimeSpan[][] timeWork = new TimeSpan[2][];
         public string note { get; set; }
 
@@ -128,6 +130,44 @@ namespace BE
             {
                 timeWork[i] = new TimeSpan[6];
             }
+        }
+
+        public string TempUserMatrix
+        {
+            get
+            {
+                if (timeWork == null)
+                    return null;
+                string result = "";
+                if (timeWork != null)
+                {
+                    int sizeA = 2;
+                    int sizeB =6;
+              
+                    for (int i = 0; i < sizeA; i++)
+                        for (int j = 0; j < sizeB; j++)
+                            result += timeWork[i][j].ToString() + "|";
+                }
+                return result;
+            }
+            set
+            {
+               
+                    if (value != null && value.Length > 0)
+                    { string[] values = value.Split('|');
+                    int sizeA = 2;
+                        int sizeB = 6;
+                     timeWork    = new TimeSpan[sizeA][] ;
+                    for (int i = 0; i < sizeA; i++)
+                    {
+                        timeWork[i] = new TimeSpan[sizeB];
+                    }
+
+                    int index = 0;
+                        for (int i = 0; i < sizeA; i++)
+                            for (int j = 0; j < sizeB; j++)
+                                timeWork[i][ j] = TimeSpan.Parse(values[index++]); }
+                }
         }
     }
 }
