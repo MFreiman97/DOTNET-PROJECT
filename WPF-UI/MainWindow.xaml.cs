@@ -45,7 +45,7 @@ namespace WPF_UI
             InitializeComponent();
 
             bl = BL.FactoryBL.GetBL();
-          
+            this.Closing += MainWindow_Closing;
             #region init for dubugging
             Nanny n1 = new Nanny()
             {
@@ -169,7 +169,13 @@ namespace WPF_UI
 
         }
 
-      
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
+
+        }
+
+
 
 
         #region Adding Clicks
@@ -262,6 +268,7 @@ namespace WPF_UI
                 }
             }
         }
+       
 
         private void DoubleClickedOnMother(object sender, MouseButtonEventArgs e)
         {
