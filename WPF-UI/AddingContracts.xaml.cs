@@ -40,6 +40,7 @@ namespace WPF_UI
         BE.ContractType ContType;//usefull for using the thread of the distance calculation
         List<Nanny> str;//usefull for using the thread of the distance calculation
         BackgroundWorker work;
+        bool Best5=false;
         static Random r = new Random();
 
         public AddingContracts()
@@ -141,6 +142,10 @@ namespace WPF_UI
                 dataGridNannies.SelectedValuePath = "id";
                 BackgroundWorker work = sender as BackgroundWorker;
                   work.CancelAsync();
+                if(Best5==true)
+                {
+                    this.ShowMessageAsync("There is no matched nanny to this child", "The Nannies that you see is the best 5!");
+                }
                 if (str.Count == 0)
                     this.ShowMessageAsync("There is no matched nanny to this child", "good day!");
             }
@@ -162,7 +167,7 @@ namespace WPF_UI
 
         private void W_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            Best5 = false;
             work.ReportProgress(5);
             if (ContType == ContractType.hourly)
             {
@@ -190,13 +195,13 @@ namespace WPF_UI
             }
             if (bl.GetAllNanniesByTerm(Cont.c.mom).Count() == 0)//when there is no match to the demands of the mother
             {
-    
-              //***************************************************
-                //foreach (var item in bl.TheBestFive(Cont.c.mom))
-                //{
-                //    if(bl.TheBestFive(Cont.c.mom)!=null)
-                //    str.Add(item);
-                //}
+                Best5 = true;
+            
+                foreach (var item in bl.TheBestFive(Cont.c.mom))
+                {
+                    if (bl.TheBestFive(Cont.c.mom) != null)
+                        str.Add(item);
+                }
 
             }
 
