@@ -40,6 +40,7 @@ namespace WPF_UI
     {
         BL.IBL bl;
         int x;
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -160,6 +161,7 @@ namespace WPF_UI
 
 
             #endregion
+         
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "childs" });
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "contracts" });
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "mothers" });
@@ -252,6 +254,7 @@ namespace WPF_UI
 
        
         }
+     
 
         private void DoubleClickedOnChild(object sender, MouseButtonEventArgs e)
         {
@@ -260,7 +263,11 @@ namespace WPF_UI
                 try
                 {
                     var v = new SmallWindowUpdating((object)dataGridChild.SelectedItem);
+        
+              
                     v.ShowDialog();
+                    refresh();
+                   
                 }
                 catch (Exception ex)
                 {
@@ -268,7 +275,29 @@ namespace WPF_UI
                 }
             }
         }
-       
+      public  void refresh()
+        {
+         dataGridChild.ItemsSource = null;
+            dataGridChild.ItemsSource = bl.GetAllChilds();
+            dataGridChild.DataContext = bl.GetAllChilds();
+
+            dataGridChild.SelectedValuePath = "id";
+
+            dataGridContract.ItemsSource = null;
+            dataGridContract.ItemsSource = bl.GetAllContracts();
+            dataGridContract.SelectedValuePath = "contnum";
+
+            dataGridNanny.ItemsSource = null;
+            dataGridNanny.ItemsSource = bl.GetAllNannies();
+            dataGridNanny.DisplayMemberPath = "FullName";
+            dataGridNanny.SelectedValuePath = "id";
+
+            dataGridMother.ItemsSource = null;
+            dataGridMother.ItemsSource = bl.GetAllMothers();
+            dataGridMother.DisplayMemberPath = "FullName";
+            dataGridMother.SelectedValuePath = "id";
+
+        }
 
         private void DoubleClickedOnMother(object sender, MouseButtonEventArgs e)
         {
@@ -278,6 +307,7 @@ namespace WPF_UI
                 {
                     var v = new SmallWindowUpdating((object)dataGridMother.SelectedItem);
                     v.ShowDialog();
+                    refresh();
                 }
                 catch (Exception ex)
                 {
@@ -294,6 +324,7 @@ namespace WPF_UI
                 {
                     var v = new UpdateContract((object)dataGridContract.SelectedItem as Contract);
                     v.ShowDialog();
+                    refresh();
                 }
                 catch (Exception ex)
                 {
@@ -310,6 +341,7 @@ namespace WPF_UI
                 {
                     var v = new SmallWindowUpdating((object)dataGridNanny.SelectedItem);
                     v.ShowDialog();
+                    refresh();
                 }
                 catch (Exception ex)
                 {

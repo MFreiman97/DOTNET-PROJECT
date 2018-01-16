@@ -27,13 +27,16 @@ namespace WPF_UI
         Contract co;
         Mother m;
         BL.IBL bl;
+        object MyObj;
+      
         private List<string> errorMessages;
         public SmallWindowUpdating(object obj)
         {
-       
+
             InitializeComponent();
+            MyObj = obj;
             this.IsCloseButtonEnabled = false;//i want to verify that the updated was good
-          AllowEditingCB.IsChecked = false;
+            AllowEditingCB.IsChecked = false;
             AllowEditingCBMother.IsChecked = false;
             AllowEditing.Text = "";
             bl = BL.FactoryBL.GetBL();
@@ -44,20 +47,20 @@ namespace WPF_UI
 
                 Child c = obj as Child;
                 DetailsOfChild.DataContext = c;
-             
-              
+
+
             }
             if (obj is Mother)
             {
                 WhatToShowTB.Text = "Mother";
                 Mother m = obj as Mother;
                 DetailsOfMother.DataContext = m;
-                if(bl.GetNumOfContracts(m)==0)
+                if (bl.GetNumOfContracts(m) == 0)
                 {
 
                     AllowEditing.Text = "True";
                     AllowEditingCBMother.IsChecked = true;
-                    AllowEditingCB.IsChecked =false ;
+                    AllowEditingCB.IsChecked = false;
                     MatrixMother.ValueTimes = m.timeWork;
                     MatrixMother.ValueBool = m.needNanny;
                 }
@@ -74,21 +77,21 @@ namespace WPF_UI
                     AllowEditing.Text = "True";
                     AllowEditingCB.IsChecked = true;
                     AllowEditingCBMother.IsChecked = false;
-                    MatrixNanny.ValueTimes =n.schedule;
+                    MatrixNanny.ValueTimes = n.schedule;
                     MatrixNanny.ValueBool = n.DaysOfWork;
-                 
-                    
+
+
                 }
             }
             if (obj is Contract)
             {
                 WhatToShowTB.Text = "Contract";//using the trigger
                 Contract co = obj as Contract;
-               DetailsOfContract.DataContext = co;
+                DetailsOfContract.DataContext = co;
             }
-            
+
         }
-       
+
         private void validation_Error(object sender, ValidationErrorEventArgs e)
         {
             if (e.Action == ValidationErrorEventAction.Added)
@@ -104,20 +107,42 @@ namespace WPF_UI
                 string err = "";
                 foreach (var item in errorMessages)
                     err += "\n" + item;
-                var Message=     await this.ShowMessageAsync("There is some ERRORS", err);
+                var Message = await this.ShowMessageAsync("There is some ERRORS", err);
                 if (Message == MessageDialogResult.Affirmative)
-                return;
+                    return;
             }
             else
             {
+                if (WhatToShowTB.Text == "Child")
+                {
+                    c = MyObj as Child;
+                    bl.updateChild(c);
+
+                }
+                if (WhatToShowTB.Text == "Mother")
+                {
+                    m = MyObj as Mother;
+                    bl.updateMom(m);
+
+                }
+                if (WhatToShowTB.Text == "Nanny")
+                {
+                    n = MyObj as Nanny;
+                    bl.updateNanny(n);
+
+                }
+             
                 var Message = await this.ShowMessageAsync("New Update was succeed", "Good Day");
                 if (Message == MessageDialogResult.Affirmative)
                 {
+
+
                     this.Close();
-                    bl.refresh();
+
                 }
             }
         }
+
     }
 
 }

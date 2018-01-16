@@ -99,7 +99,10 @@ namespace BL
         {
             if (c == null)
                 throw new Exception("The Contract U Tried To Delete Wasn't Exist!");
+            c.c.nannyID = null;
+            c.n.contracts--;
             dal.deleteContract(c);
+
         }
 
         /// <summary>
@@ -170,19 +173,9 @@ namespace BL
         /// <param name="c"></param>
         public void updateNanny(Nanny n)
         {
-            DateTime t = DateTime.Today; // Today's Date
-            DateTime y = n.born.AddYears(18); // Add 18 Years 2 The Nanny's Date Of Birth (4 The Comparing)
-            int check = y.CompareTo(t);
-            /* Compares:
-             *  Case Check < 0 => Nanny Is More Than 18 Years
-             *  Case Check = 0 => Nanny Is 18 Years
-             *  Case Check > 0 => Nanny Is Less Than 18 Years            
-            */
-            if (check <= 0)
+          
                 dal.updateNanny(n);
-            else
-                new Exception("the details of the  Nanny you tried to add are wrong");
-
+         
         }
 
 

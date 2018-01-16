@@ -80,7 +80,7 @@ namespace DAL
         public void deleteContract(Contract c)
         {
             DataSource.contracts.Remove(c);
-            c.n.contracts--;
+        
         }
         /// <summary>
         /// Delete A Mom - In Case She Doesn't Exist Throw An exeption

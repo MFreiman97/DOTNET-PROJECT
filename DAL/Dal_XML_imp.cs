@@ -100,7 +100,7 @@ namespace DAL
             SaveContracts();
         }//
 
-        private void SaveContracts()
+        public void SaveContracts()
         {
             FileStream file = new FileStream(ContractPath, FileMode.Create);
             XmlSerializer xmlSerializer = new XmlSerializer(DataSource.contracts.GetType());
@@ -117,7 +117,7 @@ namespace DAL
             SaveMothers();
         }//
 
-        private void SaveMothers()
+        public void SaveMothers()
         {
             FileStream file = new FileStream(MotherPath, FileMode.Create);
             XmlSerializer xmlSerializer = new XmlSerializer(DataSource.mothers.GetType());
@@ -132,7 +132,7 @@ namespace DAL
             SaveNannies();
         }//
 
-        private void SaveNannies()
+        public void SaveNannies()
         {
             FileStream file = new FileStream(NannyPath, FileMode.Create);
             XmlSerializer xmlSerializer = new XmlSerializer(DataSource.nannies.GetType());
@@ -162,7 +162,7 @@ namespace DAL
         {
             if (GetContract(c.contnum) != null)
             {
-                c.n.contracts--;
+              
     
                 int index = DataSource.contracts.FindIndex(x => x.contnum == c.contnum);// i need to use the icomparable 
                 if (index != -1)
@@ -330,9 +330,8 @@ namespace DAL
             ChildElement.Element("OtherDetails").Element("Nannyid").Value = c.nannyID.ToString();
             ChildElement.Element("OtherDetails").Element("Motherid").Value = c.momId.ToString();
             ChildElement.Element("OtherDetails").Element("firstName").Value = c.name;
-            ChildElement.Element("OtherDetails").Element("birth").Element("year").Value = c.birth.Year.ToString();
-            ChildElement.Element("OtherDetails").Element("birth").Element("month").Value = c.birth.Month.ToString();
-            ChildElement.Element("OtherDetails").Element("birth").Element("day").Value = c.birth.Day.ToString();
+            ChildElement.Element("OtherDetails").Element("birth").Value = c.birth.ToString();
+          
 
             ChildRoot.Save(ChildPath);
         }//
