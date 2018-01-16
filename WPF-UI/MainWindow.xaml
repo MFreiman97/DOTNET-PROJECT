@@ -11,7 +11,7 @@
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
              
-          Background="Cornsilk"    >
+          Background="Cornsilk"   Height="700" Width="1000"  WindowStartupLocation="CenterScreen" >
     <Window.Resources>
         <local:IDChildToName
          x:Key="IDChildToName" />
@@ -50,7 +50,6 @@
 
                 <Button x:Name="LinqButton" Style="{StaticResource ModernButt}"    Content="linq"  Margin="10,22,11,0"  Click="LinqButton_Click" RenderTransformOrigin="-0.417,1.663"/>
                 <Button x:Name="Deletions"  Style="{StaticResource ModernButt}"  Content="Deletions"  Height="83"  Width="230" Margin="11,21,10,0" Grid.Column="2" Click="Deletions_Click" Grid.Row="2" />
-                <Button x:Name="Updating"  Style="{StaticResource ModernButt}"  Content="Updating"  Height="83"  Width="230" Margin="12,22,10,0" Grid.Column="1"  Grid.Row="1"  />
 
 
             </Grid>

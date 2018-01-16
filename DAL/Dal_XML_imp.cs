@@ -8,21 +8,22 @@ using System.Xml.Linq;
 using System.IO;
 using System.Xml.Serialization;
 using DS;
+using System.Reflection;
+using System.ComponentModel;
+
 namespace DAL
 {
    public class Dal_XML_imp : Idal
     {
         public static int Contnum = 1;
         public Dal_XML_imp()
-        {  LoadMothers();
-            LoadNannies();
-           
+        {  
      
             if (!File.Exists(ChildPath))
                 CreateFiles();
             else
                 LoadData();
-              LoadContracts();
+          
           
 
 
@@ -35,7 +36,7 @@ namespace DAL
             ChildRoot.Save(ChildPath);
         }//
 
-        private void LoadData()
+        private void LoadData()///////
         {
           
                 ChildRoot = XElement.Load(ChildPath);
@@ -71,11 +72,11 @@ namespace DAL
        public string MotherPath = @"MotherXml.xml";
       public  string NannyPath = @"NannyXml.xml";
      public   string ContractPath = @"ContractXml.xml";
-        public void addChild(Child c)
+        public void addChild(Child c)//*************************
         {
             if (GetChild(c.id) == null)
             {
-                DataSource.childs.Add(c);
+           
                 XElement firstName = new XElement("firstName", c.name);
 
 
@@ -83,7 +84,6 @@ namespace DAL
                 XElement id = new XElement("id", c.id);
                 XElement special = new XElement("special", c.special);
                 XElement kindSpecial = new XElement("kindSpecial", c.kindSpecial);
-
                 XElement Nannyid = new XElement("Nannyid", c.nannyID);
                 XElement Motherid = new XElement("Motherid", c.momId);
                 XElement OtherDetails = new XElement("OtherDetails", firstName, Nannyid, birth, Motherid);
@@ -91,56 +91,7 @@ namespace DAL
                 ChildRoot.Save(ChildPath);
             }
         }
-
-        public void addContract(Contract c)
-        {
-            DataSource.contracts.Add(c);
-            c.n.contracts++;
-            c.contnum = Contnum++;
-            SaveContracts();
-        }//
-
-        public void SaveContracts()
-        {
-            FileStream file = new FileStream(ContractPath, FileMode.Create);
-            XmlSerializer xmlSerializer = new XmlSerializer(DataSource.contracts.GetType());
-            xmlSerializer.Serialize(file, DataSource.contracts);
-            file.Close();
-        }
-
-        public void addMom(Mother m)
-        {
-            if (GetMother(m.id) == null)
-            {
-                DataSource.mothers.Add(m);
-            }
-            SaveMothers();
-        }//
-
-        public void SaveMothers()
-        {
-            FileStream file = new FileStream(MotherPath, FileMode.Create);
-            XmlSerializer xmlSerializer = new XmlSerializer(DataSource.mothers.GetType());
-            xmlSerializer.Serialize(file, DataSource.mothers);
-            file.Close();
-        }
-
-        public void addNanny(Nanny n)
-        {
-            if (GetNanny(n.id) == null)
-            DataSource.nannies.Add(n);
-            SaveNannies();
-        }//
-
-        public void SaveNannies()
-        {
-            FileStream file = new FileStream(NannyPath, FileMode.Create);
-            XmlSerializer xmlSerializer = new XmlSerializer(DataSource.nannies.GetType());
-            xmlSerializer.Serialize(file, DataSource.nannies);
-            file.Close();
-        }
-
-        public void deleteChild(Child c)
+         public void deleteChild(Child c)
         {
             XElement ChildElement;
             try
@@ -150,176 +101,86 @@ namespace DAL
                                   select p).FirstOrDefault();
                 ChildElement.Remove();
                 ChildRoot.Save(ChildPath);
-                DataSource.childs.Remove(c);
+              
             }
             catch
             {
                 new Exception("The Child you tried to remove wasnt exist");
             }
-        }
-
-        public void deleteContract(Contract c)
-        {
-            if (GetContract(c.contnum) != null)
-            {
-              
-    
-                int index = DataSource.contracts.FindIndex(x => x.contnum == c.contnum);// i need to use the icomparable 
-                if (index != -1)
-                {
-                    DataSource.contracts.RemoveAt(index);
-                   
-                }
-                SaveContracts();
-                LoadContracts();
-            
-            }
-            else
-                throw new Exception("the Contract you tried to delete wasnt exist!");
-
-        }//
-
-        public void deleteMom(Mother m)
-        {
-            if (GetMother(m.id) != null)
-            {
-               
-
-                int index = DataSource.mothers.FindIndex(x => x.id == m.id);// i need to use the icomparable 
-                if (index != -1)
-                {
-                    DataSource.mothers.RemoveAt(index);
-
-                }
-                SaveMothers();
-                LoadMothers();
-
-            }
-           
-            else
-                throw new Exception("the Mother you tried to delete wasnt exist!");
-
-        }
-
-        public void deleteNanny(Nanny n)
-        {
-            if (GetNanny(n.id) != null)
-            {
-                int index = DataSource.nannies.FindIndex(x => x.id == n.id);// i need to use the icomparable 
-                if (index != -1)
-                {
-                    DataSource.nannies.RemoveAt(index);
-
-                }
-                SaveNannies();
-                LoadNannies();
-
-            }
-            else
-                throw new Exception("the Nanny you tried to delete wasnt exist!");
-
-        }
-
-        public IEnumerable<Child> GetAllChilds(Func<Child, bool> predicat = null)//need to be linqto xml
-        {
-            LoadData();
-
-
-            if (predicat == null)
-                return DataSource.childs.AsEnumerable();
-
-            return DataSource.childs.Where(predicat);
-
-
-
-
-        }//
-
-        public IEnumerable<Child> GetAllChildsByMother(Mother m)
+        }//*********************
+       public IEnumerable<Child> GetAllChildsByMother(Mother m)
         {
             var v = GetAllChilds();
             return v.Where(i => i.mom.id == m.id);
-        }//
-
-        public IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null)
+        }//***********************
+     public IEnumerable<Child> GetAllChilds(Func<Child, bool> predicat = null)//**************
         {
-            LoadContracts();
+
             if (predicat == null)
-                return DataSource.contracts.AsEnumerable();
+            {
+                return from item in ChildRoot.Elements()
+                       select ConvertChild(item);
+            }
 
-            return DataSource.contracts.Where(predicat);
+            return from item in ChildRoot.Elements()
+                   let s = ConvertChild(item)
+                   where predicat(s)
+                   select s;
 
-        }//
 
-        private void LoadContracts()
-        {
-            FileStream file = new FileStream(ContractPath, FileMode.Open);
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Contract>));
-            DataSource.contracts = (List<Contract>)xmlSerializer.Deserialize(file);
-            file.Close();
-        }
 
-        public IEnumerable<Mother> GetAllMothers(Func<Mother, bool> predicat = null)
-        {
-            LoadMothers();
-            if (predicat == null)
-                return DataSource.mothers.AsEnumerable();
 
-            return DataSource.mothers.Where(predicat);
 
         }//
 
-        private void LoadMothers()
+        private Child ConvertChild(XElement c)
         {
-            FileStream file = new FileStream(MotherPath, FileMode.Open);
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Mother>));
-            DataSource.mothers = (List<Mother>)xmlSerializer.Deserialize(file);
-            file.Close();
-        }
+            Child ch = new Child();
 
-        public IEnumerable<Nanny> GetAllNannies(Func<Nanny, bool> predicat = null)
-        {
-            LoadNannies();
-            if (predicat == null)
-                return DataSource.nannies.AsEnumerable();
+            foreach (PropertyInfo item in typeof(BE.Child).GetProperties())
+            {
+                TypeConverter typeConverter = TypeDescriptor.GetConverter(item.PropertyType);
+                object convertValue = typeConverter.ConvertFromString(c.Element(item.Name).Value);
 
-            return DataSource.nannies.Where(predicat);
+                if (item.CanWrite)
+                    item.SetValue(ch, convertValue);
+            }
 
-        }//
-
-        private void LoadNannies()
-        {
-            FileStream file = new FileStream(NannyPath, FileMode.Open);
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Nanny>));
-            DataSource.nannies = (List<Nanny>)xmlSerializer.Deserialize(file);
-            file.Close();
-        }
+            return ch;
+        }//*********************
 
         public Child GetChild(int id)
         {
-              LoadData();
-            return DataSource.childs.Find(c => c.id == id);
-        }
+            XElement c = null;
 
-        public Contract GetContract(int cont)
-        {
-            LoadContracts();
-            return DataSource.contracts.Find(n => n.contnum == cont);
+            try
+            {
+                c = (from item in ChildRoot.Elements()
+                       where int.Parse(item.Element("id").Value) == id
+                       select item).FirstOrDefault();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
 
-        }//
+            if (c == null)
+                return null;
+            Child ch = new Child();
 
-        public Mother GetMother(int id)
-        {
-            LoadMothers();
-            return DataSource.mothers.Find(m => m.id == id);
-        }
+            foreach (PropertyInfo item in typeof(BE.Child).GetProperties())
+            {
+                TypeConverter typeConverter = TypeDescriptor.GetConverter(item.PropertyType);
+                object convertValue = typeConverter.ConvertFromString(c.Element(item.Name).Value);
 
-        public Nanny GetNanny(int id)
-        {
-            LoadNannies();
-            return DataSource.nannies.Find(n => n.id == id);
-        }
+                if (item.CanWrite)
+                    item.SetValue(ch, convertValue);
+            }
 
+            return ch;
+
+
+        }//*****************
         public void updateChild(Child c)
         {
             XElement ChildElement = (from p in ChildRoot.Elements()
@@ -331,42 +192,273 @@ namespace DAL
             ChildElement.Element("OtherDetails").Element("Motherid").Value = c.momId.ToString();
             ChildElement.Element("OtherDetails").Element("firstName").Value = c.name;
             ChildElement.Element("OtherDetails").Element("birth").Value = c.birth.ToString();
+            ChildElement.Element("special").Value = c.special.ToString();
+            ChildElement.Element("kindSpecial").Value = c.kindSpecial;
+            ChildRoot.Save(ChildPath);
+
+        }//*****************
+
+
+         public static void SaveToXML<T>(List<T> source, string path)
+        {
+            FileStream file = new FileStream(path, FileMode.Create);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<T>));
+            xmlSerializer.Serialize(file, source);
+            file.Close();
+        }
+        public static List<T> LoadFromXML<T>(string path)
+        {      if (!File.Exists(path))
+            {
+                FileStream file_ = new FileStream(path, FileMode.Create);
+                XmlSerializer xmlSerializer_ = new XmlSerializer(typeof(List<T>));
+                xmlSerializer_.Serialize(file_,new List<T>());
+                file_.Close();
+            }
+                FileStream file = new FileStream(path, FileMode.OpenOrCreate);
+       
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<T>));
+                List<T> result = (List<T>)xmlSerializer.Deserialize(file);
+                file.Close();
+                return result;
+                
+        }
+
+
+
+        public void addContract(Contract c)
+        {
+            List<Contract> ContractList = LoadFromXML<Contract>(ContractPath).ToList();
+            List<Nanny> NannyList = LoadFromXML<Nanny>(NannyPath).ToList();
+            var childs = GetAllChilds().ToList();
+            Child temp = childs.Find(x => x.id == c.c.id);
+            
+      Nanny na=      NannyList.Find(n => n.id == c.n.id);
+            temp.nannyID = na.id;
+            na.contracts++;
+            updateNanny(na);
+
+            updateChild(temp);
+            c.n.contracts++;
+            c.contnum = Contnum++;
+            ContractList.Add(c);
+            SaveToXML<Nanny>(NannyList, NannyPath);
+            SaveToXML<Contract>(ContractList, ContractPath);
+
+
+        }//****************
+        public void SaveContracts()
+        {
+            FileStream file = new FileStream(ContractPath, FileMode.Create);
+            XmlSerializer xmlSerializer = new XmlSerializer(DataSource.contracts.GetType());
+            xmlSerializer.Serialize(file, DataSource.contracts);
+            file.Close();
+        }
+
+        public void addMom(Mother mo)
+        {
+            List<Mother> MotherList = LoadFromXML<Mother>(MotherPath).ToList();
+        var temp=    MotherList.Find(m => m.id == mo.id);
+            if (temp != null)
+            {
+             //   throw new Exception("The mother is exist!");
+
+            }
+            MotherList.Add(mo);
+            SaveToXML<Mother>(MotherList, MotherPath);
+
+        }//****************
+
+        public void SaveMothers()
+        {
+            FileStream file = new FileStream(MotherPath, FileMode.Create);
+            XmlSerializer xmlSerializer = new XmlSerializer(DataSource.mothers.GetType());
+            xmlSerializer.Serialize(file, DataSource.mothers);
+            file.Close();
+        }
+
+        public void addNanny(Nanny n)
+        {
+            List<Nanny> NannyList = LoadFromXML<Nanny>(NannyPath).ToList();
+            var temp = NannyList.Find(na => na.id == n.id);
+            if (temp != null)
+            {
+     
+            }
+            NannyList.Add(n);
+            SaveToXML<Nanny>(NannyList, NannyPath);
+        }//****************
+
+        public void SaveNannies()
+        {
+            FileStream file = new FileStream(NannyPath, FileMode.Create);
+            XmlSerializer xmlSerializer = new XmlSerializer(DataSource.nannies.GetType());
+            xmlSerializer.Serialize(file, DataSource.nannies);
+            file.Close();
+        }
+
+     
+
+        public void deleteContract(Contract c)//????????????????????
+        {
+            List<Contract> ContractList = LoadFromXML<Contract>(ContractPath);
+            Nanny n = GetNanny(c.n.id);
+            n.contracts--;
+            updateNanny(n);
+            Child chi = GetChild(c.c.id);
+            chi.nannyID = null;
+            updateChild(chi);
+            var x = ContractList.RemoveAll(con => con.contnum == c.contnum);
+            if (x == 0)
+                throw new Exception("No such contract was found");
+            SaveToXML<Contract>(ContractList, ContractPath);
+
+        }//**********
+       
+
+        public void deleteMom(Mother m)
+        {
+            if (GetMother(m.id) != null)
+            {
+
+                List<Mother> MotherList = LoadFromXML<Mother>(MotherPath);
+                int index =MotherList.FindIndex(x => x.id == m.id);
+                if (index != -1)
+                {
+                   MotherList.RemoveAt(index);
+
+                }
+                SaveToXML<Mother>(MotherList, MotherPath);
           
 
-            ChildRoot.Save(ChildPath);
-        }//
+            }
+           
+            else
+                throw new Exception("the Mother you tried to delete wasnt exist!");
+
+        }//********************
+
+        public void deleteNanny(Nanny n)
+        {
+            if (GetNanny(n.id) != null)
+            {
+                List<Nanny> NannyList = LoadFromXML<Nanny>(NannyPath);
+                int index =NannyList.FindIndex(x => x.id == n.id);// i need to use the icomparable 
+                if (index != -1)
+                {
+                   NannyList.RemoveAt(index);
+
+                }
+                SaveToXML<Nanny>(NannyList, NannyPath);
+
+            }
+            else
+                throw new Exception("the Nanny you tried to delete wasnt exist!");
+
+        }//*****************
+
+   
+
+       
+
+        public IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null)
+        {
+            var v= LoadFromXML<Contract>(ContractPath);
+            return v.Where(predicat).AsEnumerable();
+
+        }//******************
+
+        private void LoadContracts()
+        {
+            FileStream file = new FileStream(ContractPath, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Contract>));
+            DataSource.contracts = (List<Contract>)xmlSerializer.Deserialize(file);
+            file.Close();
+        }
+
+        public IEnumerable<Mother> GetAllMothers(Func<Mother, bool> predicat = null)
+        {
+            var v = LoadFromXML<Mother>(MotherPath);
+            return v.Where(predicat).AsEnumerable();
+
+        }//***************
+
+        private void LoadMothers()
+        {
+            FileStream file = new FileStream(MotherPath, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Mother>));
+            DataSource.mothers = (List<Mother>)xmlSerializer.Deserialize(file);
+            file.Close();
+        }
+
+        public IEnumerable<Nanny> GetAllNannies(Func<Nanny, bool> predicat = null)
+        {
+            var v = LoadFromXML<Nanny>(NannyPath);
+            return v.Where(predicat).AsEnumerable();
+
+        }//*****************
+
+        private void LoadNannies()
+        {
+            FileStream file = new FileStream(NannyPath, FileMode.Open);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Nanny>));
+            DataSource.nannies = (List<Nanny>)xmlSerializer.Deserialize(file);
+            file.Close();
+        }
+
+   
+
+        public Contract GetContract(int cont)
+        {
+            var v = LoadFromXML<Contract>(ContractPath);
+            return v.Find(x => x.contnum == cont);
+
+        }//******************
+
+        public Mother GetMother(int id)
+        {
+            var v = LoadFromXML<Mother>(MotherPath);
+            return v.Find(x => x.id == id);
+        }//***************8
+
+        public Nanny GetNanny(int id)
+        {
+            var v = LoadFromXML<Nanny>(NannyPath);
+            return v.Find(x => x.id == id);
+        }//***************
+
+       
 
         public void updateContract(Contract c)
         {
-            LoadContracts();
-            int index = DataSource.contracts.FindIndex(x => x.contnum == c.contnum);// i need to use the icomparable 
+            List<Contract> ListContract = LoadFromXML<Contract>(ContractPath);
+            int index = ListContract.FindIndex(x => x.contnum == c.contnum);// i need to use the icomparable 
             if (index != -1)
             {
-                DataSource.contracts[index] = c;
-                SaveContracts();
+              ListContract[index] = c;
+                SaveToXML<Contract>(ListContract, ContractPath);
             }
         }
 
         public void updateMom(Mother m)
         {
-            LoadMothers();
-            int index = DataSource.mothers.FindIndex(x => x.id ==m.id);// i need to use the icomparable 
+            List<Mother> ListMother = LoadFromXML<Mother>(MotherPath);
+            int index = ListMother.FindIndex(x => x.id ==m.id);// i need to use the icomparable 
             if (index != -1)
             {
-                DataSource.mothers[index] = m;
-                SaveMothers();
+               ListMother[index] = m;
+                SaveToXML<Mother>(ListMother, MotherPath);
 
             }
         }
 
         public void updateNanny(Nanny n)
         {
-            LoadNannies();
-            int index = DataSource.nannies.FindIndex(x => x.id == n.id);// i need to use the icomparable 
+            List<Nanny> ListNanny = LoadFromXML<Nanny>(NannyPath);
+            int index = ListNanny.FindIndex(x => x.id == n.id);// i need to use the icomparable 
             if (index != -1)
             {
-                DataSource.nannies[index] = n;
-                SaveNannies();
+             ListNanny[index] = n;
+                SaveToXML<Nanny>(ListNanny, NannyPath);
 
             }
 

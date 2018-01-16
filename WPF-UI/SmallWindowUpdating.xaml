@@ -11,7 +11,7 @@
         mc:Ignorable="d"
     Validation.Error="validation_Error"  
  
-        Title="Updating Window"   x:Name="MyWindow">
+        Title="Updating Window"   x:Name="MyWindow" Height="700" Width="1000" WindowStyle="None" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid.RowDefinitions>
