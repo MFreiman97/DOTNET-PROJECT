@@ -112,7 +112,10 @@ namespace WPF_UI
             {
                 var Message = await this.ShowMessageAsync("New Update was succeed", "Good Day");
                 if (Message == MessageDialogResult.Affirmative)
+                {
                     this.Close();
+                    bl.refresh();
+                }
             }
         }
     }

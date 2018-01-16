@@ -318,6 +318,11 @@ var v = GetAllContracts();
             }
             return sum;
         }
+
+        public void refresh()
+        {
+            dal = new DAL.Dal_XML_imp();//The ctor of the dal
+        }
         #endregion
     }
   

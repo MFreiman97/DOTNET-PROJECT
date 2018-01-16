@@ -44,6 +44,7 @@ namespace BL
         Contract GetContract(int cont);
         IEnumerable<Child> NeedNanny();
         IEnumerable<Child> GetAllChilds();
+        void refresh();
         IEnumerable<Child> GetSpecialChilds();
         IEnumerable<Nanny> GetAllMatchedNannies(Mother m, Child c, bool salary);
         IEnumerable<Nanny> GetAllNanniesByTerm(Mother m);

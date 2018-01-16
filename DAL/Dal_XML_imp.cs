@@ -12,17 +12,18 @@ namespace DAL
 {
    public class Dal_XML_imp : Idal
     {
+        public static int Contnum = 1;
         public Dal_XML_imp()
-        {
+        {  LoadMothers();
+            LoadNannies();
+           
+     
             if (!File.Exists(ChildPath))
                 CreateFiles();
             else
                 LoadData();
-
-            LoadMothers();
-            LoadNannies();
-           
-            LoadContracts();
+              LoadContracts();
+          
 
 
 
@@ -94,6 +95,8 @@ namespace DAL
         public void addContract(Contract c)
         {
             DataSource.contracts.Add(c);
+            c.n.contracts++;
+            c.contnum = Contnum++;
             SaveContracts();
         }//
 
@@ -159,8 +162,17 @@ namespace DAL
         {
             if (GetContract(c.contnum) != null)
             {
-                DataSource.contracts.Remove(c);
+                c.n.contracts--;
+    
+                int index = DataSource.contracts.FindIndex(x => x.contnum == c.contnum);// i need to use the icomparable 
+                if (index != -1)
+                {
+                    DataSource.contracts.RemoveAt(index);
+                   
+                }
                 SaveContracts();
+                LoadContracts();
+            
             }
             else
                 throw new Exception("the Contract you tried to delete wasnt exist!");
@@ -171,9 +183,19 @@ namespace DAL
         {
             if (GetMother(m.id) != null)
             {
-                DataSource.mothers.Remove(m);
+               
+
+                int index = DataSource.mothers.FindIndex(x => x.id == m.id);// i need to use the icomparable 
+                if (index != -1)
+                {
+                    DataSource.mothers.RemoveAt(index);
+
+                }
                 SaveMothers();
+                LoadMothers();
+
             }
+           
             else
                 throw new Exception("the Mother you tried to delete wasnt exist!");
 
@@ -183,11 +205,18 @@ namespace DAL
         {
             if (GetNanny(n.id) != null)
             {
-                DataSource.nannies.Remove(n);
+                int index = DataSource.nannies.FindIndex(x => x.id == n.id);// i need to use the icomparable 
+                if (index != -1)
+                {
+                    DataSource.nannies.RemoveAt(index);
+
+                }
                 SaveNannies();
+                LoadNannies();
+
             }
             else
-                throw new Exception("the Mother you tried to delete wasnt exist!");
+                throw new Exception("the Nanny you tried to delete wasnt exist!");
 
         }
 

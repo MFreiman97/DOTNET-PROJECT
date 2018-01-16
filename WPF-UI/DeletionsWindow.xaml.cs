@@ -74,7 +74,8 @@ namespace WPF_UI
                     bl.deleteContract(c);
                     dataGridContracts.ItemsSource = null;
                     dataGridContracts.ItemsSource = bl.GetAllContracts();
-                    this.ShowMessageAsync("New Contract was deleted successfully!", "");
+                    dataGridContracts.SelectedValuePath = "contnum";
+                    this.ShowMessageAsync("The Contract was deleted successfully!", "");
 
                 }
                 catch (Exception ex)
@@ -108,7 +109,7 @@ namespace WPF_UI
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGridMothers.SelectedValue != null)
+            if (dataGridNannies.SelectedValue != null)
             {
                 try
                 {
