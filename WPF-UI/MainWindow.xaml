@@ -102,7 +102,7 @@
 
                 <Grid x:Name="GridContract" HorizontalAlignment="Left" Height="381" Margin="10,68,0,0" VerticalAlignment="Top" Width="734">
 
-                    <DataGrid x:Name="dataGridContract" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnContract">
+                    <DataGrid x:Name="dataGridContract" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="DoubleClickedOnContract">
 
 
                         <DataGrid.Columns>
