@@ -87,7 +87,8 @@ namespace DAL
                 XElement Nannyid = new XElement("Nannyid", c.nannyID);
                 XElement Motherid = new XElement("Motherid", c.momId);
                 XElement OtherDetails = new XElement("OtherDetails", firstName, Nannyid, birth, Motherid);
-                ChildRoot.Add(new XElement("Child", id, OtherDetails, special, kindSpecial));
+                XElement FullName = new XElement("FullName", c.FullName);
+                ChildRoot.Add(new XElement("Child", id, OtherDetails, special, kindSpecial, FullName));
                 ChildRoot.Save(ChildPath);
             }
         }
@@ -149,6 +150,7 @@ namespace DAL
             ch.birth = DateTime.Parse(ChildElement.Element("OtherDetails").Element("birth").Value);
             ch.special = bool.Parse(ChildElement.Element("special").Value);
             ch.kindSpecial=ChildElement.Element("kindSpecial").Value;
+            ch.FullName = ChildElement.Element("FullName").Value;
 
             return ch;
         }//*********************
@@ -191,6 +193,7 @@ namespace DAL
             ChildElement.Element("OtherDetails").Element("birth").Value = c.birth.ToString();
             ChildElement.Element("special").Value = c.special.ToString();
             ChildElement.Element("kindSpecial").Value = c.kindSpecial;
+            ChildElement.Element("FullName").Value = c.FullName;
             ChildRoot.Save(ChildPath);
 
         }//*****************

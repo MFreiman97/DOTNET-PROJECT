@@ -18,6 +18,14 @@ namespace BL
             dal = new DAL.Dal_XML_imp();
 
         }
+    public    void SetFullName(int ChildID)
+        {
+            Child c = GetChild(ChildID);
+            Mother m = GetMother(c.momId);
+            c.FullName = c.name + " " + m.lName;
+            updateChild(c);
+
+        }
         #region adding functions
         /// <summary>
         /// Adding the child to the repository
@@ -26,6 +34,8 @@ namespace BL
         public void addChild(Child ch)
         {
             dal.addChild(ch);
+            SetFullName(ch.id);
+
         }
         /// <summary>
         /// Adding the Contract to the repository
@@ -165,6 +175,12 @@ namespace BL
         public void updateMom(Mother m)
         {
             dal.updateMom(m);
+            foreach(var item in GetAllChilds())
+            {
+                if(item.momId==m.id)
+                    SetFullName(item.id);
+
+            }
         }
         /// <summary>
         /// Updating the Nanny by overriding . the  

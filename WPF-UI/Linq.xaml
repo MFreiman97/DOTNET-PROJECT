@@ -161,12 +161,17 @@
                                                     <ListView.ItemTemplate>
                                                         <DataTemplate>
                                                             <TextBlock DataContext="{Binding}">
-                                                         
+                                                         <TextBlock>
                                                                 <Run Text="Nanny: " />
                                                                <Run Text="{Binding  id , Converter= {StaticResource ResourceKey=IDNannyToName},Mode=OneWay}" />
+                                                          
                                                                 <Run Text=", Contracts:" />
-                                                               <Run Text="{Binding id ,Converter= {StaticResource ResourceKey=IDNannyToContracts}}" />
-                                                      
+                                                            </TextBlock>
+                                                                <TextBlock TextWrapping="Wrap"
+           TextAlignment="Left"  Text="{Binding id ,Converter= {StaticResource ResourceKey=IDNannyToContracts},Mode=OneWay}">
+                                                             
+                                                             
+                                                      </TextBlock>
 
 
                                                             </TextBlock>

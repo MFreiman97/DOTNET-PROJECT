@@ -89,11 +89,7 @@ namespace BE
         
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string FullName
-        {
-            get { return name+ " "; }
-        
-        }
+        public string FullName { get; set; }
         //protected void OnPropertyChanged(string name)
         //{
         //    PropertyChangedEventHandler handler = PropertyChanged;

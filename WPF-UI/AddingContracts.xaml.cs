@@ -51,8 +51,10 @@ namespace WPF_UI
             str = new List<Nanny>();
             this.comboBoxChild.Text = "-";
             this.comboBoxChild.ItemsSource = bl.NeedNanny();
-            this.comboBoxChild.DisplayMemberPath = "FullName";
             this.comboBoxChild.SelectedValuePath = "id";
+            this.comboBoxChild.DisplayMemberPath = "FullName";
+
+
             this.TypecomboBox.ItemsSource = Enum.GetValues(typeof(BE.ContractType));
             Cont = new Contract();
             this.DataContext = Cont;
@@ -85,9 +87,12 @@ namespace WPF_UI
                     t.Start();
                     var Message = await this.ShowMessageAsync("New Contract was added successfully!", "Good Day!!!");
                     this.comboBoxChild.ItemsSource = null;
-                    this.comboBoxChild.ItemsSource = bl.NeedNanny();
+      
+                    this.comboBoxChild.DataContext = bl.NeedNanny();
                     this.comboBoxChild.DisplayMemberPath = "FullName";
+
                     this.comboBoxChild.SelectedValuePath = "id";
+        
                     dataGridNannies.ItemsSource = null;
 
                     if (Message == MessageDialogResult.Affirmative)

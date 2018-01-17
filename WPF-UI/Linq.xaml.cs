@@ -215,10 +215,10 @@ namespace WPF_UI
             {
                 if(item.n.id==m.id)
                 {
-                    temp +=',' +item.contnum;
+                    temp += item.contnum+",";
                 }
             }
-            targetType = typeof(string);
+       
             return temp;
 
         }
@@ -228,5 +228,8 @@ namespace WPF_UI
             throw new NotImplementedException();
         }
     }
+   
+     
+    
 }
 
