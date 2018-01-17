@@ -44,8 +44,8 @@ namespace WPF_UI
             if (obj is Child)
             {
                 WhatToShowTB.Text = "Child";
-
-                Child c = obj as Child;
+                 c = new Child();
+                c = obj as Child;
                 DetailsOfChild.DataContext = c;
 
 
@@ -53,7 +53,8 @@ namespace WPF_UI
             if (obj is Mother)
             {
                 WhatToShowTB.Text = "Mother";
-                Mother m = obj as Mother;
+                m = new Mother();
+              m = obj as Mother;
                 DetailsOfMother.DataContext = m;
                 if (bl.GetNumOfContracts(m) == 0)
                 {
@@ -69,7 +70,8 @@ namespace WPF_UI
             if (obj is Nanny)
             {
                 WhatToShowTB.Text = "Nanny";//using the trigger
-                Nanny n = obj as Nanny;
+                n = new Nanny();
+                 n = obj as Nanny;
                 DetailsOfNanny.DataContext = n;
 
                 if (bl.GetNumOfContracts(n) == 0)
@@ -86,7 +88,8 @@ namespace WPF_UI
             if (obj is Contract)
             {
                 WhatToShowTB.Text = "Contract";//using the trigger
-                Contract co = obj as Contract;
+                co = new Contract();
+                 co = obj as Contract;
                 DetailsOfContract.DataContext = co;
             }
 
@@ -115,19 +118,19 @@ namespace WPF_UI
             {
                 if (WhatToShowTB.Text == "Child")
                 {
-                    c = MyObj as Child;
+                  
                     bl.updateChild(c);
 
                 }
                 if (WhatToShowTB.Text == "Mother")
                 {
-                    m = MyObj as Mother;
+             
                     bl.updateMom(m);
 
                 }
                 if (WhatToShowTB.Text == "Nanny")
                 {
-                    n = MyObj as Nanny;
+                
                     bl.updateNanny(n);
 
                 }

@@ -133,18 +133,22 @@ namespace DAL
 
         }//
 
-        private Child ConvertChild(XElement c)
+        private Child ConvertChild(XElement ChildElement)
         {
             Child ch = new Child();
 
-            foreach (PropertyInfo item in typeof(BE.Child).GetProperties())
-            {
-                TypeConverter typeConverter = TypeDescriptor.GetConverter(item.PropertyType);
-                object convertValue = typeConverter.ConvertFromString(c.Element(item.Name).Value);
 
-                if (item.CanWrite)
-                    item.SetValue(ch, convertValue);
-            }
+            ch.id = int.Parse(ChildElement.Element("id").Value);
+            int result;
+            if (int.TryParse(ChildElement.Element("OtherDetails").Element("Nannyid").Value, out result) == true)
+                ch.nannyID = int.Parse(ChildElement.Element("OtherDetails").Element("Nannyid").Value);
+            else
+                ch.nannyID = null;
+            ch.momId = int.Parse(ChildElement.Element("OtherDetails").Element("Motherid").Value);
+            ch.name = ChildElement.Element("OtherDetails").Element("firstName").Value;
+            ch.birth = DateTime.Parse(ChildElement.Element("OtherDetails").Element("birth").Value);
+            ch.special = bool.Parse(ChildElement.Element("special").Value);
+            ch.kindSpecial=ChildElement.Element("kindSpecial").Value;
 
             return ch;
         }//*********************
@@ -168,14 +172,7 @@ namespace DAL
                 return null;
             Child ch = new Child();
 
-            foreach (PropertyInfo item in typeof(BE.Child).GetProperties())
-            {
-                TypeConverter typeConverter = TypeDescriptor.GetConverter(item.PropertyType);
-                object convertValue = typeConverter.ConvertFromString(c.Element(item.Name).Value);
-
-                if (item.CanWrite)
-                    item.SetValue(ch, convertValue);
-            }
+            ch = ConvertChild(c);
 
             return ch;
 
