@@ -55,7 +55,7 @@ namespace WPF_UI
             try
             {
 
-                ch.mom = bl.GetMother((int)comboBoxMothers.SelectedValue);
+          
                 ch.id = int.Parse(IDtextBox.Text);
                 ch.momId = ((int)comboBoxMothers.SelectedValue);
                 ch.name = NAMEtextBox.Text;
@@ -97,7 +97,7 @@ namespace WPF_UI
         {
             ch = new Child()
             {
-                mom = bl.GetMother(int.Parse(comboBoxMothers.Text)),
+         
                 id = int.Parse(IDtextBox.Text),
                 momId = int.Parse(comboBoxMothers.Text),
                 name = NAMEtextBox.Text,

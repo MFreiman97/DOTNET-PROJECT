@@ -33,17 +33,17 @@ namespace BL
         /// <param name="ch"></param>
         public void addContract(Contract cont)
         {
-            Child ch = cont.c; // Get The Child (Of The Contract)
+            Child ch = dal.GetChild(cont.ChildId); // Get The Child (Of The Contract)
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
             if (cont.DateEnd.CompareTo(DateTime.Now) < 0)
                  new Exception("The end of the contract have to be later than the starting date");
             if (childAge(ch) == true && nannyContracts(na) == true)
             {
-                     cont.distance = CalculateDistance(ch.mom.address, na.address);
+                     cont.distance = CalculateDistance(dal.GetMother(ch.momId).address, na.address);
             
                 cont.SalaryPerMonth = monthSalary(cont, ch, na);
                 cont.n.MonthSalary += cont.SalaryPerMonth;
-                cont.c.nannyID = cont.n.id;//refreshing the data in the child
+                GetChild(cont.ChildId).nannyID = cont.n.id;//refreshing the data in the child
                 cont.DateBegin = DateTime.Now;
                 cont.Meet = true;
                 dal.addContract(cont);
@@ -89,7 +89,7 @@ namespace BL
         {
             if (ch == null)
                 throw new Exception("The Child U Tried To Delete Wasn't Exist!");
-            if (dal.GetAllContracts(item => item.c.id == ch.id).Any())
+            if (dal.GetAllContracts(item => item.ChildId == ch.id).Any())
                 throw new Exception("There R Contracts Related To This Child");
 
             dal.deleteChild(ch);
@@ -99,8 +99,7 @@ namespace BL
         {
             if (c == null)
                 throw new Exception("The Contract U Tried To Delete Wasn't Exist!");
-            c.c.nannyID = null;
-            c.n.contracts--;
+  
             dal.deleteContract(c);
 
         }
@@ -148,7 +147,7 @@ namespace BL
         /// <param name="c"></param>
         public void updateContract(Contract cont)
         {
-            Child ch = cont.c; // Get The Child (Of The Contract)
+            Child ch = GetChild(cont.ChildId); // Get The Child (Of The Contract)
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
             if (childAge(ch) == true && nannyContracts(na) == true)
             {

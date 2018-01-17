@@ -7,6 +7,8 @@
          x:Key="IDChildToName" />
         <local:IDNannyToName
          x:Key="IDNannyToName" />
+        <local:IDNannyToContracts
+         x:Key="IDNannyToContracts" />
     </Window.Resources>
     <Grid>
         <Button x:Name="Back" Content="{iconPacks:FontAwesome Kind=ArrowLeftSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="46" Click="Back_Click" RenderTransformOrigin="-2.826,0.178" Margin="586,0,0,648" />
@@ -55,7 +57,7 @@
                                                                <Run Text=",Years Of experience: " />
                                                                <Run Text="{Binding experience,Mode=OneWay}" />
                                                                <Run Text=",Number of Contracts " />
-                                                               <Run Text="{Binding contracts,Mode=OneWay}" />
+                                                               <Run Text="{Binding Contracts,Mode=OneWay}" />
 
                                                             </TextBlock>
                                                         </DataTemplate>
@@ -124,7 +126,7 @@
                                                                <Run Text="Number:" />
                                                                <Run Text="{Binding contnum,Mode=OneWay}" />
                                                                 <Run Text=",Child: " />
-                                                               <Run Text="{Binding c.id , Converter= {StaticResource ResourceKey=IDChildToName}}" />
+                                                               <Run Text="{Binding c.ChildId , Converter= {StaticResource ResourceKey=IDChildToName}}" />
                                                                 <Run Text=",Nanny:" />
                                                                <Run Text="{Binding  n.id , Converter= {StaticResource ResourceKey=IDNannyToName}}" />
                                                                <Run Text=",Distance: " />
@@ -141,9 +143,47 @@
                                 </ListView.ItemTemplate>
                             </ListView>
                         </TabItem>
+                        <TabItem Header="Nanny By Contracts">
+                            <ListView x:Name="NannyByContracts" Width="auto" Height="343">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel MaxWidth="{Binding ActualWidth, ElementName=metroWindow, Mode=OneWay}" Height="151" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderThickness="2" BorderBrush="Navy" Margin="5">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Path=Key}" FontSize="16" Foreground="Navy" TextAlignment="Center" />
+                                                <ListView ItemsSource="{Binding}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock DataContext="{Binding}">
+                                                         
+                                                                <Run Text="Nanny: " />
+                                                               <Run Text="{Binding  id , Converter= {StaticResource ResourceKey=IDNannyToName},Mode=OneWay}" />
+                                                                <Run Text=", Contracts:" />
+                                                               <Run Text="{Binding id ,Converter= {StaticResource ResourceKey=IDNannyToContracts}}" />
+                                                      
+
+
+                                                            </TextBlock>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </TabItem>
+
                     </TabControl>
                 </StackPanel>
             </TabItem>
+            
         </TabControl>
     </Grid>
 </controls:MetroWindow>

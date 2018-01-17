@@ -52,7 +52,7 @@ namespace DAL
                                              kindSpecial = stu.Element("kindSpecial").Value,
                                              special = bool.Parse(stu.Element("special").Value),
                                              birth = DateTime.Parse(stu.Element("OtherDetails").Element("birth").Value),
-                                             mom = GetMother(int.Parse(stu.Element("OtherDetails").Element("Motherid").Value))
+                                         
 
 
                                          }).ToList();
@@ -111,7 +111,7 @@ namespace DAL
        public IEnumerable<Child> GetAllChildsByMother(Mother m)
         {
             var v = GetAllChilds();
-            return v.Where(i => i.mom.id == m.id);
+            return v.Where(i => (i.momId) == m.id);
         }//***********************
      public IEnumerable<Child> GetAllChilds(Func<Child, bool> predicat = null)//**************
         {
@@ -227,7 +227,7 @@ namespace DAL
             List<Contract> ContractList = LoadFromXML<Contract>(ContractPath).ToList();
             List<Nanny> NannyList = LoadFromXML<Nanny>(NannyPath).ToList();
             var childs = GetAllChilds().ToList();
-            Child temp = childs.Find(x => x.id == c.c.id);
+            Child temp = childs.Find(x => x.id == c.ChildId);
             
       Nanny na=      NannyList.Find(n => n.id == c.n.id);
             temp.nannyID = na.id;
@@ -257,7 +257,7 @@ namespace DAL
         var temp=    MotherList.Find(m => m.id == mo.id);
             if (temp != null)
             {
-             //   throw new Exception("The mother is exist!");
+                return;
 
             }
             MotherList.Add(mo);
@@ -279,7 +279,7 @@ namespace DAL
             var temp = NannyList.Find(na => na.id == n.id);
             if (temp != null)
             {
-     
+                return;
             }
             NannyList.Add(n);
             SaveToXML<Nanny>(NannyList, NannyPath);
@@ -301,7 +301,7 @@ namespace DAL
             Nanny n = GetNanny(c.n.id);
             n.contracts--;
             updateNanny(n);
-            Child chi = GetChild(c.c.id);
+            Child chi = GetChild(c.ChildId);
             chi.nannyID = null;
             updateChild(chi);
             var x = ContractList.RemoveAll(con => con.contnum == c.contnum);
@@ -360,7 +360,9 @@ namespace DAL
         public IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null)
         {
             var v= LoadFromXML<Contract>(ContractPath);
+            if (predicat != null) 
             return v.Where(predicat).AsEnumerable();
+            return v.AsEnumerable();
 
         }//******************
 
@@ -375,7 +377,10 @@ namespace DAL
         public IEnumerable<Mother> GetAllMothers(Func<Mother, bool> predicat = null)
         {
             var v = LoadFromXML<Mother>(MotherPath);
-            return v.Where(predicat).AsEnumerable();
+            if (predicat != null)
+                return v.Where(predicat).AsEnumerable();
+            else
+                return v.AsEnumerable();
 
         }//***************
 
@@ -390,7 +395,10 @@ namespace DAL
         public IEnumerable<Nanny> GetAllNannies(Func<Nanny, bool> predicat = null)
         {
             var v = LoadFromXML<Nanny>(NannyPath);
-            return v.Where(predicat).AsEnumerable();
+            if (predicat != null)
+                return v.Where(predicat).AsEnumerable();
+            else
+                return v.AsEnumerable();
 
         }//*****************
 

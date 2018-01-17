@@ -10,7 +10,7 @@ namespace BE//
     {
         private int Contnum;
         public Nanny n { get; set; }
-        public Child c { get; set; }
+        public int ChildId { get; set; }
         public bool Meet { get; set; }
         public bool Signature { get; set; }
         public double? SalaryPerHour { get; set; }
@@ -38,7 +38,7 @@ namespace BE//
         public override string ToString()
         {
             //string str=format
-            return "Contract: " + string.Format("{0:00000000}", contnum) + " Nanny: " + n.ToString() + " Child: " + c.ToString();
+            return "Contract: " + string.Format("{0:00000000}", contnum) ;
         }
 
         public int CompareTo(object obj)

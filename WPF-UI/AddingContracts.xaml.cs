@@ -77,7 +77,7 @@ namespace WPF_UI
                 {
 
                     Cont.n = bl.GetNanny((int)dataGridNannies.SelectedValue);
-                    Cont.c = bl.GetChild((int)comboBoxChild.SelectedValue);
+                    Cont.ChildId =(int)comboBoxChild.SelectedValue;
 
 
 
@@ -110,7 +110,7 @@ namespace WPF_UI
             {
                 work = new BackgroundWorker();
                 work.WorkerSupportsCancellation = true;
-                Cont.c = bl.GetChild((int)comboBoxChild.SelectedValue);
+                Cont.ChildId = (int)comboBoxChild.SelectedValue;
 
 
                 child = bl.GetChild((int)comboBoxChild.SelectedValue);
@@ -180,7 +180,7 @@ namespace WPF_UI
             {
               
 
-                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom,Cont.c, true))
+                foreach (var item in bl.GetAllMatchedNannies(bl.GetMother(bl.GetChild(Cont.ChildId).momId), bl.GetChild(Cont.ChildId), true))
                 {
 
                     str.Add(item);
@@ -194,7 +194,7 @@ namespace WPF_UI
             if (ContType == ContractType.monthly)
             {
                
-                foreach (var item in bl.GetAllMatchedNannies(Cont.c.mom, Cont.c, false))
+                foreach (var item in bl.GetAllMatchedNannies(bl.GetMother(bl.GetChild(Cont.ChildId).momId), bl.GetChild(Cont.ChildId), false))
                 {
 
                     str.Add(item);
@@ -207,9 +207,9 @@ namespace WPF_UI
             {
                
             
-                foreach (var item in bl.TheBestFive(Cont.c.mom))
+                foreach (var item in bl.TheBestFive(bl.GetMother(bl.GetChild(Cont.ChildId).momId)))
                 {
-                    if (bl.TheBestFive(Cont.c.mom) != null)
+                    if (bl.TheBestFive(bl.GetMother(bl.GetChild(Cont.ChildId).momId)) != null)
                         str.Add(item);
                 }
 

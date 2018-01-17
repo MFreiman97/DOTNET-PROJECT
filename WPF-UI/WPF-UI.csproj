@@ -129,10 +129,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Contracts.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DeletionsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,9 +160,6 @@
     </Compile>
     <Compile Include="AddingContracts.xaml.cs">
       <DependentUpon>AddingContracts.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Contracts.xaml.cs">
-      <DependentUpon>Contracts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Linq.xaml.cs">
       <DependentUpon>Linq.xaml</DependentUpon>

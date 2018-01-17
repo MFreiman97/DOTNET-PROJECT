@@ -240,9 +240,10 @@ namespace WPF_UI
 
             public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
             {
-                Child c = bl.GetChild((int)value);
+            Child C = new Child();
+                 C = bl.GetChild((int)value);
               
-                    return c.FullName;
+                    return C.FullName;
                
             }
 
@@ -257,7 +258,8 @@ namespace WPF_UI
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Nanny n = bl.GetNanny((int)value);
+            Nanny n = new Nanny();
+             n = bl.GetNanny((int)value);
 
             return n.FullName;
 

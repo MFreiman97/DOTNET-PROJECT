@@ -127,7 +127,7 @@ namespace WPF_UI
             Child ch = new Child();
             ch.birth = DateTime.Now.AddYears(-1);
 
-            ch.mom = bl.GetMother(2222);
+         
 
             ch.momId = (2222);
             ch.id = int.Parse("74382");
@@ -139,7 +139,7 @@ namespace WPF_UI
             ch = new Child();
             ch.birth = DateTime.Now.AddYears(-1);
             ch.birth = ch.birth.AddDays(2);
-            ch.mom = bl.GetMother(3333);
+    
             ch.id = int.Parse("728429");
             ch.momId = (3333);
             ch.name = "Yanki";
@@ -150,7 +150,7 @@ namespace WPF_UI
             ch = new Child();
             ch.birth = DateTime.Now.AddYears(-1);
             ch.birth = ch.birth.AddDays(20);
-            ch.mom = bl.GetMother(2222);
+           
             ch.id = int.Parse("542352");
             ch.momId = (2222);
             ch.name = "Moshe";

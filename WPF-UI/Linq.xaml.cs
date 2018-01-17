@@ -43,6 +43,7 @@ namespace WPF_UI
             GroupByExperience.ItemsSource = bl.NannyGroupByExperience();
             GroupBySpecialChilds.ItemsSource = bl.ChildsGroupBySpecial();
             ContractByDistance.ItemsSource = bl.GroupOfSortedContract();
+            NannyByContracts.ItemsSource = bl.NanniesByContracts();
         }
 
       
@@ -191,7 +192,7 @@ namespace WPF_UI
             public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
             {
                Mother m = bl.GetMother((int)value);
-
+          
                 return m.FullName;
 
             }
@@ -201,5 +202,31 @@ namespace WPF_UI
             throw new NotImplementedException();
         }
         }
+    public class IDNannyToContracts : IValueConverter
+    {
+        IBL bl = FactoryBL.GetBL();
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            Nanny m = new Nanny();
+             m = bl.GetNanny((int)value);
+            string temp = "";
+            foreach (var item in bl.GetAllContracts())
+            {
+                if(item.n.id==m.id)
+                {
+                    temp +=',' +item.contnum;
+                }
+            }
+            targetType = typeof(string);
+            return temp;
+
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
     }
+}
 

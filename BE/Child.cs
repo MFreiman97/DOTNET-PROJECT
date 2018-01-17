@@ -28,7 +28,7 @@ namespace BE
         }
 
         public int momId { get; set; }
-        public Mother mom { get; set; }
+       
        
         private string name1;
 
@@ -91,7 +91,7 @@ namespace BE
 
         public string FullName
         {
-            get { return name+ " "+mom.lName; }
+            get { return name+ " "; }
         
         }
         //protected void OnPropertyChanged(string name)

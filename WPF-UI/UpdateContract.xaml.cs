@@ -46,5 +46,10 @@ namespace WPF_UI
             bl.updateContract(temp);
             this.Close();
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

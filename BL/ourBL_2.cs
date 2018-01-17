@@ -159,7 +159,12 @@ namespace BL
             return from item in dal.GetAllContracts()
                    group item by GetDistanceType(item.distance);
         }
-
+        public IEnumerable<IGrouping<int, Nanny>> NanniesByContracts()//the key that allow me to compare is the key thar returned from the GetDistanceType
+        {
+            return from item in dal.GetAllNannies()
+                   orderby (item.contracts)
+                   group item by (item.contracts);
+        }
 
         #endregion
         #region Child functions
@@ -299,7 +304,7 @@ private int GetTypeOfAge(int d)
                 foreach(var item in v)
 
                 {
-                    if (item.c.momId == id)
+                    if (GetChild(item.ChildId).momId == id)
                         sum++;
                 }
             }
