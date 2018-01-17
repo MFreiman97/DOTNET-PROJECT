@@ -6,8 +6,7 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" 
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:WPF_UI"
-        mc:Ignorable="d"
-        Title="MainContracts" Height="700" Width="650">
+        mc:Ignorable="d" Title="MainContracts" Height="700" Width="650" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:IDCMotherToName
          x:Key="IDMotherToName" />
@@ -21,7 +20,7 @@
         
     </Window.Resources>
     <Grid>
-        
+        <Button x:Name="Back" Content="{iconPacks:FontAwesome Kind=ArrowLeftSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="46" Click="Back_Click" RenderTransformOrigin="-2.826,0.18" Margin="596,0,0,646" />
         <Label x:Name="label" Content="choose child" HorizontalAlignment="Left" Height="26" Margin="28,20,0,0" VerticalAlignment="Top" Width="88"/>
         <Label x:Name="label_Copy" Content="matched nannies:" HorizontalAlignment="Left" Height="26" Margin="15,174,0,0" VerticalAlignment="Top" Width="113"/>
         <Label x:Name="label_Copy1" Content="choose the nanny by pressing on the grid:" HorizontalAlignment="Left" Height="26" Margin="10,313,0,0" VerticalAlignment="Top" Width="239"/>

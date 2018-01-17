@@ -47,6 +47,10 @@ namespace WPF_UI
                  c = new Child();
                 c = obj as Child;
                 DetailsOfChild.DataContext = c;
+                if (c.nannyID != null)
+                {
+                    birthDatePicker.IsEnabled = false;
+                }
 
 
             }

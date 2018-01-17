@@ -229,5 +229,10 @@ namespace WPF_UI
             comboBoxChild.Text = comboBoxChild.Text;
             TypecomboBox.IsEnabled = true;
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

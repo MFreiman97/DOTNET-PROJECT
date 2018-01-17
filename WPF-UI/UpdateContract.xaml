@@ -6,15 +6,15 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
-        mc:Ignorable="d"
-        Title="UpdateContract" Height="700" Width="650">
+        mc:Ignorable="d" Title="UpdateContract" Height="700" Width="650" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90*"/>
             <RowDefinition Height="78*"/>
             <RowDefinition Height="101*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="Back" Content="{iconPacks:FontAwesome Kind=ArrowLeftSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="46" Click="Back_Click" RenderTransformOrigin="-2.826,0.178" Margin="472,0,0,648" Grid.Row="0"/>
+
+        <Button x:Name="Back" Content="{iconPacks:FontAwesome Kind=ArrowLeftSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="46" Click="Back_Click" RenderTransformOrigin="-2.826,0.178" Margin="586,0,0,177" />
         <TextBox x:Name="ContractTextBox"  HorizontalAlignment="Left" Height="23" Margin="94,21,0,0" TextWrapping="Wrap" IsReadOnly="True" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="Label" Content="The contract:" HorizontalAlignment="Left" Height="23" Margin="10,21,0,0" VerticalAlignment="Top" Width="79"/>
         <Label x:Name="label" Content="Update the end of the contract:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,60,0,0" Width="176"/>

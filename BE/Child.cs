@@ -65,12 +65,9 @@ namespace BE
                 }
                 else
                 {
-                    birth_ = value;
-
-              
+                    birth_ = value;        
                 }
-
-        }
+            }
         }
 
         public bool special { get; set; }

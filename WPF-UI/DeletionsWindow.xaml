@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_UI"
         mc:Ignorable="d"
-        Title="DeletionsWindow"  Height="700" Width="1000" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="DeletionsWindow"  Height="700" Width="650" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:IDChildToName
          x:Key="IDChildToName" />
@@ -15,14 +15,14 @@
          x:Key="IDNannyToName" />
     </Window.Resources>
     <Grid>
-        <Button x:Name="Back" Content="{iconPacks:FontAwesome Kind=ArrowLeftSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="46" Click="Back_Click" RenderTransformOrigin="-2.826,0.178" Margin="472,0,0,648"/>
+        <Button x:Name="Back" Content="{iconPacks:FontAwesome Kind=ArrowLeftSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="46" Click="Back_Click" RenderTransformOrigin="-2.826,0.178" Margin="586,0,0,648" />
 
         <TabControl>
             <TabItem Header="Mother">
 
                 <Grid>
                     <Button x:Name="button3"   Content="{iconPacks:FontAwesome Kind=TrashSolid  }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-2.826,0.178"  Margin="236,180,0,0" Click="button3_Click"  ></Button>
-                    <DataGrid x:Name="dataGridMothers" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="324,10,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="dataGridMothers_MouseDoubleClick"/>
+                    <DataGrid x:Name="dataGridMothers" IsSynchronizedWithCurrentItem="True" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="173" Width="466" MouseDoubleClick="dataGridMothers_MouseDoubleClick"/>
                     <Button x:Name="MapMother" Content="{iconPacks:FontAwesome Kind=StreetViewSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" Click="MapMother_Click" RenderTransformOrigin="-2.826,0.178" Margin="190,180,0,0"/>
 
                 </Grid>

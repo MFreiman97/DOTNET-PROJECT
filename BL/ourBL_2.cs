@@ -87,7 +87,7 @@ namespace BL
 
     public IEnumerable<Mother> GetAllMothersFromJerusalem()
         {
-            return dal.GetAllMothers(m => m.address.Substring(0, 9) == "Jerusalem");
+            return dal.GetAllMothers(m => m.address.Contains("Jerusalem") == true);
         }
         #endregion
         #region grouping functions

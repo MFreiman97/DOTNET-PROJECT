@@ -7,8 +7,7 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:WPF_UI"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="WPF_UI.Details"
-        mc:Ignorable="d"
-        Title="Details"  Width="300" >
+        mc:Ignorable="d" Title="Details" Height="700" Width="650" WindowStyle="None" WindowStartupLocation="CenterScreen">
     
         <Grid>
         <TextBox x:Name="WhatToShowTB" Visibility="Hidden" Text="" HorizontalAlignment="Left" Height="19" Margin="34,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="65"/>
