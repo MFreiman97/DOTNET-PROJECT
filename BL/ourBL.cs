@@ -148,7 +148,7 @@ namespace BL
         /// <param name="c"></param>
         public void updateChild(Child c)
         {
-
+            c.FullName = c.name+ " " + GetMother(c.momId).lName;
             dal.updateChild(c);
         }
         /// <summary>

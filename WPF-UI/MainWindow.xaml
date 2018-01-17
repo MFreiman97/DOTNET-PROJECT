@@ -31,7 +31,7 @@
 
 
 
-                <Button x:Name="LinqButton" Style="{StaticResource ModernButt}" Content="linq" Margin="10,22,11,0" Click="LinqButton_Click" VerticalAlignment="Center" RenderTransformOrigin="-0.417,1.663" />
+                <Button x:Name="LinqButton" Style="{StaticResource ModernButt}" Content="linq" Margin="10,73,172,53" Click="LinqButton_Click" VerticalAlignment="Center" RenderTransformOrigin="-0.417,1.663" Grid.ColumnSpan="2" Height="82" Width="242" />
                 <Button x:Name="Deletions" Style="{StaticResource ModernButt}" Content="Deletions" Height="83" Width="230" Margin="11,21,10,0" VerticalAlignment="Center" Grid.Column="2" Click="Deletions_Click" Grid.Row="2" />
 
             </Grid>

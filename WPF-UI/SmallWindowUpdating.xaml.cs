@@ -35,7 +35,7 @@ namespace WPF_UI
 
             InitializeComponent();
             MyObj = obj;
-            this.IsCloseButtonEnabled = false;//i want to verify that the updated was good
+      
             AllowEditingCB.IsChecked = false;
             AllowEditingCBMother.IsChecked = false;
             AllowEditing.Text = "";
