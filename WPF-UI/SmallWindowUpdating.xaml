@@ -11,7 +11,7 @@
         mc:Ignorable="d"
     Validation.Error="validation_Error"  
  
-        Title="Updating Window"   x:Name="MyWindow" Height="700" Width="1000" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="Updating Window"   x:Name="MyWindow" Height="700" Width="650" WindowStyle="None" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -25,6 +25,7 @@
         <TextBox x:Name="WhatToShowTB" Visibility="Hidden" Text="" HorizontalAlignment="Left" Height="19" Margin="34,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="65"/>
         <TextBox x:Name="AllowEditing" Visibility="Hidden"  HorizontalAlignment="Left" Height="19" Margin="34,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="65"/>
         <Button x:Name="UpdateButtonContract" Content="{iconPacks:FontAwesome Kind=SyncSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="46" Click="UpdateButtonContract_Click" RenderTransformOrigin="-2.826,0.178" Margin="0,4,0,0" Grid.Column="1" Grid.Row="1"></Button>
+        <Button x:Name="Back" Content="{iconPacks:FontAwesome Kind=ArrowLeftSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="46" Click="Back_Click" RenderTransformOrigin="-2.826,0.178" Margin="0,0,0,600" Grid.Row="0" Grid.Column="1"/>
 
         <Grid x:Name="DetailsOfChild" DataContext="{Binding}"   VerticalAlignment="Top" Margin="47,10,0,0" HorizontalAlignment="Left" Grid.ColumnSpan="2" Grid.RowSpan="2" >
 

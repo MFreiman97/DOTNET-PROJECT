@@ -178,8 +178,13 @@ namespace WPF_UI
 
 
         }
-        
-    }public class IDCMotherToName : IValueConverter
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+    }
+    public class IDCMotherToName : IValueConverter
         {
             IBL bl = FactoryBL.GetBL();
 

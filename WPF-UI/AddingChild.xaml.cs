@@ -160,8 +160,12 @@ namespace WPF_UI
             timer.Tick -= TimerTick;
             Close();
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
-   
-    }
+}
 
 

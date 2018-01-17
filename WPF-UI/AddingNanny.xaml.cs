@@ -239,5 +239,10 @@ namespace WPF_UI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
