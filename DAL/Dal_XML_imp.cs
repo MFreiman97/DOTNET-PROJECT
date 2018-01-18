@@ -15,7 +15,8 @@ namespace DAL
 {
    public class Dal_XML_imp : Idal
     {
-        public static int Contnum = 1;
+      
+        public int Contnum=0;
         public Dal_XML_imp()
         {  
      
@@ -24,6 +25,7 @@ namespace DAL
             else
                 LoadData();
           
+
           
 
 
@@ -33,7 +35,14 @@ namespace DAL
         private void CreateFiles()
         {
             ChildRoot = new XElement("Child");
+            CONTNUMROOT = new XElement("ContnumNumber",Contnum);
+         
+          
+      
+        
+            CONTNUMROOT.Save(ContNUMPath);
             ChildRoot.Save(ChildPath);
+         
         }//
 
         private void LoadData()///////
@@ -56,8 +65,8 @@ namespace DAL
 
 
                                          }).ToList();
-
-                }
+          
+            }
                 catch
                 {
                
@@ -66,10 +75,22 @@ namespace DAL
            
           
         }//
+        private void LoadContnum()
+        {
 
+         Contnum= int.Parse(CONTNUMROOT.Element("ContnumNumber").Value);
+        }
+        private void SaveContnum()
+        {
+            CONTNUMROOT.Element("ContnumNumber").Value = Contnum.ToString();
+            CONTNUMROOT.Save(ContNUMPath);
+
+        }
    public     XElement  ChildRoot;
+        public XElement CONTNUMROOT;
      public   string ChildPath = @"ChildXml.xml";
-       public string MotherPath = @"MotherXml.xml";
+        public string ContNUMPath = @"ContNUM.xml";
+        public string MotherPath = @"MotherXml.xml";
       public  string NannyPath = @"NannyXml.xml";
      public   string ContractPath = @"ContractXml.xml";
         public void addChild(Child c)//*************************
@@ -239,7 +260,9 @@ namespace DAL
 
             updateChild(temp);
             c.n.contracts++;
+            LoadContnum();
             c.contnum = Contnum++;
+            SaveContnum();
             ContractList.Add(c);
             SaveToXML<Nanny>(NannyList, NannyPath);
             SaveToXML<Contract>(ContractList, ContractPath);

@@ -126,7 +126,7 @@
                                                                <Run Text="Number:" />
                                                                <Run Text="{Binding contnum,Mode=OneWay}" />
                                                                 <Run Text=",Child: " />
-                                                               <Run Text="{Binding c.ChildId , Converter= {StaticResource ResourceKey=IDChildToName}}" />
+                                                               <Run Text="{Binding ChildId , Converter= {StaticResource ResourceKey=IDChildToName}}" />
                                                                 <Run Text=",Nanny:" />
                                                                <Run Text="{Binding  n.id , Converter= {StaticResource ResourceKey=IDNannyToName}}" />
                                                                <Run Text=",Distance: " />

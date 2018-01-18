@@ -107,10 +107,10 @@
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nanny" Binding="{Binding n.id , Converter={StaticResource ResourceKey=IDNannyToName}}" />
-                            <DataGridTextColumn Header="Child" Binding="{Binding c.id, Converter={StaticResource ResourceKey=IDChildToName}}" />
+                            <DataGridTextColumn Header="Child" Binding="{Binding ChildId, Converter={StaticResource ResourceKey=IDChildToName}}" />
                             <DataGridTextColumn Header="Salary Per Month" Binding="{Binding SalaryPerMonth}" />
-                            <DataGridTextColumn Header="Date Begin" Binding="{Binding DateBegin, StringFormat='dd/mm/yyyy'}" />
-                            <DataGridTextColumn Header="Date End" Binding="{Binding DateEnd, StringFormat='dd/mm/yyyy'}" />
+                            <DataGridTextColumn Header="Date Begin" Binding="{Binding DateBegin, StringFormat='dd/MM/yyyy'}" />
+                            <DataGridTextColumn Header="Date End" Binding="{Binding DateEnd, StringFormat='dd/MM/yyyy'}" />
                             <DataGridTextColumn Header="Distance" Binding="{Binding distance}" />
                             <DataGridTextColumn Header="Contract Number" Binding="{Binding contnum}" />
                         </DataGrid.Columns>
