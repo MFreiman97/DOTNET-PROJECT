@@ -24,9 +24,16 @@ namespace DAL
                 CreateFiles();
             else
                 LoadData();
-          
+            if (!File.Exists(ContNUMPath))
+            {
+                CONTNUMROOT = new XElement("Key", Contnum);
+                CONTNUMROOT.Save(ContNUMPath);
+           
+           
+            }
+            else
+                CONTNUMROOT= XElement.Load(ContNUMPath);
 
-          
 
 
 
@@ -35,12 +42,7 @@ namespace DAL
         private void CreateFiles()
         {
             ChildRoot = new XElement("Child");
-            CONTNUMROOT = new XElement("ContnumNumber",Contnum);
-         
-          
-      
-        
-            CONTNUMROOT.Save(ContNUMPath);
+           
             ChildRoot.Save(ChildPath);
          
         }//
@@ -75,17 +77,7 @@ namespace DAL
            
           
         }//
-        private void LoadContnum()
-        {
-
-         Contnum= int.Parse(CONTNUMROOT.Element("ContnumNumber").Value);
-        }
-        private void SaveContnum()
-        {
-            CONTNUMROOT.Element("ContnumNumber").Value = Contnum.ToString();
-            CONTNUMROOT.Save(ContNUMPath);
-
-        }
+   
    public     XElement  ChildRoot;
         public XElement CONTNUMROOT;
      public   string ChildPath = @"ChildXml.xml";
@@ -243,8 +235,28 @@ namespace DAL
                 return result;
                 
         }
+        private int GetContnum()
+        {
+        
+            try
+            {
+                return int.Parse(CONTNUMROOT.Value);
+            }
+            catch (Exception)
+            {
 
+               return -1;
+            }
+       
+        }
+        private void UpdateContnum(int number)
+        {
+            number++;
 
+            CONTNUMROOT.Value = number.ToString();
+            CONTNUMROOT.Save(ContNUMPath);
+
+        }
 
         public void addContract(Contract c)
         {
@@ -260,9 +272,9 @@ namespace DAL
 
             updateChild(temp);
             c.n.contracts++;
-            LoadContnum();
-            c.contnum = Contnum++;
-            SaveContnum();
+        
+            c.contnum = GetContnum();
+           UpdateContnum(c.contnum);
             ContractList.Add(c);
             SaveToXML<Nanny>(NannyList, NannyPath);
             SaveToXML<Contract>(ContractList, ContractPath);

@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using BL;
 using BE;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace WPF_UI
 {
@@ -41,10 +42,18 @@ namespace WPF_UI
             dt.DisplayDateStart = DateTime.Now.AddDays(1);//day from today
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private async void button_Click(object sender, RoutedEventArgs e)
         {
-            bl.updateContract(temp);
-            this.Close();
+            try
+            {
+                bl.updateContract(temp);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                var Message = await this.ShowMessageAsync("ERROR-There is a problem", ex.Message);
+
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

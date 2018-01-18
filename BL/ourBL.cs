@@ -158,16 +158,36 @@ namespace BL
         public void updateContract(Contract cont)
         {
             Child ch = GetChild(cont.ChildId); // Get The Child (Of The Contract)
+
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
-            if (childAge(ch) == true && nannyContracts(na) == true)
+
+            if (childAge(ch) == true && nannyContracts(na) == true &&TimesCheck(cont)==true)
             {
-                // cont.distance = CalculateDistance(ch.mom.address, na.address);
-                cont.distance = 6;
+               
+                
                 cont.SalaryPerMonth = monthSalary(cont, ch, na);
                  dal.updateContract(cont);
             }
+            else
+            {
+                throw new Exception("There is a problem in the date of the end of the contract");
+
+            }
            
         }
+
+        private bool TimesCheck(Contract cont)
+        {
+            TimeSpan elapsedSpan1 = new TimeSpan((long)(GetChild(cont.ChildId).birth.AddTicks(cont.DateEnd.Ticks - cont.DateBegin.Ticks).Ticks ));//the age of the child in ticks in the end of the "new contract"
+
+            if (cont.DateBegin<cont.DateEnd ||(elapsedSpan1).TotalDays/30< cont.n.MaxAge)
+            {
+                return false;
+            }
+            return true;
+                
+        }
+
         /// <summary>
         /// Updating the Mother by overriding 
         /// </summary>
@@ -218,7 +238,9 @@ namespace BL
              *  Case Check > 0 => Child Is Less Than 3 Months            
             */
             if (check <= 0)
+            {
                 return true;
+            }
             return false;
         }
 
