@@ -32,6 +32,7 @@ namespace WPF_UI
         {
             InitializeComponent();
             myMap.Focus();
+       
             Pushpin pin;
             point = new MapPoint();
            
@@ -58,6 +59,8 @@ namespace WPF_UI
                     myMap.Children.Add(pin);
                     myMap.Center.Latitude = latitude;
                     myMap.Center.Longitude = longitude;
+                    myMap.ZoomLevel = 7;
+                    myMap.Focus();
 
                 }
          
@@ -79,7 +82,9 @@ namespace WPF_UI
                 myMap.Children.Add(pin);
                 myMap.Center.Latitude = latitude;
                 myMap.Center.Longitude = longitude;
-            }
+                    myMap.Focus();
+
+                }
            }
                 
                 catch (Exception ex)
