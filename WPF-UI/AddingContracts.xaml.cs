@@ -120,6 +120,7 @@ namespace WPF_UI
 
                 child = bl.GetChild((int)comboBoxChild.SelectedValue);
                 ContType = (BE.ContractType)TypecomboBox.SelectedValue;
+                str = null;
                 str = new List<Nanny>();
                 Best5 = false;
                 work.DoWork += W_DoWork;

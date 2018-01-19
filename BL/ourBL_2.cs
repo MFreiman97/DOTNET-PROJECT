@@ -22,7 +22,7 @@ namespace BL
         {
             var v1 = dal.GetAllNannies(n => CheckSchedule(m, n)==true);
             var v2 = DestinationRealm(m);
-            var result= from item1 in v1 from item2 in v2 where (item1 == item2) select item1;
+            var result= from item1 in v1 from item2 in v2 where (item1.id == item2.id) select item1;
             return result;
         }
           public IEnumerable<Nanny> DestinationRealm(Mother m)
@@ -59,9 +59,9 @@ namespace BL
             long elapsedTicks = DateTime.Now.Ticks - c.birth.Ticks;
             TimeSpan elapsedSpan = new TimeSpan(elapsedTicks);
             var result2 =
-                result1.Where(nanny => (nanny.MinAge <= (elapsedSpan.TotalDays / 30) && nanny.MaxAge >= (elapsedSpan.TotalDays / 30)));
-          
-            return result2;
+                result1.Where(nanny => ((int)(elapsedSpan.TotalDays / 30) >= nanny.MinAge && nanny.MaxAge >= (int)(elapsedSpan.TotalDays / 30)));
+
+            return result1;
           
         }
 

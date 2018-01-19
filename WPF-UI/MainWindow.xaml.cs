@@ -59,7 +59,7 @@ namespace WPF_UI
                 experience = int.Parse("5"),
                 Maxkids = int.Parse("5"),
                 MinAge = int.Parse("3"),
-                MaxAge = int.Parse("14"),
+                MaxAge = int.Parse("16"),
                 SalaryPerHour = true,
                 HolidaysByTheGOV = true,
                 recom = ""

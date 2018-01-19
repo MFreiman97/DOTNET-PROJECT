@@ -46,13 +46,13 @@ namespace BL
             Child ch = dal.GetChild(cont.ChildId); // Get The Child (Of The Contract)
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
             if (cont.DateEnd.CompareTo(DateTime.Now) < 0)
-                 new Exception("The end of the contract have to be later than the starting date");
+                throw new Exception("The end of the contract have to be later than the starting date");
             if (childAge(ch) == true && nannyContracts(na) == true)
             {
                      cont.distance = CalculateDistance(dal.GetMother(ch.momId).address, na.address);
             
                 cont.SalaryPerMonth = monthSalary(cont, ch, na);
-                cont.n.MonthSalary += cont.SalaryPerMonth;
+           
                 GetChild(cont.ChildId).nannyID = cont.n.id;//refreshing the data in the child
                 cont.DateBegin = DateTime.Now;
                 cont.Meet = true;
@@ -249,17 +249,21 @@ namespace BL
         /// </summary>
         /// <param name="na"></param>
         /// <returns></returns>
-        public TimeSpan hoursAmountForWeek(Nanny na)
+        public TimeSpan hoursAmountForWeek(Nanny na,Mother m)
         {
-            TimeSpan sum = na.schedule[1][ 0].Subtract(na.schedule[0][ 0]);
-            for (int i = 1; i < 6; i++)
-                 sum += na.schedule[1][ i].Subtract(na.schedule[0][ i]);
+
+            TimeSpan sum = new TimeSpan();
+            for (int i = 0; i < 6; i++)
+            {
+                if(m.needNanny[i]==true)
+                sum += (m.timeWork[1][i].Subtract(m.timeWork[0][i]));
+            }
             return (sum);
         }
 
         public double monthSalary(Contract cont, Child ch, Nanny na)
         {
-            int count = -1; // Count The Brothers
+            int count = 0; // Count The Brothers
             Mother m = dal.GetMother(ch.momId); // Get The Mother (Of The Child Of The Contract)
             IEnumerable<Child> l = dal.GetAllChildsByMother(m); // Get All His Brothers
 
@@ -272,12 +276,12 @@ namespace BL
 
             // Change The Salary In Accordance 2 The Child's Amount && 2 The Contract Payment Type
             if (cont.ContType == ContractType.hourly)
-                cont.SalaryPerMonth = 4 * hoursAmountForWeek(na).TotalHours * na.HourSalary * ((100 - count * 2) / 100);
+                cont.SalaryPerMonth = (4 * hoursAmountForWeek(na,m).TotalHours * na.HourSalary * (100 - count * 2)) /100;
             else
-                cont.SalaryPerMonth = na.MonthSalary * (100 - count * 2) / 100;
+                cont.SalaryPerMonth = (na.MonthSalary * (100 - count * 2) )/ 100;
 
             if (cont.SalaryPerMonth == 0)//in case of best5
-                cont.SalaryPerMonth = 4 * hoursAmountForWeek(na).TotalHours * na.HourSalary;
+                cont.SalaryPerMonth = 4 * hoursAmountForWeek(na,m).TotalHours * na.HourSalary;
 
             return cont.SalaryPerMonth;
         }

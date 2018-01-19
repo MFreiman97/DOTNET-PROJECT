@@ -268,12 +268,13 @@ namespace DAL
       Nanny na=      NannyList.Find(n => n.id == c.n.id);
             temp.nannyID = na.id;
             na.contracts++;
+            na.MonthSalary += c.SalaryPerMonth;
             updateNanny(na);
 
             updateChild(temp);
+
             c.n.contracts++;
-        
-            c.contnum = GetContnum();
+               c.contnum = GetContnum();
            UpdateContnum(c.contnum);
             ContractList.Add(c);
             SaveToXML<Nanny>(NannyList, NannyPath);
@@ -338,6 +339,7 @@ namespace DAL
             List<Contract> ContractList = LoadFromXML<Contract>(ContractPath);
             Nanny n = GetNanny(c.n.id);
             n.contracts--;
+            n.MonthSalary = n.MonthSalary - c.SalaryPerMonth;
             updateNanny(n);
             Child chi = GetChild(c.ChildId);
             chi.nannyID = null;
