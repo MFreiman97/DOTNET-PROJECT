@@ -18,12 +18,15 @@ namespace DAL
       
         public int Contnum=0;
         public Dal_XML_imp()
-        {  
-     
+        {
+
             if (!File.Exists(ChildPath))
                 CreateFiles();
             else
-                LoadData();
+            {
+                ChildRoot = XElement.Load(ChildPath);
+        
+            }
             if (!File.Exists(ContNUMPath))
             {
                 CONTNUMROOT = new XElement("Key", Contnum);
@@ -38,7 +41,9 @@ namespace DAL
 
 
         }//
-
+        /// <summary>
+        /// This function creates the xml files of the child object
+        /// </summary>
         private void CreateFiles()
         {
             ChildRoot = new XElement("Child");
@@ -47,36 +52,7 @@ namespace DAL
          
         }//
 
-        private void LoadData()///////
-        {
-          
-                ChildRoot = XElement.Load(ChildPath);
-                try
-                {
-                    DataSource.childs = (from stu in ChildRoot.Elements()
-                                         select new Child()
-                                         {
-                                             id = int.Parse(stu.Element("id").Value),
-                                             name = stu.Element("OtherDetails").Element("firstName").Value,
-                                             momId = int.Parse(stu.Element("OtherDetails").Element("Motherid").Value),
-                                             nannyID = int.Parse(stu.Element("OtherDetails").Element("Nannyid").Value),
-                                             kindSpecial = stu.Element("kindSpecial").Value,
-                                             special = bool.Parse(stu.Element("special").Value),
-                                             birth = DateTime.Parse(stu.Element("OtherDetails").Element("birth").Value),
-                                         
-
-
-                                         }).ToList();
-          
-            }
-                catch
-                {
-               
-                
-                }
-           
-          
-        }//
+       
    
    public     XElement  ChildRoot;
         public XElement CONTNUMROOT;
@@ -85,7 +61,11 @@ namespace DAL
         public string MotherPath = @"MotherXml.xml";
       public  string NannyPath = @"NannyXml.xml";
      public   string ContractPath = @"ContractXml.xml";
-        public void addChild(Child c)//*************************
+        /// <summary>
+        /// This function add Child to the repositery
+        /// </summary>
+        /// <param name="c"></param>
+        public void addChild(Child c)
         {
             if (GetChild(c.id) == null)
             {
@@ -105,6 +85,10 @@ namespace DAL
                 ChildRoot.Save(ChildPath);
             }
         }
+        /// <summary>
+        /// This Function delete a child
+        /// </summary>
+        /// <param name="c"></param>
          public void deleteChild(Child c)
         {
             XElement ChildElement;
@@ -121,12 +105,13 @@ namespace DAL
             {
                 new Exception("The Child you tried to remove wasnt exist");
             }
-        }//*********************
-       public IEnumerable<Child> GetAllChildsByMother(Mother m)
-        {
-            var v = GetAllChilds();
-            return v.Where(i => (i.momId) == m.id);
-        }//***********************
+        }
+        /// <summary>
+        /// This function return alll the Childs
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+  
      public IEnumerable<Child> GetAllChilds(Func<Child, bool> predicat = null)//**************
         {
 

@@ -18,15 +18,17 @@ using BE;
 
 
 using Microsoft.Maps.MapControl.WPF.Design;
-using GoogleMaps.LocationServices;
+
 using System.Threading;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace WPF_UI
 {
     /// <summary>
     /// Interaction logic for MapWindow.xaml
     /// </summary>
-    public partial class MapWindow : Window
+    public partial class MapWindow : MetroWindow
     {   MapPoint point;
         public MapWindow(object obj)
         {
@@ -89,8 +91,9 @@ namespace WPF_UI
                 
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show(ex.Message);
+            
+                MessageBox.Show("Can you please retry","There is a problem in the internet of the Machon...");
+                
                 }
                
         

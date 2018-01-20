@@ -47,18 +47,20 @@ namespace BL
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
             if (cont.DateEnd.CompareTo(DateTime.Now) < 0)
                 throw new Exception("The end of the contract have to be later than the starting date");
-            if (childAge(ch) == true && nannyContracts(na) == true)
+            if (childAge(ch) == true && nannyContracts(na) == true && TimesCheck(cont) == true)
             {
-                     cont.distance = CalculateDistance(dal.GetMother(ch.momId).address, na.address);
-            
+                cont.distance = CalculateDistance(dal.GetMother(ch.momId).address, na.address);
+
                 cont.SalaryPerMonth = monthSalary(cont, ch, na);
-           
+
                 GetChild(cont.ChildId).nannyID = cont.n.id;//refreshing the data in the child
                 cont.DateBegin = DateTime.Now;
                 cont.Meet = true;
                 dal.addContract(cont);
 
             }
+            else
+                throw new Exception("One of the details is wrong");
         }
         /// <summary>
         /// Adding the Mother to the repository
@@ -122,7 +124,7 @@ namespace BL
         {
             if (m == null)
                 throw new Exception("The Mother U Tried To Delete Wasn't Exist!");
-            if (dal.GetAllChildsByMother(m).Any())
+            if (GetAllChildsByMother(m).Any())
                 throw new Exception("This Mother has Children");
             dal.deleteMom(m);
         }
@@ -180,7 +182,7 @@ namespace BL
         {
             TimeSpan elapsedSpan1 = new TimeSpan((long)(GetChild(cont.ChildId).birth.AddTicks(cont.DateEnd.Ticks - cont.DateBegin.Ticks).Ticks ));//the age of the child in ticks in the end of the "new contract"
 
-            if (cont.DateBegin<cont.DateEnd ||(elapsedSpan1).TotalDays/30< cont.n.MaxAge)
+            if (cont.DateEnd<cont.DateBegin ||(elapsedSpan1).TotalDays/30< cont.n.MaxAge)
             {
                 return false;
             }
@@ -265,7 +267,7 @@ namespace BL
         {
             int count = 0; // Count The Brothers
             Mother m = dal.GetMother(ch.momId); // Get The Mother (Of The Child Of The Contract)
-            IEnumerable<Child> l = dal.GetAllChildsByMother(m); // Get All His Brothers
+            IEnumerable<Child> l = GetAllChildsByMother(m); // Get All His Brothers
 
             //Checking How Many Brothers At The Same Nanny
             foreach (Child item in l)

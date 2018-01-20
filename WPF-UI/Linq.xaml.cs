@@ -184,6 +184,8 @@ namespace WPF_UI
         {
             this.Close();
         }
+
+      
     }
     public class IDCMotherToName : IValueConverter
         {

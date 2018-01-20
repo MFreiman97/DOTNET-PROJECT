@@ -193,7 +193,11 @@ private int GetTypeOfAge(int d)
                 return 7;
 
         }
-     
+        public IEnumerable<Child> GetAllChildsByMother(Mother m)
+        {
+            var v = dal. GetAllChilds();
+            return v.Where(i => (i.momId) == m.id);
+        }//***********************
 
 
         public IEnumerable<Child> GetAllChilds()
@@ -324,11 +328,7 @@ var v = GetAllContracts();
             return sum;
         }
 
-        public void refresh()
-        {
-            
-            dal = new DAL.Dal_XML_imp();//The ctor of the dal
-        }
+
         #endregion
     }
   

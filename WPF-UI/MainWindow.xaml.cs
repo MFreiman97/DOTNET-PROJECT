@@ -47,120 +47,120 @@ namespace WPF_UI
 
             bl = BL.FactoryBL.GetBL();
             this.Closing += MainWindow_Closing;
-            #region init for dubugging
-            Nanny n1 = new Nanny()
-            {
-                id = int.Parse("3214"),
-                fname = "Barnel",
-                name = "Nicki",
-                cell = "0532445356",
-                address = "Jerusalem" + "," + "Erich Mendelson" + "," + "4",
-                elevator = false,
-                experience = int.Parse("5"),
-                Maxkids = int.Parse("5"),
-                MinAge = int.Parse("3"),
-                MaxAge = int.Parse("16"),
-                SalaryPerHour = true,
-                HolidaysByTheGOV = true,
-                recom = ""
-            };
-            n1.HourSalary = double.Parse("30.5");
-            n1.born = new DateTime(1990, 3, 20);
-            n1.floor = FLOORS.Fourth;
-            n1.DaysOfWork[0] = true;
-            n1.schedule[0][ 0] = TimeSpan.Parse("8:00");
-            n1.schedule[1][ 0] = TimeSpan.Parse("16:00");
+          //  #region init for dubugging
+          //  Nanny n1 = new Nanny()
+          //  {
+          //      id = int.Parse("3214"),
+          //      fname = "Barnel",
+          //      name = "Nicki",
+          //      cell = "0532445356",
+          //      address = "Jerusalem" + "," + "Erich Mendelson" + "," + "4",
+          //      elevator = false,
+          //      experience = int.Parse("5"),
+          //      Maxkids = int.Parse("5"),
+          //      MinAge = int.Parse("3"),
+          //      MaxAge = int.Parse("16"),
+          //      SalaryPerHour = true,
+          //      HolidaysByTheGOV = true,
+          //      recom = ""
+          //  };
+          //  n1.HourSalary = double.Parse("30.5");
+          //  n1.born = new DateTime(1990, 3, 20);
+          //  n1.floor = FLOORS.Fourth;
+          //  n1.DaysOfWork[0] = true;
+          //  n1.schedule[0][ 0] = TimeSpan.Parse("8:00");
+          //  n1.schedule[1][ 0] = TimeSpan.Parse("16:00");
 
-            bl.addNanny(n1);
-            #endregion//adding Nanny
-            #region init for debugging
-            Mother m1 = new Mother()
-            {
-                id = int.Parse("2222"),
-                lName = "Lev",
-                fName = "Nava",
-                phone = "0523748738"
-            ,
-                address = "Jerusalem" + "," + "Yaffo" + "," + "4"
-            ,
-                note = ""
-            };
-            m1.nannyArea = 10;
-            m1.needNanny[0] = true;
-            m1.timeWork[0][ 0] = TimeSpan.Parse("8:00");
-            m1.timeWork[1][ 0] = TimeSpan.Parse("15:20");
-            bl.addMom(m1);
-            Mother m2 = new Mother()
-            {
-                id = int.Parse("3333"),
-                lName = "Fridman",
-                fName = "Ana",
-                phone = "0533232323"
-            ,
-                address = "Kiryat Atta" + "," + "Pinsker" + "," + "6"
-            ,
-                note = ""
-            };
-            m2.needNanny[0] = true;
-            m2.timeWork[0][ 0] = TimeSpan.Parse("8:00");
-            m2.timeWork[1][ 0] = TimeSpan.Parse("16:00");
-            m2.nannyArea = 200;
-            bl.addMom(m2);
-           m1 = new Mother()
-            {
-                id = int.Parse("4444"),
-                lName = "Levy",
-                fName = "Lea",
-                phone = "0523774828"
-          ,
-                address = "Jerusalem" + "," + "Yaffo" + "," + "40"
-          ,
-                note = ""
-            };
-            m1.nannyArea = 30;
-            m1.needNanny[0] = true;
-            m1.timeWork[0][ 0] = TimeSpan.Parse("8:00");
-            m1.timeWork[1][ 0] = TimeSpan.Parse("16:00");
-            bl.addMom(m1);
-            #endregion//Adding 2 Mothers
-            #region init CHILDS FOR DEBUGGING
-            Child ch = new Child();
-            ch.birth = DateTime.Now.AddYears(-1);
+          //  bl.addNanny(n1);
+          //  #endregion//adding Nanny
+          //  #region init for debugging
+          //  Mother m1 = new Mother()
+          //  {
+          //      id = int.Parse("2222"),
+          //      lName = "Lev",
+          //      fName = "Nava",
+          //      phone = "0523748738"
+          //  ,
+          //      address = "Jerusalem" + "," + "Yaffo" + "," + "4"
+          //  ,
+          //      note = ""
+          //  };
+          //  m1.nannyArea = 10;
+          //  m1.needNanny[0] = true;
+          //  m1.timeWork[0][ 0] = TimeSpan.Parse("8:00");
+          //  m1.timeWork[1][ 0] = TimeSpan.Parse("15:20");
+          //  bl.addMom(m1);
+          //  Mother m2 = new Mother()
+          //  {
+          //      id = int.Parse("3333"),
+          //      lName = "Fridman",
+          //      fName = "Ana",
+          //      phone = "0533232323"
+          //  ,
+          //      address = "Kiryat Atta" + "," + "Pinsker" + "," + "6"
+          //  ,
+          //      note = ""
+          //  };
+          //  m2.needNanny[0] = true;
+          //  m2.timeWork[0][ 0] = TimeSpan.Parse("8:00");
+          //  m2.timeWork[1][ 0] = TimeSpan.Parse("16:00");
+          //  m2.nannyArea = 200;
+          //  bl.addMom(m2);
+          // m1 = new Mother()
+          //  {
+          //      id = int.Parse("4444"),
+          //      lName = "Levy",
+          //      fName = "Lea",
+          //      phone = "0523774828"
+          //,
+          //      address = "Jerusalem" + "," + "Yaffo" + "," + "40"
+          //,
+          //      note = ""
+          //  };
+          //  m1.nannyArea = 30;
+          //  m1.needNanny[0] = true;
+          //  m1.timeWork[0][ 0] = TimeSpan.Parse("8:00");
+          //  m1.timeWork[1][ 0] = TimeSpan.Parse("16:00");
+          //  bl.addMom(m1);
+          //  #endregion//Adding 2 Mothers
+          //  #region init CHILDS FOR DEBUGGING
+          //  Child ch = new Child();
+          //  ch.birth = DateTime.Now.AddYears(-1);
 
          
 
-            ch.momId = (2222);
-            ch.id = int.Parse("74382");
+          //  ch.momId = (2222);
+          //  ch.id = int.Parse("74382");
 
-            ch.kindSpecial = "";
-            ch.special = true;
-            ch.name = "Miki";
-            bl.addChild(ch);
-            ch = new Child();
-            ch.birth = DateTime.Now.AddYears(-1);
-            ch.birth = ch.birth.AddDays(2);
+          //  ch.kindSpecial = "";
+          //  ch.special = true;
+          //  ch.name = "Miki";
+          //  bl.addChild(ch);
+          //  ch = new Child();
+          //  ch.birth = DateTime.Now.AddYears(-1);
+          //  ch.birth = ch.birth.AddDays(2);
     
-            ch.id = int.Parse("728429");
-            ch.momId = (3333);
-            ch.name = "Yanki";
-            ch.kindSpecial = "";
-            ch.special = false;
-            bl.addChild(ch);
+          //  ch.id = int.Parse("728429");
+          //  ch.momId = (3333);
+          //  ch.name = "Yanki";
+          //  ch.kindSpecial = "";
+          //  ch.special = false;
+          //  bl.addChild(ch);
 
-            ch = new Child();
-            ch.birth = DateTime.Now.AddYears(-1);
-            ch.birth = ch.birth.AddDays(20);
+          //  ch = new Child();
+          //  ch.birth = DateTime.Now.AddYears(-1);
+          //  ch.birth = ch.birth.AddDays(20);
            
-            ch.id = int.Parse("542352");
-            ch.momId = (2222);
-            ch.name = "Moshe";
-            ch.kindSpecial = "";
-            ch.special = true;
-            bl.addChild(ch);
+          //  ch.id = int.Parse("542352");
+          //  ch.momId = (2222);
+          //  ch.name = "Moshe";
+          //  ch.kindSpecial = "";
+          //  ch.special = true;
+          //  bl.addChild(ch);
 
 
 
-            #endregion
+          //  #endregion
          
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "childs" });
             comboBoxWhatToUpdate.Items.Add(new ComboBoxItem() { Content = "contracts" });

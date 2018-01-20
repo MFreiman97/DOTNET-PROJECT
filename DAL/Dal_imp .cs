@@ -121,15 +121,8 @@ namespace DAL
 
             return DataSource.childs.Where(predicat);
         }
-        /// <summary>
-        /// Get All The Childs Who Have Mother With The Same ID As The Given Mother
-        /// </summary>
-        /// <param name="m"></param>
-        /// <returns></returns>
-        public IEnumerable<Child> GetAllChildsByMother(Mother m)
-        {
-            return DataSource.childs.Where(c => c.momId == m.id);
-        }
+  
+ 
         /// <summary>
         /// Get All The Contracts By The Term(If There Is)
         /// </summary>
