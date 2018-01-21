@@ -65,9 +65,10 @@ namespace BL
           
         }
 
-        public IEnumerable<Nanny> TheBestFive(Mother m)//i assume that mother preffer to compromise on the distance of the address of the nanny and dont changing the schedule 
+        public IEnumerable<Nanny> TheBestFive(Mother m,bool salary)//i assume that mother preffer to compromise on the distance of the address of the nanny and dont changing the schedule 
         {
-            var v=    dal.GetAllNannies(n => CheckSchedule(m, n)==true);
+            var v = dal.GetAllNannies(n => CheckSchedule(m, n) == true && n.SalaryPerHour == salary);
+          
             var result=v.OrderBy(i => CalculateDistance(i.address,m.address)).FirstOrDefault();
             if (result != null)
                 return v.OrderBy(i => CalculateDistance(i.address, m.address)).Take(5);

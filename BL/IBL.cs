@@ -136,7 +136,7 @@ namespace BL
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        IEnumerable<Nanny> TheBestFive(Mother m);//get a term that the mother can conpromise on and return the best 5
+        IEnumerable<Nanny> TheBestFive(Mother m,bool TypeOfSalary);//get a term that the mother can conpromise on and return the best 5
         /// <summary>
         /// This function return all the nannies that working by the gov
         /// </summary>
@@ -152,6 +152,9 @@ namespace BL
         IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool sorted);
         int GetNumOfContracts(object obj);
         void SetFullName(int id);
+         bool TimesCheck(Contract cont);
+        bool childAge(Child ch);
+        bool nannyContracts(Nanny na);
         IEnumerable<IGrouping<int, Nanny>> NanniesByContracts();
         IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract();//sorted by the distances that i divided to types in sting
 

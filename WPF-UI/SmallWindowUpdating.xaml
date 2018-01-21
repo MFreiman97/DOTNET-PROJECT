@@ -157,7 +157,7 @@
             </Grid.RowDefinitions>
 
             <Label Content="address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-            <TextBox x:Name="addressTextBox1" IsReadOnly="False" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding address, Mode=OneWay,ValidatesOnDataErrors=True, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+            <TextBox x:Name="addressTextBox1" IsReadOnly="False" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding address, Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
             <Label Content="born:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
             <DatePicker x:Name="bornDatePicker" IsEnabled="False" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" SelectedDate="{Binding born, Mode=TwoWay,ValidatesOnDataErrors=True, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" />
             <Label Content="cell:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />

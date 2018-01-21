@@ -80,7 +80,7 @@ namespace WPF_UI
 
                     Cont.n = bl.GetNanny((int)dataGridNannies.SelectedValue);
                     Cont.ChildId =(int)comboBoxChild.SelectedValue;
-
+                    int BeforeSigning = bl.GetAllContracts().Count();
 
 
                     Thread t = new Thread(() => bl.addContract(Cont));
@@ -94,6 +94,17 @@ namespace WPF_UI
                     this.comboBoxChild.SelectedValuePath = "id";
         
                     dataGridNannies.ItemsSource = null;
+                    if(bl.GetAllContracts().Count()==BeforeSigning)
+                    {
+                        if (bl.nannyContracts(Cont.n) == false)
+                            throw new Exception("This Nanny have too many contracts");
+                        if (bl.TimesCheck(Cont) == false)
+                            throw new Exception("There is an error in the times of the contracts");
+                        if(bl.childAge(bl.GetChild(Cont.ChildId))==false)
+                        {
+                            throw new Exception("There is an error in the birth date  of the child");
+                        }
+                    }
 
                     if (Message == MessageDialogResult.Affirmative)
                         this.Close();
@@ -211,15 +222,28 @@ namespace WPF_UI
             }
             if (str.Count() == 0)//when there is no match to the demands of the mother
             {
-               
-            
-                foreach (var item in bl.TheBestFive(bl.GetMother(bl.GetChild(Cont.ChildId).momId)))
-                {
-                    if (bl.TheBestFive(bl.GetMother(bl.GetChild(Cont.ChildId).momId)) != null)
-                        str.Add(item);
-                }
 
-       Best5 = true;
+                if (ContType == ContractType.hourly)
+                {
+                    if (bl.TheBestFive(bl.GetMother(bl.GetChild(Cont.ChildId).momId),true) != null)
+                    foreach (var item in bl.TheBestFive(bl.GetMother(bl.GetChild(Cont.ChildId).momId),true))
+                    {
+                    
+                            str.Add(item);
+                    }
+                }
+               if (ContType == ContractType.monthly)
+                {
+                    if (bl.TheBestFive(bl.GetMother(bl.GetChild(Cont.ChildId).momId), false) != null)
+                    foreach (var item in bl.TheBestFive(bl.GetMother(bl.GetChild(Cont.ChildId).momId), false))
+                    {
+                       
+                            str.Add(item);
+                    }
+
+
+                }
+                    Best5 = true;
             }
 
 

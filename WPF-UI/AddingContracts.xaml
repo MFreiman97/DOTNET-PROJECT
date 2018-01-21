@@ -6,7 +6,7 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" 
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:WPF_UI"
-        mc:Ignorable="d" Title="MainContracts" Height="700" Width="650" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        mc:Ignorable="d" Title="MainContracts" Height="700" Width="650"  WindowStartupLocation="CenterScreen" ShowTitleBar="False" ShowCloseButton="False" ShowMinButton="False" ShowMaxRestoreButton="False" Background="SeaShell">
     <Window.Resources>
         <local:IDCMotherToName
          x:Key="IDMotherToName" />
@@ -16,11 +16,11 @@
          x:Key="IDNannyToName" />
         <local:IDNannyToContracts
          x:Key="IDNannyToContracts" />
-      
-        
+
+
     </Window.Resources>
     <Grid>
-        <Button x:Name="Back" Content="{iconPacks:FontAwesome Kind=ArrowLeftSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="46" Click="Back_Click" RenderTransformOrigin="-2.826,0.18" Margin="596,0,0,646" />
+        <Button x:Name="Back" Content="{iconPacks:FontAwesome Kind=ArrowLeftSolid }" Style="{DynamicResource MetroCircleButtonStyle}" BorderBrush="Black" HorizontalAlignment="Left" Height="44" VerticalAlignment="Bottom" Width="46" Click="Back_Click" RenderTransformOrigin="-2.826,0.18" Margin="596,0,0,623" />
         <Label x:Name="label" Content="choose child" HorizontalAlignment="Left" Height="26" Margin="28,20,0,0" VerticalAlignment="Top" Width="88"/>
         <Label x:Name="label_Copy" Content="matched nannies:" HorizontalAlignment="Left" Height="26" Margin="15,174,0,0" VerticalAlignment="Top" Width="113"/>
         <Label x:Name="label_Copy1" Content="choose the nanny by pressing on the grid:" HorizontalAlignment="Left" Height="26" Margin="10,313,0,0" VerticalAlignment="Top" Width="239"/>
@@ -44,8 +44,8 @@
 
 
         <Label x:Name="TypeOfSalary" Content="Type Of Salary:" HorizontalAlignment="Left" Height="26" Margin="15,65,0,0" VerticalAlignment="Top" Width="95"/>
-        <Button x:Name="AddTheContract" Content="Add the contract" HorizontalAlignment="Left" Height="33" Margin="274,495,0,0" VerticalAlignment="Top" Width="201" Click="AddTheContract_Click"/>
-        <DataGrid x:Name="dataGridNannies" IsReadOnly="True" HorizontalAlignment="Left" Margin="75,205,0,0" VerticalAlignment="Top" Height="103" Width="337" BorderThickness="1"/>
+        <Button x:Name="AddTheContract" Content="Add the contract" HorizontalAlignment="Left" Height="54" Margin="200,464,0,0" VerticalAlignment="Top" Width="229" Click="AddTheContract_Click"/>
+        <DataGrid x:Name="dataGridNannies" IsReadOnly="True" HorizontalAlignment="Left" Margin="145,205,0,0" VerticalAlignment="Top" Height="103" Width="337" BorderThickness="1"/>
         <controls:ProgressRing x:Name="ProgressRing" HorizontalAlignment="Left" Height="45" IsActive="False" Margin="200,174,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="1.083,0.613"/>
 
     </Grid>

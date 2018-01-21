@@ -45,8 +45,7 @@ namespace BL
         {
             Child ch = dal.GetChild(cont.ChildId); // Get The Child (Of The Contract)
             Nanny na = cont.n; // Get The Nanny (Of The Contract)
-            if (cont.DateEnd.CompareTo(DateTime.Now) < 0)
-                throw new Exception("The end of the contract have to be later than the starting date");
+        
             if (childAge(ch) == true && nannyContracts(na) == true && TimesCheck(cont) == true)
             {
                 cont.distance = CalculateDistance(dal.GetMother(ch.momId).address, na.address);
@@ -60,7 +59,7 @@ namespace BL
 
             }
             else
-                throw new Exception("One of the details is wrong");
+             throw    new Exception("One of the details is wrong");
         }
         /// <summary>
         /// Adding the Mother to the repository
@@ -166,8 +165,6 @@ namespace BL
             if (childAge(ch) == true && nannyContracts(na) == true &&TimesCheck(cont)==true)
             {
                
-                
-                cont.SalaryPerMonth = monthSalary(cont, ch, na);
                  dal.updateContract(cont);
             }
             else
@@ -178,14 +175,15 @@ namespace BL
            
         }
 
-        private bool TimesCheck(Contract cont)
+        public bool TimesCheck(Contract cont)
         {
-            TimeSpan elapsedSpan1 = new TimeSpan((long)(GetChild(cont.ChildId).birth.AddTicks(cont.DateEnd.Ticks - cont.DateBegin.Ticks).Ticks ));//the age of the child in ticks in the end of the "new contract"
+            TimeSpan elapsedSpan1 = new TimeSpan((long)(GetChild(cont.ChildId).birth.AddTicks(cont.DateEnd.Ticks - DateTime.Now.Ticks).Ticks -GetChild(cont.ChildId).birth.Ticks));//the age of the child in ticks in the end of the "new contract"
 
-            if (cont.DateEnd<cont.DateBegin ||(elapsedSpan1).TotalDays/30< cont.n.MaxAge)
+            if (cont.DateEnd.CompareTo(cont.DateBegin)<0 ||(int)((elapsedSpan1).TotalDays/30)> cont.n.MaxAge)
             {
                 return false;
             }
+            else
             return true;
                 
         }
