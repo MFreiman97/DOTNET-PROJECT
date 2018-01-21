@@ -132,31 +132,94 @@ namespace BL
         /// <returns></returns>
         IEnumerable<Nanny> GetAllNannies();
         /// <summary>
-        /// This function return the best 5 of the nannies
+        /// This function return the best 5 of the nannies. I assumed that the best 5 return all the mothers without limitation on the nanny area
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        IEnumerable<Nanny> TheBestFive(Mother m,bool TypeOfSalary);//get a term that the mother can conpromise on and return the best 5
+        IEnumerable<Nanny> TheBestFive(Mother m,bool TypeOfSalary);
         /// <summary>
         /// This function return all the nannies that working by the gov
         /// </summary>
         /// <returns></returns>
         IEnumerable<Nanny> WorkingByTheGov();
+        /// <summary>
+        /// return all the mothers 
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<Mother> GetAllMothers();
+        /// <summary>
+        /// return all the mother from jerusalem
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<Mother> GetAllMothersFromJerusalem();
+        /// <summary>
+        /// this function return all the nannies from jerusalem
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<Nanny> GetAllNanniesFromJerusalem();
+        /// <summary>
+        /// This function return all the contracts by predicate
+        /// </summary>
+        /// <param name="predicat"></param>
+        /// <returns></returns>
         IEnumerable<Contract> GetAllContracts(Func<Contract, bool> predicat = null);
+        /// <summary>
+        /// This function return how many contracts is answered on a term
+        /// </summary>
+        /// <param name="predicat"></param>
+        /// <returns></returns>
         int GetSumOfContracts(Func<Contract, bool> predicat = null);
+        /// <summary>
+        /// This function return a grouping of nanny by experience
+        /// </summary>
+        /// <returns></returns>
          IEnumerable<IGrouping<string, Nanny>> NannyGroupByExperience();
+        /// <summary>
+        /// This function is dividing the childrens to groups of disabled and undisabled
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<IGrouping<string, Child>> ChildsGroupBySpecial();
+        
         IEnumerable<IGrouping<int, Nanny>> GroupOfNannies(bool sorted);
+        /// <summary>
+        /// This function return how many contracts is belonged to nanny
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         int GetNumOfContracts(object obj);
+        /// <summary>
+        /// Set full name of a child after updating of the family name of his mother
+        /// </summary>
+        /// <param name="id"></param>
         void SetFullName(int id);
+        /// <summary>
+        /// This function checks if the times of the contract is ok
+        /// </summary>
+        /// <param name="cont"></param>
+        /// <returns></returns>
          bool TimesCheck(Contract cont);
+        /// <summary>
+        /// This function checks if the age of the child is ok
+        /// </summary>
+        /// <param name="ch"></param>
+        /// <returns></returns>
         bool childAge(Child ch);
+        /// <summary>
+        /// This function checks if the nanny passed the maximum  of her contracts
+        /// </summary>
+        /// <param name="na"></param>
+        /// <returns></returns>
         bool nannyContracts(Nanny na);
+        /// <summary>
+        /// This function is dividing the nannies By how many contracts the nanny has
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<IGrouping<int, Nanny>> NanniesByContracts();
-        IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract();//sorted by the distances that i divided to types in sting
+        /// <summary>
+        /// this function sort the contracts  by the distances that i divided to types in sting
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<IGrouping<string, Contract>> GroupOfSortedContract();//s
 
 
 
