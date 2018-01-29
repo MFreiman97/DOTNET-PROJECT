@@ -6,9 +6,6 @@ using GoogleMapsApi.Entities.DistanceMatrix.Request;
 using GoogleMapsApi.Entities.Geocoding.Request;
 using GoogleMapsApi.Entities.Geocoding.Response;
 using GoogleMapsApi.Entities.Directions.Request;
-using GoogleMapsApi.Entities.Directions.Response;
-
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,7 +43,7 @@ namespace WPF_UI
         public AddingContracts()
         {
             InitializeComponent();
-            bl = BL.FactoryBL.GetBL();
+            bl = FactoryBL.GetBL();
 
             str = new List<Nanny>();
             this.comboBoxChild.Text = "-";
@@ -134,7 +131,9 @@ namespace WPF_UI
                 str = null;
                 str = new List<Nanny>();
                 Best5 = false;
+               
                 work.DoWork += W_DoWork;
+              
                 work.RunWorkerCompleted += W_RunWorkerCompleted;
                 work.ProgressChanged += Work_ProgressChanged;
                 work.WorkerReportsProgress = true;
@@ -142,6 +141,8 @@ namespace WPF_UI
             }
 
         }
+
+       
 
         private void Work_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {

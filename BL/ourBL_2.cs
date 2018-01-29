@@ -165,6 +165,7 @@ namespace BL
             return from item in dal.GetAllNannies()
                    orderby (item.contracts)
                    group item by (item.contracts);
+               
         }
 
         #endregion
